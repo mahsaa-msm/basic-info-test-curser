@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Common.Options;
 using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
+using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
@@ -13,7 +14,6 @@ using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
 using Zamin.Infra.Data.Sql.Commands.Interceptors;
-using Zamin.Utilities.SoftwarePartDetector.Options;
 using Zamin.Utilities.SoftwarePartDetector.Services;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions;
