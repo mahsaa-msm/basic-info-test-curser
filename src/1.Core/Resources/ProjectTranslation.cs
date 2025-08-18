@@ -64,5 +64,7 @@ public sealed class ProjectTranslation
 
     #endregion
 
-
+    #region CORE_SSO
+    public const string CORE_SSO_AUTHENTICATION_FAILED = nameof(CORE_SSO_AUTHENTICATION_FAILED);
+    #endregion
 }

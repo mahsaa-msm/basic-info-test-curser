@@ -2,7 +2,7 @@
 using Grpc.Core.Interceptors;
 using Master.Data.Core.Contracts.Common.Options;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Grpc.Interceptors;
+namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public class ApiKeyInterceptor : Interceptor
 {

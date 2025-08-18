@@ -3,7 +3,7 @@ using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
-using Master.Data.Endpoints.API.Infrastructor.Grpc;
+using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Master.Data.Infra.Data.Sql.Queries.Common;
@@ -38,6 +38,12 @@ public static class HostingExtensions
         SoftwareManagementOption softwareManagementOption = new();
         builder.Configuration.Bind(nameof(softwareManagementOption), softwareManagementOption);
         builder.Services.AddSingleton(softwareManagementOption);
+        #endregion
+
+        #region Bind CoreSsoOptions Option
+        CoreSsoOptions coreSsoOptions = new();
+        builder.Configuration.Bind(nameof(coreSsoOptions), coreSsoOptions);
+        builder.Services.AddSingleton(coreSsoOptions);
         #endregion
 
         return builder;

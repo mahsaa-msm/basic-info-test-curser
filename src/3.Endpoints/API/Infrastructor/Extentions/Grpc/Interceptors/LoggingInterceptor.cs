@@ -2,7 +2,7 @@
 using Grpc.Core.Interceptors;
 using System.Diagnostics;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Grpc.Interceptors;
+namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public class LoggingInterceptor : Interceptor
 {

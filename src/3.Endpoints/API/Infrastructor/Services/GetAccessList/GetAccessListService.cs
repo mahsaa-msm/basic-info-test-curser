@@ -14,7 +14,7 @@ public class GetAccessListService : IGetAccessListService
     public async Task<List<AccessModel>?> ExecuteAsync()
     {
         //var token = await GetToken();
-        var httpClient = new HttpClient();
+        var httpClient = new System.Net.Http.HttpClient();
         httpClient.DefaultRequestHeaders.Accept.Clear();
         httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("*/*"));
         //httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);

@@ -37,6 +37,7 @@ public sealed class ProjectConsts
 
     #region HTTP_CLIENT
     public const string ACL_HTTP_CLIENT_NAME = "ACL";
+    public const string CORE_SSO_HTTP_CLIENT_NAME = "CoreSsoApi";
     public const string AGENT_CLIENT_HTTP_CLIENT_NAME = "AgentClient";
 
     #endregion
@@ -70,6 +71,10 @@ public sealed class ProjectConsts
         [Description(ProjectTranslation.CUSTOMER_TYPE_PERSON)] PERSON = 1, //حقیقی
         [Description(ProjectTranslation.CUSTOMER_TYPE_COMPANY)] COMPANY = 2,//حقوقی
     }
+    #endregion
+
+    #region CacheKeys
+    public const string CORE_SSO_TOKEN_CACHE_KEY = "_CORE_SSO_TOKEN_";
     #endregion
 
 }

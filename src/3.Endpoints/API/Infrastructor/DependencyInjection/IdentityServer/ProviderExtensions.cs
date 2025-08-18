@@ -38,7 +38,7 @@ public static class ProviderExtensions
         return userInfoClaims;
     }
 
-    public static async Task<List<Claim>> UserInfoEndpointCaller(this OAuthOption oAuthOption, HttpContext httpContext, HttpClient client, string token)
+    public static async Task<List<Claim>> UserInfoEndpointCaller(this OAuthOption oAuthOption, HttpContext httpContext, System.Net.Http.HttpClient client, string token)
     {
         List<Claim> claims = [];
         if (oAuthOption.RegisterUserInfoClaims.CachingData)
@@ -87,7 +87,7 @@ public static class ProviderExtensions
         return cacheKey;
     }
 
-    public static async Task<List<Claim>> CallUserInfoEndpoint(this OAuthOption oAuthOption, HttpClient client, string token)
+    public static async Task<List<Claim>> CallUserInfoEndpoint(this OAuthOption oAuthOption, System.Net.Http.HttpClient client, string token)
     {
         var response = await client.GetUserInfoAsync(new UserInfoRequest
         {

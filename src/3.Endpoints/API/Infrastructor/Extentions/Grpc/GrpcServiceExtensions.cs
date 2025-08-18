@@ -1,6 +1,6 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.Grpc.Interceptors;
+﻿using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Grpc;
+namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 
 public static class GrpcServiceExtensions
 {

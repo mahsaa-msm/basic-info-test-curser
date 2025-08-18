@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Grpc.Interceptors;
+namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public class ExceptionInterceptor : Interceptor
 {
