@@ -39,7 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1D8A65D5-535
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Endpoints.API", "src\3.Endpoints\API\Master.Data.Endpoints.API.csproj", "{BB57401B-CEBD-4C29-97FA-4D1E2D1DF04F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedServicee", "HostedServicee", "{A06F8A00-5A58-4BE3-BC6F-B33A9CB0CBCE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedService", "HostedService", "{A06F8A00-5A58-4BE3-BC6F-B33A9CB0CBCE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalApi", "ExternalApi", "{47311810-D6F9-4EA3-9530-3B11EE41D119}"
 EndProject
