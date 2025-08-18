@@ -18,6 +18,20 @@ public static class HostingExtensions
         //zamin
         builder.Services.AddZaminApiCore("Zamin", "Master.Data");
 
+        //zamin
+        builder.Services.AddZaminWebUserInfoService(builder.Configuration.GetSection("UserManagement"), false);
+
+        //zamin
+        builder.Services.AddZaminParrotTranslator(builder.Configuration.GetSection("ParrotTranslator"));
+
+        //zamin
+        builder.Services.AddZaminNewtonSoftSerializer();
+
+        //zamin
+        builder.Services.AddZaminAutoMapperProfiles(builder.Configuration.GetSection("AutoMapper"));
+
+        //zamin
+        builder.Services.AddZaminRedisDistributedCache(builder.Configuration, "DistributedRedisCache");
 
         return builder.Build();
     }

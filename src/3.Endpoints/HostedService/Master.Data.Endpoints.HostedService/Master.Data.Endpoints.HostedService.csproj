@@ -10,7 +10,12 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Zamin.EndPoints.Web" Version="8.0.0" />
-    <PackageReference Include="Zamin.Utilities.SerilogRegistration" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Extensions.Caching.Distributed.Redis" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Extensions.ObjectMappers.AutoMapper" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Utilities.SerilogRegistration" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Extensions.Translations.Parrot" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Extensions.UsersManagement" Version="8.0.0" />
+	  <PackageReference Include="Zamin.Extensions.Serializers.NewtonSoft" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
