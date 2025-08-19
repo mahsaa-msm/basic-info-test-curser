@@ -7,6 +7,7 @@ public sealed class ProjectTranslation
     public const string ID = nameof(ID);
     public const string BUSINESS_ID = nameof(BUSINESS_ID);
     public const string SOFTWAREPART_ID = nameof(SOFTWAREPART_ID);
+    public const string NAME = nameof(NAME);
 
 
     public const string FIRST_NAME = nameof(FIRST_NAME);
@@ -66,5 +67,16 @@ public sealed class ProjectTranslation
 
     #region CORE_SSO
     public const string CORE_SSO_AUTHENTICATION_FAILED = nameof(CORE_SSO_AUTHENTICATION_FAILED);
+    #endregion
+
+    #region TENANT
+    public const string CONFIG_TYPE = nameof(CONFIG_TYPE);
+    public const string PAYMENT_CONFIG = nameof(PAYMENT_CONFIG);
+    public const string SSO_CONFIG = nameof(SSO_CONFIG);
+    public const string UI_STYLE_CONFIG = nameof(UI_STYLE_CONFIG);
+    public const string TENANT = nameof(TENANT);
+    public const string TENANT_CONFIG = nameof(TENANT_CONFIG);
+    public const string TENANT_CONFIG_SETTINGS = nameof(TENANT_CONFIG_SETTINGS);
+
     #endregion
 }

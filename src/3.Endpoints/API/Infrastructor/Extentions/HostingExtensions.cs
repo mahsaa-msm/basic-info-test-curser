@@ -84,11 +84,11 @@ public static class HostingExtensions
         builder.Services.AddZaminRedisDistributedCache(builder.Configuration, "DistributedRedisCache");
 
         //CommandDbContext
-        builder.Services.AddDbContext<DbContextNameCommandDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
+        builder.Services.AddDbContext<MasterDataCommandDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
             .AddInterceptors(new SetPersianYeKeInterceptor(), new AddAuditDataInterceptor()));
 
         //QueryDbContext
-        builder.Services.AddDbContext<DbContextNameQueryDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString")));
+        builder.Services.AddDbContext<MasterDataQueryDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString")));
 
         builder.Services.AddIdentityServer(builder.Configuration, "OAuth");
 

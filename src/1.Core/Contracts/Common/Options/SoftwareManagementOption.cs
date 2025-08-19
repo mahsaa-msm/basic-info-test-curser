@@ -6,4 +6,6 @@ public sealed class SoftwareManagementOption
     public long ResourceId { get; set; } = default!;
     public bool IgnoreSslCheck { get; set; }
     public string CustomerIdClaimName { get; set; } = default!;
+    public string BackofficeSuperAdminClaimName { get; set; } = default!;
+    public string BackofficeSuperAdminClaimValue { get; set; } = default!;
 }

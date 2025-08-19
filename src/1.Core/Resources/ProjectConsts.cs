@@ -66,6 +66,14 @@ public sealed class ProjectConsts
     /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
     /// </summary>
     public const string USER_CUSTOMER_ID_CLAIM_NAME = "dip-customer-id";
+    /// <summary>
+    /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
+    /// </summary>
+    public const string BACKOFFICE_SUPER_ADMIN_CLAIM_NAME = "dip-backoffice-super-admin";
+    /// <summary>
+    /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
+    /// </summary>
+    public const string BACKOFFICE_SUPER_ADMIN_CLAIM_VALUE = "dip-super-admin";
     public enum CustomerType : byte
     {
         [Description(ProjectTranslation.CUSTOMER_TYPE_PERSON)] PERSON = 1, //حقیقی
@@ -77,4 +85,14 @@ public sealed class ProjectConsts
     public const string CORE_SSO_TOKEN_CACHE_KEY = "_CORE_SSO_TOKEN_";
     #endregion
 
+
+    #region TENANT
+    public enum ConfigType
+    {
+        [Description(ProjectTranslation.PAYMENT_CONFIG)] PAYMENT_CONFIG = 1, //تنظیمات پرداخت 
+        [Description(ProjectTranslation.SSO_CONFIG)] SSO_CONFIG = 2, //تنظیمات sso
+        [Description(ProjectTranslation.UI_STYLE_CONFIG)] UI_STYLE_CONFIG = 3, //تنظیمات ظاهر برنامه
+    }
+
+    #endregion
 }
