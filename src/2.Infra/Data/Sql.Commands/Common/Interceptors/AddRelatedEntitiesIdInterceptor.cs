@@ -1,8 +1,9 @@
-﻿using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+﻿using Master.Data.Core.Contracts.Common.Options;
+using Master.Data.Core.Contracts.Common.Services;
+using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Zamin.Extensions.UsersManagement.Abstractions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 
@@ -24,9 +25,9 @@ public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
 
     private static void FillRelatedEntitiesIdProperty(DbContextEventData eventData)
     {
-        //ChangeTracker changeTracker = eventData.Context.ChangeTracker;
-        //IUserInfoService service = eventData.Context.GetService<IUserInfoService>();
-     
+        ChangeTracker changeTracker = eventData.Context.ChangeTracker;
+        var tenantService = eventData.Context.GetService<ITenantService>();
 
+        changeTracker.SetTenantIdValue(tenantService);
     }
 }

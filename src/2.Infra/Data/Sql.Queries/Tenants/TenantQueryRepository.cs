@@ -6,6 +6,7 @@ using Master.Data.Infra.Data.Sql.Queries.Common;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities.Settings;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
@@ -24,7 +25,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
         return await _dbContext.Tenants
             .IgnoreQueryFilters()
             .Where(c => c.Id == query.Id)
-            .Include(c=>c.Configs)
+            .Include(c => c.Configs)
             .Select(t => new TenantGraphQr
             {
                 Id = t.Id,
@@ -131,4 +132,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
 
         return config?.Settings as UiSettings;
     }
+
+    public async Task<bool> ExistsAsync(Expression<Func<Tenant, bool>> expression)
+        => await _dbContext.Tenants.IgnoreQueryFilters().AnyAsync(expression);
 }
