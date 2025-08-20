@@ -1,7 +1,9 @@
-﻿using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
+using Master.Data.Infra.Data.Sql.Commands.Common;
 using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Zamin.Infra.Data.Sql.Commands.Interceptors;
 
 namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
@@ -11,13 +13,37 @@ public static class DbContextExtensions
     public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)
     {
         //CommandDbContext
-        services.AddDbContext<MasterDataCommandDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
-            .AddInterceptors(new SetPersianYeKeInterceptor(),
-                             new AddAuditDataInterceptor(),
-                             new AddRelatedEntitiesIdInterceptor()));
+        services.AddDbContextFactory<MasterDataCommandDbContext>(options =>
+        {
+            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
+                .AddInterceptors(new SetPersianYeKeInterceptor(),
+                                 new AddAuditDataInterceptor(),
+                                 new AddRelatedEntitiesIdInterceptor());
+            options.ReplaceService<IModelCacheKeyFactory, TenantModelCommandCacheKeyFactory>();
+        });
+
+        services.AddScoped<IMasterDataCommandDbContextFactory, MasterDataCommandDbContextFactory>();
+
+        services.AddScoped<MasterDataCommandDbContext>(serviceProvider =>
+        {
+            var factory = serviceProvider.GetService<IMasterDataCommandDbContextFactory>();
+            return factory.CreateDbContext();
+        });
 
         //QueryDbContext
-        services.AddDbContext<MasterDataQueryDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString")));
+        services.AddDbContextFactory<MasterDataQueryDbContext>(options =>
+        {
+            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"));
+            options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
+        });
+
+        services.AddScoped<IMasterDataQueryDbContextFactory, MasterDataQueryDbContextFactory>();
+
+        services.AddScoped<MasterDataQueryDbContext>(serviceProvider =>
+        {
+            var factory = serviceProvider.GetService<IMasterDataQueryDbContextFactory>();
+            return factory.CreateDbContext();
+        });
 
         return services;
     }

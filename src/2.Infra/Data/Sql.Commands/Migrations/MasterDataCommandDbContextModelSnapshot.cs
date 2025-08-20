@@ -87,7 +87,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("BusinessId")
                         .IsUnique();
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.Tenant", b =>
@@ -133,7 +133,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("Tenants");
+                    b.ToTable("Tenants", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfig", b =>
@@ -180,7 +180,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "ConfigType")
                         .IsUnique();
 
-                    b.ToTable("TenantConfig");
+                    b.ToTable("TenantConfig", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfigSettingsHistory", b =>
@@ -225,7 +225,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantConfigId");
 
-                    b.ToTable("TenantConfigSettingsHistory");
+                    b.ToTable("TenantConfigSettingsHistory", (string)null);
                 });
 
             modelBuilder.Entity("Zamin.Extensions.Events.Abstractions.OutBoxEventItem", b =>
