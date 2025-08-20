@@ -16,6 +16,8 @@ public static class SwaggerExtentions
         {
             services.AddSwaggerGen(options =>
             {
+                options.DocumentFilter<TenantHeadersOperationFilter>();
+
                 options.EnableAnnotations();
                 options.SwaggerDoc(swaggerOption.SwaggerDoc.Name, new OpenApiInfo
                 {

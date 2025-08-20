@@ -11,8 +11,17 @@ public sealed class ProjectConsts
     public const byte ID_MAX_LENGTH = 200;
     public const byte PRICE_MIN_VALUE = 0;
 
+    public const byte CORE_ID_MIN_LENGTH = 1;
+    public const byte CORE_ID_MAX_LENGTH = 50;
+
+    public const byte CODE_MIN_LENGTH = 1;
+    public const byte CODE_MAX_LENGTH = 50;
+
     public const byte NAME_MIN_LENGTH = 2;
     public const byte NAME_MAX_LENGTH = 250;
+
+    public const byte TITLE_MIN_LENGTH = 1;
+    public const byte TITLE_MAX_LENGTH = 250;
 
 
     public const byte DESCRIPTION_MIN_LENGTH = 50;
@@ -21,6 +30,15 @@ public sealed class ProjectConsts
 
     public const byte URI_MIN_LENGTH = 10;
     public const short URI_MAX_LENGTH = 1000;
+
+    public const short NATURAL_NUMBER_MIN_VALUE = 1;
+
+    public enum MoveDirection
+    {
+        Up,
+        Down,
+        NoChange
+    }
 
     public enum InsuranceType : byte
     {
@@ -49,6 +67,10 @@ public sealed class ProjectConsts
 
     #region IDENTITY
     public const string FAKE_AUTHENTICATION_ITEM_NAME = "FakeAuthenticated";
+    public const string TENANT_ID_X_HEADER_NAME = "X-Tenant-Id";
+    public const string TENANT_ID_HEADER_NAME = "tenantId";
+    public const string TENANT_KEY_X_HEADER_NAME = "X-Tenant-Key";
+    public const string TENANT_KEY_HEADER_NAME = "tenantKey";
 
     #endregion
     #endregion
@@ -66,6 +88,14 @@ public sealed class ProjectConsts
     /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
     /// </summary>
     public const string USER_CUSTOMER_ID_CLAIM_NAME = "dip-customer-id";
+    /// <summary>
+    /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
+    /// </summary>
+    public const string BACKOFFICE_SUPER_ADMIN_CLAIM_NAME = "dip-backoffice-super-admin";
+    /// <summary>
+    /// این مقدار همیشه صحیح نیست. مقدار صحیح در appSettings قرار دارد.
+    /// </summary>
+    public const string BACKOFFICE_SUPER_ADMIN_CLAIM_VALUE = "dip-super-admin";
     public enum CustomerType : byte
     {
         [Description(ProjectTranslation.CUSTOMER_TYPE_PERSON)] PERSON = 1, //حقیقی
@@ -77,4 +107,14 @@ public sealed class ProjectConsts
     public const string CORE_SSO_TOKEN_CACHE_KEY = "_CORE_SSO_TOKEN_";
     #endregion
 
+
+    #region TENANT
+    public enum ConfigType
+    {
+        [Description(ProjectTranslation.PAYMENT_CONFIG)] PAYMENT_CONFIG = 1, //تنظیمات پرداخت 
+        [Description(ProjectTranslation.SSO_CONFIG)] SSO_CONFIG = 2, //تنظیمات sso
+        [Description(ProjectTranslation.UI_STYLE_CONFIG)] UI_STYLE_CONFIG = 3, //تنظیمات ظاهر برنامه
+    }
+
+    #endregion
 }
