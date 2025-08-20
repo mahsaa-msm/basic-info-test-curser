@@ -73,7 +73,6 @@ public sealed class ProjectConsts
     public const string TENANT_KEY_HEADER_NAME = "tenantKey";
 
     #endregion
-    #endregion
 
     #region CUSTOMER
     public const byte NATIONAL_CODE_LENGTH = 10;
@@ -115,6 +114,8 @@ public sealed class ProjectConsts
         [Description(ProjectTranslation.SSO_CONFIG)] SSO_CONFIG = 2, //تنظیمات sso
         [Description(ProjectTranslation.UI_STYLE_CONFIG)] UI_STYLE_CONFIG = 3, //تنظیمات ظاهر برنامه
     }
+
+    #endregion
 
     #endregion
 }

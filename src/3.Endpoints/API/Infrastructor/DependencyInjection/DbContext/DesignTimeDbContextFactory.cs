@@ -1,9 +1,9 @@
 ﻿using Master.Data.Core.Contracts.Common.Services;
-using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
+namespace Master.Data.Infra.Data.Sql.Commands.Common;
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterDataCommandDbContext>
 {
     public MasterDataCommandDbContext CreateDbContext(string[] args)
@@ -39,10 +39,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
         var optionsBuilder = new DbContextOptionsBuilder<MasterDataCommandDbContext>();
         optionsBuilder.UseSqlServer(connectionString);
 
-        // ایجاد یک MockTenantService برای استفاده در زمان طراحی
-        var mockTenantService = new MockTenantService();
-
-        return new MasterDataCommandDbContext(optionsBuilder.Options, mockTenantService);
+        return new MasterDataCommandDbContext(optionsBuilder.Options);
     }
 
     private string FindApplicationBasePath()
@@ -106,17 +103,5 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
         // اگر هیچ connection stringی پیدا نشد، اولین connection string را برگردانید
         var connectionStrings = configuration.GetSection("ConnectionStrings").GetChildren();
         return connectionStrings.FirstOrDefault()?.Value;
-    }
-}
-
-// Mock TenantService برای استفاده در زمان طراحی
-public class MockTenantService : ITenantService
-{
-    public long? GetCurrentTenantId() => 1; // یک مقدار پیش‌فرض برای مایگریشن
-
-    public Guid? GetCurrentTenantKey() => Guid.Empty;
-
-    public void SetCurrentTenant(long? tenantId, Guid? tenantKey)
-    {
     }
 }
