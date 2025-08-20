@@ -20,5 +20,5 @@ public abstract class BaseTenantEntity<TId> : AggregateRoot<TId>
     where TId : struct, IComparable, IComparable<TId>, IConvertible, IEquatable<TId>, IFormattable
 {
     public long TenantId { get; set; }
-    public BusinessId TenantBusinessId { get; set; }
+    public BusinessId? TenantBusinessId { get; set; }
 }

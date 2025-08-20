@@ -5,9 +5,14 @@ public sealed class ProjectTranslation
     #region COMMON
 
     public const string ID = nameof(ID);
+    public const string CORE_ID = nameof(CORE_ID);
     public const string BUSINESS_ID = nameof(BUSINESS_ID);
     public const string SOFTWAREPART_ID = nameof(SOFTWAREPART_ID);
     public const string NAME = nameof(NAME);
+    public const string CODE = nameof(CODE);
+    public const string PRIORITY = nameof(PRIORITY);
+    public const string TITLE = nameof(TITLE);
+    public const string DISPLAY_TITLE = nameof(DISPLAY_TITLE);
 
 
     public const string FIRST_NAME = nameof(FIRST_NAME);
@@ -77,6 +82,12 @@ public sealed class ProjectTranslation
     public const string TENANT = nameof(TENANT);
     public const string TENANT_CONFIG = nameof(TENANT_CONFIG);
     public const string TENANT_CONFIG_SETTINGS = nameof(TENANT_CONFIG_SETTINGS);
+
+    #endregion
+
+    #region COUNTRY
+    public const string COUNTRY = nameof(COUNTRY);
+    public const string COUNTRY_ID = nameof(COUNTRY_ID);
 
     #endregion
 }

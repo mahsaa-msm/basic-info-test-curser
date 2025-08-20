@@ -1,4 +1,5 @@
 ﻿using Master.Data.Core.Contracts.Common.Services;
+using Master.Data.Core.Resources;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Middlewares;
 
@@ -32,11 +33,11 @@ public class TenantMiddleware
     #region Methods
     private long? ExtractTenantId(HttpContext context)
     {
-        if (context.Request.Headers.TryGetValue("X-Tenant-Id", out var tenantIdHeader) &&
+        if (context.Request.Headers.TryGetValue(ProjectConsts.TENANT_ID_X_HEADER_NAME , out var tenantIdHeader) &&
             long.TryParse(tenantIdHeader, out var tenantId))
             return tenantId;
 
-        if (context.Request.Query.TryGetValue("tenantId", out var tenantIdQuery) &&
+        if (context.Request.Query.TryGetValue(ProjectConsts.TENANT_ID_HEADER_NAME , out var tenantIdQuery) &&
             long.TryParse(tenantIdQuery, out tenantId))
             return tenantId;
 
@@ -45,10 +46,10 @@ public class TenantMiddleware
 
     private string? ExtractTenantKey(HttpContext context)
     {
-        if (context.Request.Headers.TryGetValue("X-Tenant-Key", out var tenantKeyHeader))
+        if (context.Request.Headers.TryGetValue(ProjectConsts.TENANT_KEY_X_HEADER_NAME , out var tenantKeyHeader))
             return tenantKeyHeader;
 
-        if (context.Request.Query.TryGetValue("tenantKey", out var tenantKeyQuery))
+        if (context.Request.Query.TryGetValue(ProjectConsts.TENANT_KEY_HEADER_NAME, out var tenantKeyQuery))
             return tenantKeyQuery;
 
         return null;

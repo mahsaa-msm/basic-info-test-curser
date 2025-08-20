@@ -1,20 +1,17 @@
 ﻿using Master.Data.Core.Contracts.Common.Options;
 using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
+using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Middlewares;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
-using Master.Data.Infra.Data.Sql.Commands.Common;
-using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
-using Zamin.Infra.Data.Sql.Commands.Interceptors;
 using Zamin.Utilities.SoftwarePartDetector.Services;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions;
@@ -84,12 +81,8 @@ public static class HostingExtensions
         //builder.Services.AddZaminSqlDistributedCache(configuration, "SqlDistributedCache");
         builder.Services.AddZaminRedisDistributedCache(builder.Configuration, "DistributedRedisCache");
 
-        //CommandDbContext
-        builder.Services.AddDbContext<MasterDataCommandDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
-            .AddInterceptors(new SetPersianYeKeInterceptor(), new AddAuditDataInterceptor()));
-
-        //QueryDbContext
-        builder.Services.AddDbContext<MasterDataQueryDbContext>(c => c.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString")));
+        //DbContext
+        builder.Services.AddDbContexts(builder.Configuration);
 
         builder.Services.AddIdentityServer(builder.Configuration, "OAuth");
 

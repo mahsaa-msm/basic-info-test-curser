@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Contracts.Common.Services;
-using Master.Data.Core.Domain.Common.Entities;
+using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -12,6 +13,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     private readonly ITenantService _tenantService;
 
     public DbSet<Tenant> Tenants { get; set; }
+    public DbSet<Country> Countries { get; set; }
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options,
                                     ITenantService tenantService)
@@ -29,18 +31,27 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
         {
             if (typeof(BaseTenantEntity).IsAssignableFrom(entityType.ClrType))
             {
-                var method = typeof(BaseQueryDbContext)
-                    .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Static)
+                var method = typeof(MasterDataQueryDbContext)?
+                    .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Instance)?
                     .MakeGenericMethod(entityType.ClrType);
 
-                method.Invoke(null, new object[] { builder });
+                method?.Invoke(this, new object[] { builder });
             }
         }
     }
     private void SetGlobalQueryFilter<T>(ModelBuilder modelBuilder)
     where T : BaseTenantEntity
     {
+        var tenantId = _tenantService.GetCurrentTenantId();
+
         modelBuilder.Entity<T>().HasQueryFilter(e =>
-            EF.Property<long>(e, nameof(BaseTenantEntity.TenantId)) == _tenantService.GetCurrentTenantId());
+            EF.Property<long>(e, nameof(BaseTenantEntity.TenantId)) == tenantId);
+
+        var tenantKey = _tenantService.GetCurrentTenantKey();
+        if (tenantKey.HasValue)
+            modelBuilder.Entity<T>()
+                .HasQueryFilter(e =>
+                    EF.Property<Guid?>(e, nameof(BaseTenantEntity.TenantBusinessId)) == null ||
+                    EF.Property<Guid?>(e, nameof(BaseTenantEntity.TenantBusinessId)) == tenantKey);
     }
 }

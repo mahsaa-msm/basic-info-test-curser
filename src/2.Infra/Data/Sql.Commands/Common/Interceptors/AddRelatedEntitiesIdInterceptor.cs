@@ -1,5 +1,4 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.Common.Services;
+﻿using Master.Data.Core.Contracts.Common.Services;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
