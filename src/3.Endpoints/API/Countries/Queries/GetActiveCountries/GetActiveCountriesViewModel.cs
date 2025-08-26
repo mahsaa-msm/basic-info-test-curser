@@ -4,9 +4,9 @@ namespace Master.Data.Endpoints.API.Countries.Queries.GetActiveCountries;
 
 public class GetActiveCountriesViewModel
 {
-    public GetAllCountriesQuery GetQuery()
+    public GetAllCountryQuery GetQuery()
     {
-        return new GetAllCountriesQuery()
+        return new GetAllCountryQuery()
         {
             IsActive = true,
         };

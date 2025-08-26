@@ -1,9 +1,10 @@
 ﻿using Master.Data.Core.Contracts.Common.Services;
+using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common;
+namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterDataCommandDbContext>
 {
     public MasterDataCommandDbContext CreateDbContext(string[] args)

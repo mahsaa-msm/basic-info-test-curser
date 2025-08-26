@@ -17,7 +17,7 @@ public sealed class CountryQueryRepository : BaseQueryRepository<MasterDataQuery
     {
     }
 
-    public async Task<List<CountrySelectItemQr>> Execute(GetAllCountriesQuery query)
+    public async Task<List<CountrySelectItemQr>> Execute(GetAllCountryQuery query)
         => await _dbContext.Countries
         .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
         .OrderBy(c => c.Priority)

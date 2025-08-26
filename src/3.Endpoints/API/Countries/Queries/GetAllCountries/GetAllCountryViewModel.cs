@@ -2,11 +2,11 @@
 
 namespace Master.Data.Endpoints.API.Countries.Queries.GetAllCountries;
 
-public class GetAllCountriesViewModel
+public class GetAllCountryViewModel
 {
-    public GetAllCountriesQuery GetQuery()
+    public GetAllCountryQuery GetQuery()
     {
-        return new GetAllCountriesQuery()
+        return new GetAllCountryQuery()
         {
             IsActive = null,
         };

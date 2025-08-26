@@ -3,7 +3,7 @@ using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
 
-public sealed class GetAllCountriesQuery : IQuery<List<CountrySelectItemQr>>, IWebRequest
+public sealed class GetAllCountryQuery : IQuery<List<CountrySelectItemQr>>, IWebRequest
 {
     public bool? IsActive { get; set; }
 

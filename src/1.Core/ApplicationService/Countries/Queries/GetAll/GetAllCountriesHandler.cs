@@ -6,7 +6,7 @@ using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Countries.Queries.GetAll;
 
-public class GetAllCountriesHandler : QueryHandler<GetAllCountriesQuery, List<CountrySelectItemQr>>
+public class GetAllCountriesHandler : QueryHandler<GetAllCountryQuery, List<CountrySelectItemQr>>
 {
     private readonly ICountryQueryRepository _countryQueryRepository;
 
@@ -17,6 +17,6 @@ public class GetAllCountriesHandler : QueryHandler<GetAllCountriesQuery, List<Co
         _countryQueryRepository = countryQueryRepository;
     }
 
-    public override async Task<QueryResult<List<CountrySelectItemQr>>> Handle(GetAllCountriesQuery query)
+    public override async Task<QueryResult<List<CountrySelectItemQr>>> Handle(GetAllCountryQuery query)
         => Result(await _countryQueryRepository.Execute(query));
 }
