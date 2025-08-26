@@ -16,6 +16,14 @@ public class CityController : BaseController
     [AllowAnonymous]
     public async Task<IActionResult> GetAllCity([FromQuery] GetAllCityQuery query)
     {
-        return Ok(new[] { new CityItemQr { Title = "تهران", Id = 1 }  , new CityItemQr { Title = "شیراز", Id = 2 }, new CityItemQr { Title = "تبریز", Id = 3 } });
+        return Ok(new[] { 
+            new CityItemQr { Title = "تهران", Id = 1 }        , 
+            new CityItemQr { Title = "شیراز", Id = 2 },
+            new CityItemQr { Title = "تبریز", Id = 3 },
+            new CityItemQr { Title = "مشهد", Id = 4 },
+            new CityItemQr { Title = "اصفهان", Id = 5 },
+            new CityItemQr { Title = "کیش", Id = 6 },
+        });
     }
 }
+
