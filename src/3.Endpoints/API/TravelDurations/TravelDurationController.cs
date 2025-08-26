@@ -8,7 +8,7 @@ using Zamin.EndPoints.Web.Controllers;
 namespace Master.Data.Endpoints.API.TravelDuration;
 
 [Route("api/[controller]")]
-[Tags("TravelDuration - (انوع پلاک)")]
+[Tags("TravelDuration - (مدت سفر)")]
 [ValidateTenantHeader]
 public class TravelDurationController : BaseController
 {
