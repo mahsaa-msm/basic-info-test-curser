@@ -17,8 +17,8 @@ public class TravelCoveragePackageController : BaseController
     public async Task<IActionResult> GetAllTravelCoveragePackage([FromQuery] GetAllTravelCoveragePackageQuery query)
     {
         return Ok(new[] {
-            new TravelCoveragePackageItemQr { Title = "بیمه کامل", Id = 1 },
-            new TravelCoveragePackageItemQr { Title = "خانه و مسافران", Id = 21 }
+            new TravelCoveragePackageItemQr { Title = "بیمه کامل", Id = 1 ,  Description = "پوشش خانه ، مسافران و خودرو" },
+            new TravelCoveragePackageItemQr { Title = "خانه و مسافران", Id = 21 ,Description = "آتش سوزی ، حادثه" }
         });
     }
 }
