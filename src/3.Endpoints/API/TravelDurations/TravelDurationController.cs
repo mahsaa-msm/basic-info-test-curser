@@ -16,6 +16,6 @@ public class TravelDurationController : BaseController
     [AllowAnonymous]
     public async Task<IActionResult> GetAllTravelDuration([FromQuery] GetAllTravelDurationQuery query)
     {
-        return Ok(new[] { new TravelDurationItemQr { Title = "30 روز", Id = 1 }, new TravelDurationItemQr { Title = "3 روز", Id = 2 }, new TravelDurationItemQr { Title = "10 روز", Id = 3 } });
+        return Ok(new[] { new TravelDurationItemQr { Title = "تا 5 روز", Id = 4 }, new TravelDurationItemQr { Title = "تا 20 روز", Id = 6 }, new TravelDurationItemQr { Title = "تا 10 روز", Id = 5 } });
     }
 }
