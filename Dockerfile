@@ -8,9 +8,9 @@ WORKDIR /src
 
 COPY . .
 COPY ["NuGet.Config", "."]
-RUN dotnet restore "src/3.Endpoints/Master.Data.Endpoints.API/Master.Data.Endpoints.API.csproj" --verbosity normal
+RUN dotnet restore "src/3.Endpoints/API/Master.Data.Endpoints.API.csproj" --verbosity normal
 COPY . .
-WORKDIR "/src/src/3.Endpoints/Master.Data.Endpoints.API"
+WORKDIR "/src/src/3.Endpoints/API"
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
