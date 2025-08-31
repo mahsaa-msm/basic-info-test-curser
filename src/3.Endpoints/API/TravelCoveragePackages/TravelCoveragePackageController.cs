@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.RequestResponse.Cities.Queries.CommanResults;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
+﻿using Master.Data.Core.RequestResponse.TravelCoveragePackages.Queries.CommanResults;
+using Master.Data.Core.RequestResponse.TravelCoveragePackages.Queries.GetAll;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.TravelCoveragePackage;
+namespace Master.Data.Endpoints.API.TravelCoveragePackages;
 
 [Route("api/[controller]")]
 [Tags("TravelCoveragePackage - (بسته بیمه)")]

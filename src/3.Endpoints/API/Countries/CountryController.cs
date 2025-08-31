@@ -1,11 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.Cities.Queries.CommanResults;
-using Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
+﻿using Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
 using Master.Data.Core.RequestResponse.Countries.Commands.Create;
 using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
 using Master.Data.Core.RequestResponse.Countries.Commands.Update;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
+using Master.Data.Core.RequestResponse.LicensePlateTypes.Queries.CommanResults;
 using Master.Data.Endpoints.API.Countries.Queries.GetActiveCountries;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;

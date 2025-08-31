@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.CommanResults;
+﻿namespace Master.Data.Core.RequestResponse.LicensePlateTypes.Queries.CommanResults;
 
 public class LicensePlateTypeItemQr
 {

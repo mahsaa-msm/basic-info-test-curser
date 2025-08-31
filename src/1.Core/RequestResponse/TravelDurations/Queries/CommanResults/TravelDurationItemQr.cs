@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.CommanResults;
+﻿namespace Master.Data.Core.RequestResponse.TravelDurations.Queries.CommanResults;
 
 public class TravelDurationItemQr
 {
