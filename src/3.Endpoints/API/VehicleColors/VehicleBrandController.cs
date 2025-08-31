@@ -8,7 +8,7 @@ using Zamin.EndPoints.Web.Controllers;
 namespace Master.Data.Endpoints.API.VehicleColors;
 
 [Route("api/[controller]")]
-[Tags("VehicleColor - (رنگ خودرو)")]
+[Tags("VehicleColor - (رنگ وس..یله نقلیه)")]
 [ValidateTenantHeader]
 public class VehicleColorController : BaseController
 {
