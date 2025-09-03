@@ -151,9 +151,32 @@ public static class HostingExtensions
         var useIdentityServer = app.UseIdentityServer("OAuth");
         if (useIdentityServer)
             controllerBuilder.RequireAuthorization();
+        
+        PrintEnvironmentSettings(app);
 
         app.Services.GetService<SoftwarePartDetectorService>()?.Run();
 
         return app;
+    }
+    private static void PrintEnvironmentSettings(WebApplication app)
+    {
+        var env = app.Environment;
+        var logger = app.Services.GetRequiredService<ILogger<WebApplication>>();
+
+        logger.Log(LogLevel.Warning, $"*************|EnvironmentName: {env.EnvironmentName}");
+        logger.Log(LogLevel.Warning, $"*************|IsDevelopment(): {env.IsDevelopment()}");
+        logger.Log(LogLevel.Warning, $"*************|IsProduction(): {env.IsProduction()}");
+        logger.Log(LogLevel.Warning, $"*************|IsTest(): {env.EnvironmentName.Equals("Test", StringComparison.OrdinalIgnoreCase)}");
+        logger.Log(LogLevel.Warning, $"*************|IsStaging(): {env.IsStaging()}");
+    }
+
+    public static WebApplicationBuilder AddEnvironment(this WebApplicationBuilder builder)
+    {
+        var envName = builder.Configuration["EnvironmentName"];
+        if (!string.IsNullOrEmpty(envName))
+        {
+            builder.Environment.EnvironmentName = envName;
+        }
+        return builder;
     }
 }
