@@ -10,6 +10,6 @@ public interface ICountryCommandRepository : ICommandRepository<Country, long>
     Task<List<Country>> GetSubordinateCountries(Priority current, Priority @new);
     Task<List<Country>> GetSubordinateCountries(Priority current);
     Task<List<Country>> GetSuperiorCountries(Priority current, Priority @new);
-    Task<int> GetNextPriority();
+    Task<long> GetNextPriority();
     bool IsCreatedByCore(Country country);
 }

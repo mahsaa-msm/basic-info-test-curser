@@ -21,7 +21,7 @@ public sealed class CreateTenantHandler : CommandHandler<CreateTenantCommand, lo
 
     public override async Task<CommandResult<long?>> Handle(CreateTenantCommand command)
     {
-        var tenantExist = await _tenantCommandRepository.ExistsAsync(c => c.Name == Name.FromString(command.Name));
+        var tenantExist = await _tenantCommandRepository.ExistsAsync(c => c.Name == DIPTitle.FromString(command.Name));
         if (tenantExist)
             throw new ApplicationException(string.Format(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE],
                                                          ProjectTranslation.TENANT));

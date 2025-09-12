@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+using Master.Data.Infra.Data.Sql.Queries.TravelPassengerCountTypes.Entites;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Zamin.Infra.Data.Sql.Queries;
@@ -15,6 +16,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
 
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; }
+    public DbSet<TravelPassengerCountType> TravelPassengerCountTypes { get; set; }
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
         : base(options)
