@@ -18,7 +18,7 @@ public class CountryCommandRepository : BaseCommandRepository<Country, MasterDat
     public async Task<List<Country>> GetByIds(List<long> contriesIds)
         => await _dbContext.Countries.Where(c => contriesIds.Contains(c.Id)).ToListAsync();
 
-    public async Task<int> GetNextPriority()
+    public async Task<long> GetNextPriority()
     {
         var maxPriority = await _dbContext.Countries.IgnoreQueryFilters().MaxAsync(c => c.Priority);
         return maxPriority is not null ? maxPriority.Value + 1 : 1;

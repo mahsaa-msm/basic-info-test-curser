@@ -1,5 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Common.Options;
+using Master.Data.Core.Contracts.ExternalAPI.Common.Configs;
 using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
+using Master.Data.Endpoints.API.CoreInsuranceServices.Handlers;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
@@ -7,7 +9,9 @@ using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Exten
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Middlewares;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
+using Master.Data.Infra.ExternalApi.CoreInsurance.Contracts;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Refit;
 using Serilog;
 using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
@@ -77,7 +81,7 @@ public static class HostingExtensions
         builder.Services.AddZaminNewtonSoftSerializer();
 
         //zamin
-        //builder.Services.AddZaminInMemoryCaching();
+        builder.Services.AddZaminInMemoryCaching();
         //builder.Services.AddZaminSqlDistributedCache(configuration, "SqlDistributedCache");
         builder.Services.AddZaminRedisDistributedCache(builder.Configuration, "DistributedRedisCache");
 
@@ -85,6 +89,32 @@ public static class HostingExtensions
         builder.Services.AddDbContexts(builder.Configuration);
 
         builder.Services.AddIdentityServer(builder.Configuration, "OAuth");
+
+        var apiCoreConfig = builder.Configuration.GetSection(nameof(APICoreInsuranceConfig)).Get<APICoreInsuranceConfig>();
+
+        builder.Services
+           .AddRefitClient<ICoreInsuranceClient>(new RefitSettings()
+           {
+               ContentSerializer = new NewtonsoftJsonContentSerializer()
+           })
+           .ConfigureHttpClient(c =>
+           {
+               c.Timeout = TimeSpan.FromSeconds(200);
+               c.BaseAddress = new Uri(apiCoreConfig.BaseAddress);
+           }).ConfigurePrimaryHttpMessageHandler(serviceProvider =>
+           {
+               var handler = new HttpClientHandler();
+               if (apiCoreConfig.IgnoreSSL)
+               {
+                   handler.ServerCertificateCustomValidationCallback =
+                       HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+               }
+               return handler;
+           })
+           .AddHttpMessageHandler<CoreInsuranceAuthHeaderHandler>();
+
+        builder.Services.Configure<APICoreInsuranceConfig>(builder.Configuration.GetSection(nameof(APICoreInsuranceConfig)));
+        builder.Services.Configure<NewAPICoreInsuranceConfig>(builder.Configuration.GetSection(nameof(NewAPICoreInsuranceConfig)));
 
         //PollingPublisher
         //builder.Services.AddZaminPollingPublisherDalSql(configuration, "PollingPublisherSqlStore");
@@ -105,7 +135,8 @@ public static class HostingExtensions
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IModernUserInfoService, ModernUserInfoService>();
         builder.Services.AddTransient<IUserInfoService, ModernUserInfoService>();
-
+        builder.Services.AddTransient<CoreInsuranceAuthHeaderHandler>();
+        builder.Services.AddTransient<NewCoreInsuranceAuthHeaderHandler>();
         builder.Services.AddSwaggerGen();
 
         return builder.Build();

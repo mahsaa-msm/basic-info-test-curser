@@ -13,7 +13,7 @@ namespace Master.Data.Core.ApplicationService.Countries.Commands.Create;
 public class CreateCountryHandler : CommandHandler<CreateCountryCommand, long>
 {
     private readonly ICountryCommandRepository _commandRepository;
-    private readonly Dictionary<bool, Func<CreateCountryCommand, int, Country, Task<Country>>> _actions;
+    private readonly Dictionary<bool, Func<CreateCountryCommand, long, Country, Task<Country>>> _actions;
 
     public CreateCountryHandler(ZaminServices zaminServices,
                                 ICountryCommandRepository commandRepository) : base(zaminServices)
@@ -39,7 +39,7 @@ public class CreateCountryHandler : CommandHandler<CreateCountryCommand, long>
 
         Country? country = await _commandRepository.GetByCoreIdIgnoreQueryFiltersAsync(command.CoreId);
 
-        int nextPriority = await _commandRepository.GetNextPriority();
+        long nextPriority = await _commandRepository.GetNextPriority();
 
         country = await _actions[country is null](command, nextPriority, country);
 
@@ -49,7 +49,7 @@ public class CreateCountryHandler : CommandHandler<CreateCountryCommand, long>
     }
 
     #region Methods
-    private async Task<Country> Create(CreateCountryCommand command, int nextPriority, Country? country)
+    private async Task<Country> Create(CreateCountryCommand command, long nextPriority, Country? country)
     {
         country = Country.Create(command.ToCreateParameter(nextPriority));
 
@@ -58,7 +58,7 @@ public class CreateCountryHandler : CommandHandler<CreateCountryCommand, long>
         return country;
     }
 
-    private async Task<Country> Restore(CreateCountryCommand command, int nextPriority, Country? country)
+    private async Task<Country> Restore(CreateCountryCommand command, long nextPriority, Country? country)
     {
         country?.Restore(command.ToRestoreParameter(nextPriority));
 

@@ -35,7 +35,7 @@ public static class ConversionCollectionExtentions
     #endregion
     #region Name
     public static void AddNameConversion(this ModelConfigurationBuilder configurationBuilder)
-        => configurationBuilder.Properties<Name>().HaveConversion<NameConversion>();
+        => configurationBuilder.Properties<DIPTitle>().HaveConversion<DIPConversion>();
     #endregion
     #region NullableTitle
     public static void AddNullableTitleConversion(this ModelConfigurationBuilder configurationBuilder)

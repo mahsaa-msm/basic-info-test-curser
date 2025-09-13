@@ -5,13 +5,13 @@ using Zamin.Core.Domain.ValueObjects;
 namespace Master.Data.Core.Domain.Common.ValueObjects;
 public class Priority : BaseValueObject<Priority>
 {
-    public int Value { get; private set; }
+    public long Value { get; private set; }
 
     private Priority()
     {
     }
 
-    public Priority(int value)
+    public Priority(long value)
     {
         ValueObjectGuard.ThrowIfIsNotGraterOrEqualThan(value,
                                                        ProjectConsts.NATURAL_NUMBER_MIN_VALUE,
@@ -19,17 +19,17 @@ public class Priority : BaseValueObject<Priority>
         Value = value;
     }
 
-    public static Priority FromInt(int value)
+    public static Priority FromLong(long value)
     {
         return new Priority(value);
     }
 
-    public Priority Increase(int increasedValue = 1)
+    public Priority Increase(long increasedValue = 1)
     {
         return new Priority(Value + increasedValue);
     }
 
-    public Priority Decrease(int decreasedValue = 1)
+    public Priority Decrease(long decreasedValue = 1)
     {
         return new Priority(Value - decreasedValue);
     }
@@ -44,12 +44,12 @@ public class Priority : BaseValueObject<Priority>
         return Value.ToString();
     }
 
-    public static Priority operator +(Priority priority, int value)
+    public static Priority operator +(Priority priority, long value)
     {
         return priority.Increase(value);
     }
 
-    public static Priority operator -(Priority priority, int value)
+    public static Priority operator -(Priority priority, long value)
     {
         return priority.Decrease(value);
     }
@@ -74,13 +74,13 @@ public class Priority : BaseValueObject<Priority>
         return left.Value >= right.Value;
     }
 
-    public static explicit operator int?(Priority priority)
+    public static explicit operator long?(Priority priority)
     {
         return priority.Value;
     }
 
-    public static implicit operator Priority(int value)
-    {
-        return new Priority(value);
-    }
+    public static explicit operator long(Priority priority) => priority.Value;
+
+    public static implicit operator Priority(long value) => new(value);
+
 }

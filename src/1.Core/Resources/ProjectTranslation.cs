@@ -13,6 +13,7 @@ public sealed class ProjectTranslation
     public const string PRIORITY = nameof(PRIORITY);
     public const string TITLE = nameof(TITLE);
     public const string DISPLAY_TITLE = nameof(DISPLAY_TITLE);
+    public const string UPDATE_DONE = nameof(UPDATE_DONE);
 
 
     public const string FIRST_NAME = nameof(FIRST_NAME);
@@ -74,6 +75,12 @@ public sealed class ProjectTranslation
     public const string CORE_SSO_AUTHENTICATION_FAILED = nameof(CORE_SSO_AUTHENTICATION_FAILED);
     #endregion
 
+    #region CORE
+    public const string CORE_API_TOKEN = nameof(CORE_API_TOKEN);
+    public const string API_SSO_CORE_TOKEN = nameof(API_SSO_CORE_TOKEN);
+
+    #endregion
+
     #region TENANT
     public const string CONFIG_TYPE = nameof(CONFIG_TYPE);
     public const string PAYMENT_CONFIG = nameof(PAYMENT_CONFIG);
@@ -89,5 +96,10 @@ public sealed class ProjectTranslation
     public const string COUNTRY = nameof(COUNTRY);
     public const string COUNTRY_ID = nameof(COUNTRY_ID);
 
+    #endregion
+
+    #region TRAVEL_PASSENGER_COUNT_TYPE
+    public const string TRAVEL_PASSENGER_COUNT_TYPE = nameof(TRAVEL_PASSENGER_COUNT_TYPE);
+    public const string TRAVEL_PASSENGER_COUNT_TYPE_ID = nameof(TRAVEL_PASSENGER_COUNT_TYPE_ID);
     #endregion
 }

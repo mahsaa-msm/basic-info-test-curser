@@ -4,16 +4,13 @@ using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Common.ValueObjects;
 
-public class Name : BaseValueObject<Name>
+public class DIPTitle : BaseValueObject<DIPTitle>
 {
     public string Value { get; private set; }
 
-    public static Name FromString(string value)
-    {
-        return new Name(value);
-    }
+    public static DIPTitle FromString(string value) => new(value);
 
-    private Name(string value)
+    private DIPTitle(string value)
     {
         ValueObjectGuard.ThrowIfStringNullOrWhiteSpace(value, ProjectTranslation.NAME);
 
@@ -25,7 +22,7 @@ public class Name : BaseValueObject<Name>
         Value = value;
     }
 
-    private Name()
+    private DIPTitle()
     {
     }
 
@@ -34,18 +31,9 @@ public class Name : BaseValueObject<Name>
         yield return Value;
     }
 
-    public static explicit operator string(Name name)
-    {
-        return name.Value;
-    }
+    public static explicit operator string(DIPTitle title) => title.Value;
 
-    public static implicit operator Name(string value)
-    {
-        return new Name(value);
-    }
+    public static implicit operator DIPTitle(string value) => new(value);
+    public override string ToString() => Value;
 
-    public override string ToString()
-    {
-        return Value;
-    }
 }
