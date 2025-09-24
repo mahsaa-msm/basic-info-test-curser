@@ -1,4 +1,5 @@
 ﻿using Master.Data.Core.Contracts.Common.Options;
+using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Core.Contracts.ExternalAPI.Common.Configs;
 using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
 using Master.Data.Endpoints.API.CoreInsuranceServices.Handlers;
@@ -7,8 +8,11 @@ using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
-using Master.Data.Endpoints.API.Infrastructor.Middlewares;
+//using Master.Data.Endpoints.API.Infrastructor.Middlewares;
+using Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
+using Master.Data.Endpoints.API.Infrastructure.Services.Tenant;
+using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Master.Data.Infra.ExternalApi.CoreInsurance.Contracts;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Refit;
@@ -16,6 +20,7 @@ using Serilog;
 using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
+using Zamin.Infra.Data.Sql.Commands.Interceptors;
 using Zamin.Utilities.SoftwarePartDetector.Services;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions;
@@ -135,6 +140,11 @@ public static class HostingExtensions
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IModernUserInfoService, ModernUserInfoService>();
         builder.Services.AddTransient<IUserInfoService, ModernUserInfoService>();
+        builder.Services.AddTransient<SetPersianYeKeInterceptor>();
+        builder.Services.AddTransient<AddAuditDataInterceptor>();
+        builder.Services.AddTransient<AddRelatedEntitiesIdInterceptor>();
+        builder.Services.AddTransient<ITenantService, TenantService>();
+        builder.Services.AddSingleton<ITenantResolver, TenantResolver>();
         builder.Services.AddTransient<CoreInsuranceAuthHeaderHandler>();
         builder.Services.AddTransient<NewCoreInsuranceAuthHeaderHandler>();
         builder.Services.AddSwaggerGen();
@@ -177,12 +187,12 @@ public static class HostingExtensions
 
         var controllerBuilder = app.MapControllers();
 
-        app.UseMiddleware<TenantMiddleware>();
+        //app.UseMiddleware<TenantMiddleware>();
 
         var useIdentityServer = app.UseIdentityServer("OAuth");
         if (useIdentityServer)
             controllerBuilder.RequireAuthorization();
-        
+
         PrintEnvironmentSettings(app);
 
         app.Services.GetService<SoftwarePartDetectorService>()?.Run();

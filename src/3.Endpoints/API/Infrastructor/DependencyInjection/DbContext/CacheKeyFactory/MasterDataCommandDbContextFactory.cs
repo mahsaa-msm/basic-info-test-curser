@@ -1,4 +1,4 @@
-﻿using Master.Data.Core.Contracts.Common.Services;
+﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 

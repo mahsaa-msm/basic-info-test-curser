@@ -22,10 +22,10 @@ public class TravelPassengerCountTypeQueryRepository : BaseQueryRepository<Maste
         return await _dbContext.TravelPassengerCountTypes.Select(travelPassengerCountType => new TravelPassengerCountTypeQr
         {
             CoreId = travelPassengerCountType.CoreId,
-            Title = travelPassengerCountType.Title,
+            Title = travelPassengerCountType.Title.Value,
             Id = travelPassengerCountType.Id,
             IsEnable = travelPassengerCountType.IsEnable,
-            Priority = travelPassengerCountType.Priority,
+            Priority = travelPassengerCountType.Priority.Value,
         }).FirstOrDefaultAsync(c => c.Id == query.Id);
     }
 
@@ -35,7 +35,7 @@ public class TravelPassengerCountTypeQueryRepository : BaseQueryRepository<Maste
         {
             Id = c.Id,
             CoreId = c.CoreId,
-            Title = c.Title,
+            Title = c.Title.Value,
         }).ToListAsync();
     }
 
@@ -44,7 +44,7 @@ public class TravelPassengerCountTypeQueryRepository : BaseQueryRepository<Maste
         var filter = _dbContext.TravelPassengerCountTypes.AsQueryable();
 
         if (!string.IsNullOrEmpty(query.Title))
-            filter = filter.Where(i => i.Title.Contains(query.Title));
+            filter = filter.Where(i => i.Title.Value.Contains(query.Title));
 
         if (query.CoreId != default)
             filter = filter.Where(i => i.CoreId == query.CoreId);
@@ -53,15 +53,15 @@ public class TravelPassengerCountTypeQueryRepository : BaseQueryRepository<Maste
             filter = filter.Where(i => i.IsEnable == query.IsEnable);
 
         if (query.Priority.HasValue)
-            filter = filter.Where(i => i.Priority == query.Priority);
+            filter = filter.Where(i => i.Priority.Value == query.Priority);
 
         var result = await filter.ToPagedData(query, item => new TravelPassengerCountTypeQr
         {
-            Title = item.Title,
+            Title = item.Title.Value,
             CoreId = item.CoreId,
             Id = item.Id,
             IsEnable = item.IsEnable,
-            Priority = item.Priority,
+            Priority = item.Priority.Value,
         });
         return result;
     }

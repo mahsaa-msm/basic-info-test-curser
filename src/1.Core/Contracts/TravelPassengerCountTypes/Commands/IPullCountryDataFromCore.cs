@@ -1,4 +1,5 @@
-﻿using Master.Data.Core.Contracts.ExternalAPI.CoreInsurance.TravelPassengerCountTypes;
+﻿using Master.Data.Core.Contracts.ExternalAPI.CoreInsurance.TravelDurationTypes;
+using Master.Data.Core.Contracts.ExternalAPI.CoreInsurance.TravelPassengerCountTypes;
 
 namespace Master.Data.Core.Contracts.TravelPassengerCountTypes.Commands;
 
