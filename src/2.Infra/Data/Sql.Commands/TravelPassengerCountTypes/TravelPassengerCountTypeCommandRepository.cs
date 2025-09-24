@@ -1,4 +1,5 @@
-﻿using Master.Data.Core.Contracts.TravelPassengerCountTypes.Commands;
+﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
+using Master.Data.Core.Contracts.TravelPassengerCountTypes.Commands;
 using Master.Data.Core.Domain.TravelPassengerCountTypes.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,11 @@ namespace Master.Data.Infra.Data.Sql.Commands.TravelPassengerCountTypes;
 public class TravelPassengerCountTypeCommandRepository : BaseCommandRepository<TravelPassengerCountType, MasterDataCommandDbContext, long>,
     ITravelPassengerCountTypeCommandRepository
 {
-    public TravelPassengerCountTypeCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
+    private readonly ITenantService _tenantService;
+
+    public TravelPassengerCountTypeCommandRepository(MasterDataCommandDbContext dbContext, ITenantService tenantService) : base(dbContext)
     {
+        _tenantService = tenantService;
     }
 
     public async Task<List<TravelPassengerCountType>> GetAllAsync()

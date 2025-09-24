@@ -1,6 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
+﻿using Master.Data.Core.Contracts.TravelDurationTypess.Queries.CommonResult;
+using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.Tenants.Entities;
+using Master.Data.Core.Domain.TravelDurationTypes.Entities;
 using Master.Data.Core.Domain.TravelPassengerCountTypes.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
 
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; } = null!;
+    public DbSet<TravelDurationType> TravelDurationTypes { get; set; } = null!;
     public DbSet<TravelPassengerCountType> TravelPassengerCountTypes { get; set; } = null!;
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)

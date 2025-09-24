@@ -1,9 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Master.Data.Core.Domain.Common.Entities;
+using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.TravelPassengerCountTypes.Events;
 using Zamin.Core.Domain.Entities;
 
 namespace Master.Data.Core.Domain.TravelPassengerCountTypes.Entities;
-public class TravelPassengerCountType : AggregateRoot<long>
+public class TravelPassengerCountType : BaseTenantEntity<long>
 {
     public DIPTitle Title { get; private set; }
     public int CoreId { get; private set; }
