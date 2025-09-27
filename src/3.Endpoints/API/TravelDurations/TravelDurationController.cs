@@ -54,7 +54,8 @@ public class TravelDurationController : BaseController
     public async Task<IActionResult> GetTravelDurationTypesById([FromQuery] GetTravelDurationTypesByIdQuery query)
        => await Query<GetTravelDurationTypesByIdQuery, TravelDurationTypesQr?>(query);
 
-    [HttpGet("GetAllTravelDurationTypes")]
+    [AllowAnonymous]
+    [HttpGet("GetAllTravelDuration")]
     public async Task<IActionResult> GetAllTravelDurationTypes([FromQuery] GetAllTravelDurationTypesQuery query)
         => await Query<GetAllTravelDurationTypesQuery, List<TravelDurationTypesItemQr>>(query);
 
