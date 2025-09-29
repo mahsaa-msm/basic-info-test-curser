@@ -7,6 +7,7 @@ using Master.Data.Core.RequestResponse.TravelDurationTypess.Disable;
 using Master.Data.Core.RequestResponse.TravelDurationTypess.Enable;
 using Master.Data.Core.RequestResponse.TravelDurationTypess.PullFromSource;
 using Master.Data.Core.RequestResponse.TravelDurationTypess.Update;
+using Master.Data.Core.RequestResponse.VehicleTypes.Queries.CommonResults;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -57,7 +58,15 @@ public class TravelDurationController : BaseController
     [AllowAnonymous]
     [HttpGet("GetAllTravelDuration")]
     public async Task<IActionResult> GetAllTravelDurationTypes([FromQuery] GetAllTravelDurationTypesQuery query)
-        => await Query<GetAllTravelDurationTypesQuery, List<TravelDurationTypesItemQr>>(query);
+    //=> await Query<GetAllTravelDurationTypesQuery, List<TravelDurationTypesItemQr>>(query);
+    {
+        return Ok(new[] {
+             new TravelDurationTypesItemQr { Id= 1, Title= "6 تا 10 روز", CoreId=5},
+             new TravelDurationTypesItemQr { Id= 2, Title= "16 تا 20 روز",CoreId=21 },
+             new TravelDurationTypesItemQr { Id= 3, Title= "11 تا 15 روز", CoreId=6},
+             new TravelDurationTypesItemQr { Id= 4, Title= "1 تا 5 روز", CoreId=4},
+        });
+    }
 
     [HttpGet("GetTravelDurationTypesPagedFilter")]
     public async Task<IActionResult> GetTravelDurationTypesPagedFilter([FromQuery] GetTravelDurationTypesPagedFilterQuery query)
