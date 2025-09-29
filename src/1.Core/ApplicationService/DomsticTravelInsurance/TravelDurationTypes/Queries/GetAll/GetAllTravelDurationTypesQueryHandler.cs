@@ -1,9 +1,6 @@
 ﻿using Master.Data.Core.Contracts.DomsticTravelInsurance.TravelDurationTypes.Repositories;
 using Master.Data.Core.Contracts.TravelDurationTypess.Queries.CommonResult;
 using Master.Data.Core.Contracts.TravelDurationTypess.Queries.GetAll;
-using Master.Data.Core.Contracts.TravelPassengerCountTypes.Queries;
-using Master.Data.Core.Contracts.TravelPassengerCountTypes.Queries.CommonResult;
-using Master.Data.Core.Contracts.TravelPassengerCountTypes.Queries.GetAll;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
