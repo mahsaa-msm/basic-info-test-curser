@@ -1,4 +1,4 @@
-﻿using Master.Data.Core.Contracts.Common.Services;
+﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Core.Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Linq.Expressions;

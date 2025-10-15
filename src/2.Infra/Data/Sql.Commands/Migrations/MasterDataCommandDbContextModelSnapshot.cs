@@ -68,8 +68,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
+                    b.Property<long>("Priority")
+                        .HasColumnType("bigint");
 
                     b.Property<Guid?>("TenantBusinessId")
                         .HasColumnType("uniqueidentifier");
@@ -87,7 +87,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("BusinessId")
                         .IsUnique();
 
-                    b.ToTable("Countries", (string)null);
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.Tenant", b =>
@@ -133,7 +133,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("Tenants", (string)null);
+                    b.ToTable("Tenants");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfig", b =>
@@ -180,7 +180,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "ConfigType")
                         .IsUnique();
 
-                    b.ToTable("TenantConfig", (string)null);
+                    b.ToTable("TenantConfig");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfigSettingsHistory", b =>
@@ -225,7 +225,111 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantConfigId");
 
-                    b.ToTable("TenantConfigSettingsHistory", (string)null);
+                    b.ToTable("TenantConfigSettingsHistory");
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.TravelDurationTypes.Entities.TravelDurationType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<Guid>("BusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CoreId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsEnable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Priority")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid?>("TenantBusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TravelDurationTypes");
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.TravelPassengerCountTypes.Entities.TravelPassengerCountType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<Guid>("BusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CoreId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsEnable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Priority")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid?>("TenantBusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TravelPassengerCountTypes");
                 });
 
             modelBuilder.Entity("Zamin.Extensions.Events.Abstractions.OutBoxEventItem", b =>

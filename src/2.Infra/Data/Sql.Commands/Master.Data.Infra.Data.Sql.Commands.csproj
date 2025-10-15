@@ -7,12 +7,18 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Remove="DomsticTravelInsurance\TravelPassengerCountTypes\**" />
+		<EmbeddedResource Remove="DomsticTravelInsurance\TravelPassengerCountTypes\**" />
+		<None Remove="DomsticTravelInsurance\TravelPassengerCountTypes\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Zamin.Extensions.Events.Outbox.Dal.EF" Version="8.0.0" />
 		<PackageReference Include="Zamin.Infra.Data.Sql.Commands" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\1.Core\Contracts\Master.Data.Core.Contracts.csproj" />
+		<ProjectReference Include="..\..\..\1.Core\Contracts\Master.Data.Core.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ public sealed class Tenant : AggregateRoot
 {
     #region Properties
     public BusinessId TenantKey { get; private set; }
-    public Name Name { get; private set; }
+    public DIPTitle Name { get; private set; }
     public IsActive IsActive { get; private set; }
     public DateTime CreatedDateUtc { get; private set; }
 
@@ -24,7 +24,7 @@ public sealed class Tenant : AggregateRoot
     {
     }
 
-    private Tenant(Name name)
+    private Tenant(DIPTitle name)
     {
         Name = name;
         IsActive = IsActive.True();
@@ -34,13 +34,13 @@ public sealed class Tenant : AggregateRoot
     #endregion
 
     #region Commands
-    public static Tenant Create(Name name) => new(name);
+    public static Tenant Create(DIPTitle name) => new(name);
 
     public void Activate() => IsActive = IsActive.True();
 
     public void Deactivate() => IsActive = IsActive.False();
 
-    public void UpdateName(Name name) => Name = name;
+    public void UpdateName(DIPTitle name) => Name = name;
 
     public void AddConfig(TenantConfigSettings settings)
     {

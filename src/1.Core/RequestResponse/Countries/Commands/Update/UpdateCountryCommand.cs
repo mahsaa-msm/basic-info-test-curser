@@ -10,7 +10,7 @@ public sealed class UpdateCountryCommand : ICommand, IWebRequest
     public string Title { get; set; } = string.Empty;
     public string DisplayTitle { get; set; } = string.Empty;
     public string Code { get; set; } = string.Empty;
-    public int Priority { get; set; }
+    public long Priority { get; set; }
 
     public UpdateCountryParameter ToParameter() => new(Title,
                                                        DisplayTitle,

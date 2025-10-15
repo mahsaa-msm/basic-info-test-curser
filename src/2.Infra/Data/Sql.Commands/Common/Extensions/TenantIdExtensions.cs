@@ -1,4 +1,4 @@
-﻿using Master.Data.Core.Contracts.Common.Services;
+﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Core.Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -14,9 +14,9 @@ public static class TenantIdExtensions
         if (tenantId is null)
             return;
 
-        foreach (var entry in changeTracker.Entries<BaseTenantEntity>())
+        foreach (var entry in changeTracker.Entries<BaseTenantEntity<long>>())
         {
-            if (entry.State == EntityState.Added && entry.Entity.TenantId < 1 )
+            if (entry.State == EntityState.Added && entry.Entity.TenantId < 1)
             {
                 entry.Entity.TenantId = (long)tenantId;
 
