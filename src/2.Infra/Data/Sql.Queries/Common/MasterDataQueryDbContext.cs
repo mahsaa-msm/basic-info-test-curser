@@ -1,4 +1,5 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Agent.Management.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
 
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; }
+    public DbSet<ParrotTranslation> ParrotTranslations { get; set; }
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
         : base(options)

@@ -1,8 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 using Microsoft.AspNetCore.Http;
 
-namespace Master.Data.Endpoints.API.Infrastructure.Services.Tenant;
+namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 
 public class TenantService : ITenantService
 {

@@ -9,7 +9,6 @@ using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 //using Master.Data.Endpoints.API.Infrastructor.Middlewares;
 using Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
-using Master.Data.Endpoints.API.Infrastructure.Services.Tenant;
 using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Serilog;
@@ -47,6 +46,12 @@ public static class HostingExtensions
         CoreSsoOptions coreSsoOptions = new();
         builder.Configuration.Bind(nameof(coreSsoOptions), coreSsoOptions);
         builder.Services.AddSingleton(coreSsoOptions);
+        #endregion
+
+        #region Bind MasterDataOptions Option
+        MasterDataOptions masterDataOptions = new();
+        builder.Configuration.Bind(nameof(masterDataOptions), masterDataOptions);
+        builder.Services.AddSingleton(masterDataOptions);
         #endregion
 
         return builder;

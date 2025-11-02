@@ -98,8 +98,13 @@ public sealed class ProjectTranslation
 
     #endregion
 
-    #region TRAVEL_PASSENGER_COUNT_TYPE
-    public const string TRAVEL_PASSENGER_COUNT_TYPE = nameof(TRAVEL_PASSENGER_COUNT_TYPE);
-    public const string TRAVEL_PASSENGER_COUNT_TYPE_ID = nameof(TRAVEL_PASSENGER_COUNT_TYPE_ID);
+    #region TRANSLATION
+
+    public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
+
+    public const string TRANSLATION_KEY = nameof(TRANSLATION_KEY);
+    public const string TRANSLATION_VALUE = nameof(TRANSLATION_VALUE);
+    public const string TRANSLATION_CULTURE = nameof(TRANSLATION_CULTURE);
+
     #endregion
 }

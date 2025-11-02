@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
+using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Core.Domain.Tenants.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
 
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; } = null!;
+    public DbSet<ParrotTranslation> ParrotTranslations { get; set; } = null!;
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)
         : base(options)
