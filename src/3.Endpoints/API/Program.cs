@@ -6,7 +6,6 @@ SerilogExtensions.RunWithSerilogExceptionHandling(() =>
 {
     var builder = WebApplication.CreateBuilder(args);
     var app = builder
-    .AddEnvironment()
     .AddConfiguration()
     .AddZaminSerilog(o =>
     {

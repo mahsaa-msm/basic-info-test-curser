@@ -1,5 +1,4 @@
-﻿using Master.Data.Core.Contracts.TravelDurationTypess.Queries.CommonResult;
-using Master.Data.Core.Domain.Common.Entities;
+﻿using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.Tenants.Entities;
 using Master.Data.Core.Domain.TravelDurationTypes.Entities;
