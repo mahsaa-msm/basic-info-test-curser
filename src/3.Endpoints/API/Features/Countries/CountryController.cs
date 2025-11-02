@@ -4,7 +4,6 @@ using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
 using Master.Data.Core.RequestResponse.Countries.Commands.Update;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
-using Master.Data.Core.RequestResponse.LicensePlateTypes.Queries.CommanResults;
 using Master.Data.Endpoints.API.Features.Countries.Queries.GetActiveCountries;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -46,12 +45,5 @@ public class CountryController : BaseController
     public async Task<IActionResult> GetAllCountriesPagedFilter([FromQuery] GetAllCountriesPagedFilterQuery query)
         => await Query<GetAllCountriesPagedFilterQuery, PagedData<CountryListItemQr>>(query);
 
-
-    [HttpGet("[action]")]
-    [AllowAnonymous]
-    public async Task<IActionResult> GetAllCountry([FromQuery] GetActiveCountriesViewModel viewModel)
-    {
-        return Ok(new[] { new LicensePlateTypeItemQr { Title = "ایران", Id = 29 }, new LicensePlateTypeItemQr { Title = "عراق", Id = 2 }, new LicensePlateTypeItemQr { Title = "آلمان", Id = 3 } });
-    }
     #endregion
 }

@@ -15,8 +15,4 @@
 		  <ProjectReference Include="..\RequestResponse\Master.Data.Core.RequestResponse.csproj" />
 		</ItemGroup>
 
-		<ItemGroup>
-		  <Folder Include="DomsticTravelInsurance\" />
-		</ItemGroup>
-
 </Project>

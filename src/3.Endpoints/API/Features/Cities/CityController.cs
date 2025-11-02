@@ -13,7 +13,7 @@ namespace Master.Data.Endpoints.API.Features.Cities;
 public class CityController : BaseController
 {
     [HttpGet("GetAllCity")]
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public async Task<IActionResult> GetAllCity([FromQuery] GetAllCityQuery query)
     {
         return Ok(new[] {

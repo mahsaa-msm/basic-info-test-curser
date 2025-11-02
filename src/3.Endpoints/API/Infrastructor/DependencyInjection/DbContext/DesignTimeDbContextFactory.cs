@@ -1,8 +1,6 @@
-﻿using Master.Data.Core.Contracts.Common.Services;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
 
 namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterDataCommandDbContext>

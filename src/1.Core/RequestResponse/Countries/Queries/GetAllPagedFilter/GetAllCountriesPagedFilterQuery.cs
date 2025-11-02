@@ -10,7 +10,7 @@ public sealed class GetAllCountriesPagedFilterQuery : PageQuery<PagedData<Countr
     public string? DisplayTitle { get; set; }
     public string? Code { get; set; }
     public bool? IsActive { get; set; }
-    public int? Priority { get; set; }
+    public long? Priority { get; set; }
 
     public string Path => "/Api/Country/GetAllCountriesPagedFilter";
 }

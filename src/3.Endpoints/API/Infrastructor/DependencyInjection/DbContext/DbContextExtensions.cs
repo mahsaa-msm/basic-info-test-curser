@@ -1,4 +1,5 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
+﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
+using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Master.Data.Infra.Data.Sql.Queries.Common;
@@ -47,5 +48,4 @@ public static class DbContextExtensions
 
         return services;
     }
-
 }
