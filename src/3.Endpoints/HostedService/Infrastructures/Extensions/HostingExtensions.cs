@@ -1,12 +1,27 @@
-﻿using Zamin.Extensions.DependencyInjection;
+﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+using Zamin.Extensions.DependencyInjection;
 
-namespace Master.Data.Endpoints.HostedService.Extensions;
+namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions;
 
 public static class HostingExtensions
 {
+
+    public static WebApplicationBuilder AddConfiguration(this WebApplicationBuilder builder)
+    {
+        builder.Configuration.AddEnvironmentVariables();
+
+        #region Bind JobSchedulerOption
+        JobScheduleOption jobScheduleOption = new();
+        builder.Configuration.Bind(nameof(jobScheduleOption), jobScheduleOption);
+        builder.Services.AddSingleton(jobScheduleOption);
+        #endregion
+
+        return builder;
+    }
+
+
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
-        IConfiguration configuration = builder.Configuration;
 
         #region Add DbContexts
 
@@ -32,6 +47,9 @@ public static class HostingExtensions
 
         //zamin
         builder.Services.AddZaminRedisDistributedCache(builder.Configuration, "DistributedRedisCache");
+
+        //jobs
+        builder.Services.AddJobServices();
 
         return builder.Build();
     }
