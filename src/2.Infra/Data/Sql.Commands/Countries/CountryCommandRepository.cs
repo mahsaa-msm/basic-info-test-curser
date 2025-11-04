@@ -40,4 +40,6 @@ public class CountryCommandRepository : BaseCommandRepository<Country, MasterDat
     public bool IsCreatedByCore(Country country)
         => _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId) is null;
 
+    public async Task<List<Country>> GetAllIgnoreQueryFiltersAsync()
+        => await _dbContext.Countries.IgnoreQueryFilters().ToListAsync();
 }

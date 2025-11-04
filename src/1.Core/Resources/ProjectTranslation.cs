@@ -79,6 +79,11 @@ public sealed class ProjectTranslation
     public const string CORE_API_TOKEN = nameof(CORE_API_TOKEN);
     public const string API_SSO_CORE_TOKEN = nameof(API_SSO_CORE_TOKEN);
 
+    /// <summary>
+    /// واکشی اطلاعات {0} از کور بیمه ناموفق بود
+    /// </summary>
+    public const string FETCH_DATA_FROM_CORE_FAILED = nameof(FETCH_DATA_FROM_CORE_FAILED);
+
     #endregion
 
     #region TENANT
