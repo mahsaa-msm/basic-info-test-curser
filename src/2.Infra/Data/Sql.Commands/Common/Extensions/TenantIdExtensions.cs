@@ -23,6 +23,16 @@ public static class TenantIdExtensions
                 if (tenantKey.HasValue)
                     entry.Entity.TenantBusinessId = tenantKey;
             }
+
+            if (entry.State == EntityState.Modified &&
+                (entry.Entity.TenantId < 1 || entry.Entity.TenantBusinessId is null))
+            {
+                if (entry.Entity.TenantId < 1)
+                    entry.Entity.TenantId = (long)tenantId;
+
+                if (tenantKey.HasValue && entry.Entity.TenantBusinessId is null)
+                    entry.Entity.TenantBusinessId = tenantKey;
+            }
         }
     }
 }

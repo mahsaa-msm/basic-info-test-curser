@@ -1,8 +1,9 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
+using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Core.Resources.Utils;
-public class FinglishConverter
+namespace Master.Data.Core.ApplicationService.Common;
+public class FinglishConverter : ISingletoneLifetime, IFinglishConverter
 {
     private readonly Dictionary<char, string> _persianToEnglishMap;
     private readonly Dictionary<string, string> _specialWordsMap;
@@ -15,31 +16,44 @@ public class FinglishConverter
 
     private Dictionary<char, string> CreateCharacterMap()
     {
-        return new Dictionary<char, string>
-            {
-                // حروف پایه
-                {'ا', "a"}, {'آ', "a"}, {'أ', "a"}, {'إ', "e"}, {'ء', "'"},
-                {'ب', "b"}, {'پ', "p"}, {'ت', "t"}, {'ث', "s"},
-                {'ج', "j"}, {'چ', "ch"}, {'ح', "h"}, {'خ', "kh"},
-                {'د', "d"}, {'ذ', "z"}, {'ر', "r"}, {'ز', "z"},
-                {'ژ', "zh"}, {'س', "s"}, {'ش', "sh"}, {'ص', "s"},
-                {'ض', "z"}, {'ط', "t"}, {'ظ', "z"}, {'ع', "'"},
-                {'غ', "gh"}, {'ف', "f"}, {'ق', "gh"}, {'ک', "k"},
-                {'گ', "g"}, {'ل', "l"}, {'م', "m"}, {'ن', "n"},
-                {'و', "v"}, {'ه', "h"}, {'ی', "y"}, {'ئ', "'"},
-                {'ة', "h"}, {'ك', "k"}, {'ي', "y"}, {'ؤ', "'"},
-                
-                // اعداد
-                {'۰', "0"}, {'۱', "1"}, {'۲', "2"}, {'۳', "3"}, {'۴', "4"},
-                {'۵', "5"}, {'۶', "6"}, {'۷', "7"}, {'۸', "8"}, {'۹', "9"},
-                
-                // علائم نگارشی
-                {' ', " "}, {'.', "."}, {',', ","}, {'،', ","}, {'؛', ";"},
-                {'?', "?"}, {'؟', "?"}, {'!', "!"}, {'!', "!"}, {'(', "("},
-                {')', ")"}, {'[', "["}, {']', "]"}, {'{', "{"}, {'}', "}"}
-            };
-    }
+        var map = new Dictionary<char, string>
+    {
+        // حروف پایه
+        {'ا', "a"}, {'آ', "a"}, {'أ', "a"}, {'إ', "e"}, {'ء', "'"},
+        {'ب', "b"}, {'پ', "p"}, {'ت', "t"}, {'ث', "s"},
+        {'ج', "j"}, {'چ', "ch"}, {'ح', "h"}, {'خ', "kh"},
+        {'د', "d"}, {'ذ', "z"}, {'ر', "r"}, {'ز', "z"},
+        {'ژ', "zh"}, {'س', "s"}, {'ش', "sh"}, {'ص', "s"},
+        {'ض', "z"}, {'ط', "t"}, {'ظ', "z"}, {'ع', "'"},
+        {'غ', "gh"}, {'ف', "f"}, {'ق', "gh"}, {'ک', "k"},
+        {'گ', "g"}, {'ل', "l"}, {'م', "m"}, {'ن', "n"},
+        {'و', "v"}, {'ه', "h"}, {'ی', "y"}, {'ئ', "'"},
+        {'ة', "h"}, {'ك', "k"}, {'ي', "y"}, {'ؤ', "'"},
+        
+        // اعداد
+        {'۰', "0"}, {'۱', "1"}, {'۲', "2"}, {'۳', "3"}, {'۴', "4"},
+        {'۵', "5"}, {'۶', "6"}, {'۷', "7"}, {'۸', "8"}, {'۹', "9"},
+        
+        // علائم نگارشی
+        {' ', " "}, {'.', "."}, {',', ","}, {'،', ","}, {'؛', ";"},
+        {'?', "?"}, {'؟', "?"}, {'!', "!"}, {'(', "("},
+        {')', ")"}, {'[', "["}, {']', "]"}, {'{', "{"}, {'}', "}"}
+    };
 
+        // بررسی تکراری نبودن کلیدها (برای دیباگ)
+#if DEBUG
+        var duplicates = map.GroupBy(x => x.Key)
+                            .Where(g => g.Count() > 1)
+                            .Select(g => g.Key)
+                            .ToList();
+        if (duplicates.Any())
+        {
+            throw new InvalidOperationException($"کلیدهای تکراری در دیکشنری: {string.Join(", ", duplicates)}");
+        }
+#endif
+
+        return map;
+    }
     private Dictionary<string, string> CreateSpecialWordsMap()
     {
         return new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -228,7 +242,7 @@ public class FinglishConverter
     }
 }
 
-public class AdvancedFinglishConverter : FinglishConverter
+public class AdvancedFinglishConverter : FinglishConverter, ISingletoneLifetime, IAdvancedFinglishConverter
 {
     private readonly Dictionary<string, string> _commonPhrasesMap;
 
@@ -256,7 +270,7 @@ public class AdvancedFinglishConverter : FinglishConverter
 
     public string ConvertTextWithContext(string persianText, TextContext context = TextContext.General)
     {
-        string result = base.Convert(persianText);
+        string result = Convert(persianText);
 
         // پردازش بر اساس context
         switch (context)

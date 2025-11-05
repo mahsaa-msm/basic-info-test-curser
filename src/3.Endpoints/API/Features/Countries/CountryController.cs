@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
 using Master.Data.Core.RequestResponse.Countries.Commands.Create;
 using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
+using Master.Data.Core.RequestResponse.Countries.Commands.Fetch;
 using Master.Data.Core.RequestResponse.Countries.Commands.Update;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
@@ -30,6 +31,10 @@ public class CountryController : BaseController
     [HttpPut("[action]")]
     public async Task<IActionResult> ChangeCountriesActivation([FromBody] ChangeCountriesActivationCommand commnad)
         => await Edit(commnad);
+
+    [HttpPut("[action]")]
+    public async Task<IActionResult> FetchCountriesFromSource([FromBody] FetchCountriesFromSourceCommand commnad)
+    => await Edit(commnad);
 
     [HttpDelete("[action]")]
     public async Task<IActionResult> DeleteCountry([FromBody] DeleteCountryCommand command)

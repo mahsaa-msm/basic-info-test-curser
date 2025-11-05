@@ -6,7 +6,7 @@ using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
-//using Master.Data.Endpoints.API.Infrastructor.Middlewares;
+using Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient;
 using Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
 using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
@@ -46,6 +46,12 @@ public static class HostingExtensions
         CoreSsoOptions coreSsoOptions = new();
         builder.Configuration.Bind(nameof(coreSsoOptions), coreSsoOptions);
         builder.Services.AddSingleton(coreSsoOptions);
+        #endregion
+
+        #region Bind CoreInsuranceOption Option
+        CoreInsuranceOption coreInsuranceOption = new();
+        builder.Configuration.Bind(nameof(coreInsuranceOption), coreInsuranceOption);
+        builder.Services.AddSingleton(coreInsuranceOption);
         #endregion
 
         #region Bind MasterDataOptions Option
@@ -107,6 +113,9 @@ public static class HostingExtensions
         //builder.Services.AddZaminRabbitMqMessageBus(configuration, "RabbitMq");
 
         //builder.Services.AddZaminTraceJeager(configuration, "OpenTeletmetry");
+
+        //Register External Apis
+        builder.Services.AddExternalApiServices(builder.Configuration);
 
         builder.Services.AddGrpcClients();
 

@@ -57,6 +57,7 @@ public sealed class ProjectConsts
     public const string ACL_HTTP_CLIENT_NAME = "ACL";
     public const string CORE_SSO_HTTP_CLIENT_NAME = "CoreSsoApi";
     public const string AGENT_CLIENT_HTTP_CLIENT_NAME = "AgentClient";
+    public const string CORE_INSURANCE_HTTP_CLIENT_NAME = "CoreInsuranceApi";
 
     #endregion
 

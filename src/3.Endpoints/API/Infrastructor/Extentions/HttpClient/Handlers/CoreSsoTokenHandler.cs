@@ -28,6 +28,18 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
         if (!string.IsNullOrEmpty(token))
             request.Headers.Add("Oauth-2", token);
 
+        // اگر هدر Cookie از قبل وجود دارد، توکن را به آن اضافه کنید
+        if (request.Headers.Contains("Cookie"))
+        {
+            var existingCookies = request.Headers.GetValues("Cookie").First();
+            request.Headers.Remove("Cookie");
+            request.Headers.Add("Cookie", $"{existingCookies}; TOKEN={token}");
+        }
+        else
+        {
+            request.Headers.Add("Cookie", $"TOKEN={token}");
+        }
+
         HttpResponseMessage response = await base.SendAsync(request, cancellationToken);
         string contentString = await response.Content.ReadAsStringAsync(cancellationToken);
         if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body>"))
@@ -35,7 +47,21 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
             request.Headers.Remove("Oauth-2");
             token = await RenewToken(cancellationToken);
             if (!string.IsNullOrEmpty(token))
+            {
                 request.Headers.Add("Oauth-2", token);
+
+                // اگر هدر Cookie از قبل وجود دارد، توکن را به آن اضافه کنید
+                if (request.Headers.Contains("Cookie"))
+                {
+                    var existingCookies = request.Headers.GetValues("Cookie").First();
+                    request.Headers.Remove("Cookie");
+                    request.Headers.Add("Cookie", $"{existingCookies}; TOKEN={token}");
+                }
+                else
+                {
+                    request.Headers.Add("Cookie", $"TOKEN={token}");
+                }
+            }
 
             response = await base.SendAsync(request, cancellationToken);
 
