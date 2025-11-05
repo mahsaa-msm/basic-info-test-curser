@@ -1,5 +1,4 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
+﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Master.Data.Infra.Data.Sql.Queries.Common;
@@ -13,10 +12,17 @@ public static class DbContextExtensions
 {
     public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddTransient<SetPersianYeKeInterceptor>();
+        services.AddTransient<AddAuditDataInterceptor>();
+        services.AddTransient<AddRelatedEntitiesIdInterceptor>();
+        //services.AddTransient<TenantQueryCommandDbInterceptor>();
+        //services.AddTransient<TenantQueryQueryDbIntrerceptor>();
+
         //CommandDbContext
         services.AddDbContextFactory<MasterDataCommandDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
+                .LogTo(Console.WriteLine, LogLevel.Information)
                 .AddInterceptors(new SetPersianYeKeInterceptor(),
                                  new AddAuditDataInterceptor(),
                                  new AddRelatedEntitiesIdInterceptor());
@@ -34,7 +40,8 @@ public static class DbContextExtensions
         //QueryDbContext
         services.AddDbContextFactory<MasterDataQueryDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"))
+            .LogTo(Console.WriteLine, LogLevel.Information);
             options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
         });
 

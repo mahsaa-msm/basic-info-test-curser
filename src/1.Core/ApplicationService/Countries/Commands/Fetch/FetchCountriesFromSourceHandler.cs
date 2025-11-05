@@ -1,4 +1,4 @@
-﻿using Master.Data.Core.ApplicationService.Common;
+﻿using Master.Data.Core.ApplicationService.Common.FinglishConverterService;
 using Master.Data.Core.Contracts.CoreInsuranceApis.Countries;
 using Master.Data.Core.Contracts.Countries.Commands;
 using Master.Data.Core.Domain.Common.ValueObjects;
@@ -49,7 +49,7 @@ public sealed class FetchCountriesFromSourceHandler : CommandHandler<FetchCountr
             return Result(ApplicationServiceStatus.NotFound);
         }
 
-        var countries = await _commandRepository.GetAllIgnoreQueryFiltersAsync();
+        var countries = await _commandRepository.GetAllAsync();
         long nextPriority = await _commandRepository.GetNextPriority();
 
         foreach (var coreCountry in coreCountriesResponse.Value.content.itemList)

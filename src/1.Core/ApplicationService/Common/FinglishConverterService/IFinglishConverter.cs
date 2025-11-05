@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.ApplicationService.Common;
+﻿namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
 
 public interface IFinglishConverter
 {

@@ -124,9 +124,6 @@ public static class HostingExtensions
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IModernUserInfoService, ModernUserInfoService>();
         builder.Services.AddTransient<IUserInfoService, ModernUserInfoService>();
-        builder.Services.AddTransient<SetPersianYeKeInterceptor>();
-        builder.Services.AddTransient<AddAuditDataInterceptor>();
-        builder.Services.AddTransient<AddRelatedEntitiesIdInterceptor>();
         builder.Services.AddTransient<ITenantService, TenantService>();
         builder.Services.AddSingleton<ITenantResolver, TenantResolver>();
         builder.Services.AddSwaggerGen();

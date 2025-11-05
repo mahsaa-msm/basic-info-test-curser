@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Tenants.Queries;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
+using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
@@ -135,4 +136,14 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
 
     public async Task<bool> ExistsAsync(Expression<Func<Tenant, bool>> expression)
         => await _dbContext.Tenants.IgnoreQueryFilters().AnyAsync(expression);
+
+    public async Task<List<TenantIdKeyQr>> ExecuteAsync(GetAllTenantsSelectItemQuery query)
+        => await _dbContext.Tenants
+            .IgnoreQueryFilters()
+            .Select(c => new TenantIdKeyQr
+            {
+                Id = c.Id,
+                Key = c.TenantKey,
+            })
+            .ToListAsync();
 }

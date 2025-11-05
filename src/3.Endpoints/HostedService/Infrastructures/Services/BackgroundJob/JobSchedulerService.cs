@@ -49,6 +49,7 @@ public class JobSchedulerService : IJobSchedulerService, IScopeLifetime
     #region Simple Schedule Logic
     private bool IsSimpleScheduleAllowed(JobOption job)
     {
+        if (job.StartImmediately) return true;
         if (!job.Period.HasValue) return false;
 
         var now = DateTime.Now;

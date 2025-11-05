@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="8.0.21" />
     <PackageReference Include="NCrontab" Version="3.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Zamin.EndPoints.Web" Version="8.0.0" />
@@ -17,6 +20,16 @@
 	  <PackageReference Include="Zamin.Extensions.Translations.Parrot" Version="8.0.0" />
 	  <PackageReference Include="Zamin.Extensions.UsersManagement" Version="8.0.0" />
 	  <PackageReference Include="Zamin.Extensions.Serializers.NewtonSoft" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Core\ApplicationService\Master.Data.Core.ApplicationService.csproj" />
+    <ProjectReference Include="..\..\1.Core\Contracts\Master.Data.Core.Contracts.csproj" />
+    <ProjectReference Include="..\..\1.Core\RequestResponse\Master.Data.Core.RequestResponse.csproj" />
+    <ProjectReference Include="..\..\2.Infra\Data\Sql.Commands\Master.Data.Infra.Data.Sql.Commands.csproj" />
+    <ProjectReference Include="..\..\2.Infra\Data\Sql.Queries\Master.Data.Infra.Data.Sql.Queries.csproj" />
+    <ProjectReference Include="..\..\2.Infra\ExternalApi\Master.Data.Infra.ExternalApi.CoreInsurance\Master.Data.Infra.ExternalApi.CoreInsurance.csproj" />
+    <ProjectReference Include="..\..\2.Infra\ExternalApi\Master.Data.Infra.ExternalApi.CoreSso\Master.Data.Infra.ExternalApi.CoreSso.csproj" />
   </ItemGroup>
 
 </Project>

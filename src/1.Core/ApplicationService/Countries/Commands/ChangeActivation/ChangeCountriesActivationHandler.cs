@@ -26,7 +26,6 @@ public class ChangeCountriesActivationHandler : CommandHandler<ChangeCountriesAc
 
     public override async Task<CommandResult> Handle(ChangeCountriesActivationCommand command)
     {
-
         List<Country> countries = await _commandRepository.GetByIds(command.CountriesId);
 
         EntityGuard.ThrowIfListIsEmptyWithLongId(countries, ProjectTranslation.COUNTRY);
