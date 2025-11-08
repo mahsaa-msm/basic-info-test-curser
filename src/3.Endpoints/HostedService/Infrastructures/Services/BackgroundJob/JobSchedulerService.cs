@@ -161,35 +161,93 @@ public class JobSchedulerService : IJobSchedulerService, IScopeLifetime
     #region Cron Schedule Logic
     private bool IsCronScheduleAllowed(JobOption job)
     {
-        if (string.IsNullOrEmpty(job.CronExpression)) return false;
+        if (!job.CronExpressions.Any()) return false;
 
-        try
+        foreach (var cronExpression in job.CronExpressions)
         {
-            var expression = CrontabSchedule.Parse(job.CronExpression);
-            var nextOccurrence = expression.GetNextOccurrence(DateTime.Now.AddMinutes(-1));
-            return nextOccurrence <= DateTime.Now && DateTime.Now < nextOccurrence.AddMinutes(1);
+            try
+            {
+                var expression = CrontabSchedule.Parse(cronExpression);
+                var nextOccurrence = expression.GetNextOccurrence(DateTime.Now.AddMinutes(-1));
+                if (nextOccurrence <= DateTime.Now && DateTime.Now < nextOccurrence.AddMinutes(1))
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Invalid cron expression: {CronExpression}", cronExpression);
+            }
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Invalid cron expression: {CronExpression}", job.CronExpression);
-            return false;
-        }
+
+        return false;
     }
 
     private DateTime? GetNextCronRunTime(JobOption job)
     {
-        if (string.IsNullOrEmpty(job.CronExpression)) return null;
+        if (!job.CronExpressions.Any()) return null;
 
-        try
+        DateTime? nextRun = null;
+
+        foreach (var cronExpression in job.CronExpressions)
         {
-            var expression = CrontabSchedule.Parse(job.CronExpression);
-            return expression.GetNextOccurrence(DateTime.Now);
+            try
+            {
+                var expression = CrontabSchedule.Parse(cronExpression);
+                var occurrence = expression.GetNextOccurrence(DateTime.Now);
+
+                if (nextRun == null || occurrence < nextRun)
+                    nextRun = occurrence;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Invalid cron expression: {CronExpression}", cronExpression);
+            }
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Invalid cron expression: {CronExpression}", job.CronExpression);
-            return null;
-        }
+
+        return nextRun;
     }
+
+    public List<DateTime> GetAllCronOccurrences(JobOption job, DateTime from, DateTime to)
+    {
+        var allOccurrences = new List<DateTime>();
+
+        if (!job.CronExpressions.Any()) return allOccurrences;
+
+        foreach (var cronExpression in job.CronExpressions)
+        {
+            try
+            {
+                var expression = CrontabSchedule.Parse(cronExpression);
+                var occurrences = expression.GetNextOccurrences(from, to);
+                allOccurrences.AddRange(occurrences);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Invalid cron expression: {CronExpression}", cronExpression);
+            }
+        }
+
+        return allOccurrences.OrderBy(d => d).ToList();
+    }
+
+    public bool IsAnyCronExpressionValid(JobOption job)
+    {
+        if (!job.CronExpressions.Any()) return false;
+
+        foreach (var cronExpression in job.CronExpressions)
+        {
+            try
+            {
+                CrontabSchedule.Parse(cronExpression);
+                return true;
+            }
+            catch
+            {
+                // Continue checking other expressions
+            }
+        }
+
+        return false;
+    }
+
     #endregion
 }

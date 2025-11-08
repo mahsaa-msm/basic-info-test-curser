@@ -25,7 +25,19 @@ public sealed class JobOption
     public DateRange? ActiveDateRange { get; set; }
 
     // Cron Schedule Properties
-    public string? CronExpression { get; set; }
+    public List<string> CronExpressions { get; set; } = new();
+
+    // برای سازگاری با نسخه قبلی
+    [Obsolete("Use CronExpressions instead for multiple cron support")]
+    public string? CronExpression
+    {
+        get => CronExpressions.FirstOrDefault();
+        set
+        {
+            if (!string.IsNullOrEmpty(value) && !CronExpressions.Contains(value))
+                CronExpressions.Add(value);
+        }
+    }
 }
 
 public sealed class TimeRestriction
