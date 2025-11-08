@@ -2,7 +2,7 @@
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Countries.Entities;
+namespace Master.Data.Core.Domain.Countries.Parameters;
 
 public sealed record CreateCountryWithTenantIdParameter(long TenantId,
                                                         Title Title,

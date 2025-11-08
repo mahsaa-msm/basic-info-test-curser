@@ -112,4 +112,9 @@ public sealed class ProjectTranslation
     public const string TRANSLATION_CULTURE = nameof(TRANSLATION_CULTURE);
 
     #endregion
+
+    #region PROVINCE
+    public const string PROVINCE = nameof(PROVINCE);
+    public const string PROVINCE_ID = nameof(PROVINCE_ID);
+    #endregion
 }
