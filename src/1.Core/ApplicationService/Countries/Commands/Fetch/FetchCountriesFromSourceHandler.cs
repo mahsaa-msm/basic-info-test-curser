@@ -67,6 +67,7 @@ public sealed class FetchCountriesFromSourceHandler : CommandHandler<FetchCountr
                                                                                _finglishConverter.Convert(coreCountry.title),
                                                                            nextPriority));
                 await _commandRepository.InsertAsync(newCountry);
+                nextPriority++;
             }
             else
             {
@@ -78,8 +79,6 @@ public sealed class FetchCountriesFromSourceHandler : CommandHandler<FetchCountr
                                                                   _finglishConverter.Convert(coreCountry.title),
                                                               country.Priority));
             }
-
-            nextPriority++;
         }
 
         await _commandRepository.CommitAsync();

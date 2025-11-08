@@ -79,6 +79,7 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
                                                                                                        nextPriority,
                                                                                                        tenant.Key));
                     await _commandRepository.InsertAsync(newCountry);
+                    nextPriority++;
                 }
                 else
                 {
@@ -90,8 +91,6 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
                                                                       _finglishConverter.Convert(coreCountry.title),
                                                                   country.Priority));
                 }
-
-                nextPriority++;
             }
         }
 
