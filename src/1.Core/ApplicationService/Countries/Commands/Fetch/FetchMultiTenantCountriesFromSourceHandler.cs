@@ -22,14 +22,14 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
     private readonly ICountryCommandRepository _commandRepository;
     private readonly ITenantQueryRepository _tenantQueryRepository;
     private readonly ICoreInsuranceGetAllCountriesCaller _coreInsuranceGetAllCountriesCaller;
-    private readonly ILogger<FetchCountriesFromSourceHandler> _logger;
+    private readonly ILogger<FetchMultiTenantCountriesFromSourceHandler> _logger;
     private readonly IFinglishConverter _finglishConverter;
 
     public FetchMultiTenantCountriesFromSourceHandler(ZaminServices zaminServices,
                                            ICountryCommandRepository commandRepository,
                                            ITenantQueryRepository tenantQueryRepository,
                                            ICoreInsuranceGetAllCountriesCaller coreInsuranceGetAllCountriesCaller,
-                                           ILogger<FetchCountriesFromSourceHandler> logger,
+                                           ILogger<FetchMultiTenantCountriesFromSourceHandler> logger,
                                            IFinglishConverter finglishConverter)
         : base(zaminServices)
     {

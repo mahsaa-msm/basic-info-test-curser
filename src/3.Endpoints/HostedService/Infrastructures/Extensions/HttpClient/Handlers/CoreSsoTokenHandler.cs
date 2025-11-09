@@ -42,7 +42,7 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
 
         HttpResponseMessage response = await base.SendAsync(request, cancellationToken);
         string contentString = await response.Content.ReadAsStringAsync(cancellationToken);
-        if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body>"))
+        if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body"))
         {
             request.Headers.Remove("Oauth-2");
             token = await RenewToken(cancellationToken);
@@ -65,7 +65,7 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
 
             response = await base.SendAsync(request, cancellationToken);
 
-            if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body>"))
+            if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body"))
             {
                 _logger.LogDebug(ProjectTranslation.CORE_SSO_AUTHENTICATION_FAILED);
                 throw new Exception("Core SSO Authentication Failed");

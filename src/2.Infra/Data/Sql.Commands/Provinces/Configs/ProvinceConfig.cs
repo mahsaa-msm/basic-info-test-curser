@@ -40,6 +40,5 @@ public sealed class ProvinceConfig : IEntityTypeConfiguration<Province>
         .HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
         .HasForeignKey(p => new { p.TenantId, p.CountryCoreId }) // کلید خارجی ترکیبی
         .OnDelete(DeleteBehavior.NoAction);
-
     }
 }
