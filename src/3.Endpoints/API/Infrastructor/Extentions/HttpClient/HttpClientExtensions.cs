@@ -68,6 +68,31 @@ public static class HttpClientExtensions
         .AddHttpMessageHandler<ExceptionHandler>();
         #endregion
 
+        #region CoreInsurance
+        services.AddHttpClient(ProjectConsts.CORE_INSURANCE_HTTP_CLIENT_NAME, (serviceProvider, httpClient) =>
+        {
+            var coreInsuranceOption = serviceProvider.GetRequiredService<CoreInsuranceOption>();
+            httpClient.BaseAddress = new Uri(coreInsuranceOption.BasePath ?? "");
+        })
+        .ConfigurePrimaryHttpMessageHandler((serviceProvider) =>
+        {
+            var coreInsuranceOption = serviceProvider.GetRequiredService<CoreInsuranceOption>();
+            return coreInsuranceOption.IgnoreSslCheck ?
+            new HttpClientHandler()
+            {
+                ClientCertificateOptions = ClientCertificateOption.Manual,
+                ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
+            }
+            : new HttpClientHandler();
+        })
+        .AddHttpMessageHandler<LoggingHandler>()
+        .AddHttpMessageHandler<CoreSsoTokenHandler>()
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<RetryPolicies>().BasicRetryPolicy)
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<CircuitBreakerPolicies>().BasicCircuitBreakerPolicy)
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<TimeoutPolicies>().DynamicTimeoutPolicy)
+        .AddHttpMessageHandler<ExceptionHandler>();
+        #endregion
+
         return services;
     }
 }

@@ -57,6 +57,7 @@ public sealed class ProjectConsts
     public const string ACL_HTTP_CLIENT_NAME = "ACL";
     public const string CORE_SSO_HTTP_CLIENT_NAME = "CoreSsoApi";
     public const string AGENT_CLIENT_HTTP_CLIENT_NAME = "AgentClient";
+    public const string CORE_INSURANCE_HTTP_CLIENT_NAME = "CoreInsuranceApi";
 
     #endregion
 
@@ -116,6 +117,18 @@ public sealed class ProjectConsts
     }
 
     #endregion
+
+    #endregion
+
+    #region TRANSLATION
+
+    public const byte TRANSLATION_KEY_MIN_LENGTH = 2;
+    public const byte TRANSLATION_KEY_MAX_LENGTH = 200;
+
+    public const byte TRANSLATION_VALUE_MIN_LENGTH = 2;
+    public const byte TRANSLATION_VALUE_MAX_LENGTH = 200;
+
+    public const byte TRANSLATION_CULTURE_LENGTH = 5;
 
     #endregion
 }

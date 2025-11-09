@@ -40,4 +40,12 @@ public class CountryCommandRepository : BaseCommandRepository<Country, MasterDat
     public bool IsCreatedByCore(Country country)
         => _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId) is null;
 
+    public async Task<List<Country>> GetAllAsync()
+        => await _dbContext.Countries.ToListAsync();
+
+    public async Task<List<Country>> GetByTenantId(long tenantId)
+        => await _dbContext.Countries
+            .IgnoreQueryFilters()
+            .Where(c => c.TenantId == tenantId)
+            .ToListAsync();
 }

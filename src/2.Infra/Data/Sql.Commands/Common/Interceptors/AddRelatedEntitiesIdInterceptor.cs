@@ -1,12 +1,9 @@
 ﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using Zamin.Extensions.UsersManagement.Abstractions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 

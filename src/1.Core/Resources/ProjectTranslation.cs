@@ -79,6 +79,11 @@ public sealed class ProjectTranslation
     public const string CORE_API_TOKEN = nameof(CORE_API_TOKEN);
     public const string API_SSO_CORE_TOKEN = nameof(API_SSO_CORE_TOKEN);
 
+    /// <summary>
+    /// واکشی اطلاعات {0} از کور بیمه ناموفق بود
+    /// </summary>
+    public const string FETCH_DATA_FROM_CORE_FAILED = nameof(FETCH_DATA_FROM_CORE_FAILED);
+
     #endregion
 
     #region TENANT
@@ -98,8 +103,18 @@ public sealed class ProjectTranslation
 
     #endregion
 
-    #region TRAVEL_PASSENGER_COUNT_TYPE
-    public const string TRAVEL_PASSENGER_COUNT_TYPE = nameof(TRAVEL_PASSENGER_COUNT_TYPE);
-    public const string TRAVEL_PASSENGER_COUNT_TYPE_ID = nameof(TRAVEL_PASSENGER_COUNT_TYPE_ID);
+    #region TRANSLATION
+
+    public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
+
+    public const string TRANSLATION_KEY = nameof(TRANSLATION_KEY);
+    public const string TRANSLATION_VALUE = nameof(TRANSLATION_VALUE);
+    public const string TRANSLATION_CULTURE = nameof(TRANSLATION_CULTURE);
+
+    #endregion
+
+    #region PROVINCE
+    public const string PROVINCE = nameof(PROVINCE);
+    public const string PROVINCE_ID = nameof(PROVINCE_ID);
     #endregion
 }

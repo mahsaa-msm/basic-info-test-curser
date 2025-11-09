@@ -14,11 +14,11 @@ public sealed class ChangeCountriesActivationValidator : AbstractValidator<Chang
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.COUNTRY_ID])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
 
-            .GreaterThan(ProjectConsts.ID_MIN_VALUE)
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_VALUE_GRATER_THAN,
+            .GreaterThanOrEqualTo(ProjectConsts.ID_MIN_VALUE)
+            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_DATE_GREATER_THAN_OR_EQUAL,
                                     ProjectTranslation.COUNTRY_ID,
                                     ProjectConsts.ID_MIN_VALUE.ToString()])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_GRATER_THAN);
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_GRATER_OR_EQUAL_THAN);
         #endregion
     }
 }
