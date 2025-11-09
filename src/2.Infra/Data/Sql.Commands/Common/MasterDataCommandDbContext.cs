@@ -1,4 +1,5 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
+﻿using Master.Data.Core.Domain.Cities.Entities;
+using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Core.Domain.Provinces.Entities;
@@ -21,6 +22,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<Country> Countries { get; set; } = null!;
     public DbSet<ParrotTranslation> ParrotTranslations { get; set; } = null!;
     public DbSet<Province> Provinces { get; set; } = null!;
+    public DbSet<City> Cities { get; set; } = null!;
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)
         : base(options)

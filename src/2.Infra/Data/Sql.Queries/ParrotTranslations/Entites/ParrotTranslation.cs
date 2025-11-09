@@ -1,6 +1,6 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 
-namespace Agent.Management.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+namespace Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 
 public sealed class ParrotTranslation : BaseTenantEntity
 {

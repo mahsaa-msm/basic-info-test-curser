@@ -16,7 +16,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Commands.Fetch;
+namespace Master.Data.Core.ApplicationService.Provinces.Commands.Fetch;
 public sealed class FetchMultiTenantProvincesFromSourceHandler : CommandHandler<FetchMultiTenantProvincesFromSourceCommand>
 {
     private readonly IProvinceCommandRepository _provinceCommandRepository;

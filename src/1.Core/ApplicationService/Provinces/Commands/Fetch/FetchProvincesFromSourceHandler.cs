@@ -14,7 +14,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Commands.Fetch;
+namespace Master.Data.Core.ApplicationService.Provinces.Commands.Fetch;
 public sealed class FetchProvincesFromSourceHandler : CommandHandler<FetchProvincesFromSourceCommand>
 {
     private readonly IProvinceCommandRepository _provinceCommandRepository;
@@ -71,12 +71,12 @@ public sealed class FetchProvincesFromSourceHandler : CommandHandler<FetchProvin
             }
             else
             {
-                if (province.Title != Title.FromString(coreProvince.naamOstan) || 
+                if (province.Title != Title.FromString(coreProvince.naamOstan) ||
                     province.CountryCoreId != CoreId.FromLong(coreProvince.keshvarID))
                     province.Update(new UpdateProvinceParameter(coreProvince.naamOstan,
                                                                 province.DisplayTitle,
-                                                                !string.IsNullOrEmpty(coreProvince.codeOstan) ? 
-                                                                    coreProvince.codeOstan : 
+                                                                !string.IsNullOrEmpty(coreProvince.codeOstan) ?
+                                                                    coreProvince.codeOstan :
                                                                     _finglishConverter.Convert(coreProvince.naamOstan),
                                                                 province.Priority,
                                                                 coreProvince.keshvarID));
