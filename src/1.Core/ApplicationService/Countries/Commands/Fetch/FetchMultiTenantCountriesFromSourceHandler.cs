@@ -56,11 +56,11 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
 
         var tenants = await _tenantQueryRepository.ExecuteAsync(new GetAllTenantsSelectItemQuery());
 
+        long nextPriority = await _commandRepository.GetNextPriority();
+
         foreach (var tenant in tenants)
         {
             var tenantCountries = await _commandRepository.GetByTenantId(tenant.Id);
-
-            long nextPriority = await _commandRepository.GetNextPriority();
 
             foreach (var coreCountry in coreCountriesResponse.Value.content.itemList)
             {
