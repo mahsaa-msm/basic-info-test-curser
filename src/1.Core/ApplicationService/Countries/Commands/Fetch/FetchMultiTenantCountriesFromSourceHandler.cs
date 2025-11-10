@@ -22,14 +22,14 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
     private readonly ICountryCommandRepository _commandRepository;
     private readonly ITenantQueryRepository _tenantQueryRepository;
     private readonly ICoreInsuranceGetAllCountriesCaller _coreInsuranceGetAllCountriesCaller;
-    private readonly ILogger<FetchCountriesFromSourceHandler> _logger;
+    private readonly ILogger<FetchMultiTenantCountriesFromSourceHandler> _logger;
     private readonly IFinglishConverter _finglishConverter;
 
     public FetchMultiTenantCountriesFromSourceHandler(ZaminServices zaminServices,
                                            ICountryCommandRepository commandRepository,
                                            ITenantQueryRepository tenantQueryRepository,
                                            ICoreInsuranceGetAllCountriesCaller coreInsuranceGetAllCountriesCaller,
-                                           ILogger<FetchCountriesFromSourceHandler> logger,
+                                           ILogger<FetchMultiTenantCountriesFromSourceHandler> logger,
                                            IFinglishConverter finglishConverter)
         : base(zaminServices)
     {
@@ -56,11 +56,11 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
 
         var tenants = await _tenantQueryRepository.ExecuteAsync(new GetAllTenantsSelectItemQuery());
 
+        long nextPriority = await _commandRepository.GetNextPriority();
+
         foreach (var tenant in tenants)
         {
             var tenantCountries = await _commandRepository.GetByTenantId(tenant.Id);
-
-            long nextPriority = await _commandRepository.GetNextPriority();
 
             foreach (var coreCountry in coreCountriesResponse.Value.content.itemList)
             {

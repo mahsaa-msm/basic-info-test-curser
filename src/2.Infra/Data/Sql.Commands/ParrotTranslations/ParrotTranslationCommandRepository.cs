@@ -3,7 +3,7 @@ using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Zamin.Infra.Data.Sql.Commands;
 
-namespace Agent.Management.Infra.Data.Sql.Commands.ParrotTranslations;
+namespace Master.Data.Infra.Data.Sql.Commands.ParrotTranslations;
 
 public sealed class ParrotTranslationCommandRepository : BaseCommandRepository<ParrotTranslation, MasterDataCommandDbContext, long>,
     IParrotTranslationCommandRepository

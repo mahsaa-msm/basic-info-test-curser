@@ -117,4 +117,9 @@ public sealed class ProjectTranslation
     public const string PROVINCE = nameof(PROVINCE);
     public const string PROVINCE_ID = nameof(PROVINCE_ID);
     #endregion
+
+    #region CITY
+    public const string CITY = nameof(CITY);
+    public const string CITY_ID = nameof(CITY_ID);
+    #endregion
 }

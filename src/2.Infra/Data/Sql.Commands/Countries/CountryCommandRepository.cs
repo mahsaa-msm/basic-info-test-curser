@@ -8,7 +8,7 @@ using Zamin.Infra.Data.Sql.Commands.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Countries;
 
-public class CountryCommandRepository : BaseCommandRepository<Country, MasterDataCommandDbContext, long>,
+public sealed class CountryCommandRepository : BaseCommandRepository<Country, MasterDataCommandDbContext, long>,
     ICountryCommandRepository
 {
     public CountryCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)

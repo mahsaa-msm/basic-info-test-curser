@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 
-namespace Agent.Management.Infra.Data.Sql.Queries.ParrotTranslations;
+namespace Master.Data.Infra.Data.Sql.Queries.ParrotTranslations;
 
 public sealed class ParrotTranslationQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>, IParrotTranslationQueryRepository
 {

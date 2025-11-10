@@ -3,11 +3,10 @@ using Master.Data.Core.RequestResponse.Countries.Commands.Create;
 using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
 using Master.Data.Core.RequestResponse.Countries.Commands.Fetch;
 using Master.Data.Core.RequestResponse.Countries.Commands.Update;
+using Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
-using Master.Data.Endpoints.API.Features.Countries.Queries.GetActiveCountries;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -42,6 +41,10 @@ public class CountryController : BaseController
     #endregion
 
     #region Queries
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllCountries([FromQuery] GetAllCountryQuery query)
+    => await Query<GetAllCountryQuery, List<CountrySelectItemQr>>(query);
+
     [HttpGet("[action]")]
     public async Task<IActionResult> GetCountryById([FromQuery] GetCountryByIdQuery query)
         => await Query<GetCountryByIdQuery, CountryQr>(query);

@@ -3,7 +3,7 @@ using Master.Data.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Agent.Management.Infra.Data.Sql.Commands.ParrotTranslations.Configs;
+namespace Master.Data.Infra.Data.Sql.Commands.ParrotTranslations.Configs;
 
 public sealed class ParrotTranslationConfig : IEntityTypeConfiguration<ParrotTranslation>
 {

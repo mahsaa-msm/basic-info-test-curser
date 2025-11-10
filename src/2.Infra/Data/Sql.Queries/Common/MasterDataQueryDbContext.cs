@@ -1,6 +1,8 @@
-﻿using Agent.Management.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+﻿using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
+using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -17,6 +19,8 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<ParrotTranslation> ParrotTranslations { get; set; }
+    public DbSet<Province> Provinces { get; set; }
+    public DbSet<City> Cities { get; set; }
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
         : base(options)
