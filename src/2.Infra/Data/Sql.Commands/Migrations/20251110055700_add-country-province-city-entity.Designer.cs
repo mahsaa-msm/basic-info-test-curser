@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     [DbContext(typeof(MasterDataCommandDbContext))]
-    [Migration("20251109062512_add-province-entity")]
-    partial class addprovinceentity
+    [Migration("20251110055700_add-country-province-city-entity")]
+    partial class addcountryprovincecityentity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,88 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Master.Data.Core.Domain.Cities.Entities.City", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<Guid>("BusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CoreId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DisplayTitle")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Priority")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ProvinceCoreId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid?>("TenantBusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId")
+                        .IsUnique();
+
+                    b.HasIndex("CoreId");
+
+                    b.HasIndex("ProvinceCoreId");
+
+                    b.HasIndex("TenantId", "CoreId")
+                        .IsUnique();
+
+                    b.HasIndex("TenantId", "ProvinceCoreId");
+
+                    b.ToTable("Cities");
+                });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Countries.Entities.Country", b =>
                 {
@@ -427,6 +509,16 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasKey("OutBoxEventItemId");
 
                     b.ToTable("OutBoxEventItems", "zamin");
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.Cities.Entities.City", b =>
+                {
+                    b.HasOne("Master.Data.Core.Domain.Provinces.Entities.Province", null)
+                        .WithMany()
+                        .HasForeignKey("TenantId", "ProvinceCoreId")
+                        .HasPrincipalKey("TenantId", "CoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Provinces.Entities.Province", b =>
