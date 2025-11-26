@@ -21,7 +21,8 @@ public static class DbContextExtensions
         //CommandDbContext
         services.AddDbContextFactory<MasterDataCommandDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
+            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"),
+                                 x => x.UseNetTopologySuite())
                 //.LogTo(Console.WriteLine, LogLevel.Information)
                 .AddInterceptors(new SetPersianYeKeInterceptor(),
                                  new AddAuditDataInterceptor(),
@@ -40,7 +41,8 @@ public static class DbContextExtensions
         //QueryDbContext
         services.AddDbContextFactory<MasterDataQueryDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"),
+                                 x => x.UseNetTopologySuite());
             //.LogTo(Console.WriteLine, LogLevel.Information);
             options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
         });

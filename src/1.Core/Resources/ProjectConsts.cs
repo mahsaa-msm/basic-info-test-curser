@@ -131,4 +131,36 @@ public sealed class ProjectConsts
     public const byte TRANSLATION_CULTURE_LENGTH = 5;
 
     #endregion
+
+    #region INSURANCE_UNIT
+    public const Int16 LATITUDE_MIN_VALUE = -90;
+    public const Int16 LATITUDE_MAX_VALUE = 90;
+    public const Int16 LONGITUDE_MIN_VALUE = -180;
+    public const Int16 LONGITUDE_MAX_VALUE = 180;
+
+    public enum DistanceUnit
+    {
+        Kilometers,
+        Meters,
+        Miles
+    }
+
+    public enum InsuranceUnitType
+    {
+        [Description(ProjectTranslation.BRANCH)] Branch = 0, // شعبه
+        [Description(ProjectTranslation.HEADQUARTERS)] Headquarters = 1, // ستاد
+        [Description(ProjectTranslation.BROKER)] Broker = 2, // کارگزار
+        [Description(ProjectTranslation.REPRENSENTATION)] Representation = 3, // نمایندگی
+        [Description(ProjectTranslation.MARKETER)] Marketer = 4, // بازاریاب
+        [Description(ProjectTranslation.AUXILIARY_MARKETER)] AuxiliaryMarketer = 5, // بازاریاب کمکی
+        [Description(ProjectTranslation.MARKETING_OFFICE)] MarketingOffice = 7, // دفتر بازاریابی
+    }
+
+    public enum InsuranceUnitState
+    {
+        [Description(ProjectTranslation.ACTIVE)] Active = 0, // فعال
+        [Description(ProjectTranslation.SUSPEND)] Suspend = 1, // تعلیق
+        [Description(ProjectTranslation.EXPIRE)] Expire = 2, // اتمام
+    }
+    #endregion
 }

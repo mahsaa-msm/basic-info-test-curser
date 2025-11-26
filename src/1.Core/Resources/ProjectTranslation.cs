@@ -32,6 +32,9 @@ public sealed class ProjectTranslation
     public const string ENGINEERING_INSURANCE = nameof(ENGINEERING_INSURANCE);
     public const string RESPONSIBILITY_INSURANCE = nameof(RESPONSIBILITY_INSURANCE);
     public const string EMPLOYER_RESPONSIBILITY_INSURANCE = nameof(EMPLOYER_RESPONSIBILITY_INSURANCE);
+    public const string ACTIVE = nameof(ACTIVE);
+    public const string SUSPEND = nameof(SUSPEND);
+    public const string EXPIRE = nameof(EXPIRE);
 
     #region APPLICATION_ERROR
     /// <summary>
@@ -121,5 +124,21 @@ public sealed class ProjectTranslation
     #region CITY
     public const string CITY = nameof(CITY);
     public const string CITY_ID = nameof(CITY_ID);
+    #endregion
+
+    #region INSURANCE_UNIT
+    public const string INSURANCE_UNIT = nameof(INSURANCE_UNIT);
+    public const string INSURANCE_UNIT_ID = nameof(INSURANCE_UNIT_ID);
+    public const string LATITUDE = nameof(LATITUDE);
+    public const string LONGITUDE = nameof(LONGITUDE);
+    public const string BRANCH = nameof(BRANCH);
+    public const string HEADQUARTERS = nameof(HEADQUARTERS);
+    public const string BROKER = nameof(BROKER);
+    public const string REPRENSENTATION = nameof(REPRENSENTATION);
+    public const string MARKETER = nameof(MARKETER);
+    public const string AUXILIARY_MARKETER = nameof(AUXILIARY_MARKETER);
+    public const string MARKETING_OFFICE = nameof(MARKETING_OFFICE);
+    public const string INSURANCE_UNIT_TYPE = nameof(INSURANCE_UNIT_TYPE);
+    public const string INSURANCE_UNIT_STATE = nameof(INSURANCE_UNIT_STATE);
     #endregion
 }

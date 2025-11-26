@@ -39,7 +39,11 @@ public sealed class ProvinceCommandRepository : BaseCommandRepository<Province, 
         => await _dbContext.Provinces.FirstOrDefaultAsync(c => c.CoreId == coreId);
 
     public bool IsCreatedByCore(Province province)
-        => _dbContext.GetShadowPropertyValue(province, AuditableShadowProperties.CreatedByUserId) is null;
+    {
+        var createdByUserIdObject = _dbContext.GetShadowPropertyValue(province, AuditableShadowProperties.CreatedByUserId);
+        var canParse = long.TryParse((string?)createdByUserIdObject, out long createdByUserId);
+        return createdByUserIdObject is null || !canParse || createdByUserId < 1;
+    }
 
     public async Task<List<Province>> GetAllAsync()
         => await _dbContext.Provinces.ToListAsync();

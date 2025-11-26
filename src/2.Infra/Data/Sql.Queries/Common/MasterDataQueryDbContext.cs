@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
+using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
@@ -21,6 +22,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     public DbSet<ParrotTranslation> ParrotTranslations { get; set; }
     public DbSet<Province> Provinces { get; set; }
     public DbSet<City> Cities { get; set; }
+    public DbSet<InsuranceUnit> InsuranceUnits { get; set; }
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
         : base(options)

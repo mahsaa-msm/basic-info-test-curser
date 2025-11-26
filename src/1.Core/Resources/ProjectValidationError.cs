@@ -98,4 +98,10 @@ public sealed class ProjectValidationError
     public const string INVALID_DATA = nameof(INVALID_DATA);
 
     #endregion
+
+    #region GeoLocation
+    public const string VALIDATION_ERROR_BOTH_LATITUDE_LONGITUDE_MUST_EXIST = nameof(VALIDATION_ERROR_BOTH_LATITUDE_LONGITUDE_MUST_EXIST);
+    public const string VALIDATION_ERROR_BOTH_OR_ANY_LATITUDE_LONGITUDE_MUST_EXIST = nameof(VALIDATION_ERROR_BOTH_OR_ANY_LATITUDE_LONGITUDE_MUST_EXIST);
+
+    #endregion
 }
