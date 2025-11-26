@@ -2,6 +2,7 @@
 using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Delete;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Update;
+using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
@@ -38,6 +39,10 @@ public sealed class InsuranceUnitController : BaseController
     [HttpGet("[action]")]
     public async Task<IActionResult> GetInsuranceUnitById([FromQuery] GetInsuranceUnitByIdQuery query)
         => await Query<GetInsuranceUnitByIdQuery, InsuranceUnitQr>(query);
+
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllInsuranceUnitInArea([FromQuery] GetAllInsuranceUnitsInAreaQuery query)
+    => await Query<GetAllInsuranceUnitsInAreaQuery, List<InsuranceUnitMapItemQr>>(query);
 
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAllInsuranceUnitsPagedFilter([FromQuery] GetAllInsuranceUnitsPagedFilterQuery query)

@@ -1,7 +1,9 @@
 ﻿using Master.Data.Core.Contracts.InsuranceUnits.Queries;
+using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
 using Master.Data.Infra.Data.Sql.Queries.Common;
+using Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
@@ -115,4 +117,56 @@ public sealed class InsuranceUnitQueryRepository : BaseQueryRepository<MasterDat
 
                 })
                 .FirstOrDefaultAsync();
+
+    public async Task<List<InsuranceUnitMapItemQr>> Execute(GetAllInsuranceUnitsInAreaQuery query)
+    {
+        var filter = _dbContext.InsuranceUnits
+            .Include(u => u.City)
+            .AsQueryable();
+
+        if (query.Area is not null && query.Area.IsValid())
+        {
+            var boundingBox = SpatialExtensions.CreateBoundingBox(query.Area.MinLongitude,
+                                                                  query.Area.MinLatitude,
+                                                                  query.Area.MaxLongitude,
+                                                                  query.Area.MaxLatitude);
+
+            filter = filter.Where(u => u.Location != null && u.Location.Within(boundingBox));
+        }
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.ProvinceCoreId),
+                                u => u.City.ProvinceCoreId == query.ProvinceCoreId);
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.CityCoreId),
+                                u => u.CityCoreId == query.CityCoreId);
+
+        filter = filter.WhereIf(query.Type.HasValue,
+                                u => u.Type == query.Type!.Value);
+
+        if (!string.IsNullOrEmpty(query.SearchInput))
+        {
+            var searchTerm = query.SearchInput.Trim();
+            filter = filter.Where(u =>
+                u.Title.Contains(searchTerm) ||
+                u.Code.Contains(searchTerm) ||
+                u.Name.Contains(searchTerm));
+        }
+
+        return await filter.OrderBy(u => u.Priority)
+            .ThenBy(u => u.Title)
+            .Take(query.MaxResults)
+            .Select(u => new InsuranceUnitMapItemQr
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Title = u.Title,
+                DisplayTitle = u.DisplayTitle,
+                Latitude = u.Location!.Y,
+                Longitude = u.Location!.X,
+                Type = u.Type,
+                CityTitle = u.City.DisplayTitle,
+                CityCoreId = u.CityCoreId,
+            })
+            .ToListAsync();
+    }
 }

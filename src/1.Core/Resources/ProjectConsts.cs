@@ -137,6 +137,10 @@ public sealed class ProjectConsts
     public const Int16 LATITUDE_MAX_VALUE = 90;
     public const Int16 LONGITUDE_MIN_VALUE = -180;
     public const Int16 LONGITUDE_MAX_VALUE = 180;
+    public const double MAX_LATITUDE_DIFFERENCE = 10.0;
+    public const double MAX_LONGITUDE_DIFFERENCE = 10.0;
+    public const int SEARCH_INPUT_MAX_LENGTH = 100;
+    public const string SEARCH_INPUT_PATTERN = @"^[\p{L}\p{N}\s\-_.]+$";
 
     public enum DistanceUnit
     {

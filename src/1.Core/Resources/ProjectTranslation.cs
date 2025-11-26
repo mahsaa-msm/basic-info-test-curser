@@ -14,6 +14,8 @@ public sealed class ProjectTranslation
     public const string TITLE = nameof(TITLE);
     public const string DISPLAY_TITLE = nameof(DISPLAY_TITLE);
     public const string UPDATE_DONE = nameof(UPDATE_DONE);
+    public const string FILTER = nameof(FILTER);
+    public const string SEARCH_INPUT = nameof(SEARCH_INPUT);
 
 
     public const string FIRST_NAME = nameof(FIRST_NAME);
