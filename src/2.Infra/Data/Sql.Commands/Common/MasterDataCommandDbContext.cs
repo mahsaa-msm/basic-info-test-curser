@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Domain.Cities.Entities;
 using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
+using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Core.Domain.Provinces.Entities;
 using Master.Data.Core.Domain.Tenants.Entities;
@@ -8,7 +9,6 @@ using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Zamin.Extensions.Events.Outbox.Dal.EF;
-using Zamin.Infra.Data.Sql.Commands;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common;
 
@@ -23,6 +23,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<ParrotTranslation> ParrotTranslations { get; set; } = null!;
     public DbSet<Province> Provinces { get; set; } = null!;
     public DbSet<City> Cities { get; set; } = null!;
+    public DbSet<InsuranceUnit> InsuranceUnits { get; set; } = null!;
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)
         : base(options)

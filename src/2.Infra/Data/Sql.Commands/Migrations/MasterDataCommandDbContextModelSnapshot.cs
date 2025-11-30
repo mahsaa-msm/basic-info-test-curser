@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using NetTopologySuite.Geometries;
 
 #nullable disable
 
@@ -17,7 +18,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -173,6 +174,107 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                         .IsUnique();
 
                     b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.InsuranceUnits.Entities.InsuranceUnit", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<Guid>("BusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CityCoreId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CoreId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CreatedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DisplayTitle")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Point>("Location")
+                        .HasColumnType("geometry")
+                        .HasColumnName("Location");
+
+                    b.Property<string>("ModifiedByUserId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<long>("Priority")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("TenantBusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId")
+                        .IsUnique();
+
+                    b.HasIndex("CityCoreId");
+
+                    b.HasIndex("CoreId");
+
+                    b.HasIndex("Location")
+                        .HasDatabaseName("IX_InsuranceUnits_Location_Spatial")
+                        .HasAnnotation("SqlServer:IndexType", "SPATIAL");
+
+                    b.HasIndex("TenantId", "CityCoreId");
+
+                    b.HasIndex("TenantId", "CoreId")
+                        .IsUnique();
+
+                    b.ToTable("InsuranceUnits");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.ParrotTranslations.Entities.ParrotTranslation", b =>
@@ -513,6 +615,16 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasOne("Master.Data.Core.Domain.Provinces.Entities.Province", null)
                         .WithMany()
                         .HasForeignKey("TenantId", "ProvinceCoreId")
+                        .HasPrincipalKey("TenantId", "CoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.InsuranceUnits.Entities.InsuranceUnit", b =>
+                {
+                    b.HasOne("Master.Data.Core.Domain.Cities.Entities.City", null)
+                        .WithMany()
+                        .HasForeignKey("TenantId", "CityCoreId")
                         .HasPrincipalKey("TenantId", "CoreId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();

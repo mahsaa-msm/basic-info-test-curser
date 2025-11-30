@@ -38,7 +38,11 @@ public sealed class CountryCommandRepository : BaseCommandRepository<Country, Ma
         => await _dbContext.Countries.FirstOrDefaultAsync(c => c.CoreId == coreId);
 
     public bool IsCreatedByCore(Country country)
-        => _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId) is null;
+    {
+        var createdByUserIdObject = _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId);
+        var canParse = long.TryParse((string?)createdByUserIdObject, out long createdByUserId);
+        return createdByUserIdObject is null || !canParse || createdByUserId < 1;
+    }
 
     public async Task<List<Country>> GetAllAsync()
         => await _dbContext.Countries.ToListAsync();

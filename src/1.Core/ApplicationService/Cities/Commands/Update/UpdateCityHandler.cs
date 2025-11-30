@@ -46,7 +46,7 @@ public class UpdateCityHandler : CommandHandler<UpdateCityCommand>
 
         await CheckPriority(command);
 
-        await MoveCitysIfNeeded(city, command);
+        await MoveCitiesIfNeeded(city, command);
 
         city.Update(command.ToParameter());
 
@@ -62,7 +62,7 @@ public class UpdateCityHandler : CommandHandler<UpdateCityCommand>
         if (command.Priority > nextPriority - 1)
             command.Priority = nextPriority - 1;
     }
-    private async Task MoveCitysIfNeeded(City current, UpdateCityCommand command)
+    private async Task MoveCitiesIfNeeded(City current, UpdateCityCommand command)
     {
         var moveDirection = current.GetMoveDirection(command.Priority);
         if (moveDirection != MoveDirection.NoChange)

@@ -36,7 +36,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
         Console.WriteLine($"Using connection string: {connectionString}");
 
         var optionsBuilder = new DbContextOptionsBuilder<MasterDataCommandDbContext>();
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseSqlServer(connectionString, x => x.UseNetTopologySuite());
 
         return new MasterDataCommandDbContext(optionsBuilder.Options);
     }

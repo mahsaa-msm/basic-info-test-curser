@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Cities.Commands;
 using Master.Data.Core.Domain.Cities.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
+using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
@@ -38,7 +39,11 @@ public sealed class CityCommandRepository : BaseCommandRepository<City, MasterDa
         => await _dbContext.Cities.FirstOrDefaultAsync(c => c.CoreId == coreId);
 
     public bool IsCreatedByCore(City city)
-        => _dbContext.GetShadowPropertyValue(city, AuditableShadowProperties.CreatedByUserId) is null;
+    {
+        var createdByUserIdObject = _dbContext.GetShadowPropertyValue(city, AuditableShadowProperties.CreatedByUserId);
+        var canParse = long.TryParse((string?)createdByUserIdObject, out long createdByUserId);
+        return createdByUserIdObject is null || !canParse || createdByUserId < 1;
+    }
 
     public async Task<List<City>> GetAllAsync()
         => await _dbContext.Cities.ToListAsync();
