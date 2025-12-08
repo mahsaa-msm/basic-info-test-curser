@@ -3,6 +3,7 @@ using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+using Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -13,22 +14,28 @@ namespace Master.Data.Infra.Data.Sql.Queries.Common;
 
 public class MasterDataQueryDbContext : BaseQueryDbContext
 {
+    #region Properties
     public long? TenantId { get; set; }
     public Guid? TenantKey { get; set; }
+    #endregion
 
 
+    #region Entities
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<ParrotTranslation> ParrotTranslations { get; set; }
     public DbSet<Province> Provinces { get; set; }
     public DbSet<City> Cities { get; set; }
     public DbSet<InsuranceUnit> InsuranceUnits { get; set; }
+    public DbSet<PatternCatalog> PatternCatalogs { get; set; }
+    #endregion
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
         : base(options)
     {
     }
 
+    #region Methods
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -63,4 +70,5 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
                     EF.Property<Guid?>(e, nameof(BaseTenantEntity.TenantBusinessId)) == null ||
                     EF.Property<Guid?>(e, nameof(BaseTenantEntity.TenantBusinessId)) == TenantKey);
     }
+    #endregion
 }

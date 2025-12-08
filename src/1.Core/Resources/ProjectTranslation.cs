@@ -143,4 +143,12 @@ public sealed class ProjectTranslation
     public const string INSURANCE_UNIT_TYPE = nameof(INSURANCE_UNIT_TYPE);
     public const string INSURANCE_UNIT_STATE = nameof(INSURANCE_UNIT_STATE);
     #endregion
+
+    #region PatternCatalog
+    public const string PATTERN_CATALOG = nameof(PATTERN_CATALOG);
+    public const string PATTERN_CATALOG_ID = nameof(PATTERN_CATALOG_ID);
+    public const string PATTERN_KEY = nameof(PATTERN_KEY);
+    public const string REGEX_EXPRESSION = nameof(REGEX_EXPRESSION);
+
+    #endregion
 }
