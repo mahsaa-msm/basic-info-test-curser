@@ -172,7 +172,7 @@ public sealed class ProjectConsts
     public const string PATTERN_KEY_PATTERN = @"^[a-z0-9\-_]{{{0},{1}}}$";
     public const int PATTERN_KEY_MIN_LENGTH = 3;
     public const int PATTERN_KEY_MAX_LENGTH = 50;
-    public const int PATTERN_MAX_LENGTH = 250;
+    public const int PATTERN_MAX_LENGTH = 500;
 
     #endregion
 }

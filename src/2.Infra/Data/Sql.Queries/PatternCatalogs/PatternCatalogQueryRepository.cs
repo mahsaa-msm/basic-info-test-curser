@@ -5,6 +5,7 @@ using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetById;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Web;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
@@ -35,8 +36,8 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
         return await filter.ToPagedData(query, c => new PatternCatalogQr
         {
             Key = c.Key,
-            Pattern = c.Pattern,
-            Description = c.Description,
+            EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+            EncodedDescription = HttpUtility.UrlEncode(c.Description),
             CreatedDateUtc = c.CreatedDateUtc,
             LastModifiedDateUtc = c.LastModifiedDateUtc,
             IsActive = c.IsActive,
@@ -50,8 +51,8 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
                 .Select(c => new PatternCatalogQr
                 {
                     Key = c.Key,
-                    Pattern = c.Pattern,
-                    Description = c.Description,
+                    EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+                    EncodedDescription = HttpUtility.UrlEncode(c.Description),
                     CreatedDateUtc = c.CreatedDateUtc,
                     LastModifiedDateUtc = c.LastModifiedDateUtc,
                     IsActive = c.IsActive,
@@ -65,8 +66,8 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
             .Select(c => new PatternCatalogQr
             {
                 Key = c.Key,
-                Pattern = c.Pattern,
-                Description = c.Description,
+                EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+                EncodedDescription = HttpUtility.UrlEncode(c.Description),
                 CreatedDateUtc = c.CreatedDateUtc,
                 LastModifiedDateUtc = c.LastModifiedDateUtc,
                 IsActive = c.IsActive,

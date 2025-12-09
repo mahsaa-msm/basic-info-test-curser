@@ -2,9 +2,9 @@
 
 public sealed class PatternCatalogQr
 {
-    public string Key { get; set; }
-    public string Pattern { get; set; }
-    public string? Description { get; set; }
+    public string Key { get; set; } = string.Empty;
+    public string EncodedPattern { get; set; } = string.Empty;
+    public string? EncodedDescription { get; set; }
     public DateTime CreatedDateUtc { get; set; }
     public DateTime? LastModifiedDateUtc { get; set; }
     public long Priority { get; set; }
