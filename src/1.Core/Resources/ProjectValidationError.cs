@@ -6,6 +6,8 @@ public sealed class ProjectValidationError
     //مقدار {0} اجباری می باشد
     public const string VALIDATION_ERROR_REQUIRED = nameof(VALIDATION_ERROR_REQUIRED);
 
+    public const string NO_NEW_INFORMATION_WAS_FOUND_TO_UPDATE = nameof(NO_NEW_INFORMATION_WAS_FOUND_TO_UPDATE);
+
     public const string VALIDATION_ERROR_NOT_EXIST = nameof(VALIDATION_ERROR_NOT_EXIST);
 
     public const string VALIDATION_ERROR_NOT_EXIST_ANY = nameof(VALIDATION_ERROR_NOT_EXIST_ANY);
@@ -18,10 +20,22 @@ public sealed class ProjectValidationError
 
     public const string VALIDATION_ERROR_FORMAT = nameof(VALIDATION_ERROR_FORMAT);
 
+    public const string VALIDATION_ERROR_VALUE_GRATER_THAN = nameof(VALIDATION_ERROR_VALUE_GRATER_THAN);
     //حذف {0} استفاده شده امکان پذیر نمی باشد
     public const string VALIDATION_ERROR_NOT_POSSIBLE_TO_DELETE_USED_ITEM = nameof(VALIDATION_ERROR_NOT_POSSIBLE_TO_DELETE_USED_ITEM);
 
     public const string VALIDATION_ERROR_CHANGE_STATUS = nameof(VALIDATION_ERROR_CHANGE_STATUS);
+
+    /// <summary>
+    /// مقدار {0} حذف نشده و نمیتوان آن را بازیابی کرد
+    /// </summary>
+    public const string VALIDATION_ERROR_CAN_NOT_RESTORE_NOT_DELETED = nameof(VALIDATION_ERROR_CAN_NOT_RESTORE_NOT_DELETED);
+    #endregion
+
+    #region Core
+
+    public const string ERROR_IN_GET_TOKEN = nameof(ERROR_IN_GET_TOKEN);
+    public const string ERROR_IN_GET_DATA_FROM_CORE_INSURANCE_API = nameof(ERROR_IN_GET_DATA_FROM_CORE_INSURANCE_API);
     #endregion
 
     #region Number

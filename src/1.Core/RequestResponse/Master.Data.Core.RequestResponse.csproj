@@ -8,10 +8,12 @@
 
 		<ItemGroup>
 				<PackageReference Include="Zamin.Core.RequestResponse" Version="8.0.0" />
+				<PackageReference Include="Zamin.Extensions.Serializers.NewtonSoft" Version="8.0.0" />
 				<PackageReference Include="Zamin.Extensions.Translations.Abstractions" Version="8.0.0" />
 		</ItemGroup>
 
 		<ItemGroup>
+		  <ProjectReference Include="..\Domain\Master.Data.Core.Domain.csproj" />
 		  <ProjectReference Include="..\Resources\Master.Data.Core.Resources.csproj" />
 		</ItemGroup>
 

@@ -1,16 +1,16 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM nexus3.dotin.ir:7070/custome-images/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM nexus3.dotin.ir:7070/custome-images/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 COPY . .
 COPY ["NuGet.Config", "."]
-RUN dotnet restore "src/3.Endpoints/Master.Data.Endpoints.API/Master.Data.Endpoints.API.csproj" --verbosity normal
+RUN dotnet restore "src/3.Endpoints/API/Master.Data.Endpoints.API.csproj" --verbosity normal
 COPY . .
-WORKDIR "/src/src/3.Endpoints/Master.Data.Endpoints.API"
+WORKDIR "/src/src/3.Endpoints/API"
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
