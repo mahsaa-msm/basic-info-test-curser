@@ -6,13 +6,13 @@ using Zamin.Extensions.Caching.Abstractions;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
 
-public sealed class SsoTokenHandler : DelegatingHandler
+public sealed class CoreTokenHandler : DelegatingHandler
 {
-    private readonly ILogger<SsoTokenHandler> _logger;
+    private readonly ILogger<CoreTokenHandler> _logger;
     private readonly ICacheAdapter _cacheAdapter;
     private readonly ICoreSsoGetTokenCaller _coreSsoGetTokenCaller;
 
-    public SsoTokenHandler(ILogger<SsoTokenHandler> logger,
+    public CoreTokenHandler(ILogger<CoreTokenHandler> logger,
                                ICacheAdapter cacheAdapter,
                                ICoreSsoGetTokenCaller coreSsoGetTokenCaller)
     {
@@ -28,6 +28,18 @@ public sealed class SsoTokenHandler : DelegatingHandler
         if (!string.IsNullOrEmpty(token))
             request.Headers.Add("Oauth-2", token);
 
+        // اگر هدر Cookie از قبل وجود دارد، توکن را به آن اضافه کنید
+        if (request.Headers.Contains("Cookie"))
+        {
+            var existingCookies = request.Headers.GetValues("Cookie").First();
+            request.Headers.Remove("Cookie");
+            request.Headers.Add("Cookie", $"{existingCookies}; TOKEN={token}");
+        }
+        else
+        {
+            request.Headers.Add("Cookie", $"TOKEN={token}");
+        }
+
         HttpResponseMessage response = await base.SendAsync(request, cancellationToken);
         string contentString = await response.Content.ReadAsStringAsync(cancellationToken);
         if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body>"))
@@ -35,7 +47,21 @@ public sealed class SsoTokenHandler : DelegatingHandler
             request.Headers.Remove("Oauth-2");
             token = await RenewToken(cancellationToken);
             if (!string.IsNullOrEmpty(token))
+            {
                 request.Headers.Add("Oauth-2", token);
+
+                // اگر هدر Cookie از قبل وجود دارد، توکن را به آن اضافه کنید
+                if (request.Headers.Contains("Cookie"))
+                {
+                    var existingCookies = request.Headers.GetValues("Cookie").First();
+                    request.Headers.Remove("Cookie");
+                    request.Headers.Add("Cookie", $"{existingCookies}; TOKEN={token}");
+                }
+                else
+                {
+                    request.Headers.Add("Cookie", $"TOKEN={token}");
+                }
+            }
 
             response = await base.SendAsync(request, cancellationToken);
 
@@ -62,11 +88,12 @@ public sealed class SsoTokenHandler : DelegatingHandler
             tokenResponse.IsSuccess &&
             tokenResponse.Value.AccessToken is not null)
         {
-            _cacheAdapter.Add(
-          key: ProjectConsts.CORE_SSO_TOKEN_CACHE_KEY,
-          obj: tokenResponse.Value.AccessToken,
-          AbsoluteExpiration: DateTime.UtcNow.AddSeconds(tokenResponse.Value.ExpiresIn),
-          SlidingExpiration: null);
+            _cacheAdapter.Add(key: ProjectConsts.CORE_SSO_TOKEN_CACHE_KEY,
+                              obj: tokenResponse.Value.AccessToken,
+                              AbsoluteExpiration: (tokenResponse.Value.IssuedAt.HasValue
+                                    ? DateTimeOffset.FromUnixTimeSeconds(tokenResponse.Value.IssuedAt.Value).UtcDateTime
+                                    : DateTime.UtcNow).AddSeconds(tokenResponse.Value.ExpiresIn),
+                              SlidingExpiration: null);
 
             return tokenResponse.Value.AccessToken;
         }
