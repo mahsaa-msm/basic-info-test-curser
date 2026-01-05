@@ -26,6 +26,7 @@ public static class HttpClientExtensions
         // میتوانیم یک http client دیگر بدون این message handler برای آن ها ایجاد کنیم.
         // این برای همه هندلر ها یا حتی polly نیز صدق میکند و در کنار انعطاف، سربار خاصی اعمال نخواهد کرد.
         services.AddTransient<CoreSsoTokenHandler>();
+        services.AddTransient<CoreTokenHandler>();
 
         services.AddSingleton<RetryPolicies>();
         services.AddSingleton<CircuitBreakerPolicies>();
