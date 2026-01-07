@@ -33,6 +33,8 @@ public sealed class ProjectConsts
 
     public const short NATURAL_NUMBER_MIN_VALUE = 1;
 
+    public const string GRPC_CORS_NAME = "gRPC_AllowAll";
+
     public enum MoveDirection
     {
         Up,

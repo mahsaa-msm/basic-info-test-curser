@@ -117,6 +117,8 @@ public static class HostingExtensions
         //Register External Apis
         builder.Services.AddExternalApiServices(builder.Configuration);
 
+        builder.Services.AddProjectGrpc();
+
         builder.Services.AddGrpcClients();
 
         builder.Services.AddSwagger(builder.Configuration, "Swagger");
@@ -124,8 +126,8 @@ public static class HostingExtensions
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IModernUserInfoService, ModernUserInfoService>();
         builder.Services.AddTransient<IUserInfoService, ModernUserInfoService>();
-        builder.Services.AddTransient<ITenantService, TenantService>();
-        builder.Services.AddSingleton<ITenantResolver, TenantResolver>();
+        builder.Services.AddScoped<ITenantResolver, TenantResolver>();
+        builder.Services.AddScoped<ITenantService, TenantService>();
         builder.Services.AddSwaggerGen();
 
         return builder.Build();

@@ -1,6 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
 using Master.Data.Core.Contracts.Common.Options;
+using Microsoft.Extensions.Options;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
@@ -47,5 +48,17 @@ public class ApiKeyInterceptor : Interceptor
         }
 
         return continuation(request, context);
+    }
+}
+
+public static class ApiKeyInterceptorFactory
+{
+    public static ApiKeyInterceptor Create(IServiceProvider provider,
+                                           string serverName)
+    {
+        var grpcOption = provider.GetRequiredService<IOptions<GrpcOption>>().Value;
+        var logger = provider.GetRequiredService<ILogger<ApiKeyInterceptor>>();
+
+        return new ApiKeyInterceptor(grpcOption, logger, serverName);
     }
 }

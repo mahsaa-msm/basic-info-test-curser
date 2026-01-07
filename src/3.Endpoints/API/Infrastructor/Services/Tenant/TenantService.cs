@@ -1,10 +1,12 @@
 ﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
+using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 
 public class TenantService : ITenantService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IGrpcServerCallContextAccessor _grpcContextAccessor;
     private readonly ITenantResolver _tenantResolver;
 
     private long? _currentTenantId;
@@ -13,9 +15,11 @@ public class TenantService : ITenantService
     private readonly object _lock = new();
 
     public TenantService(IHttpContextAccessor httpContextAccessor,
+                         IGrpcServerCallContextAccessor grpcContextAccessor,
                          ITenantResolver tenantResolver)
     {
         _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+        _grpcContextAccessor = grpcContextAccessor ?? throw new ArgumentNullException(nameof(grpcContextAccessor));
         _tenantResolver = tenantResolver ?? throw new ArgumentNullException(nameof(tenantResolver));
     }
 
@@ -49,16 +53,22 @@ public class TenantService : ITenantService
         {
             if (_hasResolved) return;
 
-            var context = _httpContextAccessor.HttpContext;
-            if (context == null)
+            var httpContext = _httpContextAccessor.HttpContext;
+            var grpcContext = _grpcContextAccessor.ServerCallContext;
+            if (httpContext == null && grpcContext == null)
             {
-                _currentTenantId = null;
-                _currentTenantKey = null;
+                _currentTenantId = _tenantResolver.ExtractTenantId();
+                _currentTenantKey = _tenantResolver.ExtractTenantKey();
             }
-            else
+            else if (httpContext != null && grpcContext == null)
             {
-                _currentTenantId = _tenantResolver.ExtractTenantId(context);
-                _currentTenantKey = _tenantResolver.ExtractTenantKey(context);
+                _currentTenantId = _tenantResolver.ExtractTenantIdHttp(httpContext);
+                _currentTenantKey = _tenantResolver.ExtractTenantKeyHttp(httpContext);
+            }
+            else if (httpContext == null && grpcContext != null)
+            {
+                _currentTenantId = _tenantResolver.ExtractTenantIdGrpc(grpcContext);
+                _currentTenantKey = _tenantResolver.ExtractTenantKeyGrpc(grpcContext);
             }
 
             _hasResolved = true;
