@@ -21,6 +21,9 @@ public sealed class ProjectValidationError
 
     public const string VALIDATION_ERROR_DUPLICATE = nameof(VALIDATION_ERROR_DUPLICATE);
 
+    /// <summary>
+    /// {0} معتبر نمی‌باشد.
+    /// </summary>
     public const string VALIDATION_ERROR_NOT_VALID = nameof(VALIDATION_ERROR_NOT_VALID);
 
     public const string VALIDATION_ERROR_NOT_EQUAL_TO = nameof(VALIDATION_ERROR_NOT_EQUAL_TO);

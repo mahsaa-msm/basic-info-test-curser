@@ -175,4 +175,16 @@ public sealed class ProjectConsts
     public const int PATTERN_MAX_LENGTH = 500;
 
     #endregion
+
+    #region SERVICE_FEATURE
+    public enum ServiceFeatureKey
+    {
+        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT)] LIFE_INSURANCE_PREMIUM_INSTALLMENT = 1, // قسط حق بیمه عمر
+        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO)] LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = 2, // قسط حق بیمه عمر - خودکار
+        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT)] LIFE_INSURANCE_LOAN_INSTALLMENT = 3, // قسط وام بیمه نامه عمر
+        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO)] LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = 4, // قسط وام بیمه نامه عمر - خودکار
+        [Description(ProjectTranslation.FIRE_INSURANCE_PREMIUM)] FIRE_INSURANCE_PREMIUM = 5, // صدور بیمه نامه آتش سوزی
+    }
+
+    #endregion
 }

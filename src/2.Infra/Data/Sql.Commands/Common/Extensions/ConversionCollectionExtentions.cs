@@ -15,6 +15,7 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddDIPTitleConversion();
         configurationBuilder.AddNullableTitleConversion();
         configurationBuilder.AddPriorityConversion();
+        configurationBuilder.AddNameConversion();
     }
 
     #region Code
@@ -44,5 +45,9 @@ public static class ConversionCollectionExtentions
     #region Priority
     public static void AddPriorityConversion(this ModelConfigurationBuilder configurationBuilder)
         => configurationBuilder.Properties<Priority>().HaveConversion<PriorityConversion>();
+    #endregion
+    #region Name
+    public static void AddNameConversion(this ModelConfigurationBuilder configurationBuilder)
+    => configurationBuilder.Properties<Name>().HaveConversion<NameConversion>();
     #endregion
 }

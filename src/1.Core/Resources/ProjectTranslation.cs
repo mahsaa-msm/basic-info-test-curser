@@ -28,7 +28,6 @@ public sealed class ProjectTranslation
     public const string LIFE_INSURANCE = nameof(LIFE_INSURANCE);
     public const string FIRE_INSURANCE = nameof(FIRE_INSURANCE);
     public const string FACTOR_FIRE_INSURANCE = nameof(FACTOR_FIRE_INSURANCE);
-    public const string FIRE_INSURANCE_PREMIUM = nameof(FIRE_INSURANCE_PREMIUM);
     public const string HEALTH_INSURANCE = nameof(HEALTH_INSURANCE);
     public const string CARGO_INSURANCE = nameof(CARGO_INSURANCE);
     public const string ENGINEERING_INSURANCE = nameof(ENGINEERING_INSURANCE);
@@ -144,11 +143,25 @@ public sealed class ProjectTranslation
     public const string INSURANCE_UNIT_STATE = nameof(INSURANCE_UNIT_STATE);
     #endregion
 
-    #region PatternCatalog
+    #region PATTERN_CATALOG
     public const string PATTERN_CATALOG = nameof(PATTERN_CATALOG);
     public const string PATTERN_CATALOG_ID = nameof(PATTERN_CATALOG_ID);
     public const string PATTERN_KEY = nameof(PATTERN_KEY);
     public const string REGEX_EXPRESSION = nameof(REGEX_EXPRESSION);
+
+    #endregion
+
+    #region SERVICE_FEATURE
+    public const string SERVICE_FEATURE = nameof(SERVICE_FEATURE);
+    public const string SERVICE_FEATURE_ID = nameof(SERVICE_FEATURE_ID);
+    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT);
+    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO);
+    public const string LIFE_INSURANCE_LOAN_INSTALLMENT = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT);
+    public const string LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO);
+    public const string FIRE_INSURANCE_PREMIUM = nameof(FIRE_INSURANCE_PREMIUM);
+    public const string SERVICE_FEATURE_KEY = nameof(SERVICE_FEATURE_KEY);
+    public const string SERVICE_NAME = nameof(SERVICE_NAME);
+    public const string FEATURE_NAME = nameof(FEATURE_NAME);
 
     #endregion
 }

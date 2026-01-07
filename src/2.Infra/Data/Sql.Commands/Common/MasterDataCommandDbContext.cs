@@ -5,6 +5,7 @@ using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Core.Domain.PatternCatalogs.Entities;
 using Master.Data.Core.Domain.Provinces.Entities;
+using Master.Data.Core.Domain.ServiceFeatures.Entities;
 using Master.Data.Core.Domain.Tenants.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<City> Cities { get; set; } = null!;
     public DbSet<InsuranceUnit> InsuranceUnits { get; set; } = null!;
     public DbSet<PatternCatalog> PatternCatalogs { get; set; } = null!;
+    public DbSet<ServiceFeature> ServiceFeatures { get; set; } = null!;
     #endregion
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)
