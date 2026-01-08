@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Features\ServiceFeatures\Grpc\service_feature.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
 		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.71.0" />
 		<PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0" />
@@ -56,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Features\ServiceFeatures\Grpc\" />
+	  <Protobuf Include="Features\ServiceFeatures\Grpc\service_feature.proto" />
 	</ItemGroup>
 
 </Project>

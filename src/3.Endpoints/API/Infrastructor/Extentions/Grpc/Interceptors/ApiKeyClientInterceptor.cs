@@ -5,14 +5,14 @@ using Microsoft.Extensions.Options;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
-public class ApiKeyInterceptor : Interceptor
+public class ApiKeyClientInterceptor : Interceptor
 {
     private readonly GrpcOption _grpcOption;
-    private readonly ILogger<ApiKeyInterceptor> _logger;
+    private readonly ILogger<ApiKeyClientInterceptor> _logger;
     private readonly string _serverName;
 
-    public ApiKeyInterceptor(GrpcOption grpcOption,
-                             ILogger<ApiKeyInterceptor> logger,
+    public ApiKeyClientInterceptor(GrpcOption grpcOption,
+                             ILogger<ApiKeyClientInterceptor> logger,
                              string serverName)
     {
         _grpcOption = grpcOption;
@@ -53,12 +53,12 @@ public class ApiKeyInterceptor : Interceptor
 
 public static class ApiKeyInterceptorFactory
 {
-    public static ApiKeyInterceptor Create(IServiceProvider provider,
+    public static ApiKeyClientInterceptor Create(IServiceProvider provider,
                                            string serverName)
     {
         var grpcOption = provider.GetRequiredService<IOptions<GrpcOption>>().Value;
-        var logger = provider.GetRequiredService<ILogger<ApiKeyInterceptor>>();
+        var logger = provider.GetRequiredService<ILogger<ApiKeyClientInterceptor>>();
 
-        return new ApiKeyInterceptor(grpcOption, logger, serverName);
+        return new ApiKeyClientInterceptor(grpcOption, logger, serverName);
     }
 }

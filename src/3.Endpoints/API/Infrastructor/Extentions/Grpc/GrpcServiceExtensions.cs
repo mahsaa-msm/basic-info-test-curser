@@ -1,4 +1,5 @@
 ﻿using Master.Data.Core.Resources;
+using Master.Data.Endpoints.API.Features.ServiceFeatures.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
@@ -12,13 +13,15 @@ public static class GrpcServiceExtensions
         services.AddScoped<GrpcContextMiddleware>();
         services.AddScoped<LoggingInterceptor>();
         services.AddScoped<ExceptionInterceptor>();
-        services.AddScoped<ApiKeyInterceptor>();
+        services.AddScoped<ApiKeyClientInterceptor>();
+        services.AddSingleton<ApiKeyServerInterceptor>();
 
         services.AddGrpc(options =>
         {
             options.Interceptors.Add<ExceptionInterceptor>();
             options.Interceptors.Add<GrpcContextMiddleware>();
             options.Interceptors.Add<LoggingInterceptor>();
+            options.Interceptors.Add<ApiKeyServerInterceptor>();
             options.MaxSendMessageSize = 10 * 1024 * 1024; // 10MB
         }).AddJsonTranscoding();
 
@@ -29,6 +32,7 @@ public static class GrpcServiceExtensions
             .AllowAnyHeader()
             .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
         }));
+
         return services;
     }
 
@@ -36,9 +40,9 @@ public static class GrpcServiceExtensions
     {
         application.UseGrpcWeb();
 
-        //application.MapGrpcService<FactorGrpcService>()
-        //    .EnableGrpcWeb()
-        //    .RequireCors(ProjectConsts.GRPC_CORS_NAME);
+        application.MapGrpcService<ServiceFeatureGrpcService>()
+            .EnableGrpcWeb()
+            .RequireCors(ProjectConsts.GRPC_CORS_NAME);
 
         return application;
     }
@@ -47,7 +51,7 @@ public static class GrpcServiceExtensions
     {
         services.AddTransient<LoggingInterceptor>();
         services.AddTransient<ExceptionInterceptor>();
-        services.AddTransient<ApiKeyInterceptor>();
+        services.AddTransient<ApiKeyClientInterceptor>();
 
         //#region Factor
         //services.AddGrpcClient<FactorService.FactorServiceClient>((provider, options) =>
@@ -65,6 +69,7 @@ public static class GrpcServiceExtensions
         //})
         //.AddInterceptor<ExceptionInterceptor>()
         //.AddInterceptor<LoggingInterceptor>()
+        //.AddInterceptor<ApiKeyClientInterceptor>()
         //.AddInterceptor(provider =>
         //     ApiKeyInterceptorFactory.Create(provider, ProjectConsts.FACTORS_GRPC_CLIENT_NAME));
         //#endregion

@@ -13,6 +13,6 @@ public sealed class ServiceFeatureQr
     }
     public string ServiceName { get; set; }
     public string FeatureName { get; set; }
-    public string Description { get; set; }
+    public string? Description { get; set; }
     public bool IsActive { get; set; }
 }
