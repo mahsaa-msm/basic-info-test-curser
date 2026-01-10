@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Countries.Configs;
 
-public class CountryConfig : IEntityTypeConfiguration<Country>
+public sealed class CountryConfig : IEntityTypeConfiguration<Country>
 {
     public void Configure(EntityTypeBuilder<Country> builder)
     {
@@ -25,5 +25,8 @@ public class CountryConfig : IEntityTypeConfiguration<Country>
         builder.Property(c => c.Code).HasMaxLength(ProjectConsts.CODE_MAX_LENGTH).IsRequired();
 
         builder.HasIndex(c => c.BusinessId).IsUnique();
+
+
+        builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
     }
 }

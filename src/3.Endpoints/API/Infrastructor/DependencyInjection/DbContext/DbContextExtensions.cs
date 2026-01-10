@@ -12,10 +12,18 @@ public static class DbContextExtensions
 {
     public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddTransient<SetPersianYeKeInterceptor>();
+        services.AddTransient<AddAuditDataInterceptor>();
+        services.AddTransient<AddRelatedEntitiesIdInterceptor>();
+        //services.AddTransient<TenantQueryCommandDbInterceptor>();
+        //services.AddTransient<TenantQueryQueryDbIntrerceptor>();
+
         //CommandDbContext
         services.AddDbContextFactory<MasterDataCommandDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
+            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"),
+                                 x => x.UseNetTopologySuite())
+                //.LogTo(Console.WriteLine, LogLevel.Information)
                 .AddInterceptors(new SetPersianYeKeInterceptor(),
                                  new AddAuditDataInterceptor(),
                                  new AddRelatedEntitiesIdInterceptor());
@@ -33,7 +41,9 @@ public static class DbContextExtensions
         //QueryDbContext
         services.AddDbContextFactory<MasterDataQueryDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"),
+                                 x => x.UseNetTopologySuite());
+            //.LogTo(Console.WriteLine, LogLevel.Information);
             options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
         });
 
@@ -47,5 +57,4 @@ public static class DbContextExtensions
 
         return services;
     }
-
 }

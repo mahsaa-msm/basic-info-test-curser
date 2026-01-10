@@ -34,11 +34,29 @@ public sealed class Country : BaseTenantEntity
         IsActive = IsActive.True();
         IsDeleted = IsDeleted.False();
     }
+
+    private Country(CreateCountryWithTenantIdParameter parameter)
+    {
+        TenantId = parameter.TenantId;
+        TenantBusinessId = parameter.TenantKey;
+        Title = parameter.Title;
+        DisplayTitle = parameter.DisplayTitle.IsNull ?
+            parameter.Title.Value :
+            parameter.DisplayTitle.Value;
+        CoreId = parameter.CoreId;
+        Code = parameter.Code;
+        Priority = parameter.Priority;
+        IsActive = IsActive.True();
+        IsDeleted = IsDeleted.False();
+    }
     #endregion
 
     #region Commands
     public static Country Create(CreateCountryParameter parameter)
         => new(parameter);
+
+    public static Country CreateWithTenantId(CreateCountryWithTenantIdParameter parameter)
+    => new(parameter);
 
     public void Update(UpdateCountryParameter parameter)
     {

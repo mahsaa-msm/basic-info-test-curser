@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "Master.Data.Endpoints.API.Features.ServiceFeatures.Grpc";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+enum ServiceFeatureKey {
+    NONE = 0;
+    LIFE_INSURANCE_PREMIUM_INSTALLMENT = 1;
+    LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = 2;
+    LIFE_INSURANCE_LOAN_INSTALLMENT = 3;
+    LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = 4;
+    FIRE_INSURANCE_PREMIUM = 5;
+}
+
+service ServiceFeatureService{
+	rpc GetServiceFeatureById(GetServiceFeatureByIdRequest) returns (GetServiceFeatureByIdResponse);
+}
+
+message GetServiceFeatureByIdRequest {
+	int64 ServiceFeatureId = 1;
+}
+
+message ServiceFeatureData {
+    int64 id = 1;
+    ServiceFeatureKey key = 2;
+    string key_title = 3;
+    string service_name = 4;
+    string feature_name = 5;
+    optional string description = 6;
+    bool is_active = 7;
+}
+
+message ErrorResponse {
+    optional string status = 1;
+    repeated string messages = 2;
+}
+
+message GetServiceFeatureByIdResponse {
+    oneof result {
+        ServiceFeatureData data = 1;
+        ErrorResponse error = 2;
+    }
+}

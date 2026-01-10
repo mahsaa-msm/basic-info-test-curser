@@ -26,6 +26,7 @@ public static class HttpClientExtensions
         // میتوانیم یک http client دیگر بدون این message handler برای آن ها ایجاد کنیم.
         // این برای همه هندلر ها یا حتی polly نیز صدق میکند و در کنار انعطاف، سربار خاصی اعمال نخواهد کرد.
         services.AddTransient<CoreSsoTokenHandler>();
+        services.AddTransient<CoreTokenHandler>();
 
         services.AddSingleton<RetryPolicies>();
         services.AddSingleton<CircuitBreakerPolicies>();
@@ -62,6 +63,31 @@ public static class HttpClientExtensions
             : new HttpClientHandler();
         })
         .AddHttpMessageHandler<LoggingHandler>()
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<RetryPolicies>().BasicRetryPolicy)
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<CircuitBreakerPolicies>().BasicCircuitBreakerPolicy)
+        .AddPolicyHandler((provider, request) => provider.GetRequiredService<TimeoutPolicies>().DynamicTimeoutPolicy)
+        .AddHttpMessageHandler<ExceptionHandler>();
+        #endregion
+
+        #region CoreInsurance
+        services.AddHttpClient(ProjectConsts.CORE_INSURANCE_HTTP_CLIENT_NAME, (serviceProvider, httpClient) =>
+        {
+            var coreInsuranceOption = serviceProvider.GetRequiredService<CoreInsuranceOption>();
+            httpClient.BaseAddress = new Uri(coreInsuranceOption.BasePath ?? "");
+        })
+        .ConfigurePrimaryHttpMessageHandler((serviceProvider) =>
+        {
+            var coreInsuranceOption = serviceProvider.GetRequiredService<CoreInsuranceOption>();
+            return coreInsuranceOption.IgnoreSslCheck ?
+            new HttpClientHandler()
+            {
+                ClientCertificateOptions = ClientCertificateOption.Manual,
+                ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
+            }
+            : new HttpClientHandler();
+        })
+        .AddHttpMessageHandler<LoggingHandler>()
+        .AddHttpMessageHandler<CoreSsoTokenHandler>()
         .AddPolicyHandler((provider, request) => provider.GetRequiredService<RetryPolicies>().BasicRetryPolicy)
         .AddPolicyHandler((provider, request) => provider.GetRequiredService<CircuitBreakerPolicies>().BasicCircuitBreakerPolicy)
         .AddPolicyHandler((provider, request) => provider.GetRequiredService<TimeoutPolicies>().DynamicTimeoutPolicy)

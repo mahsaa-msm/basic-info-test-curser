@@ -7,6 +7,6 @@ public sealed class CountryListItemQr
     public string DisplayTitle { get; set; } = string.Empty;
     public string CoreId { get; set; } = string.Empty;
     public string Code { get; set; } = string.Empty;
-    public int Priority { get; set; }
+    public long Priority { get; set; }
     public bool IsActive { get; set; }
 }

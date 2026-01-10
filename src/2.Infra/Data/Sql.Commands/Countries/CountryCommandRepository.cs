@@ -8,7 +8,7 @@ using Zamin.Infra.Data.Sql.Commands.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Countries;
 
-public class CountryCommandRepository : BaseCommandRepository<Country, MasterDataCommandDbContext, long>,
+public sealed class CountryCommandRepository : BaseCommandRepository<Country, MasterDataCommandDbContext, long>,
     ICountryCommandRepository
 {
     public CountryCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
@@ -38,6 +38,18 @@ public class CountryCommandRepository : BaseCommandRepository<Country, MasterDat
         => await _dbContext.Countries.FirstOrDefaultAsync(c => c.CoreId == coreId);
 
     public bool IsCreatedByCore(Country country)
-        => _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId) is null;
+    {
+        var createdByUserIdObject = _dbContext.GetShadowPropertyValue(country, AuditableShadowProperties.CreatedByUserId);
+        var canParse = long.TryParse((string?)createdByUserIdObject, out long createdByUserId);
+        return createdByUserIdObject is null || !canParse || createdByUserId < 1;
+    }
 
+    public async Task<List<Country>> GetAllAsync()
+        => await _dbContext.Countries.ToListAsync();
+
+    public async Task<List<Country>> GetByTenantId(long tenantId)
+        => await _dbContext.Countries
+            .IgnoreQueryFilters()
+            .Where(c => c.TenantId == tenantId)
+            .ToListAsync();
 }

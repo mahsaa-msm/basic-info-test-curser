@@ -12,9 +12,10 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddCoreIdConversion();
         configurationBuilder.AddIsActiveConversion();
         configurationBuilder.AddIsDeletedConversion();
-        configurationBuilder.AddNameConversion();
+        configurationBuilder.AddDIPTitleConversion();
         configurationBuilder.AddNullableTitleConversion();
         configurationBuilder.AddPriorityConversion();
+        configurationBuilder.AddNameConversion();
     }
 
     #region Code
@@ -33,9 +34,9 @@ public static class ConversionCollectionExtentions
     public static void AddIsDeletedConversion(this ModelConfigurationBuilder configurationBuilder)
         => configurationBuilder.Properties<IsDeleted>().HaveConversion<IsDeletedConversion>();
     #endregion
-    #region Name
-    public static void AddNameConversion(this ModelConfigurationBuilder configurationBuilder)
-        => configurationBuilder.Properties<DIPTitle>().HaveConversion<DIPConversion>();
+    #region DIPTitle
+    public static void AddDIPTitleConversion(this ModelConfigurationBuilder configurationBuilder)
+        => configurationBuilder.Properties<DIPTitle>().HaveConversion<DIPTitleConversion>();
     #endregion
     #region NullableTitle
     public static void AddNullableTitleConversion(this ModelConfigurationBuilder configurationBuilder)
@@ -44,5 +45,9 @@ public static class ConversionCollectionExtentions
     #region Priority
     public static void AddPriorityConversion(this ModelConfigurationBuilder configurationBuilder)
         => configurationBuilder.Properties<Priority>().HaveConversion<PriorityConversion>();
+    #endregion
+    #region Name
+    public static void AddNameConversion(this ModelConfigurationBuilder configurationBuilder)
+    => configurationBuilder.Properties<Name>().HaveConversion<NameConversion>();
     #endregion
 }

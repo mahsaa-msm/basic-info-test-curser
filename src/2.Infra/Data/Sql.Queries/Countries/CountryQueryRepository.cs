@@ -55,7 +55,7 @@ public sealed class CountryQueryRepository : BaseQueryRepository<MasterDataQuery
         if (query.Priority != null)
             filter = filter.Where(c => c.Priority == query.Priority);
 
-        if (query.NeedTotalCount)
+        if (query.NeedTotalCount is not false)
             result.TotalCount = await filter.CountAsync();
 
         if (!string.IsNullOrWhiteSpace(query.SortBy))

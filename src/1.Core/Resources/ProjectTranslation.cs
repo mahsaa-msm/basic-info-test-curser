@@ -14,6 +14,8 @@ public sealed class ProjectTranslation
     public const string TITLE = nameof(TITLE);
     public const string DISPLAY_TITLE = nameof(DISPLAY_TITLE);
     public const string UPDATE_DONE = nameof(UPDATE_DONE);
+    public const string FILTER = nameof(FILTER);
+    public const string SEARCH_INPUT = nameof(SEARCH_INPUT);
 
 
     public const string FIRST_NAME = nameof(FIRST_NAME);
@@ -26,12 +28,14 @@ public sealed class ProjectTranslation
     public const string LIFE_INSURANCE = nameof(LIFE_INSURANCE);
     public const string FIRE_INSURANCE = nameof(FIRE_INSURANCE);
     public const string FACTOR_FIRE_INSURANCE = nameof(FACTOR_FIRE_INSURANCE);
-    public const string FIRE_INSURANCE_PREMIUM = nameof(FIRE_INSURANCE_PREMIUM);
     public const string HEALTH_INSURANCE = nameof(HEALTH_INSURANCE);
     public const string CARGO_INSURANCE = nameof(CARGO_INSURANCE);
     public const string ENGINEERING_INSURANCE = nameof(ENGINEERING_INSURANCE);
     public const string RESPONSIBILITY_INSURANCE = nameof(RESPONSIBILITY_INSURANCE);
     public const string EMPLOYER_RESPONSIBILITY_INSURANCE = nameof(EMPLOYER_RESPONSIBILITY_INSURANCE);
+    public const string ACTIVE = nameof(ACTIVE);
+    public const string SUSPEND = nameof(SUSPEND);
+    public const string EXPIRE = nameof(EXPIRE);
 
     #region APPLICATION_ERROR
     /// <summary>
@@ -79,6 +83,11 @@ public sealed class ProjectTranslation
     public const string CORE_API_TOKEN = nameof(CORE_API_TOKEN);
     public const string API_SSO_CORE_TOKEN = nameof(API_SSO_CORE_TOKEN);
 
+    /// <summary>
+    /// واکشی اطلاعات {0} از کور بیمه ناموفق بود
+    /// </summary>
+    public const string FETCH_DATA_FROM_CORE_FAILED = nameof(FETCH_DATA_FROM_CORE_FAILED);
+
     #endregion
 
     #region TENANT
@@ -98,8 +107,61 @@ public sealed class ProjectTranslation
 
     #endregion
 
-    #region TRAVEL_PASSENGER_COUNT_TYPE
-    public const string TRAVEL_PASSENGER_COUNT_TYPE = nameof(TRAVEL_PASSENGER_COUNT_TYPE);
-    public const string TRAVEL_PASSENGER_COUNT_TYPE_ID = nameof(TRAVEL_PASSENGER_COUNT_TYPE_ID);
+    #region TRANSLATION
+
+    public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
+
+    public const string TRANSLATION_KEY = nameof(TRANSLATION_KEY);
+    public const string TRANSLATION_VALUE = nameof(TRANSLATION_VALUE);
+    public const string TRANSLATION_CULTURE = nameof(TRANSLATION_CULTURE);
+
+    #endregion
+
+    #region PROVINCE
+    public const string PROVINCE = nameof(PROVINCE);
+    public const string PROVINCE_ID = nameof(PROVINCE_ID);
+    #endregion
+
+    #region CITY
+    public const string CITY = nameof(CITY);
+    public const string CITY_ID = nameof(CITY_ID);
+    #endregion
+
+    #region INSURANCE_UNIT
+    public const string INSURANCE_UNIT = nameof(INSURANCE_UNIT);
+    public const string INSURANCE_UNIT_ID = nameof(INSURANCE_UNIT_ID);
+    public const string LATITUDE = nameof(LATITUDE);
+    public const string LONGITUDE = nameof(LONGITUDE);
+    public const string BRANCH = nameof(BRANCH);
+    public const string HEADQUARTERS = nameof(HEADQUARTERS);
+    public const string BROKER = nameof(BROKER);
+    public const string REPRENSENTATION = nameof(REPRENSENTATION);
+    public const string MARKETER = nameof(MARKETER);
+    public const string AUXILIARY_MARKETER = nameof(AUXILIARY_MARKETER);
+    public const string MARKETING_OFFICE = nameof(MARKETING_OFFICE);
+    public const string INSURANCE_UNIT_TYPE = nameof(INSURANCE_UNIT_TYPE);
+    public const string INSURANCE_UNIT_STATE = nameof(INSURANCE_UNIT_STATE);
+    #endregion
+
+    #region PATTERN_CATALOG
+    public const string PATTERN_CATALOG = nameof(PATTERN_CATALOG);
+    public const string PATTERN_CATALOG_ID = nameof(PATTERN_CATALOG_ID);
+    public const string PATTERN_KEY = nameof(PATTERN_KEY);
+    public const string REGEX_EXPRESSION = nameof(REGEX_EXPRESSION);
+
+    #endregion
+
+    #region SERVICE_FEATURE
+    public const string SERVICE_FEATURE = nameof(SERVICE_FEATURE);
+    public const string SERVICE_FEATURE_ID = nameof(SERVICE_FEATURE_ID);
+    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT);
+    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO);
+    public const string LIFE_INSURANCE_LOAN_INSTALLMENT = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT);
+    public const string LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO);
+    public const string FIRE_INSURANCE_PREMIUM = nameof(FIRE_INSURANCE_PREMIUM);
+    public const string SERVICE_FEATURE_KEY = nameof(SERVICE_FEATURE_KEY);
+    public const string SERVICE_NAME = nameof(SERVICE_NAME);
+    public const string FEATURE_NAME = nameof(FEATURE_NAME);
+
     #endregion
 }

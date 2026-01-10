@@ -1,12 +1,8 @@
 ﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using Zamin.Extensions.UsersManagement.Abstractions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 
@@ -14,7 +10,7 @@ public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
 {
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
-        FillRelatedEntitiesIdProperty(eventData);
+        TryFillRelatedEntitiesIdProperty(eventData);
         return base.SavingChanges(eventData, result);
     }
 
@@ -22,14 +18,32 @@ public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
                                                                           InterceptionResult<int> result,
                                                                           CancellationToken cancellationToken = default)
     {
-        FillRelatedEntitiesIdProperty(eventData);
+        TryFillRelatedEntitiesIdProperty(eventData);
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
-    private void FillRelatedEntitiesIdProperty(DbContextEventData eventData)
+    private void TryFillRelatedEntitiesIdProperty(DbContextEventData eventData)
     {
-        ChangeTracker changeTracker = eventData.Context.ChangeTracker;
-        ITenantService tenant = eventData.Context.GetService<ITenantService>();
-        changeTracker.SetTenantIdValue(tenant);
+        try
+        {
+            var context = eventData?.Context;
+            if (context == null)
+                return;
+
+            var changeTracker = context.ChangeTracker;
+            if (changeTracker == null)
+                return;
+
+            var tenant = context.GetService<ITenantService>();
+            if (tenant == null)
+                return;
+
+            changeTracker.SetTenantIdValue(tenant);
+        }
+        catch (Exception ex) when (ex is NullReferenceException ||
+                                   ex is InvalidOperationException)
+        {
+            // لاگ کردن خطا در صورت نیاز
+        }
     }
 }

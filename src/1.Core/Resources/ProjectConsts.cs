@@ -33,6 +33,8 @@ public sealed class ProjectConsts
 
     public const short NATURAL_NUMBER_MIN_VALUE = 1;
 
+    public const string GRPC_CORS_NAME = "gRPC_AllowAll";
+
     public enum MoveDirection
     {
         Up,
@@ -57,6 +59,7 @@ public sealed class ProjectConsts
     public const string ACL_HTTP_CLIENT_NAME = "ACL";
     public const string CORE_SSO_HTTP_CLIENT_NAME = "CoreSsoApi";
     public const string AGENT_CLIENT_HTTP_CLIENT_NAME = "AgentClient";
+    public const string CORE_INSURANCE_HTTP_CLIENT_NAME = "CoreInsuranceApi";
 
     #endregion
 
@@ -116,6 +119,74 @@ public sealed class ProjectConsts
     }
 
     #endregion
+
+    #endregion
+
+    #region TRANSLATION
+
+    public const byte TRANSLATION_KEY_MIN_LENGTH = 2;
+    public const byte TRANSLATION_KEY_MAX_LENGTH = 200;
+
+    public const byte TRANSLATION_VALUE_MIN_LENGTH = 2;
+    public const byte TRANSLATION_VALUE_MAX_LENGTH = 200;
+
+    public const byte TRANSLATION_CULTURE_LENGTH = 5;
+
+    #endregion
+
+    #region INSURANCE_UNIT
+    public const Int16 LATITUDE_MIN_VALUE = -90;
+    public const Int16 LATITUDE_MAX_VALUE = 90;
+    public const Int16 LONGITUDE_MIN_VALUE = -180;
+    public const Int16 LONGITUDE_MAX_VALUE = 180;
+    public const double MAX_LATITUDE_DIFFERENCE = 10.0;
+    public const double MAX_LONGITUDE_DIFFERENCE = 10.0;
+    public const int SEARCH_INPUT_MAX_LENGTH = 100;
+    public const string SEARCH_INPUT_PATTERN = @"^[\p{L}\p{N}\s\-_.]+$";
+
+    public enum DistanceUnit
+    {
+        Kilometers,
+        Meters,
+        Miles
+    }
+
+    public enum InsuranceUnitType
+    {
+        [Description(ProjectTranslation.BRANCH)] Branch = 0, // شعبه
+        [Description(ProjectTranslation.HEADQUARTERS)] Headquarters = 1, // ستاد
+        [Description(ProjectTranslation.BROKER)] Broker = 2, // کارگزار
+        [Description(ProjectTranslation.REPRENSENTATION)] Representation = 3, // نمایندگی
+        [Description(ProjectTranslation.MARKETER)] Marketer = 4, // بازاریاب
+        [Description(ProjectTranslation.AUXILIARY_MARKETER)] AuxiliaryMarketer = 5, // بازاریاب کمکی
+        [Description(ProjectTranslation.MARKETING_OFFICE)] MarketingOffice = 7, // دفتر بازاریابی
+    }
+
+    public enum InsuranceUnitState
+    {
+        [Description(ProjectTranslation.ACTIVE)] Active = 0, // فعال
+        [Description(ProjectTranslation.SUSPEND)] Suspend = 1, // تعلیق
+        [Description(ProjectTranslation.EXPIRE)] Expire = 2, // اتمام
+    }
+    #endregion
+
+    #region PATTERN_CATALOG
+    public const string PATTERN_KEY_PATTERN = @"^[a-z0-9\-_]{{{0},{1}}}$";
+    public const int PATTERN_KEY_MIN_LENGTH = 3;
+    public const int PATTERN_KEY_MAX_LENGTH = 50;
+    public const int PATTERN_MAX_LENGTH = 500;
+
+    #endregion
+
+    #region SERVICE_FEATURE
+    public enum ServiceFeatureKey
+    {
+        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT)] LIFE_INSURANCE_PREMIUM_INSTALLMENT = 1, // قسط حق بیمه عمر
+        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO)] LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = 2, // قسط حق بیمه عمر - خودکار
+        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT)] LIFE_INSURANCE_LOAN_INSTALLMENT = 3, // قسط وام بیمه نامه عمر
+        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO)] LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = 4, // قسط وام بیمه نامه عمر - خودکار
+        [Description(ProjectTranslation.FIRE_INSURANCE_PREMIUM)] FIRE_INSURANCE_PREMIUM = 5, // صدور بیمه نامه آتش سوزی
+    }
 
     #endregion
 }

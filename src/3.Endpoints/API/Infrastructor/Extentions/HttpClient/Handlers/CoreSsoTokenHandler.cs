@@ -62,12 +62,11 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
             tokenResponse.IsSuccess &&
             tokenResponse.Value.AccessToken is not null)
         {
-            _cacheAdapter.Add(key: ProjectConsts.CORE_SSO_TOKEN_CACHE_KEY,
-                              obj: tokenResponse.Value.AccessToken,
-                              AbsoluteExpiration: (tokenResponse.Value.IssuedAt.HasValue
-                                    ? DateTimeOffset.FromUnixTimeSeconds(tokenResponse.Value.IssuedAt.Value).UtcDateTime
-                                    : DateTime.UtcNow).AddSeconds(tokenResponse.Value.ExpiresIn),
-                              SlidingExpiration: null);
+            _cacheAdapter.Add(
+          key: ProjectConsts.CORE_SSO_TOKEN_CACHE_KEY,
+          obj: tokenResponse.Value.AccessToken,
+          AbsoluteExpiration: DateTime.UtcNow.AddSeconds(tokenResponse.Value.ExpiresIn),
+          SlidingExpiration: null);
 
             return tokenResponse.Value.AccessToken;
         }
