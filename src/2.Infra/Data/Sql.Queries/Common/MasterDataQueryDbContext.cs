@@ -5,6 +5,7 @@ using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 using Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
+using Master.Data.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -28,6 +29,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     public DbSet<City> Cities { get; set; }
     public DbSet<InsuranceUnit> InsuranceUnits { get; set; }
     public DbSet<PatternCatalog> PatternCatalogs { get; set; }
+    public DbSet<ServiceFeature> ServiceFeatures { get; set; }
     #endregion
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)

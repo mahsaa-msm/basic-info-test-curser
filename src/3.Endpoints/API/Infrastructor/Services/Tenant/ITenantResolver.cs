@@ -1,8 +1,15 @@
-﻿namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant
+﻿using Grpc.Core;
+
+namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
+
+public interface ITenantResolver
 {
-    public interface ITenantResolver
-    {
-        long? ExtractTenantId(HttpContext context);
-        Guid? ExtractTenantKey(HttpContext context);
-    }
+    long? ExtractTenantIdHttp(HttpContext context);
+    Guid? ExtractTenantKeyHttp(HttpContext context);
+
+    long? ExtractTenantIdGrpc(ServerCallContext serverCallContext);
+    Guid? ExtractTenantKeyGrpc(ServerCallContext serverCallContext);
+
+    long? ExtractTenantId();
+    Guid? ExtractTenantKey();
 }
