@@ -9,4 +9,5 @@ public sealed class ProvinceListItemQr
     public long Priority { get; set; }
     public bool IsActive { get; set; }
     public string CountryCoreId { get; set; } = string.Empty;
+    public string? CountryDisplayTitle { get; set; }
 }

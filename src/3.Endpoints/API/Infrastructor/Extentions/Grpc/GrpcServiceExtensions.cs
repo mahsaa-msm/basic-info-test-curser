@@ -13,15 +13,15 @@ public static class GrpcServiceExtensions
         services.AddScoped<GrpcContextMiddleware>();
         services.AddScoped<LoggingInterceptor>();
         services.AddScoped<ExceptionInterceptor>();
-        services.AddScoped<ApiKeyClientInterceptor>();
-        services.AddSingleton<ApiKeyServerInterceptor>();
+        //services.AddScoped<ApiKeyClientInterceptor>();
+        //services.AddSingleton<ApiKeyServerInterceptor>();
 
         services.AddGrpc(options =>
         {
             options.Interceptors.Add<ExceptionInterceptor>();
             options.Interceptors.Add<GrpcContextMiddleware>();
             options.Interceptors.Add<LoggingInterceptor>();
-            options.Interceptors.Add<ApiKeyServerInterceptor>();
+            //options.Interceptors.Add<ApiKeyServerInterceptor>();
             options.MaxSendMessageSize = 10 * 1024 * 1024; // 10MB
         }).AddJsonTranscoding();
 
@@ -51,7 +51,7 @@ public static class GrpcServiceExtensions
     {
         services.AddTransient<LoggingInterceptor>();
         services.AddTransient<ExceptionInterceptor>();
-        services.AddTransient<ApiKeyClientInterceptor>();
+        //services.AddTransient<ApiKeyClientInterceptor>();
 
         //#region Factor
         //services.AddGrpcClient<FactorService.FactorServiceClient>((provider, options) =>
