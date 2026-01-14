@@ -9,6 +9,7 @@ using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Provinces;
+
 public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
     IProvinceQueryRepository
 {
@@ -25,7 +26,7 @@ public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQuer
         {
             CoreId = c.CoreId,
             DisplayTitle = c.DisplayTitle,
-            CountryCoreId=c.CountryCoreId,
+            CountryCoreId = c.CountryCoreId,
         }).ToListAsync();
 
     public async Task<PagedData<ProvinceListItemQr>> Execute(GetAllProvincesPagedFilterQuery query)
@@ -67,17 +68,20 @@ public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQuer
 
         filter = filter.Skip(query.SkipCount).Take(query.PageSize);
 
-        result.QueryResult = await filter.Select(c => new ProvinceListItemQr
-        {
-            Id = c.Id,
-            CoreId = c.CoreId,
-            Title = c.Title,
-            DisplayTitle = c.DisplayTitle,
-            Code = c.Code,
-            CountryCoreId = c.CountryCoreId,
-            Priority = c.Priority,
-            IsActive = c.IsActive,
-        }).ToListAsync();
+        result.QueryResult = await filter
+            .Include(c => c.Country)
+            .Select(c => new ProvinceListItemQr
+            {
+                Id = c.Id,
+                CoreId = c.CoreId,
+                Title = c.Title,
+                DisplayTitle = c.DisplayTitle,
+                Code = c.Code,
+                CountryCoreId = c.CountryCoreId,
+                CountryDisplayTitle = c.Country?.DisplayTitle,
+                Priority = c.Priority,
+                IsActive = c.IsActive,
+            }).ToListAsync();
 
         return result;
     }
@@ -91,7 +95,7 @@ public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQuer
                     Title = c.Title,
                     DisplayTitle = c.DisplayTitle,
                     Code = c.Code,
-                    CountryCoreId= c.CountryCoreId,
+                    CountryCoreId = c.CountryCoreId,
                     Priority = c.Priority,
                     IsActive = c.IsActive,
                     IsEditable = !string.IsNullOrEmpty(c.CreatedByUserId)

@@ -9,4 +9,5 @@ public sealed class CityListItemQr
     public long Priority { get; set; }
     public bool IsActive { get; set; }
     public string ProvinceCoreId { get; set; } = string.Empty;
+    public string? ProvinceDisplayTitle { get; set; }
 }
