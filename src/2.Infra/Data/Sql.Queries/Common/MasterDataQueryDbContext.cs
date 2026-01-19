@@ -1,4 +1,5 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
+﻿using Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Entities;
+using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
@@ -30,6 +31,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     public DbSet<InsuranceUnit> InsuranceUnits { get; set; }
     public DbSet<PatternCatalog> PatternCatalogs { get; set; }
     public DbSet<ServiceFeature> ServiceFeatures { get; set; }
+    public DbSet<AgreementObligation> AgreementObligations { get; set; }
     #endregion
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)

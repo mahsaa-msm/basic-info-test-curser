@@ -10,6 +10,7 @@ public sealed class ProjectConsts
     public const byte ID_MIN_LENGTH = 2;
     public const byte ID_MAX_LENGTH = 200;
     public const byte PRICE_MIN_VALUE = 0;
+    public const byte POSITIVE_NUMBER_MIN_VALUE = 0;
 
     public const byte CORE_ID_MIN_LENGTH = 1;
     public const byte CORE_ID_MAX_LENGTH = 50;
@@ -23,6 +24,8 @@ public sealed class ProjectConsts
     public const byte TITLE_MIN_LENGTH = 1;
     public const byte TITLE_MAX_LENGTH = 250;
 
+    public const byte PERCENTAGE_MIN_VALUE = 0;
+    public const byte PERCENTAGE_MAX_VALUE = 100;
 
     public const byte DESCRIPTION_MIN_LENGTH = 50;
     public const short DESCRIPTION_MAX_LENGTH = 500;
@@ -187,6 +190,17 @@ public sealed class ProjectConsts
         [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO)] LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = 4, // قسط وام بیمه نامه عمر - خودکار
         [Description(ProjectTranslation.FIRE_INSURANCE_PREMIUM)] FIRE_INSURANCE_PREMIUM = 5, // صدور بیمه نامه آتش سوزی
     }
+
+    #endregion
+
+    #region AgreementObligation
+    public enum SalesType
+    {
+
+    }
+
+    public const int AGREEMENT_NUMBER_MIN_LENGTH = 2;
+    public const int AGREEMENT_NUMBER_MAX_LENGTH = 100;
 
     #endregion
 }

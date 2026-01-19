@@ -99,6 +99,11 @@ public sealed class ProjectValidationError
     public const string VALIDATION_ERROR_DATE_GREATER_THAN_TO_TODAY = nameof(VALIDATION_ERROR_DATE_GREATER_THAN_TO_TODAY);
 
     public const string VALIDATION_ERROR_DATE_GREATER_THAN_OR_EQUAL_TO_TODAY = nameof(VALIDATION_ERROR_DATE_GREATER_THAN_OR_EQUAL_TO_TODAY);
+
+    /// <summary>
+    /// تاریخ صحیح برای {0} باید بین {1} و {2} باشد
+    /// </summary>
+    public const string VALIDATION_ERROR_DATE_BETWEEN = nameof(VALIDATION_ERROR_DATE_BETWEEN);
     #endregion
 
     #region Password
