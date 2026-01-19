@@ -37,9 +37,9 @@ public sealed class AgreementObligation : BaseTenantEntity
     public IsActive IsActive { get; private set; }
 
     private HashSet<CoreId> _issuanceSchemeCoreIds = new();
-    public IReadOnlyList<CoreId> IssuanceSchemeCoreIds
+    public List<CoreId> IssuanceSchemeCoreIds
     {
-        get => _issuanceSchemeCoreIds.ToList().AsReadOnly();
+        get => _issuanceSchemeCoreIds.ToList();
         private set => _issuanceSchemeCoreIds = new HashSet<CoreId>(value);
     }
 

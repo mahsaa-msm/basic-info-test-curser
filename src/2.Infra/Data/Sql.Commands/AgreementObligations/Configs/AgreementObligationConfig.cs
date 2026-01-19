@@ -26,7 +26,11 @@ public sealed class AgreementObligationConfig : IEntityTypeConfiguration<Agreeme
 
         builder.Property(c => c.AgreementObligationNumber).HasMaxLength(ProjectConsts.AGREEMENT_NUMBER_MAX_LENGTH).IsRequired();
 
-        builder.Property(c => c.IssuanceSchemeCoreIds).HasConversion<IssuanceSchemeCoreIdsConversion>().HasMaxLength(2000);
+        builder.Property(c => c.IssuanceSchemeCoreIds)
+            .HasMaxLength(2000)
+            .HasConversion<IssuanceSchemeCoreIdsConversion>()
+            .Metadata
+            .SetValueComparer(IssuanceSchemeCoreIdsComparer.CoreIdListComparer);
 
         builder.Property(c => c.AgreementCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
 

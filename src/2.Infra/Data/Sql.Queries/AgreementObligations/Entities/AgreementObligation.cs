@@ -24,5 +24,5 @@ public sealed class AgreementObligation : BaseTenantEntity
     public bool IsActive { get; set; }
 
 
-    public HashSet<string> IssuanceSchemeCoreIds = new();
+    public List<string> IssuanceSchemeCoreIds = new();
 }
