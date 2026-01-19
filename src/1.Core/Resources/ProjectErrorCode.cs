@@ -38,4 +38,6 @@ public static class ProjectErrorCode
     public const string VALIDATION_ERROR_CHANGE_STATUS_NOT_VALID = "117";
 
     public const string VALIDATION_ERROR_NONE_OF_THE_SERVERS_ARE_AVAILABLE = "118";
+
+    public const string VALIDATION_ERROR_DATE_BETWEEN = "119";
 }

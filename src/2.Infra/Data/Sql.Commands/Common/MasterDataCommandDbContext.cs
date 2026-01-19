@@ -1,4 +1,5 @@
-﻿using Master.Data.Core.Domain.Cities.Entities;
+﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
+using Master.Data.Core.Domain.Cities.Entities;
 using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.InsuranceUnits.Entities;
@@ -30,6 +31,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<InsuranceUnit> InsuranceUnits { get; set; } = null!;
     public DbSet<PatternCatalog> PatternCatalogs { get; set; } = null!;
     public DbSet<ServiceFeature> ServiceFeatures { get; set; } = null!;
+    public DbSet<AgreementObligation> AgreementObligations { get; set; } = null!;
     #endregion
 
     public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)

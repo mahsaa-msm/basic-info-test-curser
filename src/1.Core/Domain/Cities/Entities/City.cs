@@ -1,8 +1,6 @@
 ﻿using Master.Data.Core.Domain.Cities.Parameters;
 using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.Domain.Provinces.Parameters;
 using Master.Data.Core.Resources;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.Domain.Toolkits.ValueObjects;

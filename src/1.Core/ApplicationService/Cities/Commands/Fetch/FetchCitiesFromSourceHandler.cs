@@ -54,7 +54,7 @@ public sealed class FetchCitiesFromSourceHandler : CommandHandler<FetchCitiesFro
         foreach (var coreCity in coreCitiesResponse.Value)
         {
             var city = cities
-                .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreCity.ostanID));
+                .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreCity.shahrID));
 
             if (city is null)
             {
@@ -70,7 +70,7 @@ public sealed class FetchCitiesFromSourceHandler : CommandHandler<FetchCitiesFro
             else
             {
                 if (city.Title != Title.FromString(coreCity.naamShahr) ||
-                    city.ProvinceCoreId != CoreId.FromLong(coreCity.shahrID))
+                    city.ProvinceCoreId != CoreId.FromLong(coreCity.ostanID))
                     city.Update(new UpdateCityParameter(coreCity.naamShahr,
                                                         city.DisplayTitle,
                                                         _finglishConverter.Convert(coreCity.naamShahr),
