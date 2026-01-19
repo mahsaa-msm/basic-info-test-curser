@@ -4,6 +4,7 @@ using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     [DbContext(typeof(MasterDataCommandDbContext))]
-    partial class MasterDataCommandDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260119114756_AddInsuranceType")]
+    partial class AddInsuranceType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +105,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantId", "ProvinceCoreId");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Countries.Entities.Country", b =>
@@ -173,7 +176,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
 
-                    b.ToTable("Countries", (string)null);
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.InsuranceTypes.Entities.InsuranceType", b =>
@@ -345,7 +348,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
 
-                    b.ToTable("InsuranceUnits", (string)null);
+                    b.ToTable("InsuranceUnits");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.ParrotTranslations.Entities.ParrotTranslation", b =>
@@ -395,7 +398,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ParrotTranslations", (string)null);
+                    b.ToTable("ParrotTranslations");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.PatternCatalogs.Entities.PatternCatalog", b =>
@@ -468,7 +471,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "Key")
                         .IsUnique();
 
-                    b.ToTable("PatternCatalogs", (string)null);
+                    b.ToTable("PatternCatalogs");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Provinces.Entities.Province", b =>
@@ -550,7 +553,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantId", "CountryCoreId");
 
-                    b.ToTable("Provinces", (string)null);
+                    b.ToTable("Provinces");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.ServiceFeatures.Entities.ServiceFeature", b =>
@@ -614,7 +617,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "Key")
                         .IsUnique();
 
-                    b.ToTable("ServiceFeatures", (string)null);
+                    b.ToTable("ServiceFeatures");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.Tenant", b =>
@@ -660,7 +663,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("Tenants", (string)null);
+                    b.ToTable("Tenants");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfig", b =>
@@ -707,7 +710,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "ConfigType")
                         .IsUnique();
 
-                    b.ToTable("TenantConfig", (string)null);
+                    b.ToTable("TenantConfig");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfigSettingsHistory", b =>
@@ -752,7 +755,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantConfigId");
 
-                    b.ToTable("TenantConfigSettingsHistory", (string)null);
+                    b.ToTable("TenantConfigSettingsHistory");
                 });
 
             modelBuilder.Entity("Zamin.Extensions.Events.Abstractions.OutBoxEventItem", b =>
