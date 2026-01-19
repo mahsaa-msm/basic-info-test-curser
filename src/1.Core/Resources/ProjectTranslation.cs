@@ -112,6 +112,12 @@ public sealed class ProjectTranslation
 
     #endregion
 
+    #region INSURANCE_TYPE
+    public const string INSURANCE_TYPE = nameof(INSURANCE_TYPE);
+    public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
+
+    #endregion
+
     #region TRANSLATION
 
     public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
