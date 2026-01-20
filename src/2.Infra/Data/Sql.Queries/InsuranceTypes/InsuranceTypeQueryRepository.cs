@@ -17,66 +17,6 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
     {
     }
 
-    public async Task<List<InsuranceTypeSelectItemQr>> Execute(GetAllInsuranceTypeQuery query)
-        => await _dbContext.InsuranceTypes
-        .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
-        .OrderBy(c => c.Priority)
-        .Select(c => new InsuranceTypeSelectItemQr
-        {
-            CoreId = c.CoreId,
-            DisplayTitle = c.DisplayTitle
-        }).ToListAsync();
-
-    public async Task<PagedData<InsuranceTypeListItemQr>> Execute(GetAllInsuranceTypesPagedFilterQuery query)
-    {
-        var result = new PagedData<InsuranceTypeListItemQr>
-        {
-            PageNumber = query.PageNumber,
-            PageSize = query.PageSize
-        };
-
-        var filter = _dbContext.InsuranceTypes.AsQueryable();
-
-        if (!string.IsNullOrEmpty(query.CoreId))
-            filter = filter.Where(c => c.CoreId == query.CoreId);
-
-        if (!string.IsNullOrEmpty(query.Title))
-            filter = filter.Where(c => c.Title.Contains(query.Title));
-
-        if (!string.IsNullOrEmpty(query.DisplayTitle))
-            filter = filter.Where(c => c.DisplayTitle.Contains(query.DisplayTitle));
-
-        if (!string.IsNullOrEmpty(query.Code))
-            filter = filter.Where(c => c.Code.Contains(query.Code));
-
-        if (query.IsActive != null)
-            filter = filter.Where(c => c.IsActive == query.IsActive);
-
-        if (query.Priority != null)
-            filter = filter.Where(c => c.Priority == query.Priority);
-
-        if (query.NeedTotalCount is not false)
-            result.TotalCount = await filter.CountAsync();
-
-        if (!string.IsNullOrWhiteSpace(query.SortBy))
-            filter = filter.OrderByField(query.SortBy, query.SortAscending);
-
-        filter = filter.Skip(query.SkipCount).Take(query.PageSize);
-
-        result.QueryResult = await filter.Select(c => new InsuranceTypeListItemQr
-        {
-            Id = c.Id,
-            CoreId = c.CoreId,
-            Title = c.Title,
-            DisplayTitle = c.DisplayTitle,
-            Code = c.Code,
-            Priority = c.Priority,
-            IsActive = c.IsActive,
-        }).ToListAsync();
-
-        return result;
-    }
-
     public async Task<InsuranceTypeQr?> Execute(GetInsuranceTypeByIdQuery query)
          => await _dbContext.InsuranceTypes
                 .Select(c => new InsuranceTypeQr
@@ -92,4 +32,48 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
 
                 })
                 .FirstOrDefaultAsync(c => c.Id == query.InsuranceTypeId);
+
+    public async Task<List<InsuranceTypeSelectItemQr>> Execute(GetAllInsuranceTypeQuery query)
+        => await _dbContext.InsuranceTypes
+        .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
+        .OrderBy(c => c.Priority)
+        .Select(c => new InsuranceTypeSelectItemQr
+        {
+            CoreId = c.CoreId,
+            DisplayTitle = c.DisplayTitle,
+        }).ToListAsync();
+
+    public async Task<PagedData<InsuranceTypeListItemQr>> Execute(GetAllInsuranceTypesPagedFilterQuery query)
+    {
+        var filter = _dbContext.InsuranceTypes.AsQueryable();
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.CoreId),
+                                c => c.CoreId == query.CoreId);
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.Code),
+                        c => c.Code.Contains(query.Code!));
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.Title),
+                        c => c.Title.Contains(query.Title!));
+
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.DisplayTitle),
+                        c => c.DisplayTitle.Contains(query.DisplayTitle!));
+
+        filter = filter.WhereIf(query.IsActive is not null,
+                                c => c.IsActive == query.IsActive);
+
+        filter = filter.WhereIf(query.Priority is not null,
+                                c => c.Priority == query.Priority);
+
+        return await filter.ToPagedData(query, c => new InsuranceTypeListItemQr
+        {
+            Id = c.Id,
+            Title = c.Title,
+            DisplayTitle = c.DisplayTitle,
+            Code = c.Code,
+            CoreId = c.CoreId,
+            IsActive = c.IsActive,
+            Priority = c.Priority,
+        });
+    }
 }
