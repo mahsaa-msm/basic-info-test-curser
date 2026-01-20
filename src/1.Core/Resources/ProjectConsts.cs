@@ -45,7 +45,7 @@ public sealed class ProjectConsts
         NoChange
     }
 
-    public enum InsuranceType : byte
+    public enum InsuranceTypeEnum : byte
     {
         [Description(ProjectTranslation.CAR_INSURANCE)] CarInsurance = 1, //بیمه خودرو
         [Description(ProjectTranslation.ACCIDENT_INSURANCE)] AccidentInsurance = 2, //بیمه  حوادث
