@@ -23,126 +23,6 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Master.Data.Core.Domain.AgreementObligations.Entities.AgreementObligation", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("AgreementCoreId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("AgreementNumber")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("AgreementObligationNumber")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<Guid>("BusinessId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CoreId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CreatedByUserId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DisplayTitle")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<DateTime?>("EndDateUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("FirstInstallmentDeadline")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InstallmentInterval")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InstallmentsCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("InsuranceTypeCoreId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("IssuanceSchemeCoreIds")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("ModifiedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double?>("PrepaymentPercentage")
-                        .HasColumnType("float");
-
-                    b.Property<long>("Priority")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("SalesType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("StartDateUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("TenantBusinessId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("TenantId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AgreementCoreId");
-
-                    b.HasIndex("BusinessId")
-                        .IsUnique();
-
-                    b.HasIndex("CoreId");
-
-                    b.HasIndex("InsuranceTypeCoreId");
-
-                    b.HasIndex("TenantId", "CoreId")
-                        .IsUnique();
-
-                    b.ToTable("AgreementObligations");
-                });
-
             modelBuilder.Entity("Master.Data.Core.Domain.Cities.Entities.City", b =>
                 {
                     b.Property<long>("Id")
@@ -222,7 +102,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantId", "ProvinceCoreId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Countries.Entities.Country", b =>
@@ -293,7 +173,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.InsuranceUnits.Entities.InsuranceUnit", b =>
@@ -394,7 +274,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
 
-                    b.ToTable("InsuranceUnits");
+                    b.ToTable("InsuranceUnits", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.ParrotTranslations.Entities.ParrotTranslation", b =>
@@ -444,7 +324,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ParrotTranslations");
+                    b.ToTable("ParrotTranslations", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.PatternCatalogs.Entities.PatternCatalog", b =>
@@ -517,7 +397,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "Key")
                         .IsUnique();
 
-                    b.ToTable("PatternCatalogs");
+                    b.ToTable("PatternCatalogs", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Provinces.Entities.Province", b =>
@@ -599,7 +479,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantId", "CountryCoreId");
 
-                    b.ToTable("Provinces");
+                    b.ToTable("Provinces", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.ServiceFeatures.Entities.ServiceFeature", b =>
@@ -663,7 +543,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "Key")
                         .IsUnique();
 
-                    b.ToTable("ServiceFeatures");
+                    b.ToTable("ServiceFeatures", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.Tenant", b =>
@@ -709,7 +589,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("Tenants");
+                    b.ToTable("Tenants", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfig", b =>
@@ -756,7 +636,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "ConfigType")
                         .IsUnique();
 
-                    b.ToTable("TenantConfig");
+                    b.ToTable("TenantConfig", (string)null);
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfigSettingsHistory", b =>
@@ -801,7 +681,7 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantConfigId");
 
-                    b.ToTable("TenantConfigSettingsHistory");
+                    b.ToTable("TenantConfigSettingsHistory", (string)null);
                 });
 
             modelBuilder.Entity("Zamin.Extensions.Events.Abstractions.OutBoxEventItem", b =>
