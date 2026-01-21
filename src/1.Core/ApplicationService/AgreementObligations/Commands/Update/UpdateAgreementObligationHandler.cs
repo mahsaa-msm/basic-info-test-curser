@@ -95,7 +95,7 @@ public sealed class UpdateAgreementObligationHandler : CommandHandler<UpdateAgre
         ValueObjectGuard.ThrowIfNull(command.Code, ProjectTranslation.CODE);
 
         if (await _agreementObligationCommandRepository.ExistsAsync(c => c.Id != command.AgreementObligationId &&
-                                                                         (c.Code == Code.FromString(command.Code) || c.Title == Title.FromString(command.Title))))
+                                                                         (c.Code == Code.FromString(command.Code) || c.Title == DIPTitle.FromString(command.Title))))
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.AGREEMENT_OBLIGATION]);
     }

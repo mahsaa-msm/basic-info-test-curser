@@ -22,7 +22,7 @@ public sealed class ProjectConsts
     public const byte NAME_MAX_LENGTH = 250;
 
     public const byte TITLE_MIN_LENGTH = 1;
-    public const byte TITLE_MAX_LENGTH = 250;
+    public const Int16 TITLE_MAX_LENGTH = 350;
 
     public const byte PERCENTAGE_MIN_VALUE = 0;
     public const byte PERCENTAGE_MAX_VALUE = 100;
@@ -196,11 +196,15 @@ public sealed class ProjectConsts
     #region AgreementObligation
     public enum SalesType
     {
-
+        None = 0,
+        o = 1,
+        t = 2,
+        th = 3,
+        f = 4
     }
 
     public const int AGREEMENT_NUMBER_MIN_LENGTH = 2;
-    public const int AGREEMENT_NUMBER_MAX_LENGTH = 100;
+    public const int AGREEMENT_NUMBER_MAX_LENGTH = 200;
 
     #endregion
 }

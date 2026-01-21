@@ -89,7 +89,7 @@ public sealed class FetchAgreementObligationsFromSourceHandler : CommandHandler<
             }
             else
             {
-                if (agreementObligation.Title != Title.FromString(coreAgreementObligation.Title) ||
+                if (agreementObligation.Title != DIPTitle.FromString(coreAgreementObligation.Title) ||
                     agreementObligation.AgreementCoreId != CoreId.FromLong(coreAgreementObligation.AgreementCoreId) ||
                     agreementObligation.Code != Code.FromString(coreAgreementObligation.Code) ||
                     agreementObligation.AgreementNumber != coreAgreementObligation.AgreementNumber ||

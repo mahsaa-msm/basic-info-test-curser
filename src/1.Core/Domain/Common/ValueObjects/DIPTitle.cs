@@ -12,12 +12,12 @@ public class DIPTitle : BaseValueObject<DIPTitle>
 
     private DIPTitle(string value)
     {
-        ValueObjectGuard.ThrowIfStringNullOrWhiteSpace(value, ProjectTranslation.NAME);
+        ValueObjectGuard.ThrowIfStringNullOrWhiteSpace(value, ProjectTranslation.TITLE);
 
         ValueObjectGuard.ThrowIfIsNotBetween(value.Length,
-                                             ProjectConsts.NAME_MIN_LENGTH,
-                                             ProjectConsts.NAME_MAX_LENGTH,
-                                             ProjectTranslation.NAME);
+                                             ProjectConsts.TITLE_MIN_LENGTH,
+                                             ProjectConsts.TITLE_MAX_LENGTH,
+                                             ProjectTranslation.TITLE);
 
         Value = value;
     }

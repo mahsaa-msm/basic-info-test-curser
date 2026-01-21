@@ -2,6 +2,7 @@
 using Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
 using Master.Data.Core.Resources;
 using System.Net;
+using System.Net.Http.Headers;
 using Zamin.Extensions.Caching.Abstractions;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
@@ -26,16 +27,24 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
         var token = await GetTokenFromCacheOrApiAsync(cancellationToken);
 
         if (!string.IsNullOrEmpty(token))
+        {
             request.Headers.Add("Oauth-2", token);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
 
         HttpResponseMessage response = await base.SendAsync(request, cancellationToken);
         string contentString = await response.Content.ReadAsStringAsync(cancellationToken);
-        if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body>"))
+        if (response.StatusCode == HttpStatusCode.Unauthorized || contentString.Contains("<body"))
         {
             request.Headers.Remove("Oauth-2");
+            request.Headers.Remove("Authorization");
+
             token = await RenewToken(cancellationToken);
             if (!string.IsNullOrEmpty(token))
+            {
                 request.Headers.Add("Oauth-2", token);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
             response = await base.SendAsync(request, cancellationToken);
 

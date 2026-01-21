@@ -99,11 +99,10 @@ public sealed class UpdateAgreementObligationValidator : AbstractValidator<Updat
         #endregion
 
         #region StartDateUtc
-        RuleFor(command => command.StartDateUtc)
+        When(c => c.StartDateUtc.HasValue, () =>
+        {
+            RuleFor(command => command.StartDateUtc)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.START_DATE])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
 
             .Must(startDate => startDate > DateTime.MinValue && startDate < DateTime.MaxValue)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_DATE_BETWEEN,
@@ -111,30 +110,28 @@ public sealed class UpdateAgreementObligationValidator : AbstractValidator<Updat
                                     DateTime.MinValue.ToString(),
                                     DateTime.MaxValue.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_DATE_BETWEEN);
+        });
         #endregion
 
         #region EndDateUtc
-        RuleFor(command => command.EndDateUtc)
+        When(c => c.EndDateUtc.HasValue, () =>
+        {
+            RuleFor(command => command.EndDateUtc)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.END_DATE])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
             .Must(startDate => startDate > DateTime.MinValue && startDate < DateTime.MaxValue)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_DATE_BETWEEN,
                                     ProjectTranslation.END_DATE,
                                     DateTime.MinValue.ToString(),
                                     DateTime.MaxValue.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_DATE_BETWEEN);
+        });
         #endregion
 
         #region PrepaymentPercentage
-        RuleFor(command => command.PrepaymentPercentage)
+        When(c => c.PrepaymentPercentage.HasValue, () =>
+        {
+            RuleFor(command => command.PrepaymentPercentage)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.PREPAYMENT_PERCENTAGE])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
             .Must(prepaymentPercentage => prepaymentPercentage > ProjectConsts.PERCENTAGE_MIN_VALUE &&
                                           prepaymentPercentage < ProjectConsts.PERCENTAGE_MAX_VALUE)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NUMBER_BETWEEN,
@@ -142,48 +139,46 @@ public sealed class UpdateAgreementObligationValidator : AbstractValidator<Updat
                                     ProjectConsts.PERCENTAGE_MIN_VALUE.ToString(),
                                     ProjectConsts.PERCENTAGE_MAX_VALUE.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_BETWEEN);
+        });
         #endregion
 
         #region FirstInstallmentDeadline
-        RuleFor(command => command.FirstInstallmentDeadline)
+        When(c => c.FirstInstallmentDeadline.HasValue, () =>
+        {
+            RuleFor(command => command.FirstInstallmentDeadline)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.FIRST_INSTALLMENT_DEADLINE])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
             .GreaterThanOrEqualTo(ProjectConsts.POSITIVE_NUMBER_MIN_VALUE)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NUMBER_GRATER_OR_EQUAL_THAN,
                                     ProjectTranslation.FIRST_INSTALLMENT_DEADLINE,
                                     ProjectConsts.POSITIVE_NUMBER_MIN_VALUE.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_GRATER_OR_EQUAL_THAN);
+        });
         #endregion
 
         #region InstallmentsCount
-        RuleFor(command => command.InstallmentsCount)
+        When(c => c.InstallmentsCount.HasValue, () =>
+        {
+            RuleFor(command => command.InstallmentsCount)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.INSTALLMENTS_COUNT])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
             .GreaterThanOrEqualTo(ProjectConsts.POSITIVE_NUMBER_MIN_VALUE)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NUMBER_GRATER_OR_EQUAL_THAN,
                                     ProjectTranslation.INSTALLMENTS_COUNT,
                                     ProjectConsts.POSITIVE_NUMBER_MIN_VALUE.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_GRATER_OR_EQUAL_THAN);
+        });
         #endregion
 
         #region InstallmentInterval
-        RuleFor(command => command.InstallmentInterval)
+        When(c => c.InstallmentInterval.HasValue, () =>
+        {
+            RuleFor(command => command.InstallmentInterval)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.INSTALLMENT_INTERVAL])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
             .GreaterThanOrEqualTo(ProjectConsts.POSITIVE_NUMBER_MIN_VALUE)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NUMBER_GRATER_OR_EQUAL_THAN,
                                     ProjectTranslation.INSTALLMENT_INTERVAL,
                                     ProjectConsts.POSITIVE_NUMBER_MIN_VALUE.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_GRATER_OR_EQUAL_THAN);
+        });
         #endregion
 
         #region AgreementNumber

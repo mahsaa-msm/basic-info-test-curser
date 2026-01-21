@@ -1,8 +1,9 @@
 ﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
+using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.Tenant;
 
-public class TenantService : ITenantService
+public class TenantService : ITenantService, ITransientLifetime
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly ITenantResolver _tenantResolver;

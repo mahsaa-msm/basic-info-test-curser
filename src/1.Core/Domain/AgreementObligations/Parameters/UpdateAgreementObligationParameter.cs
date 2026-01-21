@@ -1,11 +1,10 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.AgreementObligations.Parameters;
 
-public sealed record UpdateAgreementObligationParameter(Title Title,
-                                                        Title DisplayTitle,
+public sealed record UpdateAgreementObligationParameter(DIPTitle Title,
+                                                        DIPTitle DisplayTitle,
                                                         CoreId AgreementCoreId,
                                                         Code Code,
                                                         DateTime? StartDateUtc,

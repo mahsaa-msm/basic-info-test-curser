@@ -11,8 +11,8 @@ namespace Master.Data.Core.Domain.AgreementObligations.Entities;
 public sealed class AgreementObligation : BaseTenantEntity
 {
     #region Properties
-    public Title Title { get; private set; }
-    public Title DisplayTitle { get; private set; }
+    public DIPTitle Title { get; private set; }
+    public DIPTitle DisplayTitle { get; private set; }
     public CoreId CoreId { get; private set; }
     public CoreId AgreementCoreId { get; private set; }
     public Code Code { get; private set; }
@@ -37,12 +37,7 @@ public sealed class AgreementObligation : BaseTenantEntity
     public IsActive IsActive { get; private set; }
 
     private HashSet<CoreId> _issuanceSchemeCoreIds = new();
-    public List<CoreId> IssuanceSchemeCoreIds
-    {
-        get => _issuanceSchemeCoreIds.ToList();
-        private set => _issuanceSchemeCoreIds = new HashSet<CoreId>(value);
-    }
-
+    public IReadOnlyCollection<CoreId> IssuanceSchemeCoreIds => _issuanceSchemeCoreIds;
     #endregion
 
     #region Constructors
@@ -73,6 +68,8 @@ public sealed class AgreementObligation : BaseTenantEntity
         Priority = createAgreementObligationParameter.Priority;
         if (createAgreementObligationParameter.TenantId is not null)
             TenantId = (long)createAgreementObligationParameter.TenantId;
+        if (createAgreementObligationParameter.TenantKey is not null)
+            TenantBusinessId = createAgreementObligationParameter.TenantKey;
         IsActive = IsActive.True();
     }
     #endregion
@@ -138,6 +135,17 @@ public sealed class AgreementObligation : BaseTenantEntity
         if (!_issuanceSchemeCoreIds.Remove(issuanceSchemeCoreId))
             throw new InvalidEntityStateException(ProjectValidationError.VALIDATION_ERROR_NOT_EXIST,
                                                   ProjectTranslation.ISSUANCE_SCHEME);
+    }
+
+    public void UpdateIssuanceSchemes(List<CoreId> issuanceSchemeCoreIds)
+    {
+
+        _issuanceSchemeCoreIds.RemoveWhere(_issuanceSchemeCoreId => issuanceSchemeCoreIds.Contains(_issuanceSchemeCoreId));
+
+        foreach (var issuanceSchemeCoreId in issuanceSchemeCoreIds.ToHashSet())
+        {
+            _issuanceSchemeCoreIds.Add(issuanceSchemeCoreId);
+        }
     }
 
     #endregion

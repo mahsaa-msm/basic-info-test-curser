@@ -14,3 +14,4 @@ public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<List<CoreId
                            .ToList())
     { }
 }
+
