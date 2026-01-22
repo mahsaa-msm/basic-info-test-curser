@@ -16,19 +16,10 @@ public sealed class AgreementObligationCommandRepository : BaseCommandRepository
     }
 
     public async Task<List<AgreementObligation>> GetAllAsync()
-    {
-        var test1 = await _dbContext.AgreementObligations
-            .Select(x => new { x.Id })
-            .ToListAsync();
+        => await _dbContext.AgreementObligations.ToListAsync();
 
-        var test2 = await _dbContext.AgreementObligations
-            .Select(x => new { x.Id, x.Title ,x.DisplayTitle,x.AgreementCoreId,x.AgreementNumber,x.AgreementObligationNumber,x.Code
-            , x.CoreId,x.EndDateUtc,x.StartDateUtc,x.SalesType})
-            .ToListAsync();
-
-        return await _dbContext.AgreementObligations.ToListAsync();
-    }
-        //=> await _dbContext.AgreementObligations.ToListAsync();
+    public async Task<List<AgreementObligation>> GetAllIgnoreQueryFilterAsync()
+        => await _dbContext.AgreementObligations.IgnoreQueryFilters().ToListAsync();
 
     public async Task<AgreementObligation?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId)
         => await _dbContext.AgreementObligations.FirstOrDefaultAsync(c => c.CoreId == coreId);

@@ -8,15 +8,15 @@ public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<HashSet<Cor
 {
     public IssuanceSchemeCoreIdsConversion()
             : base(
-                coreIds =>
-                    string.Join(",", coreIds.Select(coreId => coreId.Value)),
+                coreIds => string.Join(",", coreIds.Select(coreId => coreId.Value)),
 
-                value =>
-                    string.IsNullOrWhiteSpace(value)
-                        ? new HashSet<CoreId>()
-                        : value.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                               .Select(CoreId.FromString)
-                               .ToHashSet()
+                value => !Convert.IsDBNull(value) && string.IsNullOrEmpty(value) ?
+                         new HashSet<CoreId>() :
+                         value.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                              .Where(id => id.Length > 0 && Convert.ToInt64(id) == 0)
+                              .Select(id => CoreId.FromString(id.ToString()))
+                              .ToList()
+                              .ToHashSet()
             )
     {
     }

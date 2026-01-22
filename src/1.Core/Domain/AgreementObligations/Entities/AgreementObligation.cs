@@ -36,8 +36,8 @@ public sealed class AgreementObligation : BaseTenantEntity
     public Common.ValueObjects.Priority Priority { get; private set; }
     public IsActive IsActive { get; private set; }
 
-    private HashSet<CoreId> _issuanceSchemeCoreIds = new();
-    public IReadOnlyCollection<CoreId> IssuanceSchemeCoreIds => _issuanceSchemeCoreIds;
+    private HashSet<CoreId> _issuanceSchemeCoreIds { get; set; } = new();
+    public IReadOnlyCollection<CoreId> IssuanceSchemeCoreIds => _issuanceSchemeCoreIds.ToList().AsReadOnly();
     #endregion
 
     #region Constructors
@@ -139,10 +139,9 @@ public sealed class AgreementObligation : BaseTenantEntity
 
     public void UpdateIssuanceSchemes(List<CoreId> issuanceSchemeCoreIds)
     {
-
-        _issuanceSchemeCoreIds.RemoveWhere(_issuanceSchemeCoreId => issuanceSchemeCoreIds.Contains(_issuanceSchemeCoreId));
-
-        foreach (var issuanceSchemeCoreId in issuanceSchemeCoreIds.ToHashSet())
+        _issuanceSchemeCoreIds.RemoveWhere(_issuanceSchemeCoreId => !issuanceSchemeCoreIds.Contains(_issuanceSchemeCoreId));
+        issuanceSchemeCoreIds.ToHashSet().RemoveWhere(_issuanceSchemeCoreIds.Contains);
+        foreach (var issuanceSchemeCoreId in issuanceSchemeCoreIds)
         {
             _issuanceSchemeCoreIds.Add(issuanceSchemeCoreId);
         }

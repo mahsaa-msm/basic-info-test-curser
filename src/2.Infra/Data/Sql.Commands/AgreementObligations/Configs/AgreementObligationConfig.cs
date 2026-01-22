@@ -31,17 +31,12 @@ public sealed class AgreementObligationConfig : IEntityTypeConfiguration<Agreeme
         #region IssuanceSchemeCoreIds
         builder.Ignore(c => c.IssuanceSchemeCoreIds);
 
-        builder
-            .Property<HashSet<CoreId>>("_issuanceSchemeCoreIds")
-            .HasColumnName("IssuanceSchemeCoreIds")
-            .HasMaxLength(2000)
-            .IsRequired(false)
-            .HasConversion<IssuanceSchemeCoreIdsConversion>()
-            .Metadata.SetValueComparer(IssuanceSchemeCoreIdsComparer.CoreIdHashSetComparer);
-
-        //builder
-        //    .Navigation(nameof(AgreementObligation.IssuanceSchemeCoreIds))
-        //    .UsePropertyAccessMode(PropertyAccessMode.Field);
+        builder.Property<HashSet<CoreId>>("_issuanceSchemeCoreIds")
+               .HasColumnName("IssuanceSchemeCoreIds")
+               .HasMaxLength(2000)
+               .IsRequired()
+               .HasConversion<IssuanceSchemeCoreIdsConversion>()
+               .Metadata.SetValueComparer(IssuanceSchemeCoreIdsComparer.CoreIdHashSetComparer);
         #endregion
 
         builder.Property(c => c.AgreementCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();

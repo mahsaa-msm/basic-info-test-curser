@@ -9,7 +9,6 @@ public class CoreId : BaseValueObject<CoreId>
 {
     public string Value { get; private set; } = string.Empty;
 
-
     private CoreId()
     {
     }

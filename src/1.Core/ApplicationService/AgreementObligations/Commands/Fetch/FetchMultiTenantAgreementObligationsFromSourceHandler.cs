@@ -15,6 +15,7 @@ using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
+using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.Fetch;
 
@@ -62,15 +63,14 @@ public sealed class FetchMultiTenantAgreementObligationsFromSourceHandler : Comm
 
         foreach (var tenant in tenants)
         {
-            //var tenantAgreementObligations = await _agreementObligationCommandRepository.GetAllAsync();
-            var tenantAgreementObligations = new List<AgreementObligation>();
+            var tenantAgreementObligations = await _agreementObligationCommandRepository.GetByTenantId(tenant.Id);
 
             foreach (var coreAgreementObligation in coreAgreementObligationsResponse.Value)
             {
                 try
                 {
                     var tenantAgreementObligation = tenantAgreementObligations
-                        .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreAgreementObligation.AgreementObligationCoreId));
+                        .FirstOrDefault(c => CoreId.FromLong(coreAgreementObligation.AgreementObligationCoreId).Equals(c.CoreId));
 
                     if (tenantAgreementObligation is null)
                     {
@@ -107,9 +107,9 @@ public sealed class FetchMultiTenantAgreementObligationsFromSourceHandler : Comm
                     }
                     else
                     {
-                        if (tenantAgreementObligation.Title != DIPTitle.FromString(coreAgreementObligation.Title) ||
-                            tenantAgreementObligation.AgreementCoreId != CoreId.FromLong(coreAgreementObligation.AgreementCoreId) ||
-                            tenantAgreementObligation.Code != Code.FromString(coreAgreementObligation.Code) ||
+                        if (tenantAgreementObligation.Title.Value != coreAgreementObligation.Title.ApplyCorrectYeKe() ||
+                            tenantAgreementObligation.AgreementCoreId.Value != coreAgreementObligation.AgreementCoreId.ToString() ||
+                            tenantAgreementObligation.Code.Value != coreAgreementObligation.Code ||
                             tenantAgreementObligation.AgreementNumber != coreAgreementObligation.AgreementNumber ||
                             tenantAgreementObligation.AgreementObligationNumber != coreAgreementObligation.AgreementObligationNumber)
                         {
@@ -144,7 +144,7 @@ public sealed class FetchMultiTenantAgreementObligationsFromSourceHandler : Comm
                     _logger.LogError(ex.Message);
                 }
             }
-            
+
             await _agreementObligationCommandRepository.CommitAsync();
         }
 
