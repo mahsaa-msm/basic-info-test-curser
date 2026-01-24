@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
 
-public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<List<CoreId>, string>
+public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<List<string>, string>
 {
     public IssuanceSchemeCoreIdsConversion() : base(
         coreIds => string.Join(",", coreIds.Select(coreId => coreId.ToString())),
         value => string.IsNullOrEmpty(value) ?
-                      new List<CoreId>() :
+                      new List<string>() :
                       value.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                           .Select(id => (CoreId)id)
+                           .Select(id => id)
                            .ToList())
     { }
 }
