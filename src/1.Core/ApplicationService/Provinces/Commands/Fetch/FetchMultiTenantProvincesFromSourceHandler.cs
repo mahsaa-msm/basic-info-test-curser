@@ -17,6 +17,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Provinces.Commands.Fetch;
+
 public sealed class FetchMultiTenantProvincesFromSourceHandler : CommandHandler<FetchMultiTenantProvincesFromSourceCommand>
 {
     private readonly IProvinceCommandRepository _provinceCommandRepository;
@@ -61,37 +62,44 @@ public sealed class FetchMultiTenantProvincesFromSourceHandler : CommandHandler<
         {
             var tenantProvinces = await _provinceCommandRepository.GetByTenantId(tenant.Id);
 
-            foreach (var coreProvince in coreProvincesResponse.Value)
+            foreach (var coreProvince in coreProvincesResponse.Value.DistinctBy(c => c.ostanID))
             {
-                var province = tenantProvinces
-                    .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreProvince.ostanID));
+                try
+                {
+                    var province = tenantProvinces
+                            .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreProvince.ostanID));
 
-                if (province is null)
-                {
-                    var newProvince = Province.CreateWithTenantId(new CreateProvinceWithTenantIdParameter(tenant.Id,
-                                                                                                          coreProvince.naamOstan,
-                                                                                                          coreProvince.naamOstan,
-                                                                                                          coreProvince.ostanID,
-                                                                                                          !string.IsNullOrEmpty(coreProvince.codeOstan) ?
-                                                                                                              coreProvince.codeOstan :
-                                                                                                              _finglishConverter.Convert(coreProvince.naamOstan),
-                                                                                                          nextPriority,
-                                                                                                          coreProvince.keshvarID,
-                                                                                                          tenant.Key));
-                    await _provinceCommandRepository.InsertAsync(newProvince);
-                    nextPriority++;
+                    if (province is null)
+                    {
+                        var newProvince = Province.CreateWithTenantId(new CreateProvinceWithTenantIdParameter(tenant.Id,
+                                                                                                              coreProvince.naamOstan,
+                                                                                                              coreProvince.naamOstan,
+                                                                                                              coreProvince.ostanID,
+                                                                                                              !string.IsNullOrEmpty(coreProvince.codeOstan) ?
+                                                                                                                  coreProvince.codeOstan :
+                                                                                                                  _finglishConverter.Convert(coreProvince.naamOstan),
+                                                                                                              nextPriority,
+                                                                                                              coreProvince.keshvarID,
+                                                                                                              tenant.Key));
+                        await _provinceCommandRepository.InsertAsync(newProvince);
+                        nextPriority++;
+                    }
+                    else
+                    {
+                        if (province.Title != Title.FromString(coreProvince.naamOstan) ||
+                            province.CountryCoreId != CoreId.FromLong(coreProvince.keshvarID))
+                            province.Update(new UpdateProvinceParameter(coreProvince.naamOstan,
+                                                                        province.DisplayTitle,
+                                                                        !string.IsNullOrEmpty(coreProvince.codeOstan) ?
+                                                                            coreProvince.codeOstan :
+                                                                            _finglishConverter.Convert(coreProvince.codeOstan),
+                                                                        province.Priority,
+                                                                        coreProvince.keshvarID));
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    if (province.Title != Title.FromString(coreProvince.naamOstan) ||
-                        province.CountryCoreId != CoreId.FromLong(coreProvince.keshvarID))
-                        province.Update(new UpdateProvinceParameter(coreProvince.naamOstan,
-                                                                    province.DisplayTitle,
-                                                                    !string.IsNullOrEmpty(coreProvince.codeOstan) ?
-                                                                        coreProvince.codeOstan :
-                                                                        _finglishConverter.Convert(coreProvince.codeOstan),
-                                                                    province.Priority,
-                                                                    coreProvince.keshvarID));
+                    _logger.LogError(ex.Message);
                 }
             }
         }
