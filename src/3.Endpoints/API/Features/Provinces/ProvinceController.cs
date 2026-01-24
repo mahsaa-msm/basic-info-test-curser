@@ -33,8 +33,8 @@ public class ProvinceController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchProvincesFromSource([FromBody] FetchProvincesFromSourceCommand commnad)
-    => await Edit(commnad);
+    public async Task<IActionResult> FetchProvincesFromSource()
+    => await Edit(new FetchProvincesFromSourceCommand());
 
     [HttpDelete("[action]")]
     public async Task<IActionResult> DeleteProvince([FromBody] DeleteProvinceCommand command)

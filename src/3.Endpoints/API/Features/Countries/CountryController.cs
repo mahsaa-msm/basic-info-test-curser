@@ -32,8 +32,8 @@ public class CountryController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchCountriesFromSource([FromBody] FetchCountriesFromSourceCommand commnad)
-    => await Edit(commnad);
+    public async Task<IActionResult> FetchCountriesFromSource()
+    => await Edit(new FetchCountriesFromSourceCommand());
 
     [HttpDelete("[action]")]
     public async Task<IActionResult> DeleteCountry([FromBody] DeleteCountryCommand command)

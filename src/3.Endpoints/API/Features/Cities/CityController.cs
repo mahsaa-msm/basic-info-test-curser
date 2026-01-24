@@ -32,8 +32,8 @@ public class CityController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchCitiesFromSource([FromBody] FetchCitiesFromSourceCommand commnad)
-    => await Edit(commnad);
+    public async Task<IActionResult> FetchCitiesFromSource()
+    => await Edit(new FetchCitiesFromSourceCommand());
 
     [HttpDelete("[action]")]
     public async Task<IActionResult> DeleteCity([FromBody] DeleteCityCommand command)
