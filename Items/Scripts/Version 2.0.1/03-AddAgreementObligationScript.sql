@@ -1,10 +1,13 @@
+USE DIP_MasterData
+GO
+
 BEGIN TRANSACTION;
 GO
 
 CREATE TABLE [AgreementObligations] (
     [Id] bigint NOT NULL IDENTITY,
-    [Title] nvarchar(250) NOT NULL,
-    [DisplayTitle] nvarchar(250) NOT NULL,
+    [Title] nvarchar(350) NOT NULL,
+    [DisplayTitle] nvarchar(350) NOT NULL,
     [CoreId] nvarchar(50) NOT NULL,
     [AgreementCoreId] nvarchar(50) NOT NULL,
     [Code] nvarchar(50) NOT NULL,
@@ -14,8 +17,8 @@ CREATE TABLE [AgreementObligations] (
     [FirstInstallmentDeadline] int NULL,
     [InstallmentsCount] int NULL,
     [InstallmentInterval] int NULL,
-    [AgreementObligationNumber] nvarchar(100) NOT NULL,
-    [AgreementNumber] nvarchar(100) NOT NULL,
+    [AgreementObligationNumber] nvarchar(200) NOT NULL,
+    [AgreementNumber] nvarchar(200) NOT NULL,
     [InsuranceTypeCoreId] nvarchar(50) NOT NULL,
     [SalesType] int NOT NULL,
     [Priority] bigint NOT NULL,
@@ -48,7 +51,7 @@ CREATE UNIQUE INDEX [IX_AgreementObligations_TenantId_CoreId] ON [AgreementOblig
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20260119121350_agreement-obligation-entity', N'8.0.21');
+VALUES (N'20260122173411_add-agreement-obligation-entity', N'8.0.21');
 GO
 
 COMMIT;

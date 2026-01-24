@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
+using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Master.Data.Core.Resources;
 using Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
 using Microsoft.EntityFrameworkCore;
@@ -50,13 +51,5 @@ public sealed class AgreementObligationConfig : IEntityTypeConfiguration<Agreeme
         builder.HasIndex(c => c.AgreementCoreId);
         builder.HasIndex(c => c.InsuranceTypeCoreId);
         builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
-
-
-        //builder
-        //.HasOne<InsuranceType>()
-        //.WithMany()
-        //.HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
-        //.HasForeignKey(p => new { p.TenantId, p.InsuranceTypeCoreId }) // کلید خارجی ترکیبی
-        //.OnDelete(DeleteBehavior.NoAction);
     }
 }

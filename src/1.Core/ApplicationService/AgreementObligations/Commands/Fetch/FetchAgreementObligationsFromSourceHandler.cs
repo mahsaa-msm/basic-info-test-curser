@@ -68,10 +68,13 @@ public sealed class FetchAgreementObligationsFromSourceHandler : CommandHandler<
                                                                        coreAgreementObligation.AgreementObligationCoreId,
                                                                        coreAgreementObligation.AgreementCoreId,
                                                                        !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
-                                                                           coreAgreementObligation.Code :
-                                                                           _finglishConverter.Convert(coreAgreementObligation.Title),
-                                                                       coreAgreementObligation.StartDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                       coreAgreementObligation.EndDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                            coreAgreementObligation.Code :
+                                                                            _finglishConverter.Convert(coreAgreementObligation.Title)
+                                                                            .Substring(0, ProjectConsts.CODE_MAX_LENGTH - 1),
+                                                                       coreAgreementObligation.StartDate
+                                                                        .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                       coreAgreementObligation.EndDate
+                                                                        .ToSafeDateTime(targetKind: DateTimeKind.Utc),
                                                                        coreAgreementObligation.PrepaymentPercentage,
                                                                        coreAgreementObligation.FirstInstallmentDeadline,
                                                                        coreAgreementObligation.InstallmentsCount,
@@ -102,11 +105,14 @@ public sealed class FetchAgreementObligationsFromSourceHandler : CommandHandler<
                         agreementObligation.Update(new UpdateAgreementObligationParameter(coreAgreementObligation.Title,
                                                                                           agreementObligation.DisplayTitle,
                                                                                           coreAgreementObligation.AgreementCoreId,
-                                                                                          !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
-                                                                                              coreAgreementObligation.Code :
-                                                                                              _finglishConverter.Convert(coreAgreementObligation.Title),
-                                                                                          coreAgreementObligation.StartDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                                          coreAgreementObligation.EndDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                                           !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
+                                                                                                coreAgreementObligation.Code :
+                                                                                                _finglishConverter.Convert(coreAgreementObligation.Title)
+                                                                                                .Substring(0, ProjectConsts.CODE_MAX_LENGTH - 1),
+                                                                                          coreAgreementObligation.StartDate
+                                                                                            .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                                          coreAgreementObligation.EndDate
+                                                                                            .ToSafeDateTime(targetKind: DateTimeKind.Utc),
                                                                                           coreAgreementObligation.PrepaymentPercentage,
                                                                                           coreAgreementObligation.FirstInstallmentDeadline,
                                                                                           coreAgreementObligation.InstallmentsCount,

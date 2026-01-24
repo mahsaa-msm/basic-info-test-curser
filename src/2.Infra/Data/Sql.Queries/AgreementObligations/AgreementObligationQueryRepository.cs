@@ -51,6 +51,7 @@ public sealed class AgreementObligationQueryRepository : BaseQueryRepository<Mas
         .OrderBy(c => c.Priority)
         .Select(c => new AgreementObligationSelectItemQr
         {
+            Id = c.Id,
             CoreId = c.CoreId,
             DisplayTitle = c.DisplayTitle,
             AgreementNumber = c.AgreementNumber,
@@ -93,19 +94,20 @@ public sealed class AgreementObligationQueryRepository : BaseQueryRepository<Mas
         filter = filter.WhereIf(query.Priority is not null,
                                 c => c.Priority == query.Priority);
 
-        return await filter.ToPagedData(query, c => new AgreementObligationListItemQr
-        {
-            Id = c.Id,
-            Title = c.Title,
-            DisplayTitle = c.DisplayTitle,
-            Code = c.Code,
-            CoreId = c.CoreId,
-            AgreementNumber = c.AgreementNumber,
-            AgreementObligationNumber = c.AgreementObligationNumber,
-            AgreementCoreId = c.AgreementCoreId,
-            InsuranceTypeCoreId = c.InsuranceTypeCoreId,
-            IsActive = c.IsActive,
-            Priority = c.Priority,
-        });
+        return await filter.AsNoTracking()
+            .ToPagedData(query, c => new AgreementObligationListItemQr
+            {
+                Id = c.Id,
+                Title = c.Title,
+                DisplayTitle = c.DisplayTitle,
+                Code = c.Code,
+                CoreId = c.CoreId,
+                AgreementNumber = c.AgreementNumber,
+                AgreementObligationNumber = c.AgreementObligationNumber,
+                AgreementCoreId = c.AgreementCoreId,
+                InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+                IsActive = c.IsActive,
+                Priority = c.Priority,
+            });
     }
 }

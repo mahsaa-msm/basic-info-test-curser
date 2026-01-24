@@ -11,9 +11,19 @@ public sealed class AgreementObligationConfig : IEntityTypeConfiguration<Agreeme
     {
         builder.Property(c => c.IssuanceSchemeCoreIds).HasConversion<IssuanceSchemeCoreIdsConversion>();
 
+        builder.HasAlternateKey(c => new { c.TenantId, c.InsuranceTypeCoreId });
+
         builder
         .HasOne(c => c.Tenant)
         .WithMany()
         .HasForeignKey(c => c.TenantId);
+
+        builder
+        .HasOne(c => c.InsuranceType)
+        .WithMany()
+        .HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
+        .HasForeignKey(p => new { p.TenantId, p.InsuranceTypeCoreId }) // کلید خارجی ترکیبی
+        .IsRequired(false)
+        .OnDelete(DeleteBehavior.NoAction);
     }
 }

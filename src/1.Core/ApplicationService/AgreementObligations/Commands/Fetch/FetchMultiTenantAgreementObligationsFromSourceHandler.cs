@@ -117,7 +117,10 @@ public sealed class FetchMultiTenantAgreementObligationsFromSourceHandler : Comm
                             tenantAgreementObligation.Update(new UpdateAgreementObligationParameter(coreAgreementObligation.Title,
                                                                                                     tenantAgreementObligation.DisplayTitle,
                                                                                                     coreAgreementObligation.AgreementCoreId,
-                                                                                                    coreAgreementObligation.Code,
+                                                                                                   !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
+                                                                                                        coreAgreementObligation.Code :
+                                                                                                        _finglishConverter.Convert(coreAgreementObligation.Title)
+                                                                                                        .Substring(0, ProjectConsts.CODE_MAX_LENGTH - 1),
                                                                                                     coreAgreementObligation.StartDate
                                                                                                         .ToSafeDateTime(targetKind: DateTimeKind.Utc),
                                                                                                     coreAgreementObligation.EndDate

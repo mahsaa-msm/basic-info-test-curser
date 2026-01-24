@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     /// <inheritdoc />
-    public partial class AddAgreementObligation : Migration
+    public partial class addagreementobligationentity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,8 +17,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    DisplayTitle = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
+                    DisplayTitle = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
                     CoreId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AgreementCoreId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -28,8 +28,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     FirstInstallmentDeadline = table.Column<int>(type: "int", nullable: true),
                     InstallmentsCount = table.Column<int>(type: "int", nullable: true),
                     InstallmentInterval = table.Column<int>(type: "int", nullable: true),
-                    AgreementObligationNumber = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    AgreementNumber = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AgreementObligationNumber = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    AgreementNumber = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     InsuranceTypeCoreId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     SalesType = table.Column<int>(type: "int", nullable: false),
                     Priority = table.Column<long>(type: "bigint", nullable: false),
