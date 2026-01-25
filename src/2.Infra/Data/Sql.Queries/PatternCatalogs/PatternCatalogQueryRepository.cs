@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Contracts.PatternCatalogs.Queries;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetById;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
@@ -74,4 +75,18 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
                 Priority = c.Priority,
             })
             .FirstOrDefaultAsync();
+
+    public async Task<List<PatternCatalogQr>> Execute(GetAllPatternCatalogsQuery query)
+        => await _dbContext.PatternCatalogs
+        .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
+        .Select(c => new PatternCatalogQr
+        {
+            Key = c.Key,
+            EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+            EncodedDescription = HttpUtility.UrlEncode(c.Description),
+            CreatedDateUtc = c.CreatedDateUtc,
+            LastModifiedDateUtc = c.LastModifiedDateUtc,
+            IsActive = c.IsActive,
+            Priority = c.Priority,
+        }).ToListAsync();
 }
