@@ -10,10 +10,10 @@ using Master.Data.Core.Resources;
 using Master.Data.Core.Resources.Utils.Extensions;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
+using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.Fetch;
 
@@ -25,10 +25,10 @@ public sealed class FetchAgreementObligationsFromSourceHandler : CommandHandler<
     private readonly IFinglishConverter _finglishConverter;
 
     public FetchAgreementObligationsFromSourceHandler(ZaminServices zaminServices,
-                                        IAgreementObligationCommandRepository agreementObligationCommandRepository,
-                                        ICoreInsuranceGetAllAgreementObligationsCaller coreInsuranceGetAllAgreementObligationsCaller,
-                                        ILogger<FetchAgreementObligationsFromSourceHandler> logger,
-                                        IFinglishConverter finglishConverter)
+                                                      IAgreementObligationCommandRepository agreementObligationCommandRepository,
+                                                      ICoreInsuranceGetAllAgreementObligationsCaller coreInsuranceGetAllAgreementObligationsCaller,
+                                                      ILogger<FetchAgreementObligationsFromSourceHandler> logger,
+                                                      IFinglishConverter finglishConverter)
         : base(zaminServices)
     {
         _agreementObligationCommandRepository = agreementObligationCommandRepository;
@@ -55,68 +55,84 @@ public sealed class FetchAgreementObligationsFromSourceHandler : CommandHandler<
 
         foreach (var coreAgreementObligation in coreAgreementObligationsResponse.Value)
         {
-            var agreementObligation = agreementObligations
-                .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreAgreementObligation.AgreementObligationCoreId));
-
-            if (agreementObligation is null)
+            try
             {
-                var newAgreementObligation = AgreementObligation
-                    .Create(new CreateAgreementObligationParameter(coreAgreementObligation.Title,
-                                                                   _finglishConverter.Convert(coreAgreementObligation.Title),
-                                                                   coreAgreementObligation.AgreementObligationCoreId,
-                                                                   coreAgreementObligation.AgreementCoreId,
-                                                                   coreAgreementObligation.Code,
-                                                                   coreAgreementObligation.StartDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                   coreAgreementObligation.EndDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                   coreAgreementObligation.PrepaymentPercentage,
-                                                                   coreAgreementObligation.FirstInstallmentDeadline,
-                                                                   coreAgreementObligation.InstallmentsCount,
-                                                                   coreAgreementObligation.InstallmentInterval,
-                                                                   coreAgreementObligation.AgreementObligationNumber,
-                                                                   coreAgreementObligation.AgreementNumber,
-                                                                   coreAgreementObligation.InsuranceTypeCoreId,
-                                                                   coreAgreementObligation.SalesType,
-                                                                   nextPriority));
+                var agreementObligation = agreementObligations
+                        .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreAgreementObligation.AgreementObligationCoreId));
 
-                if (coreAgreementObligation.IssuanceSchemes.Any())
-                    foreach (var issuanceScheme in coreAgreementObligation.IssuanceSchemes)
-                    {
-                        newAgreementObligation.AddIssuanceScheme(issuanceScheme.IssuanceSchemeCoreId);
-                    }
-
-                await _agreementObligationCommandRepository.InsertAsync(newAgreementObligation);
-                nextPriority++;
-            }
-            else
-            {
-                if (agreementObligation.Title != Title.FromString(coreAgreementObligation.Title) ||
-                    agreementObligation.AgreementCoreId != CoreId.FromLong(coreAgreementObligation.AgreementCoreId) ||
-                    agreementObligation.Code != Code.FromString(coreAgreementObligation.Code) ||
-                    agreementObligation.AgreementNumber != coreAgreementObligation.AgreementNumber ||
-                    agreementObligation.AgreementObligationNumber != coreAgreementObligation.AgreementObligationNumber)
+                if (agreementObligation is null)
                 {
+                    var newAgreementObligation = AgreementObligation
+                        .Create(new CreateAgreementObligationParameter(coreAgreementObligation.Title,
+                                                                      coreAgreementObligation.Title,
+                                                                       coreAgreementObligation.AgreementObligationCoreId,
+                                                                       coreAgreementObligation.AgreementCoreId,
+                                                                       !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
+                                                                            coreAgreementObligation.Code :
+                                                                            _finglishConverter.Convert(coreAgreementObligation.Title)
+                                                                            .Substring(0, ProjectConsts.CODE_MAX_LENGTH - 1),
+                                                                       coreAgreementObligation.StartDate
+                                                                        .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                       coreAgreementObligation.EndDate
+                                                                        .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                       coreAgreementObligation.PrepaymentPercentage,
+                                                                       coreAgreementObligation.FirstInstallmentDeadline,
+                                                                       coreAgreementObligation.InstallmentsCount,
+                                                                       coreAgreementObligation.InstallmentInterval,
+                                                                       coreAgreementObligation.AgreementObligationNumber,
+                                                                       coreAgreementObligation.AgreementNumber,
+                                                                       coreAgreementObligation.InsuranceTypeCoreId,
+                                                                       coreAgreementObligation.SalesType,
+                                                                       nextPriority));
 
-                    agreementObligation.Update(new UpdateAgreementObligationParameter(coreAgreementObligation.Title,
-                                                                                      agreementObligation.DisplayTitle,
-                                                                                      coreAgreementObligation.AgreementCoreId,
-                                                                                      coreAgreementObligation.Code,
-                                                                                      coreAgreementObligation.StartDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                                      coreAgreementObligation.EndDate.ToSafeDateTime(targetKind: DateTimeKind.Utc),
-                                                                                      coreAgreementObligation.PrepaymentPercentage,
-                                                                                      coreAgreementObligation.FirstInstallmentDeadline,
-                                                                                      coreAgreementObligation.InstallmentsCount,
-                                                                                      coreAgreementObligation.InstallmentInterval,
-                                                                                      coreAgreementObligation.AgreementObligationNumber,
-                                                                                      coreAgreementObligation.AgreementNumber,
-                                                                                      coreAgreementObligation.InsuranceTypeCoreId,
-                                                                                      coreAgreementObligation.SalesType,
-                                                                                      agreementObligation.Priority));
-                    if (coreAgreementObligation.IssuanceSchemes.Any())
-                        foreach (var issuanceScheme in coreAgreementObligation.IssuanceSchemes)
-                        {
-                            agreementObligation.AddIssuanceScheme(issuanceScheme.IssuanceSchemeCoreId);
-                        }
+                    if (coreAgreementObligation.IssuanceSchemes is not null && coreAgreementObligation.IssuanceSchemes.Any())
+                        newAgreementObligation.UpdateIssuanceSchemes(coreAgreementObligation.IssuanceSchemes
+                                                                            .Select(c => CoreId.FromLong(c.IssuanceSchemeCoreId))
+                                                                            .ToList());
+
+                    await _agreementObligationCommandRepository.InsertAsync(newAgreementObligation);
+                    nextPriority++;
                 }
+                else
+                {
+                    if (agreementObligation.Title.Value != coreAgreementObligation.Title.ApplyCorrectYeKe() ||
+                        agreementObligation.AgreementCoreId.Value != coreAgreementObligation.AgreementCoreId.ToString() ||
+                        agreementObligation.Code.Value != coreAgreementObligation.Code ||
+                        agreementObligation.AgreementNumber != coreAgreementObligation.AgreementNumber ||
+                        agreementObligation.AgreementObligationNumber != coreAgreementObligation.AgreementObligationNumber)
+                    {
+
+                        agreementObligation.Update(new UpdateAgreementObligationParameter(coreAgreementObligation.Title,
+                                                                                          agreementObligation.DisplayTitle,
+                                                                                          coreAgreementObligation.AgreementCoreId,
+                                                                                           !string.IsNullOrEmpty(coreAgreementObligation.Code) ?
+                                                                                                coreAgreementObligation.Code :
+                                                                                                _finglishConverter.Convert(coreAgreementObligation.Title)
+                                                                                                .Substring(0, ProjectConsts.CODE_MAX_LENGTH - 1),
+                                                                                          coreAgreementObligation.StartDate
+                                                                                            .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                                          coreAgreementObligation.EndDate
+                                                                                            .ToSafeDateTime(targetKind: DateTimeKind.Utc),
+                                                                                          coreAgreementObligation.PrepaymentPercentage,
+                                                                                          coreAgreementObligation.FirstInstallmentDeadline,
+                                                                                          coreAgreementObligation.InstallmentsCount,
+                                                                                          coreAgreementObligation.InstallmentInterval,
+                                                                                          coreAgreementObligation.AgreementObligationNumber,
+                                                                                          coreAgreementObligation.AgreementNumber,
+                                                                                          coreAgreementObligation.InsuranceTypeCoreId,
+                                                                                          coreAgreementObligation.SalesType,
+                                                                                          agreementObligation.Priority));
+
+                        if (coreAgreementObligation.IssuanceSchemes is not null && coreAgreementObligation.IssuanceSchemes.Any())
+                            agreementObligation.UpdateIssuanceSchemes(coreAgreementObligation.IssuanceSchemes
+                                                                                .Select(c => CoreId.FromLong(c.IssuanceSchemeCoreId))
+                                                                                .ToList());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
             }
         }
 

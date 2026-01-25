@@ -1,10 +1,11 @@
 ﻿using Grpc.Core;
 using Master.Data.Core.Resources;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
+using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 
-public class TenantResolver : ITenantResolver
+public class TenantResolver : ITenantResolver, ITransientLifetime
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IGrpcServerCallContextAccessor _grpcContextAccessor;

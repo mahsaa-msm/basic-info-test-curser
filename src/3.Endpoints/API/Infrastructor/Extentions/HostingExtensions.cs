@@ -126,8 +126,6 @@ public static class HostingExtensions
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IModernUserInfoService, ModernUserInfoService>();
         builder.Services.AddTransient<IUserInfoService, ModernUserInfoService>();
-        builder.Services.AddScoped<ITenantResolver, TenantResolver>();
-        builder.Services.AddScoped<ITenantService, TenantService>();
         builder.Services.AddSwaggerGen();
 
         return builder.Build();

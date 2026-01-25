@@ -1,9 +1,10 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+using Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Entities;
 
-public sealed class AgreementObligation : BaseTenantEntity
+public class AgreementObligation : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;
     public string DisplayTitle { get; set; } = string.Empty;
@@ -25,4 +26,6 @@ public sealed class AgreementObligation : BaseTenantEntity
 
 
     public List<string> IssuanceSchemeCoreIds = new();
+
+    public virtual InsuranceType? InsuranceType { get; set; }
 }

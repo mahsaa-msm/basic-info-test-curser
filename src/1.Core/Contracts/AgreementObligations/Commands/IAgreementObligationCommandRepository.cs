@@ -10,6 +10,7 @@ public interface IAgreementObligationCommandRepository : ICommandRepository<Agre
     Task<List<AgreementObligation>> GetByIds(List<long> agreementObligationIds);
     Task<List<AgreementObligation>> GetByTenantId(long tenantId);
     Task<List<AgreementObligation>> GetAllAsync();
+    Task<List<AgreementObligation>> GetAllIgnoreQueryFilterAsync();
     Task<List<AgreementObligation>> GetSubordinateAgreementObligations(Priority current, Priority @new);
     Task<List<AgreementObligation>> GetSubordinateAgreementObligations(Priority current);
     Task<List<AgreementObligation>> GetSuperiorAgreementObligations(Priority current, Priority @new);

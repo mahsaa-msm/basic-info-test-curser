@@ -18,6 +18,9 @@ public sealed class AgreementObligationCommandRepository : BaseCommandRepository
     public async Task<List<AgreementObligation>> GetAllAsync()
         => await _dbContext.AgreementObligations.ToListAsync();
 
+    public async Task<List<AgreementObligation>> GetAllIgnoreQueryFilterAsync()
+        => await _dbContext.AgreementObligations.IgnoreQueryFilters().ToListAsync();
+
     public async Task<AgreementObligation?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId)
         => await _dbContext.AgreementObligations.FirstOrDefaultAsync(c => c.CoreId == coreId);
 

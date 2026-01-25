@@ -2,6 +2,7 @@
 
 public sealed class AgreementObligationSelectItemQr
 {
+    public long Id { get; set; }
     public string DisplayTitle { get; set; } = string.Empty;
     public string CoreId { get; set; } = string.Empty;
     public string AgreementObligationNumber { get; set; } = string.Empty;

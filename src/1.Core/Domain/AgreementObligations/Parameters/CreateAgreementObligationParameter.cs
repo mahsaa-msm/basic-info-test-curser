@@ -1,10 +1,10 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
+using Zamin.Core.Domain.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.AgreementObligations.Parameters;
 
-public sealed record CreateAgreementObligationParameter(Title Title,
+public sealed record CreateAgreementObligationParameter(DIPTitle Title,
                                                         NullableTitle DisplayTitle,
                                                         CoreId CoreId,
                                                         CoreId AgreementCoreId,
@@ -20,4 +20,5 @@ public sealed record CreateAgreementObligationParameter(Title Title,
                                                         CoreId InsuranceTypeCoreId,
                                                         SalesType SalesType,
                                                         Common.ValueObjects.Priority Priority,
-                                                        long? TenantId = null);
+                                                        long? TenantId = null,
+                                                        BusinessId? TenantKey = null);

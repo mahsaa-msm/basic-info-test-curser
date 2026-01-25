@@ -26,7 +26,7 @@ public sealed class CreateAgreementObligationHandler : CommandHandler<CreateAgre
     public override async Task<CommandResult<long>> Handle(CreateAgreementObligationCommand command)
     {
         var isDuplicateAgreementObligation = await _agreementObligationCommandRepository
-            .ExistsAsync(e => e.Title == Title.FromString(command.Title) ||
+            .ExistsAsync(e => e.Title == DIPTitle.FromString(command.Title) ||
                               e.Code == Code.FromString(command.Code) ||
                               e.CoreId == CoreId.FromString(command.CoreId));
 

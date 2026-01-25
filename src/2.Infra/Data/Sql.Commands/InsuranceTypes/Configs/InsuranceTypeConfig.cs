@@ -26,7 +26,7 @@ public sealed class InsuranceTypeConfig : IEntityTypeConfiguration<InsuranceType
 
         builder.HasIndex(c => c.BusinessId).IsUnique();
 
-
+        builder.HasIndex(c => c.CoreId);
         builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
     }
 }

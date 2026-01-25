@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     [DbContext(typeof(MasterDataCommandDbContext))]
-    [Migration("20260119114756_AddInsuranceType")]
-    partial class AddInsuranceType
+    [Migration("20260122164155_change-titles-max-length")]
+    partial class changetitlesmaxlength
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,8 +56,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("DisplayTitle")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -88,8 +88,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.HasKey("Id");
 
@@ -138,8 +138,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("DisplayTitle")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -165,8 +165,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.HasKey("Id");
 
@@ -177,77 +177,6 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                         .IsUnique();
 
                     b.ToTable("Countries");
-                });
-
-            modelBuilder.Entity("Master.Data.Core.Domain.InsuranceTypes.Entities.InsuranceType", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<Guid>("BusinessId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CoreId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CreatedByUserId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DisplayTitle")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("ModifiedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("Priority")
-                        .HasColumnType("bigint");
-
-                    b.Property<Guid?>("TenantBusinessId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("TenantId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BusinessId")
-                        .IsUnique();
-
-                    b.HasIndex("TenantId", "CoreId")
-                        .IsUnique();
-
-                    b.ToTable("InsuranceTypes");
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.InsuranceUnits.Entities.InsuranceUnit", b =>
@@ -285,8 +214,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("DisplayTitle")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -307,8 +236,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<long>("Priority")
                         .HasColumnType("bigint");
@@ -324,8 +253,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -509,8 +438,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("DisplayTitle")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -536,8 +465,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
 
                     b.HasKey("Id");
 

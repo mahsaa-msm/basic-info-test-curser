@@ -42,16 +42,24 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     }
 
     #region Methods
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        base.OnConfiguring(optionsBuilder);
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(builder);
 
         // اعمال فیلتر برای تمام موجودیت‌های BaseTenantEntity
         foreach (var entityType in builder.Model.GetEntityTypes())
-        {
-            if (typeof(BaseTenantEntity).IsAssignableFrom(entityType.ClrType) &&
-        !entityType.IsKeyless &&
-        entityType.FindPrimaryKey() != null)
+            {
+                if (typeof(BaseTenantEntity).IsAssignableFrom(entityType.ClrType) &&
+                    !entityType.IsKeyless &&
+                    entityType.FindPrimaryKey() != null)
             {
                 var method = typeof(MasterDataQueryDbContext)?
                     .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Instance)?

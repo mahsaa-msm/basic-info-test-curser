@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     /// <inheritdoc />
-    public partial class AddInsuranceType : Migration
+    public partial class addinsurancetypeentity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,8 +17,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    DisplayTitle = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
+                    DisplayTitle = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
                     CoreId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Priority = table.Column<long>(type: "bigint", nullable: false),
@@ -42,6 +42,11 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                 table: "InsuranceTypes",
                 column: "BusinessId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InsuranceTypes_CoreId",
+                table: "InsuranceTypes",
+                column: "CoreId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InsuranceTypes_TenantId_CoreId",

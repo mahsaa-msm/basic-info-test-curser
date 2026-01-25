@@ -9,7 +9,7 @@ public static class GrpcServiceExtensions
 {
     public static IServiceCollection AddProjectGrpc(this IServiceCollection services)
     {
-        services.AddScoped<IGrpcServerCallContextAccessor, GrpcServerCallContextAccessor>();
+        services.AddTransient<IGrpcServerCallContextAccessor, GrpcServerCallContextAccessor>();
         services.AddScoped<GrpcContextMiddleware>();
         services.AddScoped<LoggingInterceptor>();
         services.AddScoped<ExceptionInterceptor>();

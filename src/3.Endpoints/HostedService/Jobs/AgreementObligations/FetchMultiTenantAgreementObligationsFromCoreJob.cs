@@ -9,8 +9,8 @@ public sealed class FetchMultiTenantAgreementObligationsFromCoreJob :
     BaseBackgroundJob<FetchMultiTenantAgreementObligationsFromSourceCommand, FetchMultiTenantAgreementObligationsFromCoreJob>
 {
     public FetchMultiTenantAgreementObligationsFromCoreJob(IServiceScopeFactory serviceScopeFactory,
-                                                ILogger<FetchMultiTenantAgreementObligationsFromCoreJob> logger,
-                                                IOptions<JobScheduleOption> jobSchedule)
+                                                           ILogger<FetchMultiTenantAgreementObligationsFromCoreJob> logger,
+                                                           IOptions<JobScheduleOption> jobSchedule)
         : base(serviceScopeFactory, logger, jobSchedule)
     {
     }
