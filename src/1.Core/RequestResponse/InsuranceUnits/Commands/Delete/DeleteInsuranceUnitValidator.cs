@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Delete;
+
 public sealed class DeleteInsuranceUnitValidator : AbstractValidator<DeleteInsuranceUnitCommand>
 {
     public DeleteInsuranceUnitValidator(ITranslator translator)

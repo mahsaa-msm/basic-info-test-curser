@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
+
 public class FinglishConverter : ISingletoneLifetime, IFinglishConverter
 {
     private readonly Dictionary<char, string> _persianToEnglishMap;

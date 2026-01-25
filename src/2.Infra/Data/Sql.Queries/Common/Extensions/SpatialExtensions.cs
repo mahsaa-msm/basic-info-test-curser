@@ -1,6 +1,7 @@
 ﻿using NetTopologySuite.Geometries;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
+
 public static class SpatialExtensions
 {
     public static Polygon CreateBoundingBox(double west, double south, double east, double north)

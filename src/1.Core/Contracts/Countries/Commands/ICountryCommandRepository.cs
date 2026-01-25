@@ -3,6 +3,7 @@ using Master.Data.Core.Domain.Countries.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
 namespace Master.Data.Core.Contracts.Countries.Commands;
+
 public interface ICountryCommandRepository : ICommandRepository<Country, long>
 {
     Task<Country?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId);

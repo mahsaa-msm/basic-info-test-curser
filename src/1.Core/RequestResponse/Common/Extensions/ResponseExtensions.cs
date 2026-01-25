@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 
 namespace Master.Data.Core.RequestResponse.Common.Extensions;
+
 public static class ResponseExtensions
 {
     public static async Task<Response<T>> ToResultAsync<T>(this HttpResponseMessage response)

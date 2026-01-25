@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Tenants.Commands.UpdateUiConfig;
+
 public sealed class UpdateUiTenantConfigCommand : ICommand, IWebRequest
 {
     public long TenantId { get; set; }

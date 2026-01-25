@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
+
 public sealed class PodSsoGetUserAccessesResponse
 {
     public bool hasError { get; set; }

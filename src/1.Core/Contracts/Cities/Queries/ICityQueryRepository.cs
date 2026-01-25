@@ -5,6 +5,7 @@ using Zamin.Core.Contracts.Data.Queries;
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.Contracts.Cities.Queries;
+
 public interface ICityQueryRepository : IQueryRepository
 {
     Task<CityQr> Execute(GetCityByIdQuery query);

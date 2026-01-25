@@ -1,11 +1,11 @@
 ﻿using Master.Data.Core.Domain.Cities.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
 using Master.Data.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Cities.Configs;
+
 public sealed class CityConfig : IEntityTypeConfiguration<City>
 {
     public void Configure(EntityTypeBuilder<City> builder)
@@ -32,13 +32,5 @@ public sealed class CityConfig : IEntityTypeConfiguration<City>
         builder.HasIndex(c => c.CoreId);
         builder.HasIndex(c => c.ProvinceCoreId);
         builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
-
-
-        builder
-        .HasOne<Province>()
-        .WithMany()
-        .HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
-        .HasForeignKey(p => new { p.TenantId, p.ProvinceCoreId }) // کلید خارجی ترکیبی
-        .OnDelete(DeleteBehavior.NoAction);
     }
 }

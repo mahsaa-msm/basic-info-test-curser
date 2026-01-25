@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
+
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterDataCommandDbContext>
 {
     public MasterDataCommandDbContext CreateDbContext(string[] args)

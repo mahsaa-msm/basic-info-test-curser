@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
 
 namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
+
 public sealed class TenantGraphQr
 {
     public long Id { get; set; }

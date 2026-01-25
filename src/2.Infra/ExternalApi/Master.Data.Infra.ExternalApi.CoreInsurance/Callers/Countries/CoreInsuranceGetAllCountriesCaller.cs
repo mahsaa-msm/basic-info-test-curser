@@ -8,6 +8,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Infra.ExternalApi.CoreInsurance.Callers.Countries;
+
 public sealed class CoreInsuranceGetAllCountriesCaller : ICoreInsuranceGetAllCountriesCaller, ITransientLifetime
 {
     private readonly HttpClient _httpClient;

@@ -2,6 +2,7 @@
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
+
 public sealed class Province : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;

@@ -1,5 +1,4 @@
 ﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.Common.Services.Tenant;
 using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
@@ -7,15 +6,12 @@ using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
 using Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient;
-using Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
 using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
-using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Serilog;
 using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
-using Zamin.Infra.Data.Sql.Commands.Interceptors;
 using Zamin.Utilities.SoftwarePartDetector.Services;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Extentions;

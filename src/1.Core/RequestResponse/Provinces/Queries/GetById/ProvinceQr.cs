@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
+
 public sealed class ProvinceQr
 {
     public long Id { get; set; }

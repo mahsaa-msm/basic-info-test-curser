@@ -1,5 +1,4 @@
 ﻿using Master.Data.Core.RequestResponse.Common.Queries;
-using Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Common.Extensions;

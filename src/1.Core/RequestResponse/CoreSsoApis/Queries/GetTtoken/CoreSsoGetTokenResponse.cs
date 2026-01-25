@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 
 namespace Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+
 public sealed class CoreSsoGetTokenResponse
 {
     [JsonProperty("access_token")]

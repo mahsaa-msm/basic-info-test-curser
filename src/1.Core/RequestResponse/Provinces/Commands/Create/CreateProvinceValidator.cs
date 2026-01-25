@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.Create;
+
 public sealed class CreateProvinceValidator : AbstractValidator<CreateProvinceCommand>
 {
     public CreateProvinceValidator(ITranslator translator)

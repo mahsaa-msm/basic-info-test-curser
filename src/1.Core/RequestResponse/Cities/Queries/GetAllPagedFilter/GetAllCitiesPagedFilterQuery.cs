@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+
 public sealed class GetAllCitiesPagedFilterQuery : PageQuery<PagedData<CityListItemQr>>, IWebRequest
 {
     public string? CoreId { get; set; }

@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.Contracts.Common.Options;
+
 public sealed class PollyOptions
 {
     public RetryPolicyOptions Retry { get; set; } = new();

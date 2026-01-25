@@ -1,6 +1,5 @@
 ﻿using IdentityModel.AspNetCore.OAuth2Introspection;
 using Master.Data.Core.Resources;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
 using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;

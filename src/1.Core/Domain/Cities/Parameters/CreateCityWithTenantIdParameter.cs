@@ -1,10 +1,10 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Cities.Parameters;
+
 public sealed record CreateCityWithTenantIdParameter(long TenantId,
-                                                     Title Title,
+                                                     DIPTitle Title,
                                                      NullableTitle DisplayTitle,
                                                      CoreId CoreId,
                                                      Code Code,

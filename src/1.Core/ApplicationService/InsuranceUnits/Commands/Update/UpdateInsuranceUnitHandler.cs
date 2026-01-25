@@ -5,12 +5,12 @@ using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Update;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.Update;
+
 public sealed class UpdateInsuranceUnitHandler : CommandHandler<UpdateInsuranceUnitCommand>
 {
     private readonly IInsuranceUnitCommandRepository _insuranceUnitCommandRepository;
@@ -81,9 +81,9 @@ public sealed class UpdateInsuranceUnitHandler : CommandHandler<UpdateInsuranceU
         ValueObjectGuard.ThrowIfNull(command.Code, ProjectTranslation.CODE);
 
         if (await _insuranceUnitCommandRepository.ExistsAsync(c => c.Id != command.InsuranceUnitId &&
-                                                                   (c.Code == Code.FromString(command.Code) ||
-                                                                    c.Title == Title.FromString(command.Title) ||
-                                                                    c.Name == Title.FromString(command.Name))))
+                                                                   (Code.FromString(command.Code).Equals(c.Code) ||
+                                                                    DIPTitle.FromString(command.Title).Equals(c.Title) ||
+                                                                    DIPTitle.FromString(command.Name).Equals(c.Name))))
 
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.INSURANCE_UNIT]);

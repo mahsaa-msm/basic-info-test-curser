@@ -6,6 +6,7 @@ using Zamin.Core.RequestResponse.Endpoints;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Update;
+
 public sealed class UpdateInsuranceUnitCommand : ICommand, IWebRequest
 {
     public long InsuranceUnitId { get; set; }

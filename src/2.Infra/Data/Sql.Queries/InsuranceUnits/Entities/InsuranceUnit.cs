@@ -4,6 +4,7 @@ using NetTopologySuite.Geometries;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
+
 public sealed class InsuranceUnit : BaseTenantEntity
 {
     public string Name { get; set; } = string.Empty;

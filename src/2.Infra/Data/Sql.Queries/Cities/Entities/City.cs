@@ -2,6 +2,7 @@
 using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
+
 public sealed class City : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;

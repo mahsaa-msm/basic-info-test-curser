@@ -5,6 +5,7 @@ using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Queries.GetAllPagedFilter;
+
 public sealed class GetAllInsuranceUnitsPagedFilterHandler : QueryHandler<GetAllInsuranceUnitsPagedFilterQuery, PagedData<InsuranceUnitListItemQr>>
 {
     private readonly IInsuranceUnitQueryRepository _insuranceUnitQueryRepository;

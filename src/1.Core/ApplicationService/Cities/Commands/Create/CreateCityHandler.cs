@@ -4,7 +4,6 @@ using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.RequestResponse.Cities.Commands.Create;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
@@ -30,9 +29,9 @@ public class CreateCityHandler : CommandHandler<CreateCityCommand, long>
     public override async Task<CommandResult<long>> Handle(CreateCityCommand command)
     {
         var isDuplicateCity = await _cityCommandRepository
-            .ExistsAsync(e => e.Title == Title.FromString(command.Title) ||
-                              e.Code == Code.FromString(command.Code) ||
-                              e.CoreId == CoreId.FromString(command.CoreId));
+            .ExistsAsync(e => DIPTitle.FromString(command.Title).Equals(e.Title) ||
+                              Code.FromString(command.Code).Equals(e.Code) ||
+                              CoreId.FromString(command.CoreId).Equals(e.CoreId));
 
         if (isDuplicateCity)
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,

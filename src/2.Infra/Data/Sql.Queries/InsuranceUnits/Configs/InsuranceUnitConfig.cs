@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Configs;
+
 public sealed class InsuranceUnitConfig : IEntityTypeConfiguration<InsuranceUnit>
 {
     public void Configure(EntityTypeBuilder<InsuranceUnit> builder)

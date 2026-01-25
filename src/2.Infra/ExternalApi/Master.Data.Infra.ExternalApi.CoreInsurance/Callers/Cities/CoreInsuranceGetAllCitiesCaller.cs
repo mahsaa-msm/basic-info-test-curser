@@ -7,6 +7,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Infra.ExternalApi.CoreInsurance.Callers.Cities;
+
 public sealed class CoreInsuranceGetAllCitiesCaller : ICoreInsuranceGetAllCitiesCaller, ITransientLifetime
 {
     private readonly HttpClient _httpClient;

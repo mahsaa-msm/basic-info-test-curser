@@ -1,12 +1,12 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.InsuranceUnits.Parameters;
-public sealed record UpdateInsuranceUnitParameter(Title Name,
-                                                  Title Title,
-                                                  Title DisplayTitle,
+
+public sealed record UpdateInsuranceUnitParameter(DIPTitle Name,
+                                                  DIPTitle Title,
+                                                  DIPTitle DisplayTitle,
                                                   CoreId CityCoreId,
                                                   Code Code,
                                                   GeoCoordinate? Location,

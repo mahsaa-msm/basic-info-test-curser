@@ -2,7 +2,6 @@
 using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
@@ -34,7 +33,7 @@ public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
             var changeTracker = context.ChangeTracker;
             if (changeTracker == null)
                 return;
-            
+
             var tenant = context.GetService<ITenantService>();
             if (tenant == null)
                 return;

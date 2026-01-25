@@ -3,6 +3,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.Update;
+
 public sealed class UpdateProvinceCommand : ICommand, IWebRequest
 {
     public long ProvinceId { get; set; }

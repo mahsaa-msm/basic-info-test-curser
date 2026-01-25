@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
 
 namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
+
 public sealed class GetAllCitiesResponse
 {
     public string naamShahr { get; set; } = string.Empty;

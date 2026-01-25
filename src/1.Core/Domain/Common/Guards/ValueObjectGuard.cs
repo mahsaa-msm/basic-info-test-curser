@@ -2,6 +2,7 @@
 using Zamin.Core.Domain.Exceptions;
 
 namespace Master.Data.Core.Domain.Common.Guards;
+
 public static class ValueObjectGuard
 {
     public static void ThrowIfNull<TValue>(TValue value, string name)

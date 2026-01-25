@@ -1,6 +1,7 @@
 ﻿using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
+
 public sealed class InsuranceUnitQr
 {
     public long Id { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Common.ValueObjects;
+
 public class IsDeleted : BaseValueObject<IsDeleted>
 {
     public bool Value { get; private set; }

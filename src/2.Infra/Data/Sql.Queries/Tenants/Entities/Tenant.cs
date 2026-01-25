@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+
 public sealed class Tenant : QueryObject
 {
     public Guid TenantKey { get; set; }

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
+
 public class TenantQueryCommandDbInterceptor : IQueryExpressionInterceptor
 {
     private readonly ITenantService _tenantService;

@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
+
 public sealed class ProvinceSelectItemQr
 {
     public string DisplayTitle { get; set; } = string.Empty;

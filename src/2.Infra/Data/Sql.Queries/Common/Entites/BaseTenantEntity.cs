@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+
 public abstract class BaseTenantEntity : BaseTenantEntity<long>
 {
 }

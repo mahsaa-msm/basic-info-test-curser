@@ -8,6 +8,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+
 public sealed class CreateTenantHandler : CommandHandler<CreateTenantCommand, long?>
 {
     private readonly ITenantCommandRepository _tenantCommandRepository;

@@ -3,7 +3,6 @@ using Master.Data.Core.RequestResponse.Tenants.Commands.Create;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;

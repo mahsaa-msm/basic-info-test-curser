@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
-using Zamin.Core.RequestResponse.Endpoints;
+﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
+
 public sealed class GetAllInsuranceUnitsPagedFilterQuery : PageQuery<PagedData<InsuranceUnitListItemQr>>, IWebRequest
 {
     public string? CoreId { get; set; }

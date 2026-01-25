@@ -1,11 +1,11 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.Provinces.Entities;
 using Master.Data.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Provinces.Configs;
+
 public sealed class ProvinceConfig : IEntityTypeConfiguration<Province>
 {
     public void Configure(EntityTypeBuilder<Province> builder)
@@ -32,13 +32,5 @@ public sealed class ProvinceConfig : IEntityTypeConfiguration<Province>
         builder.HasIndex(c => c.CoreId);
         builder.HasIndex(c => c.CountryCoreId);
         builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
-
-
-        builder
-        .HasOne<Country>()
-        .WithMany()
-        .HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
-        .HasForeignKey(p => new { p.TenantId, p.CountryCoreId }) // کلید خارجی ترکیبی
-        .OnDelete(DeleteBehavior.NoAction);
     }
 }

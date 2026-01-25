@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.RequestResponse.Cities.Queries.GetById;
+
 public sealed class GetCityByIdQuery : IQuery<CityQr>, IWebRequest
 {
     public long CityId { get; set; }

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Master.Data.Core.Resources;
+﻿namespace Master.Data.Core.Resources;
 
 public sealed class ProjectValidationError
 {

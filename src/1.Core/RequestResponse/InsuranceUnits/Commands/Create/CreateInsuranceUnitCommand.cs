@@ -6,6 +6,7 @@ using Zamin.Core.RequestResponse.Endpoints;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
+
 public sealed class CreateInsuranceUnitCommand : ICommand<long>, IWebRequest
 {
     public string Name { get; set; } = string.Empty;
