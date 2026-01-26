@@ -2,6 +2,7 @@
 using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetById;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
@@ -22,7 +23,7 @@ public sealed class PatternCatalogController : BaseController
         => await Create<CreatePatternCatalogCommand, long>(viewModel.ToCommand());
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpdatePatternCatalog([FromBody] UpdatePatternCatalogViewModel  viewModel)
+    public async Task<IActionResult> UpdatePatternCatalog([FromBody] UpdatePatternCatalogViewModel viewModel)
         => await Edit<UpdatePatternCatalogCommand>(viewModel.ToCommand());
 
     [HttpPut("[action]")]
@@ -43,5 +44,8 @@ public sealed class PatternCatalogController : BaseController
     public async Task<IActionResult> GetAllPatternCatalogsPagedFilter([FromQuery] GetAllPatternCatalogsPagedFilterQuery query)
         => await Query<GetAllPatternCatalogsPagedFilterQuery, PagedData<PatternCatalogQr>>(query);
 
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllPatternCatalogs([FromQuery] GetAllPatternCatalogsQuery query)
+    => await Query<GetAllPatternCatalogsQuery, List<PatternCatalogQr>>(query);
     #endregion
 }
