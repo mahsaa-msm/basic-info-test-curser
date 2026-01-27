@@ -17,6 +17,7 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddPriorityConversion();
         configurationBuilder.AddNameConversion();
         configurationBuilder.AddPercentageConversion();
+        configurationBuilder.AddNullablePercentageConversion();
     }
 
     #region Code
@@ -53,6 +54,9 @@ public static class ConversionCollectionExtentions
     #endregion
     #region Percentage
     public static void AddPercentageConversion(this ModelConfigurationBuilder configurationBuilder)
-    => configurationBuilder.Properties<Percentage>().HaveConversion<PercentageConversion>();
+    => configurationBuilder.Properties<Percentage>().HaveConversion<PercentageConversion>(); 
+    
+    public static void AddNullablePercentageConversion(this ModelConfigurationBuilder configurationBuilder)
+    => configurationBuilder.Properties<NullablePercentage>().HaveConversion<NullablePercentageConversion>();
     #endregion
 }

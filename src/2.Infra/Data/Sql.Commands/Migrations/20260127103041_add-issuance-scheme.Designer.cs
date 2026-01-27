@@ -4,6 +4,7 @@ using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     [DbContext(typeof(MasterDataCommandDbContext))]
-    partial class MasterDataCommandDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260127103041_add-issuance-scheme")]
+    partial class addissuancescheme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,6 +223,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
+
+                    b.HasIndex("TenantId", "ProvinceCoreId");
 
                     b.ToTable("Cities");
                 });
@@ -460,6 +465,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("Location")
                         .HasDatabaseName("IX_InsuranceUnits_Location_Spatial")
                         .HasAnnotation("SqlServer:IndexType", "SPATIAL");
+
+                    b.HasIndex("TenantId", "CityCoreId");
 
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
@@ -759,6 +766,8 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasIndex("TenantId", "CoreId")
                         .IsUnique();
 
+                    b.HasIndex("TenantId", "CountryCoreId");
+
                     b.ToTable("Provinces");
                 });
 
@@ -1025,6 +1034,36 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
                     b.HasKey("OutBoxEventItemId");
 
                     b.ToTable("OutBoxEventItems", "zamin");
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.Cities.Entities.City", b =>
+                {
+                    b.HasOne("Master.Data.Core.Domain.Provinces.Entities.Province", null)
+                        .WithMany()
+                        .HasForeignKey("TenantId", "ProvinceCoreId")
+                        .HasPrincipalKey("TenantId", "CoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.InsuranceUnits.Entities.InsuranceUnit", b =>
+                {
+                    b.HasOne("Master.Data.Core.Domain.Cities.Entities.City", null)
+                        .WithMany()
+                        .HasForeignKey("TenantId", "CityCoreId")
+                        .HasPrincipalKey("TenantId", "CoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Master.Data.Core.Domain.Provinces.Entities.Province", b =>
+                {
+                    b.HasOne("Master.Data.Core.Domain.Countries.Entities.Country", null)
+                        .WithMany()
+                        .HasForeignKey("TenantId", "CountryCoreId")
+                        .HasPrincipalKey("TenantId", "CoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Master.Data.Core.Domain.Tenants.Entities.TenantConfig", b =>
