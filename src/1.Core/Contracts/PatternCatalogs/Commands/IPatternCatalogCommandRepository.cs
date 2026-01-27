@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.PatternCatalogs.Entities;
+using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
 using Zamin.Core.Contracts.Data.Commands;
 
 namespace Master.Data.Core.Contracts.PatternCatalogs.Commands;
@@ -13,4 +14,5 @@ public interface IPatternCatalogCommandRepository : ICommandRepository<PatternCa
     Task<List<PatternCatalog>> GetSubordinatePatternCatalogs(Priority current);
     Task<List<PatternCatalog>> GetSuperiorPatternCatalogs(Priority current, Priority @new);
     Task<long> GetNextPriority();
+    Task<PatternCatalog?> GetByKeyAsync(PatternKey key);
 }

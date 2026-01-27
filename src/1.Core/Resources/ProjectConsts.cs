@@ -179,6 +179,12 @@ public sealed class ProjectConsts
     public const int PATTERN_KEY_MAX_LENGTH = 50;
     public const int PATTERN_MAX_LENGTH = 500;
 
+    public enum PatternCatalogType
+    {
+        [Description(ProjectTranslation.GENERAL)] None = 0, // عمومی
+        [Description(ProjectTranslation.INSURANCE_POLICY_NUMBER)] InsurancePolicyNumber = 1, // فرمت شماره بیمه نامه
+    }
+
     #endregion
 
     #region SERVICE_FEATURE
@@ -193,7 +199,7 @@ public sealed class ProjectConsts
 
     #endregion
 
-    #region AgreementObligation
+    #region AGREEMENT_OBLIGATION
     public enum SalesType
     {
         None = 0,
