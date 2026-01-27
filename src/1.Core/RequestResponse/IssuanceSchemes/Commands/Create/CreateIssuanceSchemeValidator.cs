@@ -68,5 +68,22 @@ public sealed class CreateIssuanceSchemeValidator : AbstractValidator<CreateIssu
                                     ProjectConsts.CORE_ID_MIN_LENGTH.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
         #endregion
+
+
+        #region InsuranceTypeCoreId
+        RuleFor(command => command.InsuranceTypeCoreId)
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty()
+            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.INSURANCE_TYPE_ID])
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
+
+            .Must(coreId => coreId.Length >= ProjectConsts.CORE_ID_MIN_LENGTH && coreId.Length <= ProjectConsts.CORE_ID_MAX_LENGTH)
+            .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN],
+                                    translator[ProjectTranslation.INSURANCE_TYPE_ID],
+                                    ProjectConsts.CORE_ID_MAX_LENGTH.ToString(),
+                                    ProjectConsts.CORE_ID_MIN_LENGTH.ToString()))
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
+
+        #endregion
     }
 }
