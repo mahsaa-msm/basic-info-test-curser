@@ -2,11 +2,11 @@
 using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
+namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 
-public sealed class CreatePatternCatalogValidator : AbstractValidator<CreatePatternCatalogCommand>
+public sealed class UpsertPatternCatalogValidator : AbstractValidator<UpsertPatternCatalogCommand>
 {
-    public CreatePatternCatalogValidator(ITranslator translator)
+    public UpsertPatternCatalogValidator(ITranslator translator)
     {
         #region Key
         RuleFor(command => command.Key)
@@ -25,31 +25,31 @@ public sealed class CreatePatternCatalogValidator : AbstractValidator<CreatePatt
 
         #region Pattern
         RuleFor(command => command.Pattern)
-             .Cascade(CascadeMode.Stop)
-             .NotEmpty()
-             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.REGEX_EXPRESSION])
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
+                 .Cascade(CascadeMode.Stop)
+                 .NotEmpty()
+                 .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.REGEX_EXPRESSION])
+                 .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
 
-             .MaximumLength(ProjectConsts.PATTERN_MAX_LENGTH)
-             .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_STRING_MAX_LENGTH],
-                                        ProjectTranslation.REGEX_EXPRESSION,
-                                        ProjectConsts.PATTERN_MAX_LENGTH))
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
+                 .MaximumLength(ProjectConsts.PATTERN_MAX_LENGTH)
+                 .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_STRING_MAX_LENGTH],
+                                            ProjectTranslation.REGEX_EXPRESSION,
+                                            ProjectConsts.PATTERN_MAX_LENGTH))
+                 .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
         #endregion
 
         #region Type
         RuleFor(command => command.Type)
-             .Cascade(CascadeMode.Stop)
-             .IsInEnum()
-             .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_NOT_VALID],
-                                        translator[ProjectTranslation.REGEX_EXPRESSION]))
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
+                 .Cascade(CascadeMode.Stop)
+                 .IsInEnum()
+                 .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_NOT_VALID],
+                                            translator[ProjectTranslation.REGEX_EXPRESSION]))
+                 .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
         #endregion
 
         #region Description
         When(c => !string.IsNullOrEmpty(c.Description), () =>
-        {
-            RuleFor(command => command.Description)
+            {
+                RuleFor(command => command.Description)
             .Cascade(CascadeMode.Stop)
             .Must(description => description.Length >= ProjectConsts.DESCRIPTION_MIN_LENGTH && description.Length <= ProjectConsts.DESCRIPTION_MAX_LENGTH)
             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN,
@@ -57,7 +57,7 @@ public sealed class CreatePatternCatalogValidator : AbstractValidator<CreatePatt
                                     ProjectConsts.DESCRIPTION_MIN_LENGTH.ToString(),
                                     ProjectConsts.DESCRIPTION_MAX_LENGTH.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
-        });
+            });
         #endregion
     }
 }
