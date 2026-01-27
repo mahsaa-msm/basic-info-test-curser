@@ -8,13 +8,19 @@ WORKDIR /src
 
 COPY . .
 COPY ["NuGet.Config", "."]
-RUN dotnet restore "src/3.Endpoints/API/Master.Data.Endpoints.API.csproj" --verbosity normal
+RUN --mount=type=cache,target=/root/.nuget/packages \
+    --mount=type=cache,target=/root/.local/share/NuGet/v3-cache \
+    dotnet restore "src/3.Endpoints/API/Master.Data.Endpoints.API.csproj" --verbosity normal
 COPY . .
 WORKDIR "/src/src/3.Endpoints/API"
-RUN dotnet build -c Release -o /app/build
+RUN --mount=type=cache,target=/root/.nuget/packages \
+    --mount=type=cache,target=/root/.local/share/NuGet/v3-cache \
+    dotnet build -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Master.Data.Endpoints.API.csproj" -c Release -o /app/publish
+RUN --mount=type=cache,target=/root/.nuget/packages \
+    --mount=type=cache,target=/root/.local/share/NuGet/v3-cache \
+    dotnet publish "Master.Data.Endpoints.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
