@@ -117,7 +117,8 @@ public sealed class ProjectTranslation
     public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
     public const string ADJUSTMENT_TYPE_SURCHARGE = nameof(ADJUSTMENT_TYPE_SURCHARGE);
     public const string ADJUSTMENT_TYPE_DISCOUNT = nameof(ADJUSTMENT_TYPE_DISCOUNT);
-
+    public const string ADJUSTMENT_TYPE = nameof(ADJUSTMENT_TYPE);
+    public const string ADJUSTMENT_PERCENT = nameof(ADJUSTMENT_PERCENT);
     #endregion
 
     #region ISSUANCE_SCHEME

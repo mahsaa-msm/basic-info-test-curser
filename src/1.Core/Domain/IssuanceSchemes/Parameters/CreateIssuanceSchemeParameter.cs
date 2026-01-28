@@ -14,6 +14,10 @@ public sealed record CreateIssuanceSchemeParameter(Title Title,
                                                    CoreId InsuranceTypeCoreId,
                                                    AdjustmentType? AdjustmentType,
                                                    NullablePercentage? AdjustmentPercent,
-                                                   Common.ValueObjects.Priority Priority);
+                                                   IsActive IsActive,
+                                                   Common.ValueObjects.Priority Priority)
+{
+
+};
 
 

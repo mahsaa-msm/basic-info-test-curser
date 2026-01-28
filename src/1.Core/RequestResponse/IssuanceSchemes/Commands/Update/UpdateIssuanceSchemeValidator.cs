@@ -96,5 +96,32 @@ public sealed class UpdateIssuanceSchemeValidator : AbstractValidator<UpdateIssu
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
 
         #endregion
+
+
+        #region AdjustmentType
+        When(c => c.AdjustmentType.HasValue, () =>
+        {
+            RuleFor(command => command.AdjustmentType)
+                .Cascade(CascadeMode.Stop)
+                .IsInEnum()
+                .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NOT_VALID, ProjectTranslation.ADJUSTMENT_TYPE])
+                .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
+        });
+        #endregion
+
+        #region AdjustmentPercent
+        When(c => c.AdjustmentPercent.HasValue, () =>
+        {
+            RuleFor(command => command.AdjustmentPercent)
+            .Cascade(CascadeMode.Stop)
+            .Must(adjustmentPercent => adjustmentPercent > ProjectConsts.PERCENTAGE_MIN_VALUE &&
+                                          adjustmentPercent < ProjectConsts.PERCENTAGE_MAX_VALUE)
+            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_NUMBER_BETWEEN,
+                                    ProjectTranslation.ADJUSTMENT_PERCENT,
+                                    ProjectConsts.PERCENTAGE_MIN_VALUE.ToString(),
+                                    ProjectConsts.PERCENTAGE_MAX_VALUE.ToString()])
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_BETWEEN);
+        });
+        #endregion
     }
 }

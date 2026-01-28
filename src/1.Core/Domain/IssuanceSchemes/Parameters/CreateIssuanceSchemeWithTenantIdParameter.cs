@@ -17,5 +17,6 @@ public sealed record CreateIssuanceSchemeWithTenantIdParameter(long TenantId,
                                                                CoreId InsuranceTypeCoreId,
                                                                AdjustmentType? AdjustmentType,
                                                                NullablePercentage? AdjustmentPercent,
+                                                               IsActive IsActive,
                                                                Common.ValueObjects.Priority Priority,
                                                                BusinessId? TenantKey);

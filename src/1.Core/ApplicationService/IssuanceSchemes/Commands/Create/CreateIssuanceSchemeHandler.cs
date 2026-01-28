@@ -13,16 +13,11 @@ namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Commands.Create;
 public class CreateIssuanceSchemeHandler : CommandHandler<CreateIssuanceSchemeCommand, long>
 {
     private readonly IIssuanceSchemeCommandRepository _commandRepository;
-    private readonly Dictionary<bool, Func<CreateIssuanceSchemeCommand, long, IssuanceScheme, Task<IssuanceScheme>>> _actions;
 
     public CreateIssuanceSchemeHandler(ZaminServices zaminServices,
                                 IIssuanceSchemeCommandRepository commandRepository) : base(zaminServices)
     {
         _commandRepository = commandRepository;
-        _actions = new()
-        {
-            [true] = async (command, nextPriority, issuanceScheme) => await Create(command, nextPriority, issuanceScheme),
-        };
     }
 
     public override async Task<CommandResult<long>> Handle(CreateIssuanceSchemeCommand command)
@@ -36,11 +31,9 @@ public class CreateIssuanceSchemeHandler : CommandHandler<CreateIssuanceSchemeCo
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.NAME]);
 
-        IssuanceScheme? issuanceScheme = await _commandRepository.GetByCoreIdIgnoreQueryFiltersAsync(command.CoreId);
-
         long nextPriority = await _commandRepository.GetNextPriority();
 
-        issuanceScheme = await _actions[issuanceScheme is null](command, nextPriority, issuanceScheme);
+        var issuanceScheme = await Create(command, nextPriority);
 
         await _commandRepository.CommitAsync();
 
@@ -48,9 +41,9 @@ public class CreateIssuanceSchemeHandler : CommandHandler<CreateIssuanceSchemeCo
     }
 
     #region Methods
-    private async Task<IssuanceScheme> Create(CreateIssuanceSchemeCommand command, long nextPriority, IssuanceScheme? issuanceScheme)
+    private async Task<IssuanceScheme> Create(CreateIssuanceSchemeCommand command, long nextPriority)
     {
-        issuanceScheme = IssuanceScheme.Create(command.ToCreateParameter(nextPriority));
+        var issuanceScheme = IssuanceScheme.Create(command.ToCreateParameter(nextPriority));
 
         await _commandRepository.InsertAsync(issuanceScheme);
 

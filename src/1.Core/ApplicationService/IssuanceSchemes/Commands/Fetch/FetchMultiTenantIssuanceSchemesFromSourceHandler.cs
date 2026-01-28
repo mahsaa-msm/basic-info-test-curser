@@ -80,6 +80,7 @@ public sealed class FetchMultiTenantIssuanceSchemesFromSourceHandler : CommandHa
                                                                                                                 coreIssuanceScheme.noeBimehID,
                                                                                                                 coreIssuanceScheme.takhfifEzafeh,
                                                                                                                 coreIssuanceScheme.darsadTakhfifEzafeh,
+                                                                                                                coreIssuanceScheme.faal,
                                                                                                                 nextPriority));
                     await _commandRepository.InsertAsync(newIssuanceScheme);
                     nextPriority++;

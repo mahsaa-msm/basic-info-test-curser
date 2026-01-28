@@ -72,6 +72,7 @@ public sealed class FetchIssuanceSchemesFromSourceHandler : CommandHandler<Fetch
                                                                                                 coreIssuanceScheme.noeBimehID,
                                                                                                 coreIssuanceScheme.takhfifEzafeh,
                                                                                                 coreIssuanceScheme.darsadTakhfifEzafeh,
+                                                                                                coreIssuanceScheme.faal,
                                                                                                 nextPriority));
                 await _commandRepository.InsertAsync(newIssuanceScheme);
                 nextPriority++;
@@ -90,6 +91,7 @@ public sealed class FetchIssuanceSchemesFromSourceHandler : CommandHandler<Fetch
                                                                             coreIssuanceScheme.takhfifEzafeh,
                                                                             coreIssuanceScheme.darsadTakhfifEzafeh,
                                                                             issuanceScheme.Priority));
+
             }
         }
 
