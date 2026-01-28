@@ -9,6 +9,7 @@ public sealed class ProjectTranslation
     public const string BUSINESS_ID = nameof(BUSINESS_ID);
     public const string SOFTWAREPART_ID = nameof(SOFTWAREPART_ID);
     public const string TENANT_ID = nameof(TENANT_ID);
+    public const string INSURANCE_POLICY_NUMBER = nameof(INSURANCE_POLICY_NUMBER);
     public const string NAME = nameof(NAME);
     public const string CODE = nameof(CODE);
     public const string PRIORITY = nameof(PRIORITY);
@@ -41,6 +42,7 @@ public sealed class ProjectTranslation
     public const string SUSPEND = nameof(SUSPEND);
     public const string EXPIRE = nameof(EXPIRE);
     public const string PERCENTAGE = nameof(PERCENTAGE);
+    public const string GENERAL = nameof(GENERAL);
 
     #region APPLICATION_ERROR
     /// <summary>

@@ -1,16 +1,14 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
+﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 using Master.Data.Endpoints.API.Features.PatternCatalogs.Utils;
-using System.Text.RegularExpressions;
-using System.Web;
+using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Endpoints.API.Features.PatternCatalogs.Models;
 
-public sealed class UpdatePatternCatalogViewModel
+public sealed class UpsertInsurancePolicyPatternCatalogViewModel
 {
     private string _pattern;
     private string? _description;
-
-    public long PatternCatalogId { get; set; }
+    public string Key { get; set; } = default!;
     public string EncodedPattern
     {
         get => _pattern;
@@ -21,13 +19,14 @@ public sealed class UpdatePatternCatalogViewModel
         get => _description;
         set => _description = RegExExtensions.NormalizeRegex(value);
     }
-    public long Priority { get; set; }
 
-    public UpdatePatternCatalogCommand ToCommand() => new UpdatePatternCatalogCommand
+    public UpsertPatternCatalogCommand ToCommand() => new UpsertPatternCatalogCommand
     {
-        PatternCatalogId = PatternCatalogId,
+        Key = Key,
         Pattern = EncodedPattern,
         Description = EncodedDescription,
-        Priority = Priority
+        Type = PatternCatalogType.InsurancePolicyNumber,
     };
+
+
 }

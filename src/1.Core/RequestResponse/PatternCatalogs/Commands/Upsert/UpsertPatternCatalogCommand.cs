@@ -3,15 +3,14 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 using static Master.Data.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
+namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 
-public sealed class CreatePatternCatalogCommand : ICommand<long>, IWebRequest
+public sealed class UpsertPatternCatalogCommand : ICommand<long?>, IWebRequest
 {
     public string Key { get; set; } = default!;
     public string Pattern { get; set; } = default!;
     public PatternCatalogType Type { get; set; }
     public string? Description { get; set; }
-    public long Priority { get; set; }
 
     public CreatePatternCatalogParameter ToCreateParameter(long priority)
         => new CreatePatternCatalogParameter(Key,
@@ -20,11 +19,11 @@ public sealed class CreatePatternCatalogCommand : ICommand<long>, IWebRequest
                                              priority,
                                              Description);
 
-    public UpdatePatternCatalogParameter ToUpdateParameter()
-    => new UpdatePatternCatalogParameter(Pattern,
-                                         Type,
-                                         Priority,
-                                         Description);
+    public UpdatePatternCatalogParameter ToUpdateParameter(long priority)
+        => new UpdatePatternCatalogParameter(Pattern,
+                                             Type,
+                                             priority,
+                                             Description);
 
-    public string Path => "/Api/PatternCatalog/CreatePatternCatalog";
+    public string Path => "/Api/PatternCatalog/UpsertPatternCatalog";
 }

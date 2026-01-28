@@ -38,6 +38,7 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
         {
             Key = c.Key,
             EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+            Type = c.Type,
             EncodedDescription = HttpUtility.UrlEncode(c.Description),
             CreatedDateUtc = c.CreatedDateUtc,
             LastModifiedDateUtc = c.LastModifiedDateUtc,
@@ -53,6 +54,7 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
                 {
                     Key = c.Key,
                     EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+                    Type = c.Type,
                     EncodedDescription = HttpUtility.UrlEncode(c.Description),
                     CreatedDateUtc = c.CreatedDateUtc,
                     LastModifiedDateUtc = c.LastModifiedDateUtc,
@@ -68,6 +70,7 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
             {
                 Key = c.Key,
                 EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+                Type = c.Type,
                 EncodedDescription = HttpUtility.UrlEncode(c.Description),
                 CreatedDateUtc = c.CreatedDateUtc,
                 LastModifiedDateUtc = c.LastModifiedDateUtc,
@@ -78,15 +81,17 @@ public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDa
 
     public async Task<List<PatternCatalogQr>> Execute(GetAllPatternCatalogsQuery query)
         => await _dbContext.PatternCatalogs
-        .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
-        .Select(c => new PatternCatalogQr
-        {
-            Key = c.Key,
-            EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
-            EncodedDescription = HttpUtility.UrlEncode(c.Description),
-            CreatedDateUtc = c.CreatedDateUtc,
-            LastModifiedDateUtc = c.LastModifiedDateUtc,
-            IsActive = c.IsActive,
-            Priority = c.Priority,
-        }).ToListAsync();
+            .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
+            .WhereIf(query.Type.HasValue, c => c.Type == query.Type)
+            .Select(c => new PatternCatalogQr
+            {
+                Key = c.Key,
+                EncodedPattern = HttpUtility.UrlEncode(c.Pattern),
+                Type = c.Type,
+                EncodedDescription = HttpUtility.UrlEncode(c.Description),
+                CreatedDateUtc = c.CreatedDateUtc,
+                LastModifiedDateUtc = c.LastModifiedDateUtc,
+                IsActive = c.IsActive,
+                Priority = c.Priority,
+            }).ToListAsync();
 }

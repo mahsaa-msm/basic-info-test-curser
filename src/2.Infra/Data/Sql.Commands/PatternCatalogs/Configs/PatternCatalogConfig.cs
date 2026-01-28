@@ -20,11 +20,11 @@ public sealed class PatternCatalogConfig : IEntityTypeConfiguration<PatternCatal
 
         builder.Property(c => c.Description).HasMaxLength(ProjectConsts.DESCRIPTION_MAX_LENGTH).IsRequired(false);
 
+
         builder.HasIndex(c => c.BusinessId).IsUnique();
-
-
         builder.HasIndex(c => c.Key);
         builder.HasIndex(c => new { c.TenantId, c.Key }).IsUnique();
         builder.HasIndex(c => new { c.TenantId, c.Id }).IsUnique();
+        builder.HasIndex(c => new { c.TenantId, c.Key, c.Type }).IsUnique();
     }
 }

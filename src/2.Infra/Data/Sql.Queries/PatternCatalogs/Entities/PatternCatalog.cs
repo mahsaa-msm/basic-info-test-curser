@@ -1,4 +1,5 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 
@@ -6,6 +7,7 @@ public sealed class PatternCatalog : BaseTenantEntity
 {
     public string Key { get; set; } = default!;
     public string Pattern { get; set; } = default!;
+    public PatternCatalogType Type { get; set; }
     public string? Description { get; set; }
     public DateTime CreatedDateUtc { get; set; }
     public DateTime? LastModifiedDateUtc { get; set; }
