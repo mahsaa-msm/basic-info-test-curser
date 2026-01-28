@@ -62,43 +62,50 @@ public sealed class FetchMultiTenantIssuanceSchemesFromSourceHandler : CommandHa
         {
             var tenantIssuanceSchemes = await _commandRepository.GetByTenantId(tenant.Id);
 
-            foreach (var coreIssuanceScheme in coreIssuanceSchemesResponse.Value)
+            foreach (var coreIssuanceScheme in coreIssuanceSchemesResponse.Value.DistinctBy(c => c.tarhSodoorID))
             {
-                var issuanceScheme = tenantIssuanceSchemes
-                    .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreIssuanceScheme.tarhSodoorID));
+                try
+                {
+                    var issuanceScheme = tenantIssuanceSchemes
+                        .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreIssuanceScheme.tarhSodoorID));
 
-                if (issuanceScheme is null)
-                {
-                    var newIssuanceScheme = IssuanceScheme.Create(new CreateIssuanceSchemeParameter(coreIssuanceScheme.naam,
-                                                                                                                coreIssuanceScheme.naam,
-                                                                                                                coreIssuanceScheme.tarhSodoorID,
-                                                                                                                !string.IsNullOrEmpty(coreIssuanceScheme.code) ? coreIssuanceScheme.code : _finglishConverter.Convert(coreIssuanceScheme.naam),
-                                                                                                                coreIssuanceScheme.tarikhShorooAz is not null ? coreIssuanceScheme.tarikhShorooAz.ToUtcDateTime() : null,
-                                                                                                                coreIssuanceScheme.tarikhShorooTa is not null ? coreIssuanceScheme.tarikhShorooTa.ToUtcDateTime() : null,
-                                                                                                                coreIssuanceScheme.azTarikhSodoor is not null ? coreIssuanceScheme.azTarikhSodoor.ToUtcDateTime() : null,
-                                                                                                                coreIssuanceScheme.taTarikhSodoor is not null ? coreIssuanceScheme.taTarikhSodoor.ToUtcDateTime() : null,
-                                                                                                                coreIssuanceScheme.noeBimehID,
-                                                                                                                coreIssuanceScheme.takhfifEzafeh,
-                                                                                                                coreIssuanceScheme.darsadTakhfifEzafeh,
-                                                                                                                coreIssuanceScheme.faal,
-                                                                                                                nextPriority));
-                    await _commandRepository.InsertAsync(newIssuanceScheme);
-                    nextPriority++;
+                    if (issuanceScheme is null)
+                    {
+                        var newIssuanceScheme = IssuanceScheme.Create(new CreateIssuanceSchemeParameter(coreIssuanceScheme.naam,
+                                                                                                      coreIssuanceScheme.naam,
+                                                                                                      coreIssuanceScheme.tarhSodoorID,
+                                                                                                      !string.IsNullOrEmpty(coreIssuanceScheme.code) ? coreIssuanceScheme.code : _finglishConverter.Convert(coreIssuanceScheme.naam),
+                                                                                                      coreIssuanceScheme.tarikhShorooAz is not null ? coreIssuanceScheme.tarikhShorooAz.ToUtcDateTime() : null,
+                                                                                                      coreIssuanceScheme.tarikhShorooTa is not null ? coreIssuanceScheme.tarikhShorooTa.ToUtcDateTime() : null,
+                                                                                                      coreIssuanceScheme.azTarikhSodoor is not null ? coreIssuanceScheme.azTarikhSodoor.ToUtcDateTime() : null,
+                                                                                                      coreIssuanceScheme.taTarikhSodoor is not null ? coreIssuanceScheme.taTarikhSodoor.ToUtcDateTime() : null,
+                                                                                                      coreIssuanceScheme.noeBimehID,
+                                                                                                      coreIssuanceScheme.takhfifEzafeh,
+                                                                                                      coreIssuanceScheme.darsadTakhfifEzafeh,
+                                                                                                      coreIssuanceScheme.faal,
+                                                                                                      nextPriority));
+                        await _commandRepository.InsertAsync(newIssuanceScheme);
+                        nextPriority++;
+                    }
+                    else
+                    {
+                        if (issuanceScheme.Title != DIPTitle.FromString(coreIssuanceScheme.naam))
+                            issuanceScheme.Update(new UpdateIssuanceSchemeParameter(coreIssuanceScheme.naam,
+                                                                                    issuanceScheme.DisplayTitle,
+                                                                                    !string.IsNullOrEmpty(coreIssuanceScheme.code) ? coreIssuanceScheme.code : _finglishConverter.Convert(coreIssuanceScheme.naam),
+                                                                                    coreIssuanceScheme.tarikhShorooAz is not null ? coreIssuanceScheme.tarikhShorooAz.ToUtcDateTime() : null,
+                                                                                    coreIssuanceScheme.tarikhShorooTa is not null ? coreIssuanceScheme.tarikhShorooTa.ToUtcDateTime() : null,
+                                                                                    coreIssuanceScheme.azTarikhSodoor is not null ? coreIssuanceScheme.azTarikhSodoor.ToUtcDateTime() : null,
+                                                                                    coreIssuanceScheme.taTarikhSodoor is not null ? coreIssuanceScheme.taTarikhSodoor.ToUtcDateTime() : null,
+                                                                                    coreIssuanceScheme.noeBimehID,
+                                                                                    coreIssuanceScheme.takhfifEzafeh,
+                                                                                    coreIssuanceScheme.darsadTakhfifEzafeh,
+                                                                                    issuanceScheme.Priority));
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    if (issuanceScheme.Title != DIPTitle.FromString(coreIssuanceScheme.naam))
-                        issuanceScheme.Update(new UpdateIssuanceSchemeParameter(coreIssuanceScheme.naam,
-                                                                                issuanceScheme.DisplayTitle,
-                                                                                !string.IsNullOrEmpty(coreIssuanceScheme.code) ? coreIssuanceScheme.code : _finglishConverter.Convert(coreIssuanceScheme.naam),
-                                                                                coreIssuanceScheme.tarikhShorooAz is not null ? coreIssuanceScheme.tarikhShorooAz.ToUtcDateTime() : null,
-                                                                                coreIssuanceScheme.tarikhShorooTa is not null ? coreIssuanceScheme.tarikhShorooTa.ToUtcDateTime() : null,
-                                                                                coreIssuanceScheme.azTarikhSodoor is not null ? coreIssuanceScheme.azTarikhSodoor.ToUtcDateTime() : null,
-                                                                                coreIssuanceScheme.taTarikhSodoor is not null ? coreIssuanceScheme.taTarikhSodoor.ToUtcDateTime() : null,
-                                                                                coreIssuanceScheme.noeBimehID,
-                                                                                coreIssuanceScheme.takhfifEzafeh,
-                                                                                coreIssuanceScheme.darsadTakhfifEzafeh,
-                                                                                issuanceScheme.Priority));
+                    _logger.LogError(ex.Message);
                 }
             }
         }
