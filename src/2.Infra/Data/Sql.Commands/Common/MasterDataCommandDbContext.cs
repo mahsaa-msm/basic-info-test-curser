@@ -4,6 +4,7 @@ using Master.Data.Core.Domain.Common.Entities;
 using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Master.Data.Core.Domain.InsuranceUnits.Entities;
+using Master.Data.Core.Domain.IssuanceSchemes.Entities;
 using Master.Data.Core.Domain.ParrotTranslations.Entities;
 using Master.Data.Core.Domain.PatternCatalogs.Entities;
 using Master.Data.Core.Domain.Provinces.Entities;
@@ -33,6 +34,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<PatternCatalog> PatternCatalogs { get; set; } = null!;
     public DbSet<ServiceFeature> ServiceFeatures { get; set; } = null!;
     public DbSet<InsuranceType> InsuranceTypes { get; set; } = null!;
+    public DbSet<IssuanceScheme> IssuanceSchemes { get; set; } = null!;
     public DbSet<AgreementObligation> AgreementObligations { get; set; } = null!;
     #endregion
 

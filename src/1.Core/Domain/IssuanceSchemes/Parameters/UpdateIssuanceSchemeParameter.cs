@@ -1,0 +1,16 @@
+﻿using Master.Data.Core.Domain.Common.ValueObjects;
+using Zamin.Core.Domain.Toolkits.ValueObjects;
+using static Master.Data.Core.Resources.ProjectConsts;
+
+namespace Master.Data.Core.Domain.IssuanceSchemes.Parameters;
+public sealed record UpdateIssuanceSchemeParameter(DIPTitle Title,
+                                                   DIPTitle DisplayTitle,
+                                                   Code Code,
+                                                   DateTime? FromStartDateUtc,
+                                                   DateTime? ToStartDateUtc,
+                                                   DateTime? FromIssueDateUtc,
+                                                   DateTime? ToIssueDateUtc,
+                                                   CoreId InsuranceTypeCoreId,
+                                                   AdjustmentType? AdjustmentType,
+                                                   NullablePercentage? AdjustmentPercent,
+                                                   Common.ValueObjects.Priority Priority);
