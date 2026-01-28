@@ -5,7 +5,7 @@ using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 
-public sealed class InsuranceUnit : BaseTenantEntity
+public class InsuranceUnit : BaseTenantEntity
 {
     public string Name { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
@@ -20,5 +20,5 @@ public sealed class InsuranceUnit : BaseTenantEntity
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
 
-    public City City { get; set; } = null!;
+    public virtual City? City { get; set; }
 }

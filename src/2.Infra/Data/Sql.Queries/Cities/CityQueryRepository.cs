@@ -78,7 +78,9 @@ public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbC
                 DisplayTitle = c.DisplayTitle,
                 Code = c.Code,
                 ProvinceCoreId = c.ProvinceCoreId,
-                ProvinceDisplayTitle = c.Province.DisplayTitle,
+                ProvinceDisplayTitle = c.Province != null ? 
+                    c.Province.DisplayTitle : 
+                    null,
                 Priority = c.Priority,
                 IsActive = c.IsActive,
             }).ToListAsync();

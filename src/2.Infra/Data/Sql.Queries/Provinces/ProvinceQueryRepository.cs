@@ -78,7 +78,9 @@ public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQuer
                 DisplayTitle = c.DisplayTitle,
                 Code = c.Code,
                 CountryCoreId = c.CountryCoreId,
-                CountryDisplayTitle = c.Country.DisplayTitle,
+                CountryDisplayTitle = c.Country != null ?
+                    c.Country.DisplayTitle :
+                    null,
                 Priority = c.Priority,
                 IsActive = c.IsActive,
             }).ToListAsync();
