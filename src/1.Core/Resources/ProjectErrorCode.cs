@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.Resources;
+
 public static class ProjectErrorCode
 {
     public const string VALIDATION_ERROR_NOT_VALID = "100";

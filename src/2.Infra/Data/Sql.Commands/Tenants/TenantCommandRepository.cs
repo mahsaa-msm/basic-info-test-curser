@@ -4,6 +4,7 @@ using Master.Data.Infra.Data.Sql.Commands.Common;
 using Zamin.Infra.Data.Sql.Commands;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Tenants;
+
 public sealed class TenantCommandRepository : BaseCommandRepository<Tenant, MasterDataCommandDbContext, long>,
         ITenantCommandRepository
 {

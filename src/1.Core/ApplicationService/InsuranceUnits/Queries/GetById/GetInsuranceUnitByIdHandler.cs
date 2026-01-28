@@ -5,6 +5,7 @@ using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Queries.GetById;
+
 public sealed class GetInsuranceUnitByIdHandler : QueryHandler<GetInsuranceUnitByIdQuery, InsuranceUnitQr>
 {
     private readonly IInsuranceUnitQueryRepository _insuranceUnitQueryRepository;

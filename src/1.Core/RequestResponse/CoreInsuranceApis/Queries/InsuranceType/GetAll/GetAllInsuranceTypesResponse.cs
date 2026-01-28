@@ -1,6 +1,5 @@
-﻿using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.CommonResults;
+﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
 
-namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
 public sealed class GetAllInsuranceTypesResponse
 {
     public long anvaBimehID { get; set; }

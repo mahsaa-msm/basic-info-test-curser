@@ -4,11 +4,11 @@ using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.Create;
+
 public sealed class CreateInsuranceUnitHandler : CommandHandler<CreateInsuranceUnitCommand, long>
 {
     private readonly IInsuranceUnitCommandRepository _insuranceUnitCommandRepository;
@@ -29,10 +29,10 @@ public sealed class CreateInsuranceUnitHandler : CommandHandler<CreateInsuranceU
     public override async Task<CommandResult<long>> Handle(CreateInsuranceUnitCommand command)
     {
         var isDuplicateInsuranceUnit = await _insuranceUnitCommandRepository
-        .ExistsAsync(e => e.Title == Title.FromString(command.Title) ||
-                          e.Name == Title.FromString(command.Name) ||
-                          e.Code == Code.FromString(command.Code) ||
-                          e.CoreId == CoreId.FromString(command.CoreId));
+        .ExistsAsync(e => DIPTitle.FromString(command.Title).Equals(e.Title) ||
+                          DIPTitle.FromString(command.Name).Equals(e.Name) ||
+                          Code.FromString(command.Code).Equals(e.Code) ||
+                          CoreId.FromString(command.CoreId).Equals(e.CoreId));
 
         if (isDuplicateInsuranceUnit)
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,

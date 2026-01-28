@@ -9,7 +9,6 @@ using Master.Data.Core.RequestResponse.Countries.Commands.Fetch;
 using Master.Data.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
@@ -74,7 +73,7 @@ public sealed class FetchCountriesFromSourceHandler : CommandHandler<FetchCountr
                 }
                 else
                 {
-                    if (country.Title != Title.FromString(coreCountry.title))
+                    if (!DIPTitle.FromString(coreCountry.title).Equals(country.Title))
                         country.Update(new UpdateCountryParameter(coreCountry.title,
                                                                   country.DisplayTitle,
                                                                   !string.IsNullOrEmpty(coreCountry.centInsurCode) ?

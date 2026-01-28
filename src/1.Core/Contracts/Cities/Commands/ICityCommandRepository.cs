@@ -3,6 +3,7 @@ using Master.Data.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Contracts.Data.Commands;
 
 namespace Master.Data.Core.Contracts.Cities.Commands;
+
 public interface ICityCommandRepository : ICommandRepository<City, long>
 {
     Task<City?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId);

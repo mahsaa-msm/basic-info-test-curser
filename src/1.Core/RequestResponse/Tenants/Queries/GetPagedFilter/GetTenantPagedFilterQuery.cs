@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
+
 public sealed class GetTenantPagedFilterQuery : PageQuery<PagedData<TenantSelectItemQr>>, IWebRequest
 {
     public string? Name { get; set; }

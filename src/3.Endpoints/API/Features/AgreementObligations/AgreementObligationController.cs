@@ -31,8 +31,8 @@ public sealed class AgreementObligationController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchAgreementObligationsFromSource([FromBody] FetchAgreementObligationsFromSourceCommand commnad)
-    => await Edit(commnad);
+    public async Task<IActionResult> FetchAgreementObligationsFromSource()
+    => await Edit(new FetchAgreementObligationsFromSourceCommand());
     #endregion
 
     #region Queries

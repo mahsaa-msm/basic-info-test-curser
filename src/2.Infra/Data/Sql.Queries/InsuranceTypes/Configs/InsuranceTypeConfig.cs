@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Configs;
+
 public sealed class InsuranceTypeConfig : IEntityTypeConfiguration<InsuranceType>
 {
     public void Configure(EntityTypeBuilder<InsuranceType> builder)

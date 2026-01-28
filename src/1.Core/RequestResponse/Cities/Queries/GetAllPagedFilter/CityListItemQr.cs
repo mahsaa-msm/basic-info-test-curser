@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+
 public sealed class CityListItemQr
 {
     public long Id { get; set; }

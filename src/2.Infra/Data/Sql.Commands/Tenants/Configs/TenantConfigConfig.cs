@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Tenants.Configs;
+
 public sealed class TenantConfigConfig : IEntityTypeConfiguration<Core.Domain.Tenants.Entities.TenantConfig>
 {
     public void Configure(EntityTypeBuilder<Core.Domain.Tenants.Entities.TenantConfig> builder)

@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
+
 public sealed class CitySelectItemQr
 {
     public string DisplayTitle { get; set; } = string.Empty;

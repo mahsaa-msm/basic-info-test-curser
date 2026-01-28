@@ -8,6 +8,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.ChangeActivation;
+
 public sealed class ChangeInsuranceUnitsActivationHandler : CommandHandler<ChangeInsuranceUnitsActivationCommand>
 {
     private readonly IInsuranceUnitCommandRepository _commandRepository;

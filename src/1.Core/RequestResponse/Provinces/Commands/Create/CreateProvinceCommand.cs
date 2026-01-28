@@ -3,6 +3,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.Create;
+
 public sealed class CreateProvinceCommand : ICommand<long>, IWebRequest
 {
     public string Title { get; set; } = string.Empty;

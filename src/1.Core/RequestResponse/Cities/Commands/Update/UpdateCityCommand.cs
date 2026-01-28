@@ -3,6 +3,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Cities.Commands.Update;
+
 public sealed class UpdateCityCommand : ICommand, IWebRequest
 {
     public long CityId { get; set; }

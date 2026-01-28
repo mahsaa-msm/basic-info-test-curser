@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.Contracts.Common.Options;
+
 public sealed class CoreSsoOptions
 {
     public string BasePath { get; set; } = string.Empty;

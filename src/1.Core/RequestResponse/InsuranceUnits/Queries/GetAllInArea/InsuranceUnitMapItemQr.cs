@@ -2,6 +2,7 @@
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+
 public sealed class InsuranceUnitMapItemQr
 {
     public long Id { get; set; }

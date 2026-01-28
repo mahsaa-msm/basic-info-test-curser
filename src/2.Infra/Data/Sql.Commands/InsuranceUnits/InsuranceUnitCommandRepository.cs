@@ -7,6 +7,7 @@ using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.InsuranceUnits;
+
 public sealed class InsuranceUnitCommandRepository : BaseCommandRepository<InsuranceUnit, MasterDataCommandDbContext, long>,
     IInsuranceUnitCommandRepository
 {

@@ -9,7 +9,6 @@ using Master.Data.Core.RequestResponse.Provinces.Commands.Fetch;
 using Master.Data.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
@@ -74,8 +73,8 @@ public sealed class FetchProvincesFromSourceHandler : CommandHandler<FetchProvin
                 }
                 else
                 {
-                    if (province.Title != Title.FromString(coreProvince.naamOstan) ||
-                        province.CountryCoreId != CoreId.FromLong(coreProvince.keshvarID))
+                    if (!DIPTitle.FromString(coreProvince.naamOstan).Equals(province.Title) ||
+                        !CoreId.FromLong(coreProvince.keshvarID).Equals(province.CountryCoreId))
                         province.Update(new UpdateProvinceParameter(coreProvince.naamOstan,
                                                                     province.DisplayTitle,
                                                                     !string.IsNullOrEmpty(coreProvince.codeOstan) ?

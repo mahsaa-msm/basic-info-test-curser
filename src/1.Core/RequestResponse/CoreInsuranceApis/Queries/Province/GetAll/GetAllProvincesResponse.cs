@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
 
 namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Province.GetAll;
+
 public sealed class GetAllProvincesResponse
 {
     public string naamOstan { get; set; } = string.Empty;

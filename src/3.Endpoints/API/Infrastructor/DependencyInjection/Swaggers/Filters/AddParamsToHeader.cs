@@ -1,5 +1,4 @@
-﻿using Master.Data.Core.Resources;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;

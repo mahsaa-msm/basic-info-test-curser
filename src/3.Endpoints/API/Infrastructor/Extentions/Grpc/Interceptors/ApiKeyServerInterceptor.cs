@@ -24,7 +24,7 @@ public class ApiKeyServerInterceptor : Interceptor
         // اعتبارسنجی API Key دریافتی
         var apiKey = context.RequestHeaders
             .FirstOrDefault(header => header.Key == _grpcOption.ApiKeyName)?.Value;
-        
+
         if (string.IsNullOrEmpty(apiKey) || apiKey != _grpcOption.ApiKey)
         {
             throw new RpcException(new Status(StatusCode.Unauthenticated,

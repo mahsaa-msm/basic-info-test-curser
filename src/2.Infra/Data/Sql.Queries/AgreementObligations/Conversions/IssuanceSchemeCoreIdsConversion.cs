@@ -1,5 +1,4 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
 

@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.ChangeActivation;
+
 public sealed class ChangeInsuranceUnitsActivationValidator : AbstractValidator<ChangeInsuranceUnitsActivationCommand>
 {
     public ChangeInsuranceUnitsActivationValidator(ITranslator translator)

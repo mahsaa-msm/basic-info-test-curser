@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
+
 public sealed class TenantSelectItemQr
 {
     public long Id { get; set; }

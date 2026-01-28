@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Common.ValueObjects;
+
 public class Priority : BaseValueObject<Priority>
 {
     public long Value { get; private set; }

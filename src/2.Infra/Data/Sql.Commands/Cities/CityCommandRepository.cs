@@ -1,13 +1,13 @@
 ﻿using Master.Data.Core.Contracts.Cities.Commands;
 using Master.Data.Core.Domain.Cities.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceUnits.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Cities;
+
 public sealed class CityCommandRepository : BaseCommandRepository<City, MasterDataCommandDbContext, long>,
     ICityCommandRepository
 {

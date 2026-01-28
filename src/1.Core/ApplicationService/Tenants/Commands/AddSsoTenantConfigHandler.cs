@@ -10,6 +10,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+
 public sealed class AddSsoTenantConfigHandler : CommandHandler<AddSsoTenantConfigCommand>
 {
     private readonly ITenantCommandRepository _tenantCommandRepository;

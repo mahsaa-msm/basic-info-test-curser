@@ -2,6 +2,7 @@
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+
 public sealed class GeoCoordinate : BaseValueObject<GeoCoordinate>
 {
     public Latitude Latitude { get; }

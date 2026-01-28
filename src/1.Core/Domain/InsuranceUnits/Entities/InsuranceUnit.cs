@@ -8,12 +8,13 @@ using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.InsuranceUnits.Entities;
+
 public sealed class InsuranceUnit : BaseTenantEntity
 {
     #region Properties
-    public Title Name { get; private set; }
-    public Title Title { get; private set; }
-    public Title DisplayTitle { get; private set; }
+    public DIPTitle Name { get; private set; }
+    public DIPTitle Title { get; private set; }
+    public DIPTitle DisplayTitle { get; private set; }
     public CoreId CoreId { get; private set; }
     public CoreId CityCoreId { get; private set; }
     public Code Code { get; private set; }

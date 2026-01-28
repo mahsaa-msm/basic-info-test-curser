@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
+
 public sealed class AddSsoTenantConfigCommand : ICommand, IWebRequest
 {
     public long TenantId { get; set; }

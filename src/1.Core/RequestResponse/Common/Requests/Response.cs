@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.Common.Extensions;
 
 namespace Master.Data.Core.RequestResponse.Common.Requests;
+
 public class Response
 {
     public bool IsSuccess { get; }

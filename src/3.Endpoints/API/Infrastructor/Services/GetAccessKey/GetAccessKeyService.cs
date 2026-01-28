@@ -2,6 +2,7 @@
 using Zamin.Extensions.Caching.Abstractions;
 
 namespace Master.Data.Endpoints.API.Infrastructor.Services.GetAccessKey;
+
 public class GetAccessKeyService : IGetAccessKeyService
 {
     private readonly ICacheAdapter _cacheAdapter;

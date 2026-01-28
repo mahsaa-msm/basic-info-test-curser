@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.Contracts.Common.Options;
+
 public sealed class SoftwareManagementOption
 {
     public string BasePath { get; set; } = default!;

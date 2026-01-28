@@ -9,6 +9,7 @@ using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceTypes;
+
 public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
     IInsuranceTypeQueryRepository
 {

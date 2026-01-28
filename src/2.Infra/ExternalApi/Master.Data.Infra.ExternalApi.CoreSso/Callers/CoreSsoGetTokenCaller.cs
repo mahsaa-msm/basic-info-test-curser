@@ -7,6 +7,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Infra.ExternalApi.CoreSso.Callers;
+
 public sealed class CoreSsoGetTokenCaller : ICoreSsoGetTokenCaller, ITransientLifetime
 {
     private readonly HttpClient _httpClient;

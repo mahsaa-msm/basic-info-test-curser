@@ -3,6 +3,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Cities.Commands.Create;
+
 public sealed class CreateCityCommand : ICommand<long>, IWebRequest
 {
     public string Title { get; set; } = string.Empty;

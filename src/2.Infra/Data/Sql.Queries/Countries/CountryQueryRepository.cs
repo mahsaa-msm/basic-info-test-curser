@@ -9,6 +9,7 @@ using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Countries;
+
 public sealed class CountryQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
     ICountryQueryRepository
 {

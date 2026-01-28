@@ -7,6 +7,7 @@ using Zamin.Core.Domain.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.Tenants.Entities;
+
 public sealed class Tenant : AggregateRoot
 {
     #region Properties

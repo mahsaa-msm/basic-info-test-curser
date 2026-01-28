@@ -1,11 +1,11 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.InsuranceUnits.Parameters;
-public sealed record RestoreInsuranceUnitParameter(Title Name,
-                                                   Title Title,
+
+public sealed record RestoreInsuranceUnitParameter(DIPTitle Name,
+                                                   DIPTitle Title,
                                                    NullableTitle DisplayTitle,
                                                    CoreId CityCoreId,
                                                    Code Code,
