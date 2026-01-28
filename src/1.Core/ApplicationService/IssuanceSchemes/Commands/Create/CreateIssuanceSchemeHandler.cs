@@ -23,7 +23,7 @@ public class CreateIssuanceSchemeHandler : CommandHandler<CreateIssuanceSchemeCo
     public override async Task<CommandResult<long>> Handle(CreateIssuanceSchemeCommand command)
     {
         var isDuplicateIssuanceScheme = await _commandRepository
-            .ExistsAsync(e => e.Title == Title.FromString(command.Title) ||
+            .ExistsAsync(e => e.Title == DIPTitle.FromString(command.Title) ||
                               e.Code == Code.FromString(command.Code) ||
                               e.CoreId == CoreId.FromString(command.CoreId));
 

@@ -82,7 +82,7 @@ public class UpdateIssuanceSchemeHandler : CommandHandler<UpdateIssuanceSchemeCo
         ValueObjectGuard.ThrowIfNull(command.Code, ProjectTranslation.CODE);
 
         if (await _commandRepository.ExistsAsync(c => c.Id != command.IssuanceSchemeId &&
-                                                      (c.Code == Code.FromString(command.Code) || c.Title == Title.FromString(command.Title))))
+                                                      (c.Code == Code.FromString(command.Code) || c.Title == DIPTitle.FromString(command.Title))))
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.ISSUANCE_SCHEME]);
     }

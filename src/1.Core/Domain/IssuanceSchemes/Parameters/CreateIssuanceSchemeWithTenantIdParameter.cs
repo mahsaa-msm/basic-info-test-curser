@@ -6,7 +6,7 @@ using static Master.Data.Core.Resources.ProjectConsts;
 namespace Master.Data.Core.Domain.IssuanceSchemes.Parameters;
 
 public sealed record CreateIssuanceSchemeWithTenantIdParameter(long TenantId,
-                                                               Title Title,
+                                                               DIPTitle Title,
                                                                NullableTitle DisplayTitle,
                                                                CoreId CoreId,
                                                                Code Code,

@@ -8,8 +8,8 @@ namespace Master.Data.Core.Domain.IssuanceSchemes.Entities;
 public sealed class IssuanceScheme : BaseTenantEntity
 {
     #region Properties
-    public Title Title { get; private set; }
-    public Title DisplayTitle { get; private set; }
+    public DIPTitle Title { get; private set; }
+    public DIPTitle DisplayTitle { get; private set; }
     public CoreId CoreId { get; private set; }
     public Code Code { get; private set; }
     public Common.ValueObjects.Priority Priority { get; private set; }

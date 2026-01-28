@@ -79,7 +79,7 @@ public sealed class FetchIssuanceSchemesFromSourceHandler : CommandHandler<Fetch
             }
             else
             {
-                if (issuanceScheme.Title != Title.FromString(coreIssuanceScheme.naam))
+                if (issuanceScheme.Title != DIPTitle.FromString(coreIssuanceScheme.naam))
                     issuanceScheme.Update(new UpdateIssuanceSchemeParameter(coreIssuanceScheme.naam,
                                                                             issuanceScheme.DisplayTitle,
                                                                             !string.IsNullOrEmpty(coreIssuanceScheme.code) ? coreIssuanceScheme.code : _finglishConverter.Convert(coreIssuanceScheme.naam),

@@ -3,8 +3,8 @@ using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.IssuanceSchemes.Parameters;
-public sealed record UpdateIssuanceSchemeParameter(Title Title,
-                                                   Title DisplayTitle,
+public sealed record UpdateIssuanceSchemeParameter(DIPTitle Title,
+                                                   DIPTitle DisplayTitle,
                                                    Code Code,
                                                    DateTime? FromStartDateUtc,
                                                    DateTime? ToStartDateUtc,
