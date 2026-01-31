@@ -7,6 +7,7 @@ using Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
 using Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -43,6 +44,7 @@ public class ProvinceController : BaseController
 
     #region Queries
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllProvinces([FromQuery] GetAllProvincesQuery query)
     => await Query<GetAllProvincesQuery, List<ProvinceSelectItemQr>>(query);
 

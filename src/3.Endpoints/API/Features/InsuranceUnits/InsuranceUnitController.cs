@@ -6,6 +6,7 @@ using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -41,6 +42,7 @@ public sealed class InsuranceUnitController : BaseController
         => await Query<GetInsuranceUnitByIdQuery, InsuranceUnitQr>(query);
 
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllInsuranceUnitInArea([FromQuery] GetAllInsuranceUnitsInAreaQuery query)
     => await Query<GetAllInsuranceUnitsInAreaQuery, List<InsuranceUnitMapItemQr>>(query);
 
