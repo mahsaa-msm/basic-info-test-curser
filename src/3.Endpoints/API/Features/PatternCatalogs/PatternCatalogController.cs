@@ -32,7 +32,7 @@ public sealed class PatternCatalogController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpsertInsurancePolictPatternCatalog([FromBody] UpsertInsurancePolicyPatternCatalogViewModel viewModel)
+    public async Task<IActionResult> UpsertInsurancePolicyPatternCatalog([FromBody] UpsertInsurancePolicyPatternCatalogViewModel viewModel)
     => await Edit<UpsertPatternCatalogCommand, long?>(viewModel.ToCommand());
     #endregion
 

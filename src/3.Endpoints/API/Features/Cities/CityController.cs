@@ -7,6 +7,7 @@ using Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
 using Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Cities.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -42,6 +43,7 @@ public class CityController : BaseController
 
     #region Queries
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllCities([FromQuery] GetAllCitiesQuery query)
     => await Query<GetAllCitiesQuery, List<CitySelectItemQr>>(query);
 

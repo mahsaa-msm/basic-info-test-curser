@@ -6,6 +6,7 @@ using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAll;
 using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -37,6 +38,7 @@ public sealed class AgreementObligationController : BaseController
 
     #region Queries
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllAgreementObligations([FromQuery] GetAllAgreementObligationsQuery query)
     => await Query<GetAllAgreementObligationsQuery, List<AgreementObligationSelectItemQr>>(query);
 
