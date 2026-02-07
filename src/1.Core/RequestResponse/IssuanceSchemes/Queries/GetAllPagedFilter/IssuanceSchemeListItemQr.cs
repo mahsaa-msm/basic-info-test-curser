@@ -15,6 +15,7 @@ public sealed class IssuanceSchemeListItemQr
     public DateTime? ToIssueDateUtc { get; set; }
     public string InsuranceTypeCoreId { get; set; } = string.Empty;
     public AdjustmentType? AdjustmentType { get; set; }
+    public string? AdjustmentTypeTitle { get; set; }
     public double? AdjustmentPercent  { get; set; }
     public long Priority { get; set; }
     public bool IsActive { get; set; }

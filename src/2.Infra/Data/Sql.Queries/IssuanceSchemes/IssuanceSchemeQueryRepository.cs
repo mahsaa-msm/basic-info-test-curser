@@ -5,6 +5,7 @@ using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
+using Zamin.Extensions.Translations.Abstractions;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
@@ -12,9 +13,12 @@ namespace Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes;
 public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
     IIssuanceSchemeQueryRepository
 {
-    public IssuanceSchemeQueryRepository(MasterDataQueryDbContext dbContext)
+    private readonly ITranslator _translator;
+
+    public IssuanceSchemeQueryRepository(MasterDataQueryDbContext dbContext, ITranslator translator)
         : base(dbContext)
     {
+        _translator = translator;
     }
 
     public async Task<IssuanceSchemeQr?> Execute(GetIssuanceSchemeByIdQuery query)
@@ -28,6 +32,14 @@ public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDa
                     Code = c.Code,
                     Priority = c.Priority,
                     IsActive = c.IsActive,
+                    AdjustmentPercent = c.AdjustmentPercent,
+                    AdjustmentType = c.AdjustmentType,
+                    FromStartDateUtc = c.FromStartDateUtc,
+                    FromIssueDateUtc = c.FromIssueDateUtc,
+                    AdjustmentTypeTitle = _translator[EnumExtensions.GetEnumDescription(c.AdjustmentType)],
+                    InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+                    ToIssueDateUtc = c.ToIssueDateUtc,
+                    ToStartDateUtc = c.ToStartDateUtc,
                     IsEditable = !string.IsNullOrEmpty(c.CreatedByUserId)
 
                 })
@@ -59,6 +71,27 @@ public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDa
         filter = filter.WhereIf(!string.IsNullOrEmpty(query.DisplayTitle),
                         c => c.DisplayTitle.Contains(query.DisplayTitle!));
 
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.InsuranceTypeCoreId),
+                        c => c.InsuranceTypeCoreId.Contains(query.InsuranceTypeCoreId!));
+
+        filter = filter.WhereIf(query.AdjustmentPercent != null,
+            c => c.AdjustmentPercent == query.AdjustmentPercent);
+
+        filter = filter.WhereIf(query.AdjustmentType != null,
+            c => c.AdjustmentType == query.AdjustmentType);
+
+        filter = filter.WhereIf(query.FromIssueDateUtc.HasValue,
+            c => c.FromIssueDateUtc >= query.FromIssueDateUtc);
+
+        filter = filter.WhereIf(query.ToIssueDateUtc.HasValue,
+            c => c.ToIssueDateUtc <= query.ToIssueDateUtc);
+
+        filter = filter.WhereIf(query.FromStartDateUtc.HasValue,
+            c => c.FromStartDateUtc >= query.FromStartDateUtc);
+
+        filter = filter.WhereIf(query.ToStartDateUtc.HasValue,
+            c => c.ToStartDateUtc <= query.ToStartDateUtc);
+
         filter = filter.WhereIf(query.IsActive is not null,
                                 c => c.IsActive == query.IsActive);
 
@@ -73,6 +106,14 @@ public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDa
             Code = c.Code,
             CoreId = c.CoreId,
             IsActive = c.IsActive,
+            AdjustmentPercent = c.AdjustmentPercent,
+            AdjustmentType = c.AdjustmentType,
+            AdjustmentTypeTitle = _translator[EnumExtensions.GetEnumDescription(c.AdjustmentType)],
+            FromStartDateUtc = c.FromStartDateUtc,
+            FromIssueDateUtc = c.FromIssueDateUtc,
+            InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+            ToIssueDateUtc = c.ToIssueDateUtc,
+            ToStartDateUtc = c.ToStartDateUtc,
             Priority = c.Priority,
         });
     }
