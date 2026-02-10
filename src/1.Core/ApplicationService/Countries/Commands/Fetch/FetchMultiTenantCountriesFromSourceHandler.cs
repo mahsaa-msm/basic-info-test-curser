@@ -17,6 +17,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Countries.Commands.Fetch;
+
 public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<FetchMultiTenantCountriesFromSourceCommand>
 {
     private readonly ICountryCommandRepository _commandRepository;
@@ -62,34 +63,41 @@ public sealed class FetchMultiTenantCountriesFromSourceHandler : CommandHandler<
         {
             var tenantCountries = await _commandRepository.GetByTenantId(tenant.Id);
 
-            foreach (var coreCountry in coreCountriesResponse.Value.content.itemList)
+            foreach (var coreCountry in coreCountriesResponse.Value.content.itemList.DistinctBy(c => c.id))
             {
-                var country = tenantCountries
-                    .FirstOrDefault(c => c.CoreId == CoreId.FromString(coreCountry.id));
+                try
+                {
+                    var country = tenantCountries
+                            .FirstOrDefault(c => c.CoreId == CoreId.FromString(coreCountry.id));
 
-                if (country is null)
-                {
-                    var newCountry = Country.CreateWithTenantId(new CreateCountryWithTenantIdParameter(tenant.Id,
-                                                                                                       coreCountry.title,
-                                                                                                       coreCountry.title,
-                                                                                                       coreCountry.id,
-                                                                                                       !string.IsNullOrEmpty(coreCountry.centInsurCode) ?
-                                                                                                           coreCountry.centInsurCode :
-                                                                                                           _finglishConverter.Convert(coreCountry.title),
-                                                                                                       nextPriority,
-                                                                                                       tenant.Key));
-                    await _commandRepository.InsertAsync(newCountry);
-                    nextPriority++;
+                    if (country is null)
+                    {
+                        var newCountry = Country.CreateWithTenantId(new CreateCountryWithTenantIdParameter(tenant.Id,
+                                                                                                           coreCountry.title,
+                                                                                                           coreCountry.title,
+                                                                                                           coreCountry.id,
+                                                                                                           !string.IsNullOrEmpty(coreCountry.centInsurCode) ?
+                                                                                                               coreCountry.centInsurCode :
+                                                                                                               _finglishConverter.Convert(coreCountry.title),
+                                                                                                           nextPriority,
+                                                                                                           tenant.Key));
+                        await _commandRepository.InsertAsync(newCountry);
+                        nextPriority++;
+                    }
+                    else
+                    {
+                        if (country.Title != Title.FromString(coreCountry.title))
+                            country.Update(new UpdateCountryParameter(coreCountry.title,
+                                                                      country.DisplayTitle,
+                                                                      !string.IsNullOrEmpty(coreCountry.centInsurCode) ?
+                                                                          coreCountry.centInsurCode :
+                                                                          _finglishConverter.Convert(coreCountry.title),
+                                                                      country.Priority));
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    if (country.Title != Title.FromString(coreCountry.title))
-                        country.Update(new UpdateCountryParameter(coreCountry.title,
-                                                                  country.DisplayTitle,
-                                                                  !string.IsNullOrEmpty(coreCountry.centInsurCode) ?
-                                                                      coreCountry.centInsurCode :
-                                                                      _finglishConverter.Convert(coreCountry.title),
-                                                                  country.Priority));
+                    _logger.LogError(ex.Message);
                 }
             }
         }

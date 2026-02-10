@@ -15,6 +15,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Cities.Commands.Fetch;
+
 public sealed class FetchCitiesFromSourceHandler : CommandHandler<FetchCitiesFromSourceCommand>
 {
     private readonly ICityCommandRepository _cityCommandRepository;
@@ -51,31 +52,38 @@ public sealed class FetchCitiesFromSourceHandler : CommandHandler<FetchCitiesFro
         var cities = await _cityCommandRepository.GetAllAsync();
         long nextPriority = await _cityCommandRepository.GetNextPriority();
 
-        foreach (var coreCity in coreCitiesResponse.Value)
+        foreach (var coreCity in coreCitiesResponse.Value.DistinctBy(c => c.shahrID))
         {
-            var city = cities
-                .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreCity.shahrID));
+            try
+            {
+                var city = cities
+                    .FirstOrDefault(c => c.CoreId == CoreId.FromLong(coreCity.shahrID));
 
-            if (city is null)
-            {
-                var newCity = City.Create(new CreateCityParameter(coreCity.naamShahr,
-                                                                  coreCity.naamShahr,
-                                                                  coreCity.shahrID,
-                                                                  _finglishConverter.Convert(coreCity.naamShahr),
-                                                                  nextPriority,
-                                                                  coreCity.ostanID));
-                await _cityCommandRepository.InsertAsync(newCity);
-                nextPriority++;
+                if (city is null)
+                {
+                    var newCity = City.Create(new CreateCityParameter(coreCity.naamShahr,
+                                                                      coreCity.naamShahr,
+                                                                      coreCity.shahrID,
+                                                                      _finglishConverter.Convert(coreCity.naamShahr),
+                                                                      nextPriority,
+                                                                      coreCity.ostanID));
+                    await _cityCommandRepository.InsertAsync(newCity);
+                    nextPriority++;
+                }
+                else
+                {
+                    if (city.Title != Title.FromString(coreCity.naamShahr) ||
+                        city.ProvinceCoreId != CoreId.FromLong(coreCity.shahrID))
+                        city.Update(new UpdateCityParameter(coreCity.naamShahr,
+                                                            city.DisplayTitle,
+                                                            _finglishConverter.Convert(coreCity.naamShahr),
+                                                            city.Priority,
+                                                            coreCity.ostanID));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                if (city.Title != Title.FromString(coreCity.naamShahr) ||
-                    city.ProvinceCoreId != CoreId.FromLong(coreCity.ostanID))
-                    city.Update(new UpdateCityParameter(coreCity.naamShahr,
-                                                        city.DisplayTitle,
-                                                        _finglishConverter.Convert(coreCity.naamShahr),
-                                                        city.Priority,
-                                                        coreCity.ostanID));
+                _logger.LogError(ex.Message);
             }
         }
 
