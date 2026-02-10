@@ -14,6 +14,7 @@ using Zamin.Utilities.Extensions;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Tenants;
+
 public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>, ITenantQueryRepository
 {
     public TenantQueryRepository(MasterDataQueryDbContext dbContext)
@@ -144,6 +145,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
             {
                 Id = c.Id,
                 Key = c.TenantKey,
+                Name = c.Name,
             })
             .ToListAsync();
 }

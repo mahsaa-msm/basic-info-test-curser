@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
 using Master.Data.Core.RequestResponse.Tenants.Commands.Create;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
+using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,10 @@ public class TenantController : BaseController
     [HttpGet("[action]")]
     public async Task<IActionResult> GetTenantById([FromQuery] GetTenantByIdQuery query)
         => await Query<GetTenantByIdQuery, TenantGraphQr?>(query);
+
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllTenants([FromQuery] GetAllTenantsSelectItemQuery query)
+    => await Query<GetAllTenantsSelectItemQuery, List<TenantIdKeyQr>>(query);
 
     [HttpGet("[action]")]
     public async Task<IActionResult> GetTenantsPagedFilter([FromQuery] GetTenantPagedFilterQuery query)
