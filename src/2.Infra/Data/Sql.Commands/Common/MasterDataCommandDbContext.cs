@@ -49,20 +49,6 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(builder);
 
-        //// اعمال فیلتر برای تمام موجودیت‌های BaseTenantEntity
-        //foreach (var entityType in builder.Model.GetEntityTypes())
-        //{
-        //    if (typeof(BaseTenantEntity).IsAssignableFrom(entityType.ClrType))
-        //    {
-        //        var method = typeof(BaseOutboxCommandDbContext)?
-        //            .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Static)?
-        //            .MakeGenericMethod(entityType.ClrType);
-
-        //        method?.Invoke(this, new object[] { builder });
-        //    }
-        //}
-
-
         // اعمال فیلتر برای تمام موجودیت‌های BaseTenantEntity
         foreach (var entityType in builder.Model.GetEntityTypes())
         {
@@ -77,7 +63,6 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
                 method?.Invoke(this, new object[] { builder });
             }
         }
-
     }
 
     private void SetGlobalQueryFilter<T>(ModelBuilder modelBuilder)

@@ -13,6 +13,7 @@ using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Cities;
+
 public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
     ICityQueryRepository
 {
@@ -71,17 +72,20 @@ public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbC
 
         filter = filter.Skip(query.SkipCount).Take(query.PageSize);
 
-        result.QueryResult = await filter.Select(c => new CityListItemQr
-        {
-            Id = c.Id,
-            CoreId = c.CoreId,
-            Title = c.Title,
-            DisplayTitle = c.DisplayTitle,
-            Code = c.Code,
-            ProvinceCoreId = c.ProvinceCoreId,
-            Priority = c.Priority,
-            IsActive = c.IsActive,
-        }).ToListAsync();
+        result.QueryResult = await filter
+            .Include(c => c.Province)
+            .Select(c => new CityListItemQr
+            {
+                Id = c.Id,
+                CoreId = c.CoreId,
+                Title = c.Title,
+                DisplayTitle = c.DisplayTitle,
+                Code = c.Code,
+                ProvinceCoreId = c.ProvinceCoreId,
+                ProvinceDisplayTitle = c.Province?.DisplayTitle,
+                Priority = c.Priority,
+                IsActive = c.IsActive,
+            }).ToListAsync();
 
         return result;
     }
