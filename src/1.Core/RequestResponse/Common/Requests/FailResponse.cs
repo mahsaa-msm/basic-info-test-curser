@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Common.Requests;
+
 public class FailResponse
 {
     public string Type { get; set; } = default!;

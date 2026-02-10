@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+
 public sealed class CoreSsoGetTokenRequest : IQuery<CoreSsoGetTokenResponse>, IWebRequest
 {
     public string? ClientId { get; set; }

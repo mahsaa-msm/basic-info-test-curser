@@ -4,7 +4,6 @@ using Master.Data.Core.Domain.Countries.Entities;
 using Master.Data.Core.RequestResponse.Countries.Commands.Create;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
@@ -29,9 +28,9 @@ public class CreateCountryHandler : CommandHandler<CreateCountryCommand, long>
     public override async Task<CommandResult<long>> Handle(CreateCountryCommand command)
     {
         var isDuplicateCountry = await _commandRepository
-            .ExistsAsync(e => e.Title == Title.FromString(command.Title) ||
-                              e.Code == Code.FromString(command.Code) ||
-                              e.CoreId == CoreId.FromString(command.CoreId));
+            .ExistsAsync(e => DIPTitle.FromString(command.Title).Equals(e.Title) ||
+                              Code.FromString(command.Code).Equals(e.Code) ||
+                              CoreId.FromString(command.CoreId).Equals(e.CoreId));
 
         if (isDuplicateCountry)
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,

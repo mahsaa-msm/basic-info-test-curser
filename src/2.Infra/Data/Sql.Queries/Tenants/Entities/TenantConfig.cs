@@ -5,6 +5,7 @@ using System.Text.Json;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+
 public sealed class TenantConfig : QueryObject
 {
     public long TenantId { get; set; }

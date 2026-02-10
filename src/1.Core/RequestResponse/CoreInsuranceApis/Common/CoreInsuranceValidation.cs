@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
+
 public sealed class CoreInsuranceValidation
 {
     public string errMsgKey { get; set; } = string.Empty;

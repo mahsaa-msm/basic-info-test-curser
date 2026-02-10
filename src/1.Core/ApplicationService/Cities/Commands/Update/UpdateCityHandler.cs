@@ -76,7 +76,7 @@ public class UpdateCityHandler : CommandHandler<UpdateCityCommand>
         ValueObjectGuard.ThrowIfNull(command.Code, ProjectTranslation.CODE);
 
         if (await _cityCommandRepository.ExistsAsync(c => c.Id != command.CityId &&
-                                                     (c.Code == Code.FromString(command.Code) || c.Title == Title.FromString(command.Title))))
+                                                     (Code.FromString(command.Code).Equals(c.Code) || DIPTitle.FromString(command.Title).Equals(c.Title))))
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.CITY]);
     }

@@ -2,7 +2,8 @@
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 
 namespace Master.Data.Core.Domain.Cities.Parameters;
-public sealed record CreateCityParameter(Title Title,
+
+public sealed record CreateCityParameter(DIPTitle Title,
                                          NullableTitle DisplayTitle,
                                          CoreId CoreId,
                                          Code Code,

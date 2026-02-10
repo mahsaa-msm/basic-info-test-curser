@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+
 public static class TenantIdExtensions
 {
     public static void SetTenantIdValue(this ChangeTracker changeTracker, ITenantService tenantService)

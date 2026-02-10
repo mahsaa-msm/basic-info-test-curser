@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 
 namespace Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
+
 public sealed class InsuranceType : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;

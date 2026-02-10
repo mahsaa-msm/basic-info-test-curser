@@ -5,6 +5,7 @@ using Zamin.Core.Contracts.Data.Queries;
 using Zamin.Core.RequestResponse.Queries;
 
 namespace Master.Data.Core.Contracts.Provinces.Queries;
+
 public interface IProvinceQueryRepository : IQueryRepository
 {
     Task<ProvinceQr> Execute(GetProvinceByIdQuery query);

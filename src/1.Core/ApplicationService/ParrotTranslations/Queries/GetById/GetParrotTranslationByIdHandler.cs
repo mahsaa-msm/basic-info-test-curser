@@ -12,7 +12,7 @@ public sealed class GetParrotTranslationByIdHandler : QueryHandler<GetParrotTran
     private readonly IParrotTranslationQueryRepository _parrotTranslationQueryRepository;
 
     public GetParrotTranslationByIdHandler(ZaminServices zaminServices,
-                                           IParrotTranslationQueryRepository parrotTranslationQueryRepository) 
+                                           IParrotTranslationQueryRepository parrotTranslationQueryRepository)
         : base(zaminServices)
     {
         _parrotTranslationQueryRepository = parrotTranslationQueryRepository;

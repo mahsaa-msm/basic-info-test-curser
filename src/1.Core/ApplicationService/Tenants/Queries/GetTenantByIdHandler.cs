@@ -5,6 +5,7 @@ using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Tenants.Queries;
+
 public sealed class GetTenantByIdHandler : QueryHandler<GetTenantByIdQuery, TenantGraphQr?>
 {
     private readonly ITenantQueryRepository _tenantQueryRepository;

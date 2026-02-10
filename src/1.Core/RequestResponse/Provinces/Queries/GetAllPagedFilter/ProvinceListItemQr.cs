@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
+
 public sealed class ProvinceListItemQr
 {
     public long Id { get; set; }

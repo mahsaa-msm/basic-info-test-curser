@@ -2,7 +2,8 @@
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
-public sealed class Province : BaseTenantEntity
+
+public class Province : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;
     public string DisplayTitle { get; set; } = string.Empty;
@@ -13,5 +14,5 @@ public sealed class Province : BaseTenantEntity
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
 
-    public Country Country { get; set; } = new();
+    public virtual Country? Country { get; set; }
 }

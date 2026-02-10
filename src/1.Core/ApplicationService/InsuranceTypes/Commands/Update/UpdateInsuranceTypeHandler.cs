@@ -5,7 +5,6 @@ using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Update;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 using static Master.Data.Core.Resources.ProjectConsts;
@@ -75,7 +74,7 @@ public class UpdateInsuranceTypeHandler : CommandHandler<UpdateInsuranceTypeComm
         ValueObjectGuard.ThrowIfNull(command.Code, ProjectTranslation.CODE);
 
         if (await _commandRepository.ExistsAsync(c => c.Id != command.InsuranceTypeId &&
-                                                      (c.Code == Code.FromString(command.Code) || c.Title == Title.FromString(command.Title))))
+                                                      (Code.FromString(command.Code).Equals(c.Code) || DIPTitle.FromString(command.Title).Equals(c.Title))))
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.INSURANCE_TYPE]);
     }

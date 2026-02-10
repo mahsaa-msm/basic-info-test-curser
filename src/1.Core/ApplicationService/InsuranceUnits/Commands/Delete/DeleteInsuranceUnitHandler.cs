@@ -8,6 +8,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.Delete;
+
 public sealed class DeleteInsuranceUnitHandler : CommandHandler<DeleteInsuranceUnitCommand>
 {
     private readonly IInsuranceUnitCommandRepository _insuranceUnitCommandRepository;

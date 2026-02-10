@@ -11,7 +11,7 @@ public class GetAllCountriesHandler : QueryHandler<GetAllCountryQuery, List<Coun
     private readonly ICountryQueryRepository _countryQueryRepository;
 
     public GetAllCountriesHandler(ZaminServices zaminServices,
-                                  ICountryQueryRepository countryQueryRepository) 
+                                  ICountryQueryRepository countryQueryRepository)
         : base(zaminServices)
     {
         _countryQueryRepository = countryQueryRepository;

@@ -3,6 +3,7 @@ using Zamin.Core.RequestResponse.Queries;
 using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+
 public sealed class GetAllInsuranceUnitsInAreaQuery : IQuery<List<InsuranceUnitMapItemQr>>, IWebRequest
 {
     public AreaViewModel? Area { get; set; }

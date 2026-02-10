@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+
 public sealed class Longitude : BaseValueObject<Longitude>
 {
     public double Value { get; }

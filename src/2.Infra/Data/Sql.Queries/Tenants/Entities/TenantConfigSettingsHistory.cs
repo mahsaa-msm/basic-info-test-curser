@@ -1,6 +1,7 @@
 ﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 
 namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+
 public sealed class TenantConfigSettingsHistory : QueryObject
 {
     public long TenantConfigId { get; set; }

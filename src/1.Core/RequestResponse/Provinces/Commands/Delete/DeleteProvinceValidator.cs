@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.Delete;
+
 public sealed class DeleteProvinceValidator : AbstractValidator<DeleteProvinceCommand>
 {
     public DeleteProvinceValidator(ITranslator translator)

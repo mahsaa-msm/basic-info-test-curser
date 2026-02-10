@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
+
 public sealed class CreateInsuranceUnitValidator : AbstractValidator<CreateInsuranceUnitCommand>
 {
     public CreateInsuranceUnitValidator(ITranslator translator)

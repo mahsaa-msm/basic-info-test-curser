@@ -2,6 +2,7 @@
 using Master.Data.Core.Domain.ParrotTranslations.Parameters;
 
 namespace Master.Data.Core.Domain.ParrotTranslations.Entities;
+
 public sealed class ParrotTranslation : BaseTenantEntity
 {
     #region Properties
@@ -22,7 +23,7 @@ public sealed class ParrotTranslation : BaseTenantEntity
     #endregion
 
     #region Commands
-    public static ParrotTranslation Create(CreateParrotTranslationParameter parameter) 
+    public static ParrotTranslation Create(CreateParrotTranslationParameter parameter)
         => new(parameter);
 
     public void Update(UpdateParrotTranslationParameter parameter)

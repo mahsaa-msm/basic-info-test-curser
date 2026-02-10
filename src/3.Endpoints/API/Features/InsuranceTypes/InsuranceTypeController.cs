@@ -32,8 +32,8 @@ public class InsuranceTypeController : BaseController
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchInsuranceTypesFromSource([FromBody] FetchInsuranceTypesFromSourceCommand commnad)
-    => await Edit(commnad);
+    public async Task<IActionResult> FetchInsuranceTypesFromSource()
+    => await Edit(new FetchInsuranceTypesFromSourceCommand());
 
     [HttpDelete("[action]")]
     public async Task<IActionResult> DeleteInsuranceType([FromBody] DeleteInsuranceTypeCommand command)

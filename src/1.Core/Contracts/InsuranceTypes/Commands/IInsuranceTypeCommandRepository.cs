@@ -3,6 +3,7 @@ using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
 namespace Master.Data.Core.Contracts.InsuranceTypes.Commands;
+
 public interface IInsuranceTypeCommandRepository : ICommandRepository<InsuranceType, long>
 {
     Task<InsuranceType?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId);

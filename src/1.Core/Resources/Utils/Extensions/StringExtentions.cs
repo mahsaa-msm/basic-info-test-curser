@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace Master.Data.Core.Resources.Utils.Extensions;
+
 public static class StringExtentions
 {
     private static Regex _regex = new Regex("[ ]{2,}", RegexOptions.None);

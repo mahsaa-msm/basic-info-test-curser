@@ -1,11 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Cities.Queries;
-using Master.Data.Core.Contracts.Provinces.Queries;
 using Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
 using Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.Cities.Queries.GetById;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
@@ -82,7 +78,9 @@ public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbC
                 DisplayTitle = c.DisplayTitle,
                 Code = c.Code,
                 ProvinceCoreId = c.ProvinceCoreId,
-                ProvinceDisplayTitle = c.Province.DisplayTitle,
+                ProvinceDisplayTitle = c.Province != null ? 
+                    c.Province.DisplayTitle : 
+                    null,
                 Priority = c.Priority,
                 IsActive = c.IsActive,
             }).ToListAsync();

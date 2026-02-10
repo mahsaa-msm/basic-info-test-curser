@@ -4,6 +4,7 @@ using Master.Data.Core.Resources.Utils.Extensions;
 using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Common.ValueObjects;
+
 public class NullableTitle : BaseValueObject<NullableTitle>
 {
     public string? Value { get; private set; } = string.Empty;

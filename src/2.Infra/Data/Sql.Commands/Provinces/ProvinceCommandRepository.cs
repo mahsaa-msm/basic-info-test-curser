@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Countries.Commands;
+﻿using Master.Data.Core.Contracts.Provinces.Commands;
 using Master.Data.Core.Domain.Common.ValueObjects;
+using Master.Data.Core.Domain.Provinces.Entities;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
-using Zamin.Infra.Data.Sql.Commands.Extensions;
 using Zamin.Infra.Data.Sql.Commands;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.Contracts.Provinces.Commands;
+using Zamin.Infra.Data.Sql.Commands.Extensions;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Provinces;
+
 public sealed class ProvinceCommandRepository : BaseCommandRepository<Province, MasterDataCommandDbContext, long>,
     IProvinceCommandRepository
 {

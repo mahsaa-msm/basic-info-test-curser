@@ -5,6 +5,7 @@ using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceUnits.Queries.GetAllInArea;
+
 public sealed class GetAllInsuranceUnitsInAreaHandler : QueryHandler<GetAllInsuranceUnitsInAreaQuery, List<InsuranceUnitMapItemQr>>
 {
     private readonly IInsuranceUnitQueryRepository _insuranceUnitQueryRepository;

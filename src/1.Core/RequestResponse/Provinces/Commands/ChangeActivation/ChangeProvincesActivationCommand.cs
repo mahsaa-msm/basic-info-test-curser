@@ -2,6 +2,7 @@
 using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.ChangeActivation;
+
 public sealed class ChangeProvincesActivationCommand : ICommand, IWebRequest
 {
     public List<long> ProvincesId { get; set; } = new();

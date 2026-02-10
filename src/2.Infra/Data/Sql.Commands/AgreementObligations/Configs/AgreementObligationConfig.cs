@@ -1,11 +1,9 @@
 ﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
 using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Master.Data.Core.Resources;
 using Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Configs;
 

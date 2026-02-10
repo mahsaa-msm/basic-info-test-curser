@@ -3,6 +3,7 @@ using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.Cities.Commands.ChangeActivation;
+
 public sealed class ChangeCitiesActivationValidator : AbstractValidator<ChangeCitiesActivationCommand>
 {
     public ChangeCitiesActivationValidator(ITranslator translator)

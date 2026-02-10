@@ -10,6 +10,7 @@ using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+
 public sealed class UpdateUiTenantConfigHandler : CommandHandler<UpdateUiTenantConfigCommand>
 {
     private readonly ITenantCommandRepository _tenantCommandRepository;

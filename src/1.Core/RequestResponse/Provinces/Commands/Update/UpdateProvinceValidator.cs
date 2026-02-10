@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Master.Data.Core.RequestResponse.Countries.Commands.Update;
 using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
 namespace Master.Data.Core.RequestResponse.Provinces.Commands.Update;
+
 public sealed class UpdateProvinceValidator : AbstractValidator<UpdateProvinceCommand>
 {
     public UpdateProvinceValidator(ITranslator translator)

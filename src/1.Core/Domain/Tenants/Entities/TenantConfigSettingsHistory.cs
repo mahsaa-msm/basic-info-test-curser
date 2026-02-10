@@ -1,6 +1,7 @@
 ﻿using Zamin.Core.Domain.Entities;
 
 namespace Master.Data.Core.Domain.Tenants.Entities;
+
 public sealed class TenantConfigSettingsHistory : Entity
 {
     public long TenantConfigId { get; private set; }

@@ -1,4 +1,5 @@
 ﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.GetById;
+
 public sealed class CityQr
 {
     public long Id { get; set; }

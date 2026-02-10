@@ -9,12 +9,12 @@ using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
 using Master.Data.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
-using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceTypes.Commands.Fetch;
+
 public sealed class FetchInsuranceTypesFromSourceHandler : CommandHandler<FetchInsuranceTypesFromSourceCommand>
 {
     private readonly IInsuranceTypeCommandRepository _commandRepository;
@@ -70,7 +70,7 @@ public sealed class FetchInsuranceTypesFromSourceHandler : CommandHandler<FetchI
             }
             else
             {
-                if (insuranceType.Title != Title.FromString(coreInsuranceType.noeBimeh))
+                if (!DIPTitle.FromString(coreInsuranceType.noeBimeh).Equals(insuranceType.Title))
                     insuranceType.Update(new UpdateInsuranceTypeParameter(coreInsuranceType.noeBimeh,
                                                               insuranceType.DisplayTitle,
                                                               !string.IsNullOrEmpty(coreInsuranceType.code) ?

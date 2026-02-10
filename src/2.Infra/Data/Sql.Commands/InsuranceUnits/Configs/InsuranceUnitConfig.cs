@@ -1,15 +1,12 @@
-﻿using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.InsuranceUnits.Entities;
-using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
 using Master.Data.Core.Resources;
 using Master.Data.Infra.Data.Sql.Commands.InsuranceUnits.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NetTopologySuite.Geometries;
 
 namespace Master.Data.Infra.Data.Sql.Commands.InsuranceUnits.Configs;
+
 public sealed class InsuranceUnitConfig : IEntityTypeConfiguration<InsuranceUnit>
 {
     public void Configure(EntityTypeBuilder<InsuranceUnit> builder)
@@ -48,12 +45,5 @@ public sealed class InsuranceUnitConfig : IEntityTypeConfiguration<InsuranceUnit
         builder.HasIndex(x => x.Location)
             .HasDatabaseName("IX_InsuranceUnits_Location_Spatial")
             .HasAnnotation("SqlServer:IndexType", "SPATIAL");
-
-        builder
-        .HasOne<City>()
-        .WithMany()
-        .HasPrincipalKey(c => new { c.TenantId, c.CoreId }) // کلید اصلی ترکیبی
-        .HasForeignKey(p => new { p.TenantId, p.CityCoreId }) // کلید خارجی ترکیبی
-        .OnDelete(DeleteBehavior.NoAction);
     }
 }

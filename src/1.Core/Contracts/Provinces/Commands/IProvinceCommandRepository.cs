@@ -3,6 +3,7 @@ using Master.Data.Core.Domain.Provinces.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
 namespace Master.Data.Core.Contracts.Provinces.Commands;
+
 public interface IProvinceCommandRepository : ICommandRepository<Province, long>
 {
     Task<Province?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId);

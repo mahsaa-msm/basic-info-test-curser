@@ -7,7 +7,6 @@ using Master.Data.Core.Domain.InsuranceTypes.Entities;
 using Master.Data.Core.Domain.InsuranceTypes.Parameters;
 using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
 using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Master.Data.Core.Resources;
 using Microsoft.Extensions.Logging;
@@ -18,6 +17,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
 namespace Master.Data.Core.ApplicationService.InsuranceTypes.Commands.Fetch;
+
 public sealed class FetchMultiTenantInsuranceTypesFromSourceHandler : CommandHandler<FetchMultiTenantInsuranceTypesFromSourceCommand>
 {
     private readonly IInsuranceTypeCommandRepository _commandRepository;
@@ -83,7 +83,7 @@ public sealed class FetchMultiTenantInsuranceTypesFromSourceHandler : CommandHan
                 }
                 else
                 {
-                    if (insuranceType.Title != Title.FromString(coreInsuranceType.noeBimeh))
+                    if (!Title.FromString(coreInsuranceType.noeBimeh).Equals(insuranceType.Title))
                         insuranceType.Update(new UpdateInsuranceTypeParameter(coreInsuranceType.noeBimeh,
                                                                   insuranceType.DisplayTitle,
                                                                   !string.IsNullOrEmpty(coreInsuranceType.code) ?
