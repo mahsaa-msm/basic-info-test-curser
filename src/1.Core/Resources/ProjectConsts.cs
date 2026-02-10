@@ -193,7 +193,7 @@ public sealed class ProjectConsts
 
     #endregion
 
-    #region AgreementObligation
+    #region AGREEMENT_OBLIGATION
     public enum SalesType
     {
         None = 0,
@@ -205,6 +205,14 @@ public sealed class ProjectConsts
 
     public const int AGREEMENT_NUMBER_MIN_LENGTH = 2;
     public const int AGREEMENT_NUMBER_MAX_LENGTH = 200;
+    #endregion
 
+
+    #region ISSUANCE_SCHEME
+    public enum AdjustmentType
+    {
+        [Description(ProjectTranslation.ADJUSTMENT_TYPE_DISCOUNT)] DISCOUNT = 0,
+        [Description(ProjectTranslation.ADJUSTMENT_TYPE_SURCHARGE)] SURCHARGE = 1
+    }
     #endregion
 }

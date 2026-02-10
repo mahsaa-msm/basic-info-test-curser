@@ -4,6 +4,7 @@ using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
 using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
 using Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
 using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
+using Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
 using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 using Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
@@ -34,6 +35,8 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
     public DbSet<ServiceFeature> ServiceFeatures { get; set; }
     public DbSet<AgreementObligation> AgreementObligations { get; set; }
     public DbSet<InsuranceType> InsuranceTypes { get; set; }
+    public DbSet<IssuanceScheme> IssuanceSchemes { get; set; } = null!;
+
     #endregion
 
     public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
