@@ -1,10 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Core.Resources;
-using Microsoft.AspNetCore.Http;
+﻿using Master.Data.Core.Resources;
+using Zamin.Extensions.DependencyInjection.Abstractions;
 
 namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.Tenant;
 
-public class TenantResolver : ITenantResolver
+public class TenantResolver : ITenantResolver, ITransientLifetime
 {
     public long? ExtractTenantId(HttpContext context)
     {

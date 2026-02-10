@@ -8,6 +8,7 @@ public sealed class ProjectTranslation
     public const string CORE_ID = nameof(CORE_ID);
     public const string BUSINESS_ID = nameof(BUSINESS_ID);
     public const string SOFTWAREPART_ID = nameof(SOFTWAREPART_ID);
+    public const string TENANT_ID = nameof(TENANT_ID);
     public const string NAME = nameof(NAME);
     public const string CODE = nameof(CODE);
     public const string PRIORITY = nameof(PRIORITY);
@@ -23,6 +24,9 @@ public sealed class ProjectTranslation
     public const string DESCRIPTION = nameof(DESCRIPTION);
     public const string IMAGE_URL = nameof(IMAGE_URL);
 
+    public const string START_DATE = nameof(START_DATE);
+    public const string END_DATE = nameof(END_DATE);
+
     public const string CAR_INSURANCE = nameof(CAR_INSURANCE);
     public const string ACCIDENT_INSURANCE = nameof(ACCIDENT_INSURANCE);
     public const string LIFE_INSURANCE = nameof(LIFE_INSURANCE);
@@ -36,6 +40,7 @@ public sealed class ProjectTranslation
     public const string ACTIVE = nameof(ACTIVE);
     public const string SUSPEND = nameof(SUSPEND);
     public const string EXPIRE = nameof(EXPIRE);
+    public const string PERCENTAGE = nameof(PERCENTAGE);
 
     #region APPLICATION_ERROR
     /// <summary>
@@ -107,6 +112,12 @@ public sealed class ProjectTranslation
 
     #endregion
 
+    #region INSURANCE_TYPE
+    public const string INSURANCE_TYPE = nameof(INSURANCE_TYPE);
+    public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
+
+    #endregion
+
     #region TRANSLATION
 
     public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
@@ -162,6 +173,21 @@ public sealed class ProjectTranslation
     public const string SERVICE_FEATURE_KEY = nameof(SERVICE_FEATURE_KEY);
     public const string SERVICE_NAME = nameof(SERVICE_NAME);
     public const string FEATURE_NAME = nameof(FEATURE_NAME);
+
+    #endregion
+
+    #region AGREEMENT_OBLIGATION
+    public const string AGREEMENT_OBLIGATION = nameof(AGREEMENT_OBLIGATION);
+    public const string AGREEMENT_OBLIGATION_ID = nameof(AGREEMENT_OBLIGATION_ID);
+    public const string AGREEMENT_ID = nameof(AGREEMENT_ID);
+    public const string ISSUANCE_SCHEME = nameof(ISSUANCE_SCHEME);
+    public const string PREPAYMENT_PERCENTAGE = nameof(PREPAYMENT_PERCENTAGE);
+    public const string FIRST_INSTALLMENT_DEADLINE = nameof(FIRST_INSTALLMENT_DEADLINE);
+    public const string INSTALLMENTS_COUNT = nameof(INSTALLMENTS_COUNT);
+    public const string INSTALLMENT_INTERVAL = nameof(INSTALLMENT_INTERVAL);
+    public const string AGREEMENT_NUMBER = nameof(AGREEMENT_NUMBER);
+    public const string AGREEMENT_OBLIGATION_NUMBER = nameof(AGREEMENT_OBLIGATION_NUMBER);
+    public const string SALES_TYPE = nameof(SALES_TYPE);
 
     #endregion
 }

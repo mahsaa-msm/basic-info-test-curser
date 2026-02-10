@@ -4,10 +4,10 @@ using Master.Data.Core.Resources.Utils.Extensions;
 using Zamin.Core.Domain.ValueObjects;
 
 namespace Master.Data.Core.Domain.Common.ValueObjects;
+
 public class CoreId : BaseValueObject<CoreId>
 {
     public string Value { get; private set; } = string.Empty;
-
 
     private CoreId()
     {
