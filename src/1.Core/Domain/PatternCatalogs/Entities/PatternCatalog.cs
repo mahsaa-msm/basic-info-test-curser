@@ -13,6 +13,7 @@ public sealed class PatternCatalog : BaseTenantEntity
     public PatternKey Key { get; private set; }
     public RegexExpression Pattern { get; private set; }
     public Description? Description { get; private set; }
+    public PatternCatalogType Type { get; private set; }
     public DateTime CreatedDateUtc { get; private set; }
     public DateTime? LastModifiedDateUtc { get; private set; }
     public Common.ValueObjects.Priority Priority { get; private set; }
@@ -28,6 +29,7 @@ public sealed class PatternCatalog : BaseTenantEntity
     {
         Key = parameter.Key;
         Pattern = parameter.Pattern;
+        Type = parameter.Type;
         Description = parameter.Description;
         CreatedDateUtc = DateTime.UtcNow;
         Priority = parameter.Priority;
@@ -40,6 +42,7 @@ public sealed class PatternCatalog : BaseTenantEntity
         TenantBusinessId = parameter.TenantKey;
         Key = parameter.Key;
         Pattern = parameter.Pattern;
+        Type = parameter.Type;
         Description = parameter.Description;
         CreatedDateUtc = DateTime.UtcNow;
         Priority = parameter.Priority;
@@ -57,6 +60,7 @@ public sealed class PatternCatalog : BaseTenantEntity
     public void Update(UpdatePatternCatalogParameter parameter)
     {
         Pattern = parameter.Pattern;
+        Type = parameter.Type;
         Description = parameter.Description;
         Priority = parameter.Priority;
         LastModifiedDateUtc = DateTime.UtcNow;

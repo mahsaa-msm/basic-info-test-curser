@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
 using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.PatternCatalogs.Entities;
+using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
@@ -42,4 +43,8 @@ public sealed class PatternCatalogCommandRepository : BaseCommandRepository<Patt
             .IgnoreQueryFilters()
             .Where(c => c.TenantId == tenantId)
             .ToListAsync();
+
+    public async Task<PatternCatalog?> GetByKeyAsync(PatternKey key)
+        => await _dbContext.PatternCatalogs
+                    .FirstOrDefaultAsync(c => c.Key.Equals(key));
 }

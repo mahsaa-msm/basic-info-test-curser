@@ -35,6 +35,15 @@ public sealed class UpdatePatternCatalogValidator : AbstractValidator<UpdatePatt
              .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
         #endregion
 
+        #region Type
+        RuleFor(command => command.Type)
+             .Cascade(CascadeMode.Stop)
+             .IsInEnum()
+             .WithMessage(string.Format(translator[ProjectValidationError.VALIDATION_ERROR_NOT_VALID],
+                                        translator[ProjectTranslation.REGEX_EXPRESSION]))
+             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
+        #endregion
+
         #region Description
         When(c => !string.IsNullOrEmpty(c.Description), () =>
         {

@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.ChangeActivation;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
+using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
 using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
@@ -29,6 +30,10 @@ public sealed class PatternCatalogController : BaseController
     [HttpPut("[action]")]
     public async Task<IActionResult> ChangePatternCatalogsActivation([FromBody] ChangePatternCatalogsActivationCommand commnad)
         => await Edit(commnad);
+
+    [HttpPut("[action]")]
+    public async Task<IActionResult> UpsertInsurancePolicyPatternCatalog([FromBody] UpsertInsurancePolicyPatternCatalogViewModel viewModel)
+    => await Edit<UpsertPatternCatalogCommand, long?>(viewModel.ToCommand());
     #endregion
 
     #region Queries
@@ -46,6 +51,10 @@ public sealed class PatternCatalogController : BaseController
 
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAllPatternCatalogs([FromQuery] GetAllPatternCatalogsQuery query)
-    => await Query<GetAllPatternCatalogsQuery, List<PatternCatalogQr>>(query);
+        => await Query<GetAllPatternCatalogsQuery, List<PatternCatalogQr>>(query);
+
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllInsurancePolicyPatterns([FromQuery] GetAllInsurancePolicyPatternCatalogsViewModel viewModel)
+        => await Query<GetAllPatternCatalogsQuery, List<PatternCatalogQr>>(viewModel.ToQuery());
     #endregion
 }

@@ -6,6 +6,7 @@ using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAll;
 using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -37,6 +38,7 @@ public class IssuanceSchemeController : BaseController
 
     #region Queries
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllIssuanceSchemes([FromQuery] GetAllIssuanceSchemeQuery query)
     => await Query<GetAllIssuanceSchemeQuery, List<IssuanceSchemeSelectItemQr>>(query);
 
