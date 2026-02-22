@@ -21,38 +21,38 @@ public class CountryController : BaseController
 {
     #region Commands
     [HttpPost("[action]")]
-    public async Task<IActionResult> CreateCountry([FromBody] CreateCountryCommand command)
+    public async Task<IActionResult> CreateDIPCountry([FromBody] CreateCountryCommand command)
         => await Create<CreateCountryCommand, long>(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpdateCountry([FromBody] UpdateCountryCommand command)
+    public async Task<IActionResult> UpdateDIPCountry([FromBody] UpdateCountryCommand command)
         => await Edit(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> ChangeCountriesActivation([FromBody] ChangeCountriesActivationCommand commnad)
+    public async Task<IActionResult> ChangeDIPCountriesActivation([FromBody] ChangeCountriesActivationCommand commnad)
         => await Edit(commnad);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> FetchCountriesFromSource()
+    public async Task<IActionResult> FetchDIPCountriesFromSource()
     => await Edit(new FetchCountriesFromSourceCommand());
 
     [HttpDelete("[action]")]
-    public async Task<IActionResult> DeleteCountry([FromBody] DeleteCountryCommand command)
+    public async Task<IActionResult> DeleteDIPCountry([FromBody] DeleteCountryCommand command)
         => await Delete(command);
     #endregion
 
     #region Queries
     [HttpGet("[action]")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetAllCountries([FromQuery] GetAllCountryQuery query)
+    public async Task<IActionResult> GetAllDIPCountries([FromQuery] GetAllCountryQuery query)
     => await Query<GetAllCountryQuery, List<CountrySelectItemQr>>(query);
 
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetCountryById([FromQuery] GetCountryByIdQuery query)
+    public async Task<IActionResult> GetDIPCountryById([FromQuery] GetCountryByIdQuery query)
         => await Query<GetCountryByIdQuery, CountryQr>(query);
 
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetAllCountriesPagedFilter([FromQuery] GetAllCountriesPagedFilterQuery query)
+    public async Task<IActionResult> GetAllDIPCountriesPagedFilter([FromQuery] GetAllCountriesPagedFilterQuery query)
         => await Query<GetAllCountriesPagedFilterQuery, PagedData<CountryListItemQr>>(query);
 
     #endregion

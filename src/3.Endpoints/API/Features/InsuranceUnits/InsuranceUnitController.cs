@@ -20,34 +20,34 @@ public sealed class InsuranceUnitController : BaseController
 {
     #region Commands
     [HttpPost("[action]")]
-    public async Task<IActionResult> CreateInsuranceUnit([FromBody] CreateInsuranceUnitCommand command)
+    public async Task<IActionResult> CreateDIPInsuranceUnit([FromBody] CreateInsuranceUnitCommand command)
         => await Create<CreateInsuranceUnitCommand, long>(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpdateInsuranceUnit([FromBody] UpdateInsuranceUnitCommand command)
+    public async Task<IActionResult> UpdateDIPInsuranceUnit([FromBody] UpdateInsuranceUnitCommand command)
         => await Edit(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> ChangeInsuranceUnitsActivation([FromBody] ChangeInsuranceUnitsActivationCommand commnad)
+    public async Task<IActionResult> ChangeDIPInsuranceUnitsActivation([FromBody] ChangeInsuranceUnitsActivationCommand commnad)
         => await Edit(commnad);
 
     [HttpDelete("[action]")]
-    public async Task<IActionResult> DeleteInsuranceUnit([FromBody] DeleteInsuranceUnitCommand command)
+    public async Task<IActionResult> DeleteDIPInsuranceUnit([FromBody] DeleteInsuranceUnitCommand command)
         => await Delete(command);
     #endregion
 
     #region Queries
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetInsuranceUnitById([FromQuery] GetInsuranceUnitByIdQuery query)
+    public async Task<IActionResult> GetDIPInsuranceUnitById([FromQuery] GetInsuranceUnitByIdQuery query)
         => await Query<GetInsuranceUnitByIdQuery, InsuranceUnitQr>(query);
 
     [HttpGet("[action]")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetAllInsuranceUnitInArea([FromQuery] GetAllInsuranceUnitsInAreaQuery query)
+    public async Task<IActionResult> GetAllDIPInsuranceUnitInArea([FromQuery] GetAllInsuranceUnitsInAreaQuery query)
     => await Query<GetAllInsuranceUnitsInAreaQuery, List<InsuranceUnitMapItemQr>>(query);
 
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetAllInsuranceUnitsPagedFilter([FromQuery] GetAllInsuranceUnitsPagedFilterQuery query)
+    public async Task<IActionResult> GetAllDIPInsuranceUnitsPagedFilter([FromQuery] GetAllInsuranceUnitsPagedFilterQuery query)
         => await Query<GetAllInsuranceUnitsPagedFilterQuery, PagedData<InsuranceUnitListItemQr>>(query);
 
     #endregion
