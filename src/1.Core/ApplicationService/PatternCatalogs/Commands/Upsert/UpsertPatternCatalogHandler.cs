@@ -45,7 +45,7 @@ public sealed class UpsertPatternCatalogHandler : CommandHandler<UpsertPatternCa
                 PatternCatalogId = patternCatalog.Id,
                 Pattern = command.Pattern,
                 Type = command.Type,
-                Description = command.Description,
+                Description = patternCatalog.Description?.Value,
                 Priority = patternCatalog.Priority.Value,
             });
 

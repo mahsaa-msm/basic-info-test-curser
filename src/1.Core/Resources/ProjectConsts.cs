@@ -104,7 +104,7 @@ public sealed class ProjectConsts
     public enum CustomerType : byte
     {
         [Description(ProjectTranslation.CUSTOMER_TYPE_PERSON)] PERSON = 1, //حقیقی
-        [Description(ProjectTranslation.CUSTOMER_TYPE_COMPANY)] COMPANY = 2,//حقوقی
+        [Description(ProjectTranslation.CUSTOMER_TYPE_COMPANY)] COMPANY = 2, //حقوقی
     }
     #endregion
 
@@ -174,7 +174,7 @@ public sealed class ProjectConsts
     #endregion
 
     #region PATTERN_CATALOG
-    public const string PATTERN_KEY_PATTERN = @"^[a-z0-9\-_]{{{0},{1}}}$";
+    public const string PATTERN_KEY_PATTERN = @"^[a-zA-Z0-9\-_]{{{0},{1}}}$";
     public const int PATTERN_KEY_MIN_LENGTH = 3;
     public const int PATTERN_KEY_MAX_LENGTH = 50;
     public const int PATTERN_MAX_LENGTH = 500;
