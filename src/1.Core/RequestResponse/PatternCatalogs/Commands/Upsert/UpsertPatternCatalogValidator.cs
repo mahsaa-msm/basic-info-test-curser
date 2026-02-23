@@ -45,19 +45,5 @@ public sealed class UpsertPatternCatalogValidator : AbstractValidator<UpsertPatt
                                             translator[ProjectTranslation.REGEX_EXPRESSION]))
                  .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
         #endregion
-
-        #region Description
-        When(c => !string.IsNullOrEmpty(c.Description), () =>
-            {
-                RuleFor(command => command.Description)
-            .Cascade(CascadeMode.Stop)
-            .Must(description => description.Length >= ProjectConsts.DESCRIPTION_MIN_LENGTH && description.Length <= ProjectConsts.DESCRIPTION_MAX_LENGTH)
-            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN,
-                                    ProjectTranslation.DESCRIPTION,
-                                    ProjectConsts.DESCRIPTION_MIN_LENGTH.ToString(),
-                                    ProjectConsts.DESCRIPTION_MAX_LENGTH.ToString()])
-            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
-            });
-        #endregion
     }
 }
