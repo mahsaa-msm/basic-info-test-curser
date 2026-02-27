@@ -18,6 +18,8 @@ public sealed class InsuranceTypeConfig : IEntityTypeConfiguration<InsuranceType
 
         builder.Property(c => c.CoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
 
+        builder.Property(c => c.ServiceFeatureCategory).IsRequired(false);
+
         builder.Property(c => c.Title).HasMaxLength(ProjectConsts.TITLE_MAX_LENGTH).IsRequired();
 
         builder.Property(c => c.DisplayTitle).HasMaxLength(ProjectConsts.TITLE_MAX_LENGTH).IsRequired();

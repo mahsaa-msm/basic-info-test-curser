@@ -76,6 +76,7 @@ public sealed class FetchMultiTenantInsuranceTypesFromSourceHandler : CommandHan
                                                                                                        !string.IsNullOrEmpty(coreInsuranceType.code) ?
                                                                                                            coreInsuranceType.code :
                                                                                                            _finglishConverter.Convert(coreInsuranceType.noeBimeh),
+                                                                                                       null,
                                                                                                        nextPriority,
                                                                                                        tenant.Key));
                     await _commandRepository.InsertAsync(newInsuranceType);
@@ -89,6 +90,7 @@ public sealed class FetchMultiTenantInsuranceTypesFromSourceHandler : CommandHan
                                                                   !string.IsNullOrEmpty(coreInsuranceType.code) ?
                                                                       coreInsuranceType.code :
                                                                       _finglishConverter.Convert(coreInsuranceType.noeBimeh),
+                                                                  null,
                                                                   insuranceType.Priority));
                 }
             }

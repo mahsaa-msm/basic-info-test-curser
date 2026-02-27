@@ -15,6 +15,7 @@ public sealed class InsuranceType : BaseTenantEntity
     public DIPTitle DisplayTitle { get; private set; }
     public CoreId CoreId { get; private set; }
     public Code Code { get; private set; }
+    public ServiceFeatureCategory? ServiceFeatureCategory { get; private set; }
     public Common.ValueObjects.Priority Priority { get; private set; }
     public IsActive IsActive { get; private set; }
     public IsDeleted IsDeleted { get; private set; }
@@ -31,6 +32,7 @@ public sealed class InsuranceType : BaseTenantEntity
             parameter.DisplayTitle.Value;
         CoreId = parameter.CoreId;
         Code = parameter.Code;
+        ServiceFeatureCategory = parameter.ServiceFeatureCategory;
         Priority = parameter.Priority;
         IsActive = IsActive.True();
         IsDeleted = IsDeleted.False();
@@ -45,7 +47,7 @@ public sealed class InsuranceType : BaseTenantEntity
             parameter.Title.Value :
             parameter.DisplayTitle.Value;
         CoreId = parameter.CoreId;
-        Code = parameter.Code;
+        ServiceFeatureCategory = parameter.ServiceFeatureCategory;
         Priority = parameter.Priority;
         IsActive = IsActive.True();
         IsDeleted = IsDeleted.False();
@@ -66,6 +68,7 @@ public sealed class InsuranceType : BaseTenantEntity
                                                   ProjectTranslation.INSURANCE_TYPE);
 
         Code = parameter.Code;
+        ServiceFeatureCategory = parameter.ServiceFeatureCategory;
         Title = parameter.Title;
         DisplayTitle = parameter.DisplayTitle;
         Priority = parameter.Priority;
@@ -91,6 +94,7 @@ public sealed class InsuranceType : BaseTenantEntity
             parameter.Title.Value :
             parameter.DisplayTitle.Value;
         Code = parameter.Code;
+        ServiceFeatureCategory = parameter.ServiceFeatureCategory;
         Priority = parameter.Priority;
         IsActive = IsActive.True();
         IsDeleted = IsDeleted.False();

@@ -1,4 +1,5 @@
 ﻿using Master.Data.Core.Domain.InsuranceTypes.Parameters;
+using Master.Data.Core.Resources;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
@@ -10,12 +11,14 @@ public sealed class UpdateInsuranceTypeCommand : ICommand, IWebRequest
     public string Title { get; set; } = string.Empty;
     public string DisplayTitle { get; set; } = string.Empty;
     public string Code { get; set; } = string.Empty;
+    public ServiceFeatureCategory? ServiceFeatureCategory { get; set; }
     public long Priority { get; set; }
 
     public UpdateInsuranceTypeParameter ToParameter() => new(Title,
-                                                       DisplayTitle,
-                                                       Code,
-                                                       Priority);
+                                                             DisplayTitle,
+                                                             Code,
+                                                             ServiceFeatureCategory,
+                                                             Priority);
 
     public string Path => "/Api/InsuranceType/UpdateInsuranceType";
 }
