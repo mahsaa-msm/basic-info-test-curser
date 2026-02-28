@@ -24,7 +24,7 @@ public sealed class PatternKey : BaseValueObject<PatternKey>
                                                                      ProjectConsts.PATTERN_KEY_MAX_LENGTH)),
                                          ProjectTranslation.PATTERN_KEY);
 
-        Value = value.ToLowerInvariant();
+        Value = value;
     }
 
     public static explicit operator string(PatternKey key) => key.Value;
