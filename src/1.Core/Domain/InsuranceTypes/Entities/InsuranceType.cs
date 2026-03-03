@@ -2,6 +2,7 @@
 using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.InsuranceTypes.Parameters;
 using Master.Data.Core.Resources;
+using System.Reflection.PortableExecutable;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 using static Master.Data.Core.Resources.ProjectConsts;
@@ -47,6 +48,7 @@ public sealed class InsuranceType : BaseTenantEntity
             parameter.Title.Value :
             parameter.DisplayTitle.Value;
         CoreId = parameter.CoreId;
+        Code = parameter.Code;
         ServiceFeatureCategory = parameter.ServiceFeatureCategory;
         Priority = parameter.Priority;
         IsActive = IsActive.True();
