@@ -66,6 +66,19 @@ public sealed class UpdateInsuranceTypeValidator : AbstractValidator<UpdateInsur
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
         #endregion
 
+        #region ServiceFeatureCategory
+
+        When(c => c.ServiceFeatureCategory != null, () =>
+        {
+            RuleFor(command => command.ServiceFeatureCategory)
+           .IsInEnum()
+            .WithMessage(translator[ProjectValidationError.INVALID_DATA,
+                                    ProjectTranslation.SERVICE_FEATURE_CATEGORY])
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
+        });
+
+        #endregion
+
         #region Priority
         RuleFor(command => command.Priority)
             .Cascade(CascadeMode.Stop)

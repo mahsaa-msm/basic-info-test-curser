@@ -117,6 +117,7 @@ public sealed class ProjectTranslation
     #region INSURANCE_TYPE
     public const string INSURANCE_TYPE = nameof(INSURANCE_TYPE);
     public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
+    public const string SERVICE_FEATURE_CATEGORY = nameof(SERVICE_FEATURE_CATEGORY);
     #endregion
 
     #region ISSUANCE_SCHEME
@@ -200,4 +201,43 @@ public sealed class ProjectTranslation
     public const string SALES_TYPE = nameof(SALES_TYPE);
 
     #endregion
+
+    #region ServiceFeatureCategory
+    // Property Insurance
+    public const string PROPERTY_INSURANCE = nameof(PROPERTY_INSURANCE);
+    public const string THIRD_PARTY_CAR_INSURANCE = nameof(THIRD_PARTY_CAR_INSURANCE);
+    public const string COMPREHENSIVE_CAR_INSURANCE = nameof(COMPREHENSIVE_CAR_INSURANCE);
+    public const string GENERAL_FIRE_INSURANCE = nameof(GENERAL_FIRE_INSURANCE);
+    public const string RESIDENTIAL_HOME_FIRE_INSURANCE = nameof(RESIDENTIAL_HOME_FIRE_INSURANCE);
+    public const string RESIDENTIAL_COMPLEX_FIRE_INSURANCE = nameof(RESIDENTIAL_COMPLEX_FIRE_INSURANCE);
+    public const string COMPREHENSIVE_FIRE_PLAN = nameof(COMPREHENSIVE_FIRE_PLAN);
+    public const string COMMERCIAL_FIRE_INSURANCE = nameof(COMMERCIAL_FIRE_INSURANCE);
+
+    // Personal Insurance
+    public const string PERSONAL_INSURANCE = nameof(PERSONAL_INSURANCE);
+    public const string INDIVIDUAL_LIFE_INSURANCE = nameof(INDIVIDUAL_LIFE_INSURANCE);
+    public const string LIFE_ENDOWMENT_INSURANCE = nameof(LIFE_ENDOWMENT_INSURANCE);
+    public const string LIFE_ENDOWMENT_LOAN = nameof(LIFE_ENDOWMENT_LOAN);
+    public const string LIFE_ENDOWMENT_PREMIUM = nameof(LIFE_ENDOWMENT_PREMIUM);
+    public const string COMPREHENSIVE_LIFE_ACCIDENT_LIABILITY = nameof(COMPREHENSIVE_LIFE_ACCIDENT_LIABILITY);
+    public const string COMPREHENSIVE_LIFE_ACCIDENT_LIABILITY_MINISTRY_ENERGY = nameof(COMPREHENSIVE_LIFE_ACCIDENT_LIABILITY_MINISTRY_ENERGY);
+    public const string GROUP_LIFE_INSURANCE = nameof(GROUP_LIFE_INSURANCE);
+    public const string INDIVIDUAL_MEDICAL_INSURANCE = nameof(INDIVIDUAL_MEDICAL_INSURANCE);
+    public const string INDIVIDUAL_TRAVEL_MEDICAL_INSURANCE = nameof(INDIVIDUAL_TRAVEL_MEDICAL_INSURANCE);
+    public const string GROUP_MEDICAL_INSURANCE = nameof(GROUP_MEDICAL_INSURANCE);
+    public const string GROUP_COMPLEMENTARY_MEDICAL_INSURANCE = nameof(GROUP_COMPLEMENTARY_MEDICAL_INSURANCE);
+    public const string INDIVIDUAL_ACCIDENT_INSURANCE = nameof(INDIVIDUAL_ACCIDENT_INSURANCE);
+    public const string INDIVIDUAL_ACCIDENT_SUB_INSURANCE = nameof(INDIVIDUAL_ACCIDENT_SUB_INSURANCE);
+    public const string GROUP_ACCIDENT_INSURANCE = nameof(GROUP_ACCIDENT_INSURANCE);
+
+    // Liability Insurance
+    public const string LIABILITY_INSURANCE = nameof(LIABILITY_INSURANCE);
+    public const string GENERAL_LIABILITY_INSURANCE = nameof(GENERAL_LIABILITY_INSURANCE);
+    public const string ELEVATOR_GENERAL_LIABILITY_INSURANCE = nameof(ELEVATOR_GENERAL_LIABILITY_INSURANCE);
+
+    // Package Insurance
+    public const string PACKAGE_INSURANCE = nameof(PACKAGE_INSURANCE);
+    public const string COMPREHENSIVE_DOMESTIC_TRAVEL_PACKAGE = nameof(COMPREHENSIVE_DOMESTIC_TRAVEL_PACKAGE);
+    #endregion
+
 }

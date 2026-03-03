@@ -2,6 +2,7 @@
 using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAll;
 using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetById;
+using Master.Data.Core.Resources;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
@@ -24,6 +25,7 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
                 {
                     Id = c.Id,
                     CoreId = c.CoreId,
+                    ServiceFeatureCategory = c.ServiceFeatureCategory,
                     Title = c.Title,
                     DisplayTitle = c.DisplayTitle,
                     Code = c.Code,
@@ -63,6 +65,9 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
         filter = filter.WhereIf(query.IsActive is not null,
                                 c => c.IsActive == query.IsActive);
 
+        filter = filter.WhereIf(query.ServiceFeatureCategory is not null,
+                                c => c.ServiceFeatureCategory == query.ServiceFeatureCategory);
+
         filter = filter.WhereIf(query.Priority is not null,
                                 c => c.Priority == query.Priority);
 
@@ -73,6 +78,7 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
             DisplayTitle = c.DisplayTitle,
             Code = c.Code,
             CoreId = c.CoreId,
+            ServiceFeatureCategory = c.ServiceFeatureCategory,
             IsActive = c.IsActive,
             Priority = c.Priority,
         });

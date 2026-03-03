@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Master.Data.Core.RequestResponse.Common.Extensions;
 using Master.Data.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
@@ -35,6 +36,19 @@ public sealed class CreateInsuranceTypeValidator : AbstractValidator<CreateInsur
                                     ProjectConsts.TITLE_MIN_LENGTH.ToString(),
                                     ProjectConsts.TITLE_MAX_LENGTH.ToString()])
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
+        });
+
+        #endregion
+
+        #region ServiceFeatureCategory
+
+        When(c => c.ServiceFeatureCategory != null, () =>
+        {
+            RuleFor(command => command.ServiceFeatureCategory)
+           .IsInEnum()
+            .WithMessage(translator[ProjectValidationError.INVALID_DATA,
+                                    ProjectTranslation.SERVICE_FEATURE_CATEGORY])
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_VALUE_IS_NOT_VALID);
         });
 
         #endregion
