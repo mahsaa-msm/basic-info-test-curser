@@ -77,7 +77,7 @@ public sealed class FetchInsuranceTypesFromSourceHandler : CommandHandler<FetchI
                                                               !string.IsNullOrEmpty(coreInsuranceType.code) ?
                                                                   coreInsuranceType.code :
                                                                   _finglishConverter.Convert(coreInsuranceType.noeBimeh),
-                                                              null,
+                                                              insuranceType.ServiceFeatureCategory,
                                                               insuranceType.Priority));
             }
         }
