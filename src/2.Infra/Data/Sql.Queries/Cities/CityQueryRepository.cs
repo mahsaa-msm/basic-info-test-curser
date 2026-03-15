@@ -20,7 +20,9 @@ public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbC
 
     public async Task<List<CitySelectItemQr>> Execute(GetAllCitiesQuery query)
         => await _dbContext.Cities
-        .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
+        .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
+        .WhereIf(query.ProvinceCoreId.HasValue,
+                 c => c.ProvinceCoreId == query.ProvinceCoreId.ToString())
         .OrderBy(c => c.Priority)
         .Select(c => new CitySelectItemQr
         {
@@ -78,8 +80,8 @@ public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbC
                 DisplayTitle = c.DisplayTitle,
                 Code = c.Code,
                 ProvinceCoreId = c.ProvinceCoreId,
-                ProvinceDisplayTitle = c.Province != null ? 
-                    c.Province.DisplayTitle : 
+                ProvinceDisplayTitle = c.Province != null ?
+                    c.Province.DisplayTitle :
                     null,
                 Priority = c.Priority,
                 IsActive = c.IsActive,
