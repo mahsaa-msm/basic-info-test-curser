@@ -20,7 +20,8 @@ public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQuer
 
     public async Task<List<ProvinceSelectItemQr>> Execute(GetAllProvincesQuery query)
         => await _dbContext.Provinces
-        .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
+        .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
+        .WhereIf(query.CountryCoreId.HasValue, c => c.CountryCoreId == query.CountryCoreId.ToString())
         .OrderBy(c => c.Priority)
         .Select(c => new ProvinceSelectItemQr
         {
