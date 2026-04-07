@@ -114,6 +114,11 @@ public sealed class ProjectConsts
 
 
     #region TENANT
+    public const string TENANT_SLUG_VALIDATION_PATTERN = @"^[a-z0-9]+(?:-[a-z0-9]+)*$";
+
+    public const byte TENANT_SLUG_MIN_LENGTH = 3;
+    public const Int16 TENANT_SLUG_MAX_LENGTH = 63; // استاندارد DNS label
+
     public enum ConfigType
     {
         [Description(ProjectTranslation.PAYMENT_CONFIG)] PAYMENT_CONFIG = 1, //تنظیمات پرداخت 

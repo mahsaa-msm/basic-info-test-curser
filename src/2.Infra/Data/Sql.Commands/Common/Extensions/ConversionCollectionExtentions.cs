@@ -1,5 +1,7 @@
 ﻿using Master.Data.Core.Domain.Common.ValueObjects;
+using Master.Data.Core.Domain.Tenants.ValueObjects;
 using Master.Data.Infra.Data.Sql.Commands.Common.Conversions;
+using Master.Data.Infra.Data.Sql.Commands.Tenants.Conversions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
@@ -18,6 +20,7 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddNameConversion();
         configurationBuilder.AddPercentageConversion();
         configurationBuilder.AddNullablePercentageConversion();
+        configurationBuilder.AddTenantSlugConversion();
     }
 
     #region Code
@@ -54,9 +57,13 @@ public static class ConversionCollectionExtentions
     #endregion
     #region Percentage
     public static void AddPercentageConversion(this ModelConfigurationBuilder configurationBuilder)
-    => configurationBuilder.Properties<Percentage>().HaveConversion<PercentageConversion>(); 
-    
+    => configurationBuilder.Properties<Percentage>().HaveConversion<PercentageConversion>();
+
     public static void AddNullablePercentageConversion(this ModelConfigurationBuilder configurationBuilder)
     => configurationBuilder.Properties<NullablePercentage>().HaveConversion<NullablePercentageConversion>();
+    #endregion
+    #region TenantSlug
+    public static void AddTenantSlugConversion(this ModelConfigurationBuilder configurationBuilder)
+    => configurationBuilder.Properties<TenantSlug>().HaveConversion<TenantSlugConversion>();
     #endregion
 }

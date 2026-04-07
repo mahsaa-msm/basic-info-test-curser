@@ -10,6 +10,7 @@ public sealed class TenantConfig : IEntityTypeConfiguration<Tenant>
     public void Configure(EntityTypeBuilder<Tenant> builder)
     {
         builder.Property(c => c.Name).HasMaxLength(ProjectConsts.NAME_MAX_LENGTH);
+        builder.Property(c => c.Slug).HasMaxLength(ProjectConsts.TENANT_SLUG_MAX_LENGTH).IsRequired();
 
         builder
         .HasMany(c => c.Configs)
@@ -19,5 +20,6 @@ public sealed class TenantConfig : IEntityTypeConfiguration<Tenant>
         .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasIndex(c => c.Name);
+        builder.HasIndex(c => c.Slug).IsUnique();
     }
 }
