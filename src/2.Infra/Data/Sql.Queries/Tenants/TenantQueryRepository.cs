@@ -33,6 +33,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
                 Id = t.Id,
                 TenantKey = t.TenantKey,
                 Name = t.Name,
+                Slug = t.Slug,
                 IsActive = t.IsActive,
                 CreatedDateUtc = t.CreatedDateUtc,
 
@@ -89,12 +90,14 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
             .IgnoreQueryFilters()
             .AsQueryable();
         filter = filter.WhereIf(!string.IsNullOrEmpty(query.Name), c => c.Name.Contains(query.Name!));
+        filter = filter.WhereIf(!string.IsNullOrEmpty(query.Slug), c => c.Slug.Contains(query.Slug!));
 
         return await filter.ToPagedData(query, item => new TenantSelectItemQr
         {
             Id = item.Id,
             TenantKey = item.TenantKey,
             Name = item.Name,
+            Slug = item.Slug,
             IsActive = item.IsActive,
             HasSsoConfig = item.Configs.Any(c => c.ConfigType == ConfigType.SSO_CONFIG),
             HasPaymentConfig = item.Configs.Any(c => c.ConfigType == ConfigType.PAYMENT_CONFIG),
@@ -146,6 +149,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
                 Id = c.Id,
                 Key = c.TenantKey,
                 Name = c.Name,
+                Slug = c.Slug,
             })
             .ToListAsync();
 }

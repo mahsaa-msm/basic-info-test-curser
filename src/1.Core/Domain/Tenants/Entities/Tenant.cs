@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Domain.Common.Guards;
 using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.Tenants.Entities.Settings;
+using Master.Data.Core.Domain.Tenants.ValueObjects;
 using Master.Data.Core.Resources;
 using Zamin.Core.Domain.Entities;
 using Zamin.Core.Domain.ValueObjects;
@@ -13,6 +14,7 @@ public sealed class Tenant : AggregateRoot
     #region Properties
     public BusinessId TenantKey { get; private set; }
     public DIPTitle Name { get; private set; }
+    public TenantSlug Slug { get; private set; }
     public IsActive IsActive { get; private set; }
     public DateTime CreatedDateUtc { get; private set; }
 
@@ -25,9 +27,10 @@ public sealed class Tenant : AggregateRoot
     {
     }
 
-    private Tenant(DIPTitle name)
+    private Tenant(DIPTitle name, TenantSlug slug)
     {
         Name = name;
+        Slug = slug;
         IsActive = IsActive.True();
         CreatedDateUtc = DateTime.UtcNow;
         TenantKey = BusinessId.FromGuid(Guid.NewGuid());
@@ -35,7 +38,7 @@ public sealed class Tenant : AggregateRoot
     #endregion
 
     #region Commands
-    public static Tenant Create(DIPTitle name) => new(name);
+    public static Tenant Create(DIPTitle name, TenantSlug slug) => new(name, slug);
 
     public void Activate() => IsActive = IsActive.True();
 

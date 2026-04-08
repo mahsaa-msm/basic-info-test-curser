@@ -105,6 +105,7 @@ public sealed class ProjectTranslation
     public const string TENANT = nameof(TENANT);
     public const string TENANT_CONFIG = nameof(TENANT_CONFIG);
     public const string TENANT_CONFIG_SETTINGS = nameof(TENANT_CONFIG_SETTINGS);
+    public const string TENANT_SLUG = nameof(TENANT_SLUG);
 
     #endregion
 

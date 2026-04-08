@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.Tenants.Comamnds;
 using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.Tenants.Entities;
+using Master.Data.Core.Domain.Tenants.ValueObjects;
 using Master.Data.Core.RequestResponse.Tenants.Commands.Create;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
@@ -22,12 +23,13 @@ public sealed class CreateTenantHandler : CommandHandler<CreateTenantCommand, lo
 
     public override async Task<CommandResult<long?>> Handle(CreateTenantCommand command)
     {
-        var tenantExist = await _tenantCommandRepository.ExistsAsync(c => c.Name == DIPTitle.FromString(command.Name));
+        var tenantExist = await _tenantCommandRepository.ExistsAsync(c => c.Name == DIPTitle.FromString(command.Name)
+                                                                          || c.Slug == TenantSlug.FromString(command.Slug));
         if (tenantExist)
             throw new ApplicationException(string.Format(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE],
                                                          ProjectTranslation.TENANT));
 
-        var tenant = Tenant.Create(command.Name);
+        var tenant = Tenant.Create(command.Name, command.Slug);
 
         _tenantCommandRepository.Insert(tenant);
         await _tenantCommandRepository.CommitAsync();
