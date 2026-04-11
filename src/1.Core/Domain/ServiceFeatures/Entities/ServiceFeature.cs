@@ -1,8 +1,9 @@
 ﻿using Master.Data.Core.Domain.Common.Entities;
+using Master.Data.Core.Domain.Common.Guards;
 using Master.Data.Core.Domain.Common.ValueObjects;
 using Master.Data.Core.Domain.ServiceFeatures.Parameters;
+using Master.Data.Core.Resources;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
 
 namespace Master.Data.Core.Domain.ServiceFeatures.Entities;
 
@@ -11,7 +12,7 @@ public sealed class ServiceFeature : BaseTenantEntity
     #region Properties
     public Name ServiceName { get; private set; }
     public Name FeatureName { get; private set; }
-    public ServiceFeatureKey Key { get; private set; }
+    public ServiceFeatureCategory Key { get; private set; }
     public Description? Description { get; private set; }
     public IsActive IsActive { get; private set; }
     #endregion
@@ -24,9 +25,14 @@ public sealed class ServiceFeature : BaseTenantEntity
 
     private ServiceFeature(CreateServiceFeatureParameter createServiceFeatureParameter)
     {
+        ValueObjectGuard.ThrowIfNotValid(ServiceFeatureCategoryHelper.GetLevel((long)createServiceFeatureParameter.Key) >= 2,
+                                         ProjectTranslation.SERVICE_FEATURE_KEY);
+        var parent = Key.GetParent();
         Key = createServiceFeatureParameter.Key;
-        ServiceName = createServiceFeatureParameter.ServiceName;
-        FeatureName = createServiceFeatureParameter.FeatureName;
+        ServiceName = parent.HasValue
+            ? Name.FromString(parent.Value.ToString())
+            : Name.FromString(Key.ToString()); // لول 1 خودش ServiceName هست
+        FeatureName = Name.FromString(Key.ToString());
         Description = createServiceFeatureParameter.Description;
         IsActive = IsActive.True();
     }
@@ -38,8 +44,6 @@ public sealed class ServiceFeature : BaseTenantEntity
 
     public void Update(UpdateServiceFeatureParameter updateServiceFeatureParameter)
     {
-        ServiceName = updateServiceFeatureParameter.ServiceName;
-        FeatureName = updateServiceFeatureParameter.FeatureName;
         Description = updateServiceFeatureParameter.Description;
     }
 

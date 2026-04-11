@@ -35,7 +35,7 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
 
     public async Task<List<ServiceFeatureQr>> Execute(GetAllServiceFeaturesQuery query)
         => await _dbContext.ServiceFeatures
-                .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
+                .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
                 .Select(c => new ServiceFeatureQr
                 {
                     Id = c.Id,

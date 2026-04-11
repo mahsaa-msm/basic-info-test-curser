@@ -26,21 +26,16 @@ public enum ServiceFeatureCategory : long
     propertyInsurance_fire = 102, // بیمه آتش سوزی
 
     // 1_02_01
-    [Description(ProjectTranslation.GENERAL_FIRE_INSURANCE)]
-    propertyInsurance_fire_general = 10201, // بیمه آتش سوزی عمومی
-
     [Description(ProjectTranslation.RESIDENTIAL_HOME_FIRE_INSURANCE)]
-    propertyInsurance_fire_general_home = 1020101, // بیمه آتش سوزی عمومی منازل مسکونی
-
-    [Description(ProjectTranslation.RESIDENTIAL_COMPLEX_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_residential = 1020201, // بیمه آتش سوزی مجتمع منازل مسكوني
+    propertyInsurance_fire_general_home = 10201, // بیمه آتش سوزی عمومی منازل مسکونی
 
     // 1_02_02
-    [Description(ProjectTranslation.COMPREHENSIVE_FIRE_PLAN)]
-    propertyInsurance_fire_comprehensivePlan = 10202, // بیمه آتش سوزی طرح جامع
+    [Description(ProjectTranslation.RESIDENTIAL_COMPLEX_FIRE_INSURANCE)]
+    propertyInsurance_fire_comprehensivePlan_residential = 10202, // بیمه آتش سوزی مجتمع منازل مسكوني
 
+    // 1_02_03
     [Description(ProjectTranslation.COMMERCIAL_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_commercial = 1020202, // بیمه آتش سوزی اصناف
+    propertyInsurance_fire_comprehensivePlan_commercial = 10203, // بیمه آتش سوزی اصناف
 
 
     // ============================================
@@ -147,6 +142,19 @@ public static class ServiceFeatureCategoryHelper
         return parentCode > 0 ? parentCode : null;
     }
 
+    public static ServiceFeatureCategory? GetParent(this ServiceFeatureCategory category)
+    {
+        var code = (long)category;
+        if (GetLevel(code) <= 1) return null;
+
+        long parentCode = code / 100;
+        if (parentCode <= 0) return null;
+
+        return Enum.IsDefined(typeof(ServiceFeatureCategory), parentCode)
+            ? (ServiceFeatureCategory)parentCode
+            : null;
+    }
+
     public static bool IsChildOf(long childCode, long parentCode)
     {
         while (childCode > parentCode)
@@ -209,5 +217,15 @@ public static class ServiceFeatureCategoryHelper
             return IsChildOf(code, parentCode);
         }).ToList();
     }
-}
 
+    public static List<ServiceFeatureCategory> GetByLevel(int? level)
+    {
+        var allValues = Enum.GetValues(typeof(ServiceFeatureCategory)).Cast<ServiceFeatureCategory>();
+
+        var result = allValues.Where(category => GetLevel((long)category) == level).ToList();
+
+        return result.Count > 0
+            ? result
+            : allValues.Where(category => GetLevel((long)category) == 1).ToList();
+    }
+}

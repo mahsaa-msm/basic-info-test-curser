@@ -8,36 +8,6 @@ public sealed class UpdateServiceFeatureValidator : AbstractValidator<UpdateServ
 {
     public UpdateServiceFeatureValidator(ITranslator translator)
     {
-        #region ServiceName
-        RuleFor(command => command.ServiceName)
-             .Cascade(CascadeMode.Stop)
-             .NotEmpty()
-             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.SERVICE_NAME])
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
-             .Must(title => title.Length >= ProjectConsts.NAME_MIN_LENGTH && title.Length <= ProjectConsts.NAME_MAX_LENGTH)
-             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN,
-                                     ProjectTranslation.SERVICE_NAME,
-                                     ProjectConsts.NAME_MIN_LENGTH.ToString(),
-                                     ProjectConsts.NAME_MAX_LENGTH.ToString()])
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
-        #endregion
-
-        #region FeatureName
-        RuleFor(command => command.FeatureName)
-             .Cascade(CascadeMode.Stop)
-             .NotEmpty()
-             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_REQUIRED, ProjectTranslation.FEATURE_NAME])
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_REQUIRED)
-
-             .Must(title => title.Length >= ProjectConsts.NAME_MIN_LENGTH && title.Length <= ProjectConsts.NAME_MAX_LENGTH)
-             .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN,
-                                     ProjectTranslation.FEATURE_NAME,
-                                     ProjectConsts.NAME_MIN_LENGTH.ToString(),
-                                     ProjectConsts.NAME_MAX_LENGTH.ToString()])
-             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
-        #endregion
-
         #region Description
         When(c => !string.IsNullOrEmpty(c.Description), () =>
         {
