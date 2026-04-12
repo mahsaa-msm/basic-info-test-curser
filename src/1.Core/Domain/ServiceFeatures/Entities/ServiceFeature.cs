@@ -27,7 +27,7 @@ public sealed class ServiceFeature : BaseTenantEntity
     {
         ValueObjectGuard.ThrowIfNotValid(ServiceFeatureCategoryHelper.GetLevel((long)createServiceFeatureParameter.Key) >= 2,
                                          ProjectTranslation.SERVICE_FEATURE_KEY);
-        var parent = Key.GetParent();
+        var parent = createServiceFeatureParameter.Key.GetParent();
         Key = createServiceFeatureParameter.Key;
         ServiceName = parent.HasValue
             ? Name.FromString(parent.Value.ToString())
