@@ -5,4 +5,5 @@ namespace Master.Data.Core.Contracts.Tenants.Comamnds;
 
 public interface ITenantCommandRepository : ICommandRepository<Tenant, long>
 {
+    Task<List<Tenant>> GetByIds(List<long> tenantIds);
 }

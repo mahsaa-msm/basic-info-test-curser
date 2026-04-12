@@ -3,10 +3,10 @@ using Zamin.Core.RequestResponse.Endpoints;
 
 namespace Master.Data.Core.RequestResponse.Tenants.Commands.ChangeActivation;
 
-public sealed class ChangeTenantActivationCommand : ICommand, IWebRequest
+public sealed class ChangeTenantsActivationCommand : ICommand, IWebRequest
 {
-    public long TenantId { get; set; }
+    public List<long> TenantIds { get; set; } = new();
     public bool IsActive { get; set; }
 
-    public string Path => "/Api/Tenant/ChangeTenantActivation";
+    public string Path => "/Api/Tenant/ChangeTenantsActivation";
 }
