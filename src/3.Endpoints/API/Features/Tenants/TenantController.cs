@@ -5,6 +5,7 @@ using Master.Data.Core.RequestResponse.Tenants.Commands.Update;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
@@ -39,6 +40,7 @@ public class TenantController : BaseController
         => await Query<GetTenantByIdQuery, TenantGraphQr?>(query);
 
     [HttpGet("[action]")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllTenants([FromQuery] GetAllTenantsSelectItemQuery query)
     => await Query<GetAllTenantsSelectItemQuery, List<TenantIdKeyQr>>(query);
 
