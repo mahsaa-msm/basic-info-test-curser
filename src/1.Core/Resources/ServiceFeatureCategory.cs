@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Reflection;
 
 namespace Master.Data.Core.Resources;
 
@@ -26,21 +27,16 @@ public enum ServiceFeatureCategory : long
     propertyInsurance_fire = 102, // بیمه آتش سوزی
 
     // 1_02_01
-    [Description(ProjectTranslation.GENERAL_FIRE_INSURANCE)]
-    propertyInsurance_fire_general = 10201, // بیمه آتش سوزی عمومی
-
     [Description(ProjectTranslation.RESIDENTIAL_HOME_FIRE_INSURANCE)]
-    propertyInsurance_fire_general_home = 1020101, // بیمه آتش سوزی عمومی منازل مسکونی
-
-    [Description(ProjectTranslation.RESIDENTIAL_COMPLEX_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_residential = 1020201, // بیمه آتش سوزی مجتمع منازل مسكوني
+    propertyInsurance_fire_general_home = 10201, // بیمه آتش سوزی عمومی منازل مسکونی
 
     // 1_02_02
-    [Description(ProjectTranslation.COMPREHENSIVE_FIRE_PLAN)]
-    propertyInsurance_fire_comprehensivePlan = 10202, // بیمه آتش سوزی طرح جامع
+    [Description(ProjectTranslation.RESIDENTIAL_COMPLEX_FIRE_INSURANCE)]
+    propertyInsurance_fire_comprehensivePlan_residential = 10202, // بیمه آتش سوزی مجتمع منازل مسكوني
 
+    // 1_02_03
     [Description(ProjectTranslation.COMMERCIAL_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_commercial = 1020202, // بیمه آتش سوزی اصناف
+    propertyInsurance_fire_comprehensivePlan_commercial = 10203, // بیمه آتش سوزی اصناف
 
 
     // ============================================
@@ -126,88 +122,213 @@ public enum ServiceFeatureCategory : long
 
 public static class ServiceFeatureCategoryHelper
 {
-    public static int GetLevel(long categoryCode)
+    #region GetLevel
+    /// <summary>
+    /// سطح سلسله‌مراتبی کد را بر اساس تعداد ارقام برمی‌گرداند:
+    ///   Level 1 → 1 رقم  (مثال: 1, 2)
+    ///   Level 2 → 3 رقم  (مثال: 101, 102)
+    ///   Level 3 → 5 رقم  (مثال: 10101, 20102)
+    ///   Level 4 → 7 رقم  (مثال: 2010101)
+    ///   Level 5 → 9 رقم
+    /// </summary>
+    public static int GetLevel(this long categoryCode)
     {
-        if (categoryCode < 100) return 1;                     // 1-2 رقم (سطح 1)
-        if (categoryCode < 10000) return 2;                  // 3-4 رقم (سطح 2)
-        if (categoryCode < 1000000) return 3;                // 5-6 رقم (سطح 3)
-        if (categoryCode < 100000000) return 4;              // 7-8 رقم (سطح 4)
-        return 5;                                            // 9-10 رقم (سطح 5)
-    }
+        int digits = categoryCode.ToString().Length;
 
-    public static long? GetParent(long categoryCode)
-    {
-        var level = GetLevel(categoryCode);
-
-        if (level <= 1) return null;
-
-        // برای هر سطح، دو رقم آخر را حذف می‌کنیم
-        long parentCode = categoryCode / 100;
-
-        return parentCode > 0 ? parentCode : null;
-    }
-
-    public static bool IsChildOf(long childCode, long parentCode)
-    {
-        while (childCode > parentCode)
+        return digits switch
         {
-            var parent = GetParent(childCode);
-            if (!parent.HasValue) return false;
+            1 => 1,
+            3 => 2,
+            5 => 3,
+            7 => 4,
+            9 => 5,
+            _ => throw new ArgumentException(
+                     $"کد {categoryCode} با {digits} رقم ساختار معتبری ندارد.")
+        };
+    }
 
+    /// <summary>
+    /// سطح سلسله‌مراتبی دسته‌بندی را برمی‌گرداند
+    /// </summary>
+    public static int GetLevel(this ServiceFeatureCategory category)
+        => ((long)category).GetLevel();
+    #endregion
+
+    #region GetParent
+    /// <summary>
+    /// کد والد مستقیم را برمی‌گرداند.
+    /// با حذف دو رقم آخر (تقسیم بر 100) والد محاسبه می‌شود.
+    /// برای Level 1 مقدار null برمی‌گردد.
+    /// </summary>
+    public static long? GetParentCode(this long categoryCode)
+    {
+        if (categoryCode.GetLevel() <= 1) return null;
+
+        return categoryCode / 100;
+    }
+
+    /// <summary>
+    /// والد مستقیم دسته‌بندی را برمی‌گرداند.
+    /// در صورتی که والد در enum تعریف نشده باشد null برمی‌گرداند.
+    /// </summary>
+    public static ServiceFeatureCategory? GetParent(this ServiceFeatureCategory category)
+    {
+        var parentCode = ((long)category).GetParentCode();
+        if (parentCode is null) return null;
+
+        return Enum.IsDefined(typeof(ServiceFeatureCategory), parentCode.Value)
+            ? (ServiceFeatureCategory)parentCode.Value
+            : null;
+    }
+    #endregion
+
+    #region GetByLevel
+    /// <summary>
+    /// لیست دسته‌بندی‌های یک سطح مشخص را برمی‌گرداند.
+    /// اگر level نامعتبر باشد یا نتیجه‌ای نداشته باشد، سطح 1 برگردانده می‌شود.
+    /// </summary>
+    public static List<ServiceFeatureCategory> GetByLevel(int? level)
+    {
+        var allValues = Enum.GetValues<ServiceFeatureCategory>();
+
+        if (level.HasValue)
+        {
+            var result = allValues
+                .Where(c => ((long)c).GetLevel() == level.Value)
+                .ToList();
+
+            if (result.Count > 0) return result;
+        }
+
+        // fallback: سطح 1
+        return allValues
+            .Where(c => ((long)c).GetLevel() == 1)
+            .ToList();
+    }
+    #endregion
+
+    #region IschildOf
+    /// <summary>
+    /// بررسی می‌کند که آیا این دسته‌بندی فرزند (مستقیم یا غیرمستقیم) دسته‌بندی دیگری است
+    /// </summary>
+    public static bool IsChildOf(this ServiceFeatureCategory child, ServiceFeatureCategory parent)
+        => ((long)child).IsChildOf((long)parent);
+
+    /// <summary>
+    /// بررسی می‌کند که آیا childCode فرزند parentCode است
+    /// </summary>
+    public static bool IsChildOf(this long childCode, long parentCode)
+    {
+        var current = childCode;
+        while (current > parentCode)
+        {
+            var parent = current.GetParentCode();
+            if (parent is null) return false;
             if (parent.Value == parentCode) return true;
-
-            childCode = parent.Value;
+            current = parent.Value;
         }
         return false;
     }
+    #endregion
 
-    public static List<long> GetHierarchy(long categoryCode)
+    #region GetAncestors
+    /// <summary>
+    /// لیست کدها را از ریشه تا کد جاری برمی‌گرداند
+    /// </summary>
+    public static List<long> GetAncestorsCodes(this long categoryCode)
     {
         var hierarchy = new List<long>();
         var current = categoryCode;
 
-        while (current > 0)
+        while (true)
         {
             hierarchy.Insert(0, current);
-            var parent = GetParent(current);
-            if (!parent.HasValue) break;
+            var parent = current.GetParentCode();
+            if (parent is null) break;
             current = parent.Value;
         }
 
         return hierarchy;
     }
 
-    public static string GetPath(ServiceFeatureCategory category)
+    /// <summary>
+    /// لیست دسته‌بندی‌ها را از ریشه تا دسته‌بندی جاری برمی‌گرداند
+    /// </summary>
+    public static List<ServiceFeatureCategory> GetAncestors(this ServiceFeatureCategory category)
     {
-        var hierarchy = GetHierarchy((long)category);
-        return string.Join(" → ", hierarchy);
+        return ((long)category)
+            .GetAncestorsCodes()
+            .Where(c => Enum.IsDefined(typeof(ServiceFeatureCategory), c))
+            .Select(c => (ServiceFeatureCategory)c)
+            .ToList();
+    }
+    #endregion
+
+    #region GetPath
+    /// <summary>
+    /// مسیر کامل دسته‌بندی را با نام enum برمی‌گرداند
+    /// مثال: propertyInsurance → propertyInsurance_car → propertyInsurance_car_thirdParty
+    /// </summary>
+    public static string GetPath(this ServiceFeatureCategory category)
+    {
+        return string.Join(
+            " → ",
+            category.GetAncestors().Select(c => c.ToString())
+        );
     }
 
-    // پیدا کردن تمام فرزندان مستقیم یک دسته
-    public static List<ServiceFeatureCategory> GetDirectChildren(ServiceFeatureCategory parentCategory)
+    /// <summary>
+    /// مسیر کامل دسته‌بندی را با توضیحات (Description) برمی‌گرداند
+    /// </summary>
+    public static string GetDescriptionPath(this ServiceFeatureCategory category)
     {
-        var parentCode = (long)parentCategory;
-        var allValues = Enum.GetValues(typeof(ServiceFeatureCategory)).Cast<ServiceFeatureCategory>();
-
-        return allValues.Where(category =>
-        {
-            var code = (long)category;
-            var parent = GetParent(code);
-            return parent.HasValue && parent.Value == parentCode;
-        }).ToList();
+        return string.Join(
+            " → ",
+            category.GetAncestors().Select(c => c.GetDescription())
+        );
     }
+    #endregion
 
-    // پیدا کردن تمام فرزندان (مستقیم و غیرمستقیم)
-    public static List<ServiceFeatureCategory> GetAllChildren(ServiceFeatureCategory parentCategory)
+    #region GetDescription
+    /// <summary>
+    /// مقدار Description attribute دسته‌بندی را برمی‌گرداند.
+    /// در صورت نبود، نام enum برگردانده می‌شود.
+    /// </summary>
+    public static string GetDescription(this ServiceFeatureCategory category)
     {
-        var parentCode = (long)parentCategory;
-        var allValues = Enum.GetValues(typeof(ServiceFeatureCategory)).Cast<ServiceFeatureCategory>();
-
-        return allValues.Where(category =>
-        {
-            var code = (long)category;
-            return IsChildOf(code, parentCode);
-        }).ToList();
+        return typeof(ServiceFeatureCategory)
+            .GetField(category.ToString())
+            ?.GetCustomAttribute<DescriptionAttribute>()
+            ?.Description
+            ?? category.ToString();
     }
+    #endregion
+
+    #region GetChildren
+    /// <summary>
+    /// لیست فرزندان مستقیم دسته‌بندی را برمی‌گرداند
+    /// </summary>
+    public static List<ServiceFeatureCategory> GetChildren(this ServiceFeatureCategory category)
+    {
+        var categoryCode = (long)category;
+
+        return Enum.GetValues<ServiceFeatureCategory>()
+            .Where(c => ((long)c).GetParentCode() == categoryCode)
+            .ToList();
+    }
+    #endregion
+
+    #region GetDescendants
+    /// <summary>
+    /// لیست تمام فرزندان (مستقیم و غیرمستقیم) دسته‌بندی را برمی‌گرداند
+    /// </summary>
+    public static List<ServiceFeatureCategory> GetAllChildren(this ServiceFeatureCategory category)
+    {
+        var categoryCode = (long)category;
+
+        return Enum.GetValues<ServiceFeatureCategory>()
+            .Where(c => ((long)c).IsChildOf(categoryCode))
+            .ToList();
+    }
+    #endregion
 }
-

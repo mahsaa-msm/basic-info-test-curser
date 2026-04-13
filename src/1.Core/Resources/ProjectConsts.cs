@@ -27,7 +27,7 @@ public sealed class ProjectConsts
     public const byte PERCENTAGE_MIN_VALUE = 0;
     public const byte PERCENTAGE_MAX_VALUE = 100;
 
-    public const byte DESCRIPTION_MIN_LENGTH = 50;
+    public const byte DESCRIPTION_MIN_LENGTH = 10;
     public const short DESCRIPTION_MAX_LENGTH = 500;
 
 
@@ -43,19 +43,6 @@ public sealed class ProjectConsts
         Up,
         Down,
         NoChange
-    }
-
-    public enum InsuranceTypeEnum : byte
-    {
-        [Description(ProjectTranslation.CAR_INSURANCE)] CarInsurance = 1, //بیمه خودرو
-        [Description(ProjectTranslation.ACCIDENT_INSURANCE)] AccidentInsurance = 2, //بیمه  حوادث
-        [Description(ProjectTranslation.LIFE_INSURANCE)] LifeInsurance = 3,//بیمه عمر
-        [Description(ProjectTranslation.FIRE_INSURANCE)] FireInsurance = 4, //بیمه  آتش سوزی
-        [Description(ProjectTranslation.HEALTH_INSURANCE)] HealthInsurance = 5, //بیمه درمانی
-        [Description(ProjectTranslation.CARGO_INSURANCE)] CargoInsurance = 6, //بیمه باربری
-        [Description(ProjectTranslation.ENGINEERING_INSURANCE)] EngineeringInsurance = 7,  //بیمه مهندسی انرژی و سایر بیمه ها
-        [Description(ProjectTranslation.RESPONSIBILITY_INSURANCE)] ResponsibilityInsurance = 8,  //بیمه  مسئولیت بیمه مدنی
-        [Description(ProjectTranslation.EMPLOYER_RESPONSIBILITY_INSURANCE)] EmployerResponsibilityInsurance = 9, //بیمه مسئولیت کارفرما در مقابل کارگران
     }
 
     #region HTTP_CLIENT
@@ -192,18 +179,6 @@ public sealed class ProjectConsts
 
     #endregion
 
-    #region SERVICE_FEATURE
-    public enum ServiceFeatureKey
-    {
-        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT)] LIFE_INSURANCE_PREMIUM_INSTALLMENT = 1, // قسط حق بیمه عمر
-        [Description(ProjectTranslation.LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO)] LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = 2, // قسط حق بیمه عمر - خودکار
-        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT)] LIFE_INSURANCE_LOAN_INSTALLMENT = 3, // قسط وام بیمه نامه عمر
-        [Description(ProjectTranslation.LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO)] LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = 4, // قسط وام بیمه نامه عمر - خودکار
-        [Description(ProjectTranslation.FIRE_INSURANCE_PREMIUM)] FIRE_INSURANCE_PREMIUM = 5, // صدور بیمه نامه آتش سوزی
-    }
-
-    #endregion
-
     #region AGREEMENT_OBLIGATION
     public enum SalesType
     {
@@ -217,7 +192,6 @@ public sealed class ProjectConsts
     public const int AGREEMENT_NUMBER_MIN_LENGTH = 2;
     public const int AGREEMENT_NUMBER_MAX_LENGTH = 200;
     #endregion
-
 
     #region ISSUANCE_SCHEME
     public enum AdjustmentType

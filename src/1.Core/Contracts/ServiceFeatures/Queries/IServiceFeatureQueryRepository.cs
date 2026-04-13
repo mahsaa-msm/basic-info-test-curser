@@ -9,7 +9,7 @@ namespace Master.Data.Core.Contracts.ServiceFeatures.Queries;
 
 public interface IServiceFeatureQueryRepository : IQueryRepository
 {
-    Task<ServiceFeatureQr> Execute(GetServiceFeatureByIdQuery query);
+    Task<ServiceFeatureQr?> Execute(GetServiceFeatureByIdQuery query);
     Task<List<ServiceFeatureQr>> Execute(GetAllServiceFeaturesQuery query);
     Task<PagedData<ServiceFeatureQr?>> Execute(GetAllServiceFeaturesPagedFilterQuery query);
 }

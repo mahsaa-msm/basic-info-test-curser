@@ -3,6 +3,8 @@ using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+using Master.Data.Core.Resources;
+using Master.Data.Core.Resources.Utils.Extensions;
 using Master.Data.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
@@ -34,17 +36,22 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
                 .FirstOrDefaultAsync(c => c.Id == query.ServiceFeatureId);
 
     public async Task<List<ServiceFeatureQr>> Execute(GetAllServiceFeaturesQuery query)
-        => await _dbContext.ServiceFeatures
-                .Where(c => !query.IsActive.HasValue || c.IsActive == query.IsActive)
-                .Select(c => new ServiceFeatureQr
-                {
-                    Id = c.Id,
-                    Key = c.Key,
-                    ServiceName = c.ServiceName,
-                    FeatureName = c.FeatureName,
-                    Description = c.Description,
-                    IsActive = c.IsActive,
-                }).ToListAsync();
+    {
+        var result = await _dbContext.ServiceFeatures
+                    .WhereIf(query.IsActive.HasValue, c => c.IsActive == query.IsActive)
+                    .Select(c => new ServiceFeatureQr
+                    {
+                        Id = c.Id,
+                        Key = c.Key,
+                        ServiceName = c.ServiceName,
+                        FeatureName = c.FeatureName,
+                        Description = c.Description,
+                        IsActive = c.IsActive,
+                    }).ToListAsync();
+
+        return result.WhereIf(query.Level.HasValue, c => c.Key.GetLevel() == query.Level)
+                     .ToList();
+    }
 
     public async Task<PagedData<ServiceFeatureQr>> Execute(GetAllServiceFeaturesPagedFilterQuery query)
     {

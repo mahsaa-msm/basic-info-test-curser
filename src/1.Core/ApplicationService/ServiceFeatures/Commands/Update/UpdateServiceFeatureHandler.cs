@@ -27,9 +27,7 @@ public sealed class UpdateServiceFeatureHandler : CommandHandler<UpdateServiceFe
 
         EntityGuard.ThrowIfNullWithLongId(serviceFeature, ProjectTranslation.SERVICE_FEATURE);
 
-        serviceFeature.Update(new UpdateServiceFeatureParameter(command.ServiceName,
-                                                                command.FeatureName,
-                                                                command.Description));
+        serviceFeature.Update(new UpdateServiceFeatureParameter(command.Description));
 
         await _serviceFeatureCommandRepository.CommitAsync();
 

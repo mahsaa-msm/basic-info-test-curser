@@ -30,9 +30,7 @@ public sealed class CreateServiceFeatureHandler : CommandHandler<CreateServiceFe
                                                                              ProjectTranslation.SERVICE_FEATURE]);
 
         var serviceFeature = ServiceFeature.Create(new CreateServiceFeatureParameter(command.Key,
-                                                                                                 command.ServiceName,
-                                                                                                 command.FeatureName,
-                                                                                                 command.Description));
+                                                                                     command.Description));
 
 
         await _serviceFeatureCommandRepository.InsertAsync(serviceFeature);

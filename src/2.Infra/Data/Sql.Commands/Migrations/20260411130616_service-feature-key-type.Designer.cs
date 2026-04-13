@@ -4,6 +4,7 @@ using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace Master.Data.Infra.Data.Sql.Commands.Migrations
 {
     [DbContext(typeof(MasterDataCommandDbContext))]
-    partial class MasterDataCommandDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260411130616_service-feature-key-type")]
+    partial class servicefeaturekeytype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
