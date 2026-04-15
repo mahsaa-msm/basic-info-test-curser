@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.ChangeActivation;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Create;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
+using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
@@ -21,6 +22,10 @@ public sealed class ServiceFeatureController : BaseController
     [HttpPost("[action]")]
     public async Task<IActionResult> CreateServiceFeature([FromBody] CreateServiceFeatureCommand command)
         => await Create<CreateServiceFeatureCommand, long>(command);
+
+    [HttpPost("[action]")]
+    public async Task<IActionResult> UpsertServiceFeature([FromBody] UpsertServiceFeatureCommand command)
+        => await Create(command);
 
     [HttpPut("[action]")]
     public async Task<IActionResult> UpdateServiceFeature([FromBody] UpdateServiceFeatureCommand command)
