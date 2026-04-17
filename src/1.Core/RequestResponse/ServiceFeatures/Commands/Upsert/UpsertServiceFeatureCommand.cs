@@ -7,8 +7,8 @@ namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 public sealed class UpsertServiceFeatureCommand : ICommand, IWebRequest
 {
     public ServiceFeatureCategory Key { get; set; }
-    public List<long> TenantIds { get; set; } = [];
-
+    public List<long> TenantIds { get; set; } = new();
+    public bool IsActive { get; set; }
 
     public string Path => "/Api/ServiceFeature/UpsertServiceFeature";
 }

@@ -22,5 +22,5 @@ public sealed class ServiceFeatureCommandRepository : BaseCommandRepository<Serv
         => await _dbContext.ServiceFeatures.Where(c => serviceFeatureIds.Contains(c.Id)).ToListAsync();
 
     public async Task<List<ServiceFeature>> GetByKeyAsync(ServiceFeatureCategory key)
-        => await _dbContext.ServiceFeatures.Where(c => c.Key == key).ToListAsync();
+        => await _dbContext.ServiceFeatures.IgnoreQueryFilters().Where(c => c.Key == key).ToListAsync();
 }

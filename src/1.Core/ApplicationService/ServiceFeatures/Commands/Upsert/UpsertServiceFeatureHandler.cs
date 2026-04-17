@@ -22,39 +22,40 @@ public sealed class UpsertServiceFeatureHandler : CommandHandler<UpsertServiceFe
     public override async Task<CommandResult> Handle(UpsertServiceFeatureCommand command)
     {
         var serviceFeatures = await _serviceFeatureCommandRepository.GetByKeyAsync(command.Key);
-
         var tenantIds = command.TenantIds.ToHashSet();
-        var dict = serviceFeatures.ToDictionary(x => x.TenantId);
 
         foreach (var tenantId in tenantIds)
         {
-            if (dict.TryGetValue(tenantId, out var existing))
-            {
-                existing.Active();
-            }
+            var existing = serviceFeatures.FirstOrDefault(f => f.TenantId == tenantId);
+
+            if (existing is not null)
+                SetActiveStatus(existing, command.IsActive);
             else
             {
-                var serviceFeature = ServiceFeature.Create(new CreateServiceFeatureWithTenantIdParameter(tenantId, command.Key));
-
-                await _serviceFeatureCommandRepository.InsertAsync(serviceFeature);
+                var newFeature = ServiceFeature.Create(new CreateServiceFeatureWithTenantIdParameter(tenantId, command.Key));
+                SetActiveStatus(newFeature, command.IsActive);
+                await _serviceFeatureCommandRepository.InsertAsync(newFeature);
             }
         }
 
-        foreach (var feature in serviceFeatures)
+        foreach (var feature in serviceFeatures.Where(f => !tenantIds.Contains(f.TenantId)))
         {
-            if (!tenantIds.Contains(feature.TenantId))
-            {
-                feature.Deactive();
-            }
+            feature.Deactive();
         }
 
         await _serviceFeatureCommandRepository.CommitAsync();
-
-
         return Ok();
-
-
     }
+
+    #region Private methods
+    private static void SetActiveStatus(ServiceFeature feature, bool isActive)
+    {
+        if (isActive)
+            feature.Active();
+        else
+            feature.Deactive();
+    }
+    #endregion
 }
 
 
