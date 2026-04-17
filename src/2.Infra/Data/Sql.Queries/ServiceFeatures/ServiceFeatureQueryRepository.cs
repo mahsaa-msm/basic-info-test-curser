@@ -1,6 +1,7 @@
 ﻿using Master.Data.Core.Contracts.ServiceFeatures.Queries;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
+using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
 using Master.Data.Core.Resources;
@@ -82,4 +83,21 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
             IsActive = c.IsActive,
         });
     }
+
+    public async Task<GetAllServiceFeaturesByKeyQr?> Execute(GetAllServiceFeaturesByKeyQuery query) 
+        => await _dbContext.ServiceFeatures
+             .IgnoreQueryFilters()
+             .Where(c => c.Key == query.Key)
+             .GroupBy(c => c.Key)
+             .Select(g => new GetAllServiceFeaturesByKeyQr
+             {
+                 Key = g.Key,
+                 IsActive = g.Any(c => c.IsActive),
+                 ServiceName = g.Select(c => c.ServiceName).First(),
+                 FeatureName = g.Select(c => c.FeatureName).First(),
+                 Description = g.Select(c => c.Description).FirstOrDefault(c => c != null),
+                 TenantIds = g
+                 .Select(c => c.TenantId)
+                 .ToList(),
+             }).FirstOrDefaultAsync();
 }

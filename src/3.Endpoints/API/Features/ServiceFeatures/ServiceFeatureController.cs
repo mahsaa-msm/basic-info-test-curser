@@ -4,6 +4,7 @@ using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
+using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
 using Master.Data.Endpoints.API.Infrastructor.Attributes;
@@ -23,9 +24,9 @@ public sealed class ServiceFeatureController : BaseController
     public async Task<IActionResult> CreateServiceFeature([FromBody] CreateServiceFeatureCommand command)
         => await Create<CreateServiceFeatureCommand, long>(command);
 
-    [HttpPost("[action]")]
+    [HttpPut("[action]")]
     public async Task<IActionResult> UpsertServiceFeature([FromBody] UpsertServiceFeatureCommand command)
-        => await Create(command);
+        => await Edit(command);
 
     [HttpPut("[action]")]
     public async Task<IActionResult> UpdateServiceFeature([FromBody] UpdateServiceFeatureCommand command)
@@ -48,5 +49,9 @@ public sealed class ServiceFeatureController : BaseController
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAllServiceFeaturesPagedFilter([FromQuery] GetAllServiceFeaturesPagedFilterQuery query)
         => await Query<GetAllServiceFeaturesPagedFilterQuery, PagedData<ServiceFeatureQr>>(query);
+
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllServiceFeaturesByKey([FromQuery] GetAllServiceFeaturesByKeyQuery query)
+        => await Query<GetAllServiceFeaturesByKeyQuery, GetAllServiceFeaturesByKeyQr?>(query);
     #endregion
 }

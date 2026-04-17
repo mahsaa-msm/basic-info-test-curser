@@ -78,5 +78,4 @@ public sealed class ServiceFeature : BaseTenantEntity
             IsActive = IsActive.False();
     }
     #endregion
-
 }
