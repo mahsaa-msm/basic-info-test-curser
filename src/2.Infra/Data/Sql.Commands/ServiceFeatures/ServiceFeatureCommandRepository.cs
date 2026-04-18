@@ -1,5 +1,6 @@
 ﻿using Master.Data.Core.Contracts.ServiceFeatures.Commands;
 using Master.Data.Core.Domain.ServiceFeatures.Entities;
+using Master.Data.Core.Resources;
 using Master.Data.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
@@ -19,4 +20,7 @@ public sealed class ServiceFeatureCommandRepository : BaseCommandRepository<Serv
 
     public async Task<List<ServiceFeature>> GetByIds(List<long> serviceFeatureIds)
         => await _dbContext.ServiceFeatures.Where(c => serviceFeatureIds.Contains(c.Id)).ToListAsync();
+
+    public async Task<List<ServiceFeature>> GetByKeyAsync(ServiceFeatureCategory key)
+        => await _dbContext.ServiceFeatures.IgnoreQueryFilters().Where(c => c.Key == key).ToListAsync();
 }
