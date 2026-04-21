@@ -10,6 +10,15 @@ public class ValidateBackofficeSuperAdminAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
+        // بررسی وجود ویژگی IgnoreBackofficeSuperAdminValidation روی اکشن
+        var hasIgnoreAttribute = context.ActionDescriptor.EndpointMetadata
+            .Any(em => em.GetType() == typeof(IgnoreBackofficeSuperAdminValidationAttribute));
+
+        if (hasIgnoreAttribute)
+        {
+            return;
+        }
+
         var _softwareManagementOption = context.HttpContext.RequestServices.GetService<SoftwareManagementOption>();
 
         var superAdminClaim = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == (!string.IsNullOrEmpty(_softwareManagementOption?.BackofficeSuperAdminClaimName) ?

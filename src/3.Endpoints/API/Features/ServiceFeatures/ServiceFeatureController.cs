@@ -25,6 +25,8 @@ public sealed class ServiceFeatureController : BaseController
         => await Create<CreateServiceFeatureCommand, long>(command);
 
     [HttpPut("[action]")]
+    [IgnoreTenantHeaderValidation]
+    //[ValidateBackofficeSuperAdmin]
     public async Task<IActionResult> UpsertServiceFeature([FromBody] UpsertServiceFeatureCommand command)
         => await Edit(command);
 
@@ -51,6 +53,8 @@ public sealed class ServiceFeatureController : BaseController
         => await Query<GetAllServiceFeaturesPagedFilterQuery, PagedData<ServiceFeatureQr>>(query);
 
     [HttpGet("[action]")]
+    [IgnoreTenantHeaderValidation]
+    //[ValidateBackofficeSuperAdmin]
     public async Task<IActionResult> GetAllServiceFeaturesByKey([FromQuery] GetAllServiceFeaturesByKeyQuery query)
         => await Query<GetAllServiceFeaturesByKeyQuery, GetAllServiceFeaturesByKeyQr?>(query);
     #endregion
