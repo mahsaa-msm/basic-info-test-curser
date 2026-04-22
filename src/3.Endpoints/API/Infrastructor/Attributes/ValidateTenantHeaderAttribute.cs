@@ -9,6 +9,14 @@ public class ValidateTenantHeaderAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
+        // بررسی وجود ویژگی IgnoreTenantHeaderValidation روی اکشن
+        var hasIgnoreAttribute = context.ActionDescriptor.EndpointMetadata
+            .Any(em => em.GetType() == typeof(IgnoreTenantHeaderValidationAttribute));
+
+        if (hasIgnoreAttribute)
+        {
+            return;
+        }
 
         if (!context.HttpContext.Request.Headers.TryGetValue(ProjectConsts.TENANT_ID_X_HEADER_NAME, out var tenantId))
         {
