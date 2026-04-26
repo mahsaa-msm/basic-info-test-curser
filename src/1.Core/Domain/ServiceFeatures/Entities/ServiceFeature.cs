@@ -15,6 +15,10 @@ public sealed class ServiceFeature : BaseTenantEntity
     public ServiceFeatureCategory Key { get; private set; }
     public Description? Description { get; private set; }
     public IsActive IsActive { get; private set; }
+    public bool IsIssuable { get; private set; }
+    public bool CanViewHistory { get; private set; }
+    public NullableCoreId InsuranceTypeCoreId { get; private set; }
+
 
     #endregion
 
@@ -33,11 +37,15 @@ public sealed class ServiceFeature : BaseTenantEntity
         ServiceName = parent.HasValue
             ? Name.FromString(parent.Value.ToString())
             : Name.FromString(Key.ToString()); // لول 1 خودش ServiceName هست
+
         FeatureName = Name.FromString(Key.ToString());
+        IsIssuable = createServiceFeatureParameter.IsIssuable;
+        CanViewHistory = createServiceFeatureParameter.CanViewHistory;
+        InsuranceTypeCoreId = createServiceFeatureParameter.InsuranceTypeCoreId;
         Description = createServiceFeatureParameter.Description;
         IsActive = IsActive.True();
-    } 
-    
+    }
+
     private ServiceFeature(CreateServiceFeatureWithTenantIdParameter createServiceFeatureWithTenantIdParameter)
     {
         ValueObjectGuard.ThrowIfNotValid(ServiceFeatureCategoryHelper.GetLevel((long)createServiceFeatureWithTenantIdParameter.Key) >= 2,
@@ -49,20 +57,26 @@ public sealed class ServiceFeature : BaseTenantEntity
             ? Name.FromString(parent.Value.ToString())
             : Name.FromString(Key.ToString()); // لول 1 خودش ServiceName هست
         FeatureName = Name.FromString(Key.ToString());
+        IsIssuable = createServiceFeatureWithTenantIdParameter.IsIssuable;
+        CanViewHistory = createServiceFeatureWithTenantIdParameter.CanViewHistory;
+        InsuranceTypeCoreId = createServiceFeatureWithTenantIdParameter.InsuranceTypeCoreId;
         IsActive = IsActive.True();
     }
     #endregion
 
     #region Commands
     public static ServiceFeature Create(CreateServiceFeatureParameter createServiceFeatureParameter)
-        => new(createServiceFeatureParameter);   
-    
+        => new(createServiceFeatureParameter);
+
     public static ServiceFeature Create(CreateServiceFeatureWithTenantIdParameter createServiceFeatureWithTenantIdParameter)
         => new(createServiceFeatureWithTenantIdParameter);
 
     public void Update(UpdateServiceFeatureParameter updateServiceFeatureParameter)
     {
         Description = updateServiceFeatureParameter.Description;
+        IsIssuable = updateServiceFeatureParameter.IsIssuable;
+        CanViewHistory = updateServiceFeatureParameter.CanViewHistory;
+        InsuranceTypeCoreId = updateServiceFeatureParameter.InsuranceTypeCoreId;
     }
 
     public void Active()

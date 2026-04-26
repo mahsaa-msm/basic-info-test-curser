@@ -15,6 +15,8 @@ public sealed class ServiceFetureConfig : IEntityTypeConfiguration<ServiceFeatur
 
         builder.Property(c => c.Description).HasMaxLength(ProjectConsts.DESCRIPTION_MAX_LENGTH).IsRequired(false);
 
+        builder.Property(c => c.InsuranceTypeCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired(false);
+
         builder.HasIndex(c => c.BusinessId).IsUnique();
 
 

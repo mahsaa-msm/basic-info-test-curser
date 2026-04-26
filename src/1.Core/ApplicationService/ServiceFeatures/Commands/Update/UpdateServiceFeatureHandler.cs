@@ -1,7 +1,6 @@
 ﻿using Master.Data.Core.Contracts.ServiceFeatures.Commands;
 using Master.Data.Core.Domain.Common.Guards;
 using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Domain.ServiceFeatures.Parameters;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
 using Master.Data.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
@@ -27,7 +26,7 @@ public sealed class UpdateServiceFeatureHandler : CommandHandler<UpdateServiceFe
 
         EntityGuard.ThrowIfNullWithLongId(serviceFeature, ProjectTranslation.SERVICE_FEATURE);
 
-        serviceFeature.Update(new UpdateServiceFeatureParameter(command.Description));
+        serviceFeature.Update(command.ToParemeter());
 
         await _serviceFeatureCommandRepository.CommitAsync();
 

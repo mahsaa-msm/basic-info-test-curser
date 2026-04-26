@@ -21,6 +21,7 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddPercentageConversion();
         configurationBuilder.AddNullablePercentageConversion();
         configurationBuilder.AddTenantSlugConversion();
+        configurationBuilder.AddNullableCoreIdConversion();
     }
 
     #region Code
@@ -54,6 +55,10 @@ public static class ConversionCollectionExtentions
     #region Name
     public static void AddNameConversion(this ModelConfigurationBuilder configurationBuilder)
     => configurationBuilder.Properties<Name>().HaveConversion<NameConversion>();
+    #endregion  
+    #region NullableCoreId
+    public static void AddNullableCoreIdConversion(this ModelConfigurationBuilder configurationBuilder)
+    => configurationBuilder.Properties<NullableCoreId>().HaveConversion<NullableCoreIdConversion>();
     #endregion
     #region Percentage
     public static void AddPercentageConversion(this ModelConfigurationBuilder configurationBuilder)

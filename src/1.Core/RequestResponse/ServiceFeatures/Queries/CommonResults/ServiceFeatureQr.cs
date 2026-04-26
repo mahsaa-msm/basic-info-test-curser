@@ -11,8 +11,11 @@ public sealed class ServiceFeatureQr
     {
         get => EnumExtensions.GetEnumDescription(Key);
     }
-    public string ServiceName { get; set; }
-    public string FeatureName { get; set; }
+    public string ServiceName { get; set; } = string.Empty;
+    public string FeatureName { get; set; } = string.Empty;
     public string? Description { get; set; }
+    public bool IsIssuable { get; set; }
+    public bool CanViewHistory { get; set; }
+    public string? InsuranceTypeCoreId { get; set; }
     public bool IsActive { get; set; }
 }
