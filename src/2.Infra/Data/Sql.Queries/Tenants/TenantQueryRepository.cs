@@ -150,6 +150,7 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
                 Key = c.TenantKey,
                 Name = c.Name,
                 Slug = c.Slug,
+                IsActive = c.IsActive
             })
             .ToListAsync();
 }

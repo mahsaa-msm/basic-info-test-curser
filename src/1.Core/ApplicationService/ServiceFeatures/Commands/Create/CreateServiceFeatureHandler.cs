@@ -29,9 +29,7 @@ public sealed class CreateServiceFeatureHandler : CommandHandler<CreateServiceFe
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.SERVICE_FEATURE]);
 
-        var serviceFeature = ServiceFeature.Create(new CreateServiceFeatureParameter(command.Key,
-                                                                                     command.Description));
-
+        var serviceFeature = ServiceFeature.Create(command.ToParemeter());
 
         await _serviceFeatureCommandRepository.InsertAsync(serviceFeature);
 

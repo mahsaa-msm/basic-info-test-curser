@@ -11,6 +11,9 @@ public sealed class GetAllServiceFeaturesPagedFilterQuery : PageQuery<PagedData<
     public string? ServiceName { get; set; }
     public string? FeatureName { get; set; }
     public string? Description { get; set; }
+    public bool? IsIssuable { get; set; }
+    public bool? CanViewHistory { get; set; }
+    public string? InsuranceTypeCoreId { get; set; }
     public bool? IsActive { get; set; }
 
     public string Path => "/Api/ServiceFeature/GetAllServiceFeaturesPagedFilter";

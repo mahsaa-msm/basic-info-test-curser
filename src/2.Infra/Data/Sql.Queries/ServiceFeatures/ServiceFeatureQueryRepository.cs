@@ -28,6 +28,9 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
                 {
                     Id = c.Id,
                     Key = c.Key,
+                    CanViewHistory = c.CanViewHistory,
+                    InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+                    IsIssuable = c.IsIssuable,
                     ServiceName = c.ServiceName,
                     FeatureName = c.FeatureName,
                     Description = c.Description,
@@ -44,6 +47,9 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
                     {
                         Id = c.Id,
                         Key = c.Key,
+                        CanViewHistory = c.CanViewHistory,
+                        InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+                        IsIssuable = c.IsIssuable,
                         ServiceName = c.ServiceName,
                         FeatureName = c.FeatureName,
                         Description = c.Description,
@@ -65,10 +71,19 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
                        c => c.FeatureName == query.FeatureName);
 
         filter.WhereIf(!string.IsNullOrEmpty(query.Description),
-                       c => c.Description == query.Description);
+                       c => c.Description == query.Description);   
+        
+        filter.WhereIf(!string.IsNullOrEmpty(query.InsuranceTypeCoreId),
+                       c => c.InsuranceTypeCoreId == query.InsuranceTypeCoreId);
 
         filter.WhereIf(query.Key is not null,
                        c => c.Key == query.Key);
+
+        filter.WhereIf(query.CanViewHistory is not null,
+                       c => c.CanViewHistory == query.CanViewHistory);
+
+        filter.WhereIf(query.IsIssuable is not null,
+                       c => c.IsIssuable == query.IsIssuable);
 
         filter.WhereIf(query.IsActive is not null,
                        c => c.IsActive == query.IsActive);
@@ -77,6 +92,9 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
         {
             Id = c.Id,
             Key = c.Key,
+            CanViewHistory = c.CanViewHistory,
+            InsuranceTypeCoreId = c.InsuranceTypeCoreId,
+            IsIssuable = c.IsIssuable,
             ServiceName = c.ServiceName,
             FeatureName = c.FeatureName,
             Description = c.Description,

@@ -1,6 +1,5 @@
 ﻿using Master.Data.Core.Contracts.ServiceFeatures.Commands;
 using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Domain.ServiceFeatures.Parameters;
 using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
@@ -29,10 +28,12 @@ public sealed class UpsertServiceFeatureHandler : CommandHandler<UpsertServiceFe
             var existing = serviceFeatures.FirstOrDefault(f => f.TenantId == tenantId);
 
             if (existing is not null)
+            {
                 SetActiveStatus(existing, command.IsActive);
+            }
             else
             {
-                var newFeature = ServiceFeature.Create(new CreateServiceFeatureWithTenantIdParameter(tenantId, command.Key));
+                var newFeature = ServiceFeature.Create(command.ToParemeter(tenantId));
                 SetActiveStatus(newFeature, command.IsActive);
                 await _serviceFeatureCommandRepository.InsertAsync(newFeature);
             }

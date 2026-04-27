@@ -37,5 +37,20 @@ public sealed class CreateServiceFeatureValidator : AbstractValidator<CreateServ
             .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
         });
         #endregion
+
+
+        #region InsuranceTypeCoreId
+        When(c => !string.IsNullOrEmpty(c.InsuranceTypeCoreId), () =>
+        {
+            RuleFor(command => command.InsuranceTypeCoreId)
+            .Must(coreId => coreId.Length >= ProjectConsts.CORE_ID_MIN_LENGTH && coreId.Length <= ProjectConsts.CORE_ID_MAX_LENGTH)
+            .WithMessage(translator[ProjectValidationError.VALIDATION_ERROR_STRING_LENGTH_BETWEEN,
+                                    ProjectTranslation.INSURANCE_TYPE,
+                                    ProjectConsts.CORE_ID_MAX_LENGTH.ToString(),
+                                    ProjectConsts.CORE_ID_MIN_LENGTH.ToString()])
+            .WithErrorCode(ProjectErrorCode.VALIDATION_ERROR_STRING_LENGTH);
+        });
+
+        #endregion
     }
 }
