@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
-using Master.Data.Core.Resources.Utils.Extensions;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Core.Resources.Utils.Extensions;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Common.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 
 public class NullableCoreId : BaseValueObject<NullableCoreId>
 {

@@ -1,7 +1,7 @@
-﻿//using Master.Data.Core.Contracts.Common.Services;
-//using Master.Data.Core.Resources;
+﻿//using Vehicle.Insurance.Core.Contracts.Common.Services;
+//using Vehicle.Insurance.Core.Resources;
 
-//namespace Master.Data.Endpoints.API.Infrastructor.Middlewares;
+//namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Middlewares;
 
 //public class TenantMiddleware
 //{
@@ -56,3 +56,4 @@
 //    }
 //    #endregion
 //}
+

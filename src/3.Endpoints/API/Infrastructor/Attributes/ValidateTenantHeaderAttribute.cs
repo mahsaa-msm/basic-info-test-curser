@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Attributes;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
 public class ValidateTenantHeaderAttribute : ActionFilterAttribute
@@ -32,3 +32,4 @@ public class ValidateTenantHeaderAttribute : ActionFilterAttribute
         return;
     }
 }
+

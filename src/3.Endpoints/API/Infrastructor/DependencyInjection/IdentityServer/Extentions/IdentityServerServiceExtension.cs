@@ -1,8 +1,8 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Filters;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Middlewares;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Filters;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Middlewares;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
 
 public static class IdentityServerServiceExtension
 {
@@ -50,4 +50,5 @@ public static class IdentityServerServiceExtension
         return oAuthOption != null && oAuthOption.Enabled;
     }
 }
+
 

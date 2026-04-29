@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
 
 public sealed class AgreementObligationListItemQr
 {
@@ -14,3 +14,4 @@ public sealed class AgreementObligationListItemQr
     public string AgreementCoreId { get; set; } = default!;
     public string InsuranceTypeCoreId { get; set; } = default!;
 }
+

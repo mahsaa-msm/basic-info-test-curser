@@ -1,18 +1,18 @@
-﻿using Master.Data.Core.RequestResponse.Cities.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.Cities.Commands.Create;
-using Master.Data.Core.RequestResponse.Cities.Commands.Delete;
-using Master.Data.Core.RequestResponse.Cities.Commands.Fetch;
-using Master.Data.Core.RequestResponse.Cities.Commands.Update;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Delete;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.Cities;
+namespace Vehicle.Insurance.Endpoints.API.Features.Cities;
 
 [Route("api/[controller]")]
 [Tags("City - (شهر ها)")]
@@ -57,3 +57,4 @@ public class CityController : BaseController
 
     #endregion
 }
+

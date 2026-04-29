@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
 
 public sealed class ParrotTranslationItemQr
 {
@@ -7,3 +7,4 @@ public sealed class ParrotTranslationItemQr
     public string Value { get; set; } = default!;
     public string? Culture { get; set; }
 }
+

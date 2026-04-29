@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Countries.Queries;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.Countries.Queries.GetById;
 
 public class GetCountryByIdHandler : QueryHandler<GetCountryByIdQuery, CountryQr>
 {
@@ -20,3 +20,4 @@ public class GetCountryByIdHandler : QueryHandler<GetCountryByIdQuery, CountryQr
     public override async Task<QueryResult<CountryQr>> Handle(GetCountryByIdQuery query)
         => Result(await _queryRepository.Execute(query));
 }
+

@@ -1,6 +1,6 @@
 ﻿using IdentityModel.Client;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Services;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Services;
 
 
 public class TokenService

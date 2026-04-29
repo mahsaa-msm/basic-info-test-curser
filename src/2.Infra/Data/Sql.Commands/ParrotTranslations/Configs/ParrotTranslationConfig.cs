@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.ParrotTranslations.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.ParrotTranslations.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.ParrotTranslations.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.ParrotTranslations.Configs;
 
 public sealed class ParrotTranslationConfig : IEntityTypeConfiguration<ParrotTranslation>
 {
@@ -14,3 +14,4 @@ public sealed class ParrotTranslationConfig : IEntityTypeConfiguration<ParrotTra
         builder.Property(x => x.Culture).HasMaxLength(ProjectConsts.TRANSLATION_CULTURE_LENGTH);
     }
 }
+

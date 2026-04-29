@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Contracts.Common.Services.Tenant;
+﻿namespace Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
 
 public interface ITenantService
 {

@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
-namespace Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
 
 public sealed class InsuranceType : BaseTenantEntity
 {
@@ -14,3 +14,4 @@ public sealed class InsuranceType : BaseTenantEntity
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
 }
+

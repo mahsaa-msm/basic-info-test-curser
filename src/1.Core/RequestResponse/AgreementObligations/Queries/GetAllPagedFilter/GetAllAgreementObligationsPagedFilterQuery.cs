@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
 
 public sealed class GetAllAgreementObligationsPagedFilterQuery : PageQuery<PagedData<AgreementObligationListItemQr>>, IWebRequest
 {

@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Interceptors;
 
 public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
 {
@@ -47,3 +47,4 @@ public class AddRelatedEntitiesIdInterceptor : SaveChangesInterceptor
         }
     }
 }
+

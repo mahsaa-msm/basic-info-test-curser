@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.Provinces.Commands.Fetch;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Fetch;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using Microsoft.Extensions.Options;
 
-namespace Master.Data.Endpoints.HostedService.Jobs.Provinces;
+namespace Vehicle.Insurance.Endpoints.HostedService.Jobs.Provinces;
 
 public sealed class FetchMultiTenantProvincesFromCoreJob :
     BaseBackgroundJob<FetchMultiTenantProvincesFromSourceCommand, FetchMultiTenantProvincesFromCoreJob>
@@ -15,3 +15,4 @@ public sealed class FetchMultiTenantProvincesFromCoreJob :
     {
     }
 }
+

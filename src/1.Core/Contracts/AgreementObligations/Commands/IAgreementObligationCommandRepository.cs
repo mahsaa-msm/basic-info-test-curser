@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.AgreementObligations.Commands;
+namespace Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
 
 public interface IAgreementObligationCommandRepository : ICommandRepository<AgreementObligation, long>
 {

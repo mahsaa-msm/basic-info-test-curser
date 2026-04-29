@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
 
 public sealed class InsuranceUnitListItemQr
 {
@@ -18,3 +18,4 @@ public sealed class InsuranceUnitListItemQr
     public long Priority { get; set; }
     public bool IsActive { get; set; }
 }
+

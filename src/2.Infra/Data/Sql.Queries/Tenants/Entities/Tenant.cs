@@ -1,6 +1,6 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
 
 public sealed class Tenant : QueryObject
 {
@@ -11,3 +11,4 @@ public sealed class Tenant : QueryObject
     public DateTime CreatedDateUtc { get; set; }
     public List<TenantConfig> Configs { get; set; } = new();
 }
+

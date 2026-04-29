@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Delete;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Delete;
 
 public sealed class DeleteInsuranceTypeValidator : AbstractValidator<DeleteInsuranceTypeCommand>
 {

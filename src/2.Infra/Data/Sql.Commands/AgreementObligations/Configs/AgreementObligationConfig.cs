@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
+﻿using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.AgreementObligations.Configs;
 
 public sealed class AgreementObligationConfig : IEntityTypeConfiguration<AgreementObligation>
 {

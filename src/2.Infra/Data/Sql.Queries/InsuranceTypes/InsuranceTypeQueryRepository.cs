@@ -1,20 +1,20 @@
-﻿using Master.Data.Core.Contracts.InsuranceTypes.Queries;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAll;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetById;
-using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Queries;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetById;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.InsuranceTypes;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes;
 
-public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IInsuranceTypeQueryRepository
 {
-    public InsuranceTypeQueryRepository(MasterDataQueryDbContext dbContext)
+    public InsuranceTypeQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -84,3 +84,4 @@ public sealed class InsuranceTypeQueryRepository : BaseQueryRepository<MasterDat
         });
     }
 }
+

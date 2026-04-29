@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Countries.Commands.Delete;
+namespace Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Delete;
 
 public sealed class DeleteCountryCommand : ICommand, IWebRequest
 {

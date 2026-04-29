@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 
-namespace Master.Data.Core.Domain.Provinces.Parameters;
+namespace Vehicle.Insurance.Core.Domain.Provinces.Parameters;
 
 public sealed record CreateProvinceParameter(DIPTitle Title,
                                              NullableTitle DisplayTitle,
@@ -8,3 +8,4 @@ public sealed record CreateProvinceParameter(DIPTitle Title,
                                              Code Code,
                                              Common.ValueObjects.Priority Priority,
                                              CoreId CountryCoreId);
+

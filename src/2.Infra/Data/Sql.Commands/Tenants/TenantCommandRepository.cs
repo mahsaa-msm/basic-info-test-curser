@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.Tenants.Comamnds;
-using Master.Data.Core.Domain.Tenants.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Comamnds;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Tenants;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Tenants;
 
-public sealed class TenantCommandRepository : BaseCommandRepository<Tenant, MasterDataCommandDbContext, long>,
+public sealed class TenantCommandRepository : BaseCommandRepository<Tenant, VehicleInsuranceCommandDbContext, long>,
         ITenantCommandRepository
 {
-    public TenantCommandRepository(MasterDataCommandDbContext dbContext)
+    public TenantCommandRepository(VehicleInsuranceCommandDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -18,3 +18,4 @@ public sealed class TenantCommandRepository : BaseCommandRepository<Tenant, Mast
         => await _dbContext.Tenants.Where(c => tenantIds.Contains(c.Id))
                                    .ToListAsync();
 }
+

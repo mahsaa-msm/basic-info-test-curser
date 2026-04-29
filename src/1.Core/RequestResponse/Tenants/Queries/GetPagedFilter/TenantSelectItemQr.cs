@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
 
 public sealed class TenantSelectItemQr
 {
@@ -11,3 +11,4 @@ public sealed class TenantSelectItemQr
     public bool HasSsoConfig { get; set; }
     public bool HasPaymentConfig { get; set; }
 }
+

@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\1.Core\Contracts\Master.Data.Core.Contracts.csproj" />
-    <ProjectReference Include="..\..\..\1.Core\Resources\Master.Data.Core.Resources.csproj" />
+    <ProjectReference Include="..\..\..\1.Core\Contracts\Vehicle.Insurance.Core.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\1.Core\Resources\Vehicle.Insurance.Core.Resources.csproj" />
   </ItemGroup>
 
 </Project>
+

@@ -2,7 +2,7 @@
 using Grpc.Core.Interceptors;
 using System.Diagnostics;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public class LoggingInterceptor : Interceptor
 {
@@ -57,3 +57,4 @@ public class LoggingInterceptor : Interceptor
         }
     }
 }
+

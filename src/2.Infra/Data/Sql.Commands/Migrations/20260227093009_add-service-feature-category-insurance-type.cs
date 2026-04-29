@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Master.Data.Infra.Data.Sql.Commands.Migrations
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Migrations
 {
     /// <inheritdoc />
     public partial class addservicefeaturecategoryinsurancetype : Migration
@@ -26,3 +26,4 @@ namespace Master.Data.Infra.Data.Sql.Commands.Migrations
         }
     }
 }
+

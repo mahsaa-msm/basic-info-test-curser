@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Countries.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Countries.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Countries.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Create;
 
 public sealed class CreateCountryCommand : ICommand<long>, IWebRequest
 {

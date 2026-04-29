@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
 
 public class AddParamsToHeader : IOperationFilter
 {

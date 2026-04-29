@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
 
 public sealed class GetAllInsuranceTypesResponse
 {
@@ -6,3 +6,4 @@ public sealed class GetAllInsuranceTypesResponse
     public string noeBimeh { get; set; } = string.Empty;
     public string code { get; set; } = string.Empty;
 }
+

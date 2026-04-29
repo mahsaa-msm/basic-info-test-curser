@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.Cities.Commands;
+namespace Vehicle.Insurance.Core.Contracts.Cities.Commands;
 
 public interface ICityCommandRepository : ICommandRepository<City, long>
 {

@@ -1,16 +1,16 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Commands.Update;
 
 public class UpdateIssuanceSchemeHandler : CommandHandler<UpdateIssuanceSchemeCommand>
 {
@@ -88,3 +88,4 @@ public class UpdateIssuanceSchemeHandler : CommandHandler<UpdateIssuanceSchemeCo
     }
     #endregion
 }
+

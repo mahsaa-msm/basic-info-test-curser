@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Provinces.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Commands.Create;
 
 public class CreateProvinceHandler : CommandHandler<CreateProvinceCommand, long>
 {

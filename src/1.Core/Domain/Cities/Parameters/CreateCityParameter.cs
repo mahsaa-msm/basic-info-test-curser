@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 
-namespace Master.Data.Core.Domain.Cities.Parameters;
+namespace Vehicle.Insurance.Core.Domain.Cities.Parameters;
 
 public sealed record CreateCityParameter(DIPTitle Title,
                                          NullableTitle DisplayTitle,
@@ -9,3 +9,4 @@ public sealed record CreateCityParameter(DIPTitle Title,
                                          Code Code,
                                          Common.ValueObjects.Priority Priority,
                                          CoreId ProvinceCoreId);
+

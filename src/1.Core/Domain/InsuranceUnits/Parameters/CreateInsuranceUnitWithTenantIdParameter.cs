@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.InsuranceUnits.Parameters;
+namespace Vehicle.Insurance.Core.Domain.InsuranceUnits.Parameters;
 
 public sealed record CreateInsuranceUnitWithTenantIdParameter(long TenantId,
                                                               DIPTitle Name,

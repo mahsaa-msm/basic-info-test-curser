@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.InsuranceUnits.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.InsuranceUnits.Entities;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.ChangeActivation;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceUnits.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.Entities;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceUnits.Commands.ChangeActivation;
 
 public sealed class ChangeInsuranceUnitsActivationHandler : CommandHandler<ChangeInsuranceUnitsActivationCommand>
 {
@@ -36,3 +36,4 @@ public sealed class ChangeInsuranceUnitsActivationHandler : CommandHandler<Chang
         return Ok();
     }
 }
+

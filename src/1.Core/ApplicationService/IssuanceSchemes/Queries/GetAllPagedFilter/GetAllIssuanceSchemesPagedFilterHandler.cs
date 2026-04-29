@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Queries;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Queries;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Queries.GetAllPagedFilter;
 
 public class GetAllIssuanceSchemesPagedFilterHandler : QueryHandler<GetAllIssuanceSchemesPagedFilterQuery, PagedData<IssuanceSchemeListItemQr>>
 {

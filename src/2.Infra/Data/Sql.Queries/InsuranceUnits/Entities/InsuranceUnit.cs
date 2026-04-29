@@ -1,9 +1,9 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 using NetTopologySuite.Geometries;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 
 public class InsuranceUnit : BaseTenantEntity
 {
@@ -22,3 +22,4 @@ public class InsuranceUnit : BaseTenantEntity
 
     public virtual City? City { get; set; }
 }
+

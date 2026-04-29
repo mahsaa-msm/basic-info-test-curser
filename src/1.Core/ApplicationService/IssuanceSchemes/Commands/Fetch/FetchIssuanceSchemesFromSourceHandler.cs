@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.ApplicationService.Common.FinglishConverterService;
-using Master.Data.Core.Contracts.CoreInsuranceApis.IssuanceSchemes;
-using Master.Data.Core.Contracts.IssuanceSchemes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Core.Domain.IssuanceSchemes.Parameters;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.IssuanceScheme.GetAll;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Fetch;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.IssuanceSchemes;
+using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Parameters;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.IssuanceScheme.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Fetch;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
@@ -15,7 +15,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Commands.Fetch;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Commands.Fetch;
 public sealed class FetchIssuanceSchemesFromSourceHandler : CommandHandler<FetchIssuanceSchemesFromSourceCommand>
 {
     private readonly IIssuanceSchemeCommandRepository _commandRepository;

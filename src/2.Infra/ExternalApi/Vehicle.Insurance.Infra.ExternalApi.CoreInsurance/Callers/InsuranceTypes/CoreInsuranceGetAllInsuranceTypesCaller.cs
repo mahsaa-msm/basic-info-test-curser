@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.CoreInsuranceApis.InsuranceTypes;
-using Master.Data.Core.RequestResponse.Common.Extensions;
-using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.InsuranceTypes;
+using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
+using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Infra.ExternalApi.CoreInsurance.Callers.InsuranceTypes;
+namespace Vehicle.Insurance.Infra.ExternalApi.CoreInsurance.Callers.InsuranceTypes;
 
 public sealed class CoreInsuranceGetAllInsuranceTypesCaller : ICoreInsuranceGetAllInsuranceTypesCaller, ITransientLifetime
 {
@@ -28,3 +28,4 @@ public sealed class CoreInsuranceGetAllInsuranceTypesCaller : ICoreInsuranceGetA
         return await response.ToResultAsync<List<GetAllInsuranceTypesResponse>>();
     }
 }
+

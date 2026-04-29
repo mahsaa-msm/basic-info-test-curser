@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
 
-public interface IMasterDataQueryDbContextFactory
+public interface IVehicleInsuranceQueryDbContextFactory
 {
-    MasterDataQueryDbContext CreateDbContext();
+    VehicleInsuranceQueryDbContext CreateDbContext();
 }

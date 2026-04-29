@@ -1,10 +1,10 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using Microsoft.Extensions.Options;
 using Zamin.Core.Contracts.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
 
 public abstract class BaseBackgroundJob<TCommand, TJob> : BackgroundService
     where TCommand : class, ICommand, new()

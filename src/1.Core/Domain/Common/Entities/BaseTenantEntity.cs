@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.Domain.Entities;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Common.Entities;
+namespace Vehicle.Insurance.Core.Domain.Common.Entities;
 
 /// <summary>
 /// The generic type of BaseTenantEntity<TId> has a bug in saveChange's interceptor.
@@ -22,3 +22,4 @@ public abstract class BaseTenantEntity<TId> : AggregateRoot<TId>
     public long TenantId { get; set; }
     public BusinessId? TenantBusinessId { get; set; }
 }
+

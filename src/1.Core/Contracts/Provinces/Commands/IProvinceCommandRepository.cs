@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.Provinces.Commands;
+namespace Vehicle.Insurance.Core.Contracts.Provinces.Commands;
 
 public interface IProvinceCommandRepository : ICommandRepository<Province, long>
 {

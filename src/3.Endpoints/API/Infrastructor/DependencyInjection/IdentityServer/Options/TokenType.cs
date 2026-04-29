@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 
 public enum TokenType
 {

@@ -1,7 +1,8 @@
-﻿namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 
 public class RefrenceTokenConfigOption
 {
     public string ClientId { get; set; } = string.Empty;
     public string ClientSecret { get; set; } = string.Empty;
 }
+

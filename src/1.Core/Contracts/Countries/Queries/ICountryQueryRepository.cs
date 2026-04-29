@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
+﻿using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetById;
 using Zamin.Core.Contracts.Data.Queries;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.Contracts.Countries.Queries;
+namespace Vehicle.Insurance.Core.Contracts.Countries.Queries;
 
 public interface ICountryQueryRepository : IQueryRepository
 {
@@ -12,3 +12,4 @@ public interface ICountryQueryRepository : IQueryRepository
     Task<List<CountrySelectItemQr>> Execute(GetAllCountryQuery query);
     Task<PagedData<CountryListItemQr>> Execute(GetAllCountriesPagedFilterQuery query);
 }
+

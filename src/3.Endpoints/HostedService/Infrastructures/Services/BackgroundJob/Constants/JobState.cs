@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
+﻿namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
 
 public enum JobState
 {
@@ -7,3 +7,4 @@ public enum JobState
     Stopped,
     Skipped
 }
+

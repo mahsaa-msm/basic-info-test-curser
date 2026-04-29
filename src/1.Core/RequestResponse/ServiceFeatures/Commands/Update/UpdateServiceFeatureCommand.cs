@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.ServiceFeatures.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.ServiceFeatures.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Update;
 
 public sealed class UpdateServiceFeatureCommand : ICommand, IWebRequest
 {

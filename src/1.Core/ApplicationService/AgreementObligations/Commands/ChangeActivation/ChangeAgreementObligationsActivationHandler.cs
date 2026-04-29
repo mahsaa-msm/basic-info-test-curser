@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Commands;
-using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.ApplicationService.AgreementObligations.Commands.ChangeActivation;
 
 public sealed class ChangeAgreementObligationsActivationHandler : CommandHandler<ChangeAgreementObligationsActivationCommand>
 {
@@ -37,3 +37,4 @@ public sealed class ChangeAgreementObligationsActivationHandler : CommandHandler
         return Ok();
     }
 }
+

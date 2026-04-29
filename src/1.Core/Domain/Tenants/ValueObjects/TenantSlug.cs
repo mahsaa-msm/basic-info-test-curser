@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
 using System.Text.RegularExpressions;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Tenants.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
 
 public sealed class TenantSlug : BaseValueObject<TenantSlug>
 {
@@ -44,3 +44,4 @@ public sealed class TenantSlug : BaseValueObject<TenantSlug>
     public static implicit operator TenantSlug(string value) => new(value);
     public override string ToString() => Value;
 }
+

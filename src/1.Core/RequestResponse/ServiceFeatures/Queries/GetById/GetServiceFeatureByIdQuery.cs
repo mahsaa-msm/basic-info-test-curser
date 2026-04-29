@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+﻿using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetById;
 
 public sealed class GetServiceFeatureByIdQuery : IQuery<ServiceFeatureQr?>, IWebRequest
 {

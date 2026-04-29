@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetById;
 
 public sealed class InsuranceTypeQr
 {

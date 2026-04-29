@@ -1,14 +1,14 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.PatternCatalogs.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.PatternCatalogs.Commands.Update;
 
 public sealed class UpdatePatternCatalogHandler : CommandHandler<UpdatePatternCatalogCommand>
 {
@@ -63,3 +63,4 @@ public sealed class UpdatePatternCatalogHandler : CommandHandler<UpdatePatternCa
     }
     #endregion
 }
+

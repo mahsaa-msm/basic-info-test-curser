@@ -1,6 +1,6 @@
 ﻿using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Common.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 
 public sealed class IsActive : BaseValueObject<IsActive>
 {

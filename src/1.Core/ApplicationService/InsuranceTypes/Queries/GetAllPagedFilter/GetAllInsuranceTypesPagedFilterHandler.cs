@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.InsuranceTypes.Queries;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Queries;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceTypes.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceTypes.Queries.GetAllPagedFilter;
 
 public class GetAllInsuranceTypesPagedFilterHandler : QueryHandler<GetAllInsuranceTypesPagedFilterQuery, PagedData<InsuranceTypeListItemQr>>
 {

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
+﻿namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
 
 internal class TenantModelCacheKey
 {

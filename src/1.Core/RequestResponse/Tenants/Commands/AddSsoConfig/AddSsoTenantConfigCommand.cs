@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
 
 public sealed class AddSsoTenantConfigCommand : ICommand, IWebRequest
 {
@@ -13,3 +13,4 @@ public sealed class AddSsoTenantConfigCommand : ICommand, IWebRequest
 
     public string Path => "/Api/Tenant/AddSsoTenantConfig";
 }
+

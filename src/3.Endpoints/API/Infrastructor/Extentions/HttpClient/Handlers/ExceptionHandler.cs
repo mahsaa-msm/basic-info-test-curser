@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
 
 public class ExceptionHandler : DelegatingHandler
 {
@@ -54,3 +54,4 @@ public class ExceptionHandler : DelegatingHandler
         return response;
     }
 }
+

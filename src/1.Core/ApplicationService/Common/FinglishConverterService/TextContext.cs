@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
+﻿namespace Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
 
 public enum TextContext
 {
@@ -7,3 +7,4 @@ public enum TextContext
     Religious,
     Scientific
 }
+

@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
 
-public interface IMasterDataCommandDbContextFactory
+public interface IVehicleInsuranceCommandDbContextFactory
 {
-    MasterDataCommandDbContext CreateDbContext();
+    VehicleInsuranceCommandDbContext CreateDbContext();
 }

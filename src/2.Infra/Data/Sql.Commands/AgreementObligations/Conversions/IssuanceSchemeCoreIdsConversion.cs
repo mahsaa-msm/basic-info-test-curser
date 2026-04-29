@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Master.Data.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.AgreementObligations.Conversions;
 
 public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<HashSet<CoreId>, string>
 {

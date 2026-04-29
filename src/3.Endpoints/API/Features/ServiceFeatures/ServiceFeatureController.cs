@@ -1,18 +1,18 @@
-﻿using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Create;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.ServiceFeatures;
+namespace Vehicle.Insurance.Endpoints.API.Features.ServiceFeatures;
 
 [Route("api/[controller]")]
 [Tags("ServiceFeatures - (قابلیت های سرویس ها)")]
@@ -59,3 +59,4 @@ public sealed class ServiceFeatureController : BaseController
         => await Query<GetAllServiceFeaturesByKeyQuery, GetAllServiceFeaturesByKeyQr?>(query);
     #endregion
 }
+

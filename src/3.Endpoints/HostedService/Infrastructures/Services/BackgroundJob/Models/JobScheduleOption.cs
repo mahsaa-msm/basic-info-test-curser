@@ -1,6 +1,6 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 
 public sealed class JobScheduleOption
 {
@@ -53,3 +53,4 @@ public sealed class DateRange
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
 }
+

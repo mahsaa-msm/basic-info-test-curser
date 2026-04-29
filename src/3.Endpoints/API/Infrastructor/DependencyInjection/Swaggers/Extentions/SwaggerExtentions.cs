@@ -1,10 +1,10 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Options;
+﻿using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
 
 public static class SwaggerExtentions
 {

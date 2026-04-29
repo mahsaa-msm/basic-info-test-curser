@@ -1,6 +1,6 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
 
 public interface IJobSchedulerService
 {

@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
 
 public class ExceptionInterceptor : Interceptor
 {
@@ -34,3 +34,4 @@ public class ExceptionInterceptor : Interceptor
         }
     }
 }
+

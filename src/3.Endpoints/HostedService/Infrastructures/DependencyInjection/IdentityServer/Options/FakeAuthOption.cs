@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options
+﻿namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options
 {
     public class FakeAuthOption
     {
@@ -10,3 +10,4 @@
         public string CustomerTypeClaim { get; set; } = string.Empty;
     }
 }
+

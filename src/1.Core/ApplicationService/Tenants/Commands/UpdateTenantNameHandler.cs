@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Tenants.Comamnds;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.RequestResponse.Tenants.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Comamnds;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+namespace Vehicle.Insurance.Core.ApplicationService.Tenants.Commands;
 
 public sealed class UpdateTenantNameHandler : CommandHandler<UpdateTenantNameCommand>
 {
@@ -30,3 +30,4 @@ public sealed class UpdateTenantNameHandler : CommandHandler<UpdateTenantNameCom
         return Ok();
     }
 }
+

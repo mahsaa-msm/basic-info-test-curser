@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.Countries.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Countries.Entities;
-using Master.Data.Core.RequestResponse.Countries.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.Countries.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.Countries.Commands.Update;
 
 public class UpdateCountryHandler : CommandHandler<UpdateCountryCommand>
 {
@@ -80,3 +80,4 @@ public class UpdateCountryHandler : CommandHandler<UpdateCountryCommand>
     }
     #endregion
 }
+

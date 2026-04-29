@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Core.Domain.Common.Entities;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
+using Vehicle.Insurance.Core.Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 
 public static class TenantIdExtensions
 {
@@ -37,3 +37,4 @@ public static class TenantIdExtensions
         }
     }
 }
+

@@ -1,20 +1,20 @@
-﻿using Master.Data.Core.Contracts.InsuranceUnits.Queries;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
-using Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceUnits.Queries;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits;
 
-public sealed class InsuranceUnitQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class InsuranceUnitQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IInsuranceUnitQueryRepository
 {
-    public InsuranceUnitQueryRepository(MasterDataQueryDbContext dbContext)
+    public InsuranceUnitQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }

@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.Contracts.Countries.Queries;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Countries;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Countries;
 
-public sealed class CountryQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class CountryQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     ICountryQueryRepository
 {
-    public CountryQueryRepository(MasterDataQueryDbContext dbContext)
+    public CountryQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }

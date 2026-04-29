@@ -1,16 +1,16 @@
-﻿using Master.Data.Core.Contracts.Cities.Commands;
-using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.RequestResponse.Cities.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Cities.Commands;
+using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.Cities.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.Cities.Commands.Update;
 
 public class UpdateCityHandler : CommandHandler<UpdateCityCommand>
 {
@@ -82,3 +82,4 @@ public class UpdateCityHandler : CommandHandler<UpdateCityCommand>
     }
     #endregion
 }
+

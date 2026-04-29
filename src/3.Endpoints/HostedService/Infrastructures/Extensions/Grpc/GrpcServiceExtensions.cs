@@ -1,6 +1,6 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.Grpc;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.Grpc;
 
 public static class GrpcServiceExtensions
 {

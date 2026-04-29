@@ -1,9 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
 
-namespace Master.Data.Core.Contracts.CoreInsuranceApis.Cities;
+namespace Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Cities;
 
 public interface ICoreInsuranceGetAllCitiesCaller
 {
     Task<Response<List<GetAllCitiesResponse>>> Call(GetAllCitiesRequest request);
 }
+

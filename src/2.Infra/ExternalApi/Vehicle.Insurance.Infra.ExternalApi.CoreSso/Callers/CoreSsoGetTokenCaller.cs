@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.CoreSsoApis.Queries;
-using Master.Data.Core.RequestResponse.Common.Extensions;
-using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.CoreSsoApis.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
+using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Infra.ExternalApi.CoreSso.Callers;
+namespace Vehicle.Insurance.Infra.ExternalApi.CoreSso.Callers;
 
 public sealed class CoreSsoGetTokenCaller : ICoreSsoGetTokenCaller, ITransientLifetime
 {

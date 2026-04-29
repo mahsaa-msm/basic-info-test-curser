@@ -1,12 +1,12 @@
 ﻿using IdentityModel.AspNetCore.OAuth2Introspection;
-using Master.Data.Core.Resources;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.Security.Claims;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
 
 public static class ReferenceTokenExtensions
 {

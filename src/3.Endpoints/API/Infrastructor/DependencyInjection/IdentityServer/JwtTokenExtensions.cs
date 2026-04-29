@@ -1,7 +1,7 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Microsoft.AspNetCore.Authentication;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
 
 public static class JwtTokenExtensions
 {

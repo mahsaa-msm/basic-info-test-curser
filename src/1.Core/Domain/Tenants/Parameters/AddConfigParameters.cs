@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.Tenants.Parameters;
+namespace Vehicle.Insurance.Core.Domain.Tenants.Parameters;
 
 public sealed record AddConfigParameters(ConfigType ConfigType,
                                          JsonDocument Settings);

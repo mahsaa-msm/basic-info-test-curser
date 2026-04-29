@@ -1,7 +1,7 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
 using System.Reflection;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions;
 
 public static class SchedulesJobsExtenstions
 {

@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Tenants.Entities.Settings;
-using Master.Data.Core.Domain.Tenants.ValueObjects;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities.Settings;
+using Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.Entities;
 using Zamin.Core.Domain.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.Tenants.Entities;
+namespace Vehicle.Insurance.Core.Domain.Tenants.Entities;
 
 public sealed class Tenant : AggregateRoot
 {
@@ -104,3 +104,4 @@ public sealed class Tenant : AggregateRoot
     }
     #endregion
 }
+

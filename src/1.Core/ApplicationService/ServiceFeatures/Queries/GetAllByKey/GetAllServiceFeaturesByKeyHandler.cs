@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.ServiceFeatures.Queries;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
+﻿using Vehicle.Insurance.Core.Contracts.ServiceFeatures.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ServiceFeatures.Queries.GetAllByKey;
+namespace Vehicle.Insurance.Core.ApplicationService.ServiceFeatures.Queries.GetAllByKey;
 
 public sealed class GetAllServiceFeaturesByKeyHandler : QueryHandler<GetAllServiceFeaturesByKeyQuery, GetAllServiceFeaturesByKeyQr?>
 {

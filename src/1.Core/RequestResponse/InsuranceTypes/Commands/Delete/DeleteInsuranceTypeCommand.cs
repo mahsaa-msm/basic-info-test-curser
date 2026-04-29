@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Delete;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Delete;
 
 public sealed class DeleteInsuranceTypeCommand : ICommand, IWebRequest
 {

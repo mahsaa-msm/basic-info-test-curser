@@ -1,23 +1,23 @@
-﻿using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Countries.Entities;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Core.Domain.InsuranceUnits.Entities;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Core.Domain.ParrotTranslations.Entities;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Domain.Tenants.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+﻿using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.Entities;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.Domain.ParrotTranslations.Entities;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Zamin.Extensions.Events.Outbox.Dal.EF;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 
-public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
+public class VehicleInsuranceCommandDbContext : BaseOutboxCommandDbContext
 {
     #region Properties
     public long? TenantId { get; set; }
@@ -38,7 +38,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<AgreementObligation> AgreementObligations { get; set; } = null!;
     #endregion
 
-    public MasterDataCommandDbContext(DbContextOptions<MasterDataCommandDbContext> options)
+    public VehicleInsuranceCommandDbContext(DbContextOptions<VehicleInsuranceCommandDbContext> options)
         : base(options)
     {
     }
@@ -62,7 +62,7 @@ public class MasterDataCommandDbContext : BaseOutboxCommandDbContext
         !entityType.IsKeyless &&
         entityType.FindPrimaryKey() != null)
             {
-                var method = typeof(MasterDataCommandDbContext)?
+                var method = typeof(VehicleInsuranceCommandDbContext)?
                     .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Instance)?
                     .MakeGenericMethod(entityType.ClrType);
 

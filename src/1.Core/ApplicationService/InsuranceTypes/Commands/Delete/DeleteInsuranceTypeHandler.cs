@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.InsuranceTypes.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Delete;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Delete;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceTypes.Commands.Delete;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceTypes.Commands.Delete;
 
 public class DeleteInsuranceTypeHandler : CommandHandler<DeleteInsuranceTypeCommand>
 {

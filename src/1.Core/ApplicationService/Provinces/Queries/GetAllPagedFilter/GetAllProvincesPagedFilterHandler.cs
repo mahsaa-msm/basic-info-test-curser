@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Provinces.Queries;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Queries.GetAllPagedFilter;
 
 public class GetAllProvincesPagedFilterHandler : QueryHandler<GetAllProvincesPagedFilterQuery, PagedData<ProvinceListItemQr>>
 {

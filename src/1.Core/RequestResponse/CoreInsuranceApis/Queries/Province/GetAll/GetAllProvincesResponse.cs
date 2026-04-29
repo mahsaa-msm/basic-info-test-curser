@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
+﻿using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Common;
 
-namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Province.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Province.GetAll;
 
 public sealed class GetAllProvincesResponse
 {
@@ -15,3 +15,4 @@ public sealed class GetAllProvincesResponse
     public bool hasError { get; set; }
     public List<CoreInsuranceValidation> validations { get; set; } = new();
 }
+

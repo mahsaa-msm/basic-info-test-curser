@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Cities.Queries;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.Cities.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Cities.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.Cities.Queries.GetAllPagedFilter;
 
 public class GetAllCitiesPagedFilterHandler : QueryHandler<GetAllCitiesPagedFilterQuery, PagedData<CityListItemQr>>
 {

@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Resources;
-using Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options;
-using Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Handlers;
-using Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Policies;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Handlers;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Policies;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient;
 
 public static class HttpClientExtensions
 {
@@ -97,3 +97,4 @@ public static class HttpClientExtensions
         return services;
     }
 }
+

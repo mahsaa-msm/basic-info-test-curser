@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Queries;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAll;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Queries;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAll;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.AgreementObligations.Queries.GetAll;
+namespace Vehicle.Insurance.Core.ApplicationService.AgreementObligations.Queries.GetAll;
 
 public sealed class GetAllAgreementObligationsHandler : QueryHandler<GetAllAgreementObligationsQuery, List<AgreementObligationSelectItemQr>>
 {
@@ -20,3 +20,4 @@ public sealed class GetAllAgreementObligationsHandler : QueryHandler<GetAllAgree
     public override async Task<QueryResult<List<AgreementObligationSelectItemQr>>> Handle(GetAllAgreementObligationsQuery query)
         => Result(await _agreementObligationQueryRepository.ExecuteAsync(query));
 }
+

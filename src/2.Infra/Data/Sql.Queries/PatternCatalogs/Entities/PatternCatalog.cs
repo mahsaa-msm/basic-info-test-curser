@@ -1,7 +1,7 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 
 public sealed class PatternCatalog : BaseTenantEntity
 {
@@ -14,3 +14,4 @@ public sealed class PatternCatalog : BaseTenantEntity
     public long Priority { get; set; }
     public bool IsActive { get; set; }
 }
+

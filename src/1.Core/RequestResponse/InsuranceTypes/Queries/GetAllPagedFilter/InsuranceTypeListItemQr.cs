@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetAllPagedFilter;
 
 public sealed class InsuranceTypeListItemQr
 {

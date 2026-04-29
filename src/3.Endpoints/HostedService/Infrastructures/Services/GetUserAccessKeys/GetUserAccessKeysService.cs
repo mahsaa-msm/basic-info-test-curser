@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
-using Master.Data.Core.Resources;
-using Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options;
 using Newtonsoft.Json;
 using System.Net;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.GetUserAccessKeys;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.GetUserAccessKeys;
 
 public class GetUserAccessKeysService : IGetUserAccessKeysService
 {
@@ -47,3 +47,4 @@ public class GetUserAccessKeysService : IGetUserAccessKeysService
         return userAccessList;
     }
 }
+

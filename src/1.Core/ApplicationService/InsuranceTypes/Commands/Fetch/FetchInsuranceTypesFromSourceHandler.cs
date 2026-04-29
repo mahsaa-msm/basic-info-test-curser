@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.ApplicationService.Common.FinglishConverterService;
-using Master.Data.Core.Contracts.CoreInsuranceApis.InsuranceTypes;
-using Master.Data.Core.Contracts.InsuranceTypes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Core.Domain.InsuranceTypes.Parameters;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.InsuranceTypes;
+using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Parameters;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.InsuranceType.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceTypes.Commands.Fetch;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceTypes.Commands.Fetch;
 
 public sealed class FetchInsuranceTypesFromSourceHandler : CommandHandler<FetchInsuranceTypesFromSourceCommand>
 {

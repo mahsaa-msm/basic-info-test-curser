@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.IssuanceSchemes;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.IssuanceSchemes;
 
-public sealed class IssuanceSchemeCommandRepository : BaseCommandRepository<IssuanceScheme, MasterDataCommandDbContext, long>,
+public sealed class IssuanceSchemeCommandRepository : BaseCommandRepository<IssuanceScheme, VehicleInsuranceCommandDbContext, long>,
     IIssuanceSchemeCommandRepository
 {
-    public IssuanceSchemeCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
+    public IssuanceSchemeCommandRepository(VehicleInsuranceCommandDbContext dbContext) : base(dbContext)
     {
     }
 

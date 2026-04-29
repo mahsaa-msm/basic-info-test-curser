@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Domain.AgreementObligations.Parameters;
-using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.AgreementObligations.Entities;
+namespace Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
 
 public sealed class AgreementObligation : BaseTenantEntity
 {
@@ -160,3 +160,4 @@ public sealed class AgreementObligation : BaseTenantEntity
     }
     #endregion
 }
+

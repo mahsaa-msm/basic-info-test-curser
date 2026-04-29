@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
 
 public sealed class ChangeAgreementObligationsActivationCommand : ICommand, IWebRequest
 {

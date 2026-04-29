@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Common.Queries;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Common.Queries;
 
 public class ChartNormalizedData<TXValue, TYValue, TMetaData>
     where TXValue : notnull
@@ -25,3 +25,4 @@ public sealed class ChartData<TXValue, TYValue>
     public TXValue Label { get; set; } = default!;
     public TYValue Value { get; set; } = default!;
 }
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.Tenant
+﻿namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.Tenant
 {
     public interface ITenantResolver
     {
@@ -6,3 +6,4 @@
         Guid? ExtractTenantKey(HttpContext context);
     }
 }
+

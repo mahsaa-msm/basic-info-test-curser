@@ -1,6 +1,6 @@
 ﻿using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
+namespace Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
 
 public class AdvancedFinglishConverter : FinglishConverter, ISingletoneLifetime, IAdvancedFinglishConverter
 {
@@ -83,3 +83,4 @@ public class AdvancedFinglishConverter : FinglishConverter, ISingletoneLifetime,
             StringComparer.OrdinalIgnoreCase);
     }
 }
+

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Cities.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Update;
 
 public sealed class UpdateCityValidator : AbstractValidator<UpdateCityCommand>
 {
@@ -80,3 +80,4 @@ public sealed class UpdateCityValidator : AbstractValidator<UpdateCityCommand>
         #endregion
     }
 }
+

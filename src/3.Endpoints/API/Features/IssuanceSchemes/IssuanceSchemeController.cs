@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Create;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Fetch;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Update;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAll;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.IssuanceSchemes;
+namespace Vehicle.Insurance.Endpoints.API.Features.IssuanceSchemes;
 
 [Route("api/[controller]")]
 [Tags("IssuanceScheme - (طرح صدور)")]
@@ -52,3 +52,4 @@ public class IssuanceSchemeController : BaseController
 
     #endregion
 }
+

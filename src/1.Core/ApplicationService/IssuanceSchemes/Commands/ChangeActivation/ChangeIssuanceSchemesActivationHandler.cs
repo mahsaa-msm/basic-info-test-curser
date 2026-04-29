@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Commands.ChangeActivation;
 
 public class ChangeIssuanceSchemesActivationHandler : CommandHandler<ChangeIssuanceSchemesActivationCommand>
 {
@@ -37,4 +37,5 @@ public class ChangeIssuanceSchemesActivationHandler : CommandHandler<ChangeIssua
 
     }
 }
+
 

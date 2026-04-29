@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
-using Master.Data.Endpoints.API.Infrastructor.Services.GetUserAccessKeys;
+﻿using Vehicle.Insurance.Core.Contracts.PodSsoApis.UserInfo;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Services.GetUserAccessKeys;
 using System.Security.Claims;
 using Zamin.Extensions.UsersManagement.Extensions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Services.UserInfo;
 
 public class ModernUserInfoService : IModernUserInfoService
 {

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 
 public sealed class GetAllInsuranceUnitsInAreaValidator : AbstractValidator<GetAllInsuranceUnitsInAreaQuery>
 {
@@ -105,3 +105,4 @@ public sealed class GetAllInsuranceUnitsInAreaValidator : AbstractValidator<GetA
                !string.IsNullOrEmpty(query.SearchInput);
     }
 }
+

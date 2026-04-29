@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.CoreSsoApis.Queries;
-using Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.CoreSsoApis.Queries;
+using Vehicle.Insurance.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+using Vehicle.Insurance.Core.Resources;
 using System.Net;
 using System.Net.Http.Headers;
 using Zamin.Extensions.Caching.Abstractions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.HttpClient.Handlers;
 
 public sealed class CoreSsoTokenHandler : DelegatingHandler
 {
@@ -89,3 +89,4 @@ public sealed class CoreSsoTokenHandler : DelegatingHandler
         return await GetTokenFromCacheOrApiAsync(cancellationToken);
     }
 }
+

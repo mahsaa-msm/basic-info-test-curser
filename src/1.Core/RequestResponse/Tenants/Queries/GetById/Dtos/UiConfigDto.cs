@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
 
 public sealed class UiConfigDto : ConfigDto
 {

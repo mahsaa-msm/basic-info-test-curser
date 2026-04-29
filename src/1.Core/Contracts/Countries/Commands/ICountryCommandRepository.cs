@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Countries.Entities;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.Countries.Commands;
+namespace Vehicle.Insurance.Core.Contracts.Countries.Commands;
 
 public interface ICountryCommandRepository : ICommandRepository<Country, long>
 {

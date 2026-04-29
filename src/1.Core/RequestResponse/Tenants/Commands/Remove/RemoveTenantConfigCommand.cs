@@ -1,8 +1,8 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Commands.Remove;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.Remove;
 
 public sealed class RemoveTenantConfigCommand : ICommand, IWebRequest
 {
@@ -11,3 +11,4 @@ public sealed class RemoveTenantConfigCommand : ICommand, IWebRequest
 
     public string Path => "/Api/Tenant/RemoveTenantConfig";
 }
+

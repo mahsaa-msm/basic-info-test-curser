@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Entities;
 
 public class AgreementObligation : BaseTenantEntity
 {

@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.AgreementObligations.Parameters;
+namespace Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
 
 public sealed record UpdateAgreementObligationParameter(DIPTitle Title,
                                                         DIPTitle DisplayTitle,
@@ -18,3 +18,4 @@ public sealed record UpdateAgreementObligationParameter(DIPTitle Title,
                                                         CoreId InsuranceTypeCoreId,
                                                         SalesType SalesType,
                                                         Common.ValueObjects.Priority Priority);
+

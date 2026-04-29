@@ -1,9 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 
-namespace Master.Data.Core.Domain.ServiceFeatures.Parameters;
+namespace Vehicle.Insurance.Core.Domain.ServiceFeatures.Parameters;
 
 public sealed record UpdateServiceFeatureParameter(bool IsIssuable,
                                                    bool CanViewHistory,
                                                    NullableCoreId InsuranceTypeCoreId,
                                                    Description? Description);
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Common.Requests;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Common.Requests;
 
 public class FailResponse
 {

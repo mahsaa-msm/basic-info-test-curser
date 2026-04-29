@@ -1,4 +1,4 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.Extentions;
+﻿using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Utilities.SerilogRegistration.Extensions;
 

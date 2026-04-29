@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.IssuanceScheme.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.IssuanceScheme.GetAll;
 public sealed class GetAllIssuanceSchemesResponse
 {
     public int tarhSodoorID { get; set; }

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.AgreementObligations.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Update;
 
 public sealed class UpdateAgreementObligationValidator : AbstractValidator<UpdateAgreementObligationCommand>
 {
@@ -239,3 +239,4 @@ public sealed class UpdateAgreementObligationValidator : AbstractValidator<Updat
         #endregion
     }
 }
+

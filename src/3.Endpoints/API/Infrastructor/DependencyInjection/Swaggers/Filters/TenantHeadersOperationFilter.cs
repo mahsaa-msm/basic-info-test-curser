@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Filters;
 
 public class TenantHeadersOperationFilter : IDocumentFilter
 {
@@ -68,3 +68,4 @@ public class TenantHeadersOperationFilter : IDocumentFilter
         }
     }
 }
+

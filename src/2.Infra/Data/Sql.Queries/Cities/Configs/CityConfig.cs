@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Cities.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Configs;
 
 public sealed class CityConfig : IEntityTypeConfiguration<City>
 {

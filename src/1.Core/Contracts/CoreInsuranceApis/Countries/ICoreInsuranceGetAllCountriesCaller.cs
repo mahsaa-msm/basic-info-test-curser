@@ -1,10 +1,11 @@
-﻿using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Country.GetAll;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Common;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Country.GetAll;
 
-namespace Master.Data.Core.Contracts.CoreInsuranceApis.Countries;
+namespace Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Countries;
 
 public interface ICoreInsuranceGetAllCountriesCaller
 {
     Task<Response<BaseCoreInsuranceResponse<GetAllCountriesResponse>>> Call(GetAllCountriesRequest request);
 }
+

@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Commands;
-using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.AgreementObligations.Parameters;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.AgreementObligations.Commands.Create;
 
 public sealed class CreateAgreementObligationHandler : CommandHandler<CreateAgreementObligationCommand, long>
 {

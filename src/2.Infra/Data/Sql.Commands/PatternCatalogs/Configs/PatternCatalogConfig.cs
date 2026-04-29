@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Commands.PatternCatalogs.Conversions;
+﻿using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.PatternCatalogs.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.PatternCatalogs.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.PatternCatalogs.Configs;
 
 public sealed class PatternCatalogConfig : IEntityTypeConfiguration<PatternCatalog>
 {

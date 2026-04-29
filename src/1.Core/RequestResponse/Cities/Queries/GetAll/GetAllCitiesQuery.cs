@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAll;
 
 public sealed class GetAllCitiesQuery : IQuery<List<CitySelectItemQr>>, IWebRequest
 {
@@ -10,3 +10,4 @@ public sealed class GetAllCitiesQuery : IQuery<List<CitySelectItemQr>>, IWebRequ
 
     public string Path => "/Api/City/GetAllCities";
 }
+

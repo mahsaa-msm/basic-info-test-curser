@@ -1,15 +1,16 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
 
 public class TenantModelQueryCacheKeyFactory : IModelCacheKeyFactory
 {
     public object Create(Microsoft.EntityFrameworkCore.DbContext context, bool designTime)
     {
-        var masterDataQueryDbContext = context as MasterDataQueryDbContext;
+        var masterDataQueryDbContext = context as VehicleInsuranceQueryDbContext;
         return new TenantModelCacheKey(context.GetType(),
                                        masterDataQueryDbContext?.TenantId,
                                        masterDataQueryDbContext?.TenantKey);
     }
 }
+

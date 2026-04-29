@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
 using System.Text.RegularExpressions;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
 
 public sealed class RegexExpression : BaseValueObject<RegexExpression>
 {
@@ -46,3 +46,4 @@ public sealed class RegexExpression : BaseValueObject<RegexExpression>
 
     public static RegexExpression FromString(string value) => new(value);
 }
+

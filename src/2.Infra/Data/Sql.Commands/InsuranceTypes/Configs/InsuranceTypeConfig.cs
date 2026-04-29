@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.InsuranceTypes.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.InsuranceTypes.Configs;
 
 public sealed class InsuranceTypeConfig : IEntityTypeConfiguration<InsuranceType>
 {

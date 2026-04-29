@@ -1,22 +1,22 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.ParrotTranslations.Queries;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetById;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.ParrotTranslations.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 
-namespace Master.Data.Infra.Data.Sql.Queries.ParrotTranslations;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations;
 
-public sealed class ParrotTranslationQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>, IParrotTranslationQueryRepository
+public sealed class ParrotTranslationQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>, IParrotTranslationQueryRepository
 {
-    private readonly MasterDataOptions _masterDataOptions;
+    private readonly VehicleInsuranceOptions _masterDataOptions;
 
-    public ParrotTranslationQueryRepository(MasterDataQueryDbContext dbContext,
-                                            MasterDataOptions masterDataOptions)
+    public ParrotTranslationQueryRepository(VehicleInsuranceQueryDbContext dbContext,
+                                            VehicleInsuranceOptions masterDataOptions)
         : base(dbContext)
     {
         _masterDataOptions = masterDataOptions;
@@ -72,3 +72,4 @@ public sealed class ParrotTranslationQueryRepository : BaseQueryRepository<Maste
         return item;
     }
 }
+

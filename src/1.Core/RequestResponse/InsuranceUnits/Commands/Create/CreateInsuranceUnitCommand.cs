@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Domain.InsuranceUnits.Parameters;
-using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.InsuranceUnits.Parameters;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.ValueObjects;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.Create;
 
 public sealed class CreateInsuranceUnitCommand : ICommand<long>, IWebRequest
 {

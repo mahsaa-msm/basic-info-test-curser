@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Core.Domain.Common.Entities;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
+using Vehicle.Insurance.Core.Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Linq.Expressions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Interceptors;
 
 public class TenantQueryCommandDbInterceptor : IQueryExpressionInterceptor
 {
@@ -77,3 +77,4 @@ public class TenantQueryCommandDbInterceptor : IQueryExpressionInterceptor
                                lambda);
     }
 }
+

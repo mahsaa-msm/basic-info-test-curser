@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
 
 public sealed class ParrotTranslationQr
 {

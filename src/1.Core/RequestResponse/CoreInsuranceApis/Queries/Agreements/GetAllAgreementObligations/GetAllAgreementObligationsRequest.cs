@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
+namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
 
 public sealed class GetAllAgreementObligationsRequest : IWebRequest
 {
@@ -20,3 +20,4 @@ public sealed class GetAllAgreementObligationsRequest : IWebRequest
 
     public string Path => "/taahodatMovafeghatNameh/findByFilter";
 }
+

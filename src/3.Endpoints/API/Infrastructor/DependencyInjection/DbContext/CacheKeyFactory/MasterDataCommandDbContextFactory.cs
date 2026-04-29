@@ -1,21 +1,21 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.DbContext.CacheKeyFactory;
 
-public class MasterDataCommandDbContextFactory : IMasterDataCommandDbContextFactory
+public class VehicleInsuranceCommandDbContextFactory : IVehicleInsuranceCommandDbContextFactory
 {
-    private readonly IDbContextFactory<MasterDataCommandDbContext> _internalFactory;
+    private readonly IDbContextFactory<VehicleInsuranceCommandDbContext> _internalFactory;
     private readonly ITenantService _tenantService;
 
-    public MasterDataCommandDbContextFactory(IDbContextFactory<MasterDataCommandDbContext> internalFactory,
+    public VehicleInsuranceCommandDbContextFactory(IDbContextFactory<VehicleInsuranceCommandDbContext> internalFactory,
                                              ITenantService tenantService)
     {
         _internalFactory = internalFactory;
         _tenantService = tenantService;
     }
-    public MasterDataCommandDbContext CreateDbContext()
+    public VehicleInsuranceCommandDbContext CreateDbContext()
     {
         var context = _internalFactory.CreateDbContext();
         context.TenantId = _tenantService.GetCurrentTenantId();
@@ -23,3 +23,4 @@ public class MasterDataCommandDbContextFactory : IMasterDataCommandDbContextFact
         return context;
     }
 }
+

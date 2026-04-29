@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Provinces.Queries;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Queries.GetById;
 
 public sealed class GetProvinceByIdHandler : QueryHandler<GetProvinceByIdQuery, ProvinceQr>
 {
@@ -20,3 +20,4 @@ public sealed class GetProvinceByIdHandler : QueryHandler<GetProvinceByIdQuery, 
     public override async Task<QueryResult<ProvinceQr>> Handle(GetProvinceByIdQuery query)
         => Result(await _queryRepository.Execute(query));
 }
+

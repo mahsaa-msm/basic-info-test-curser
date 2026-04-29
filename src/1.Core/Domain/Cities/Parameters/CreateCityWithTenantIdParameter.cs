@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Cities.Parameters;
+namespace Vehicle.Insurance.Core.Domain.Cities.Parameters;
 
 public sealed record CreateCityWithTenantIdParameter(long TenantId,
                                                      DIPTitle Title,
@@ -11,3 +11,4 @@ public sealed record CreateCityWithTenantIdParameter(long TenantId,
                                                      Common.ValueObjects.Priority Priority,
                                                      CoreId ProvinceCoreId,
                                                      BusinessId? TenantKey);
+

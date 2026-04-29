@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.CoreInsuranceApis.Cities;
-using Master.Data.Core.RequestResponse.Common.Extensions;
-using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Cities;
+using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
+using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Infra.ExternalApi.CoreInsurance.Callers.Cities;
+namespace Vehicle.Insurance.Infra.ExternalApi.CoreInsurance.Callers.Cities;
 
 public sealed class CoreInsuranceGetAllCitiesCaller : ICoreInsuranceGetAllCitiesCaller, ITransientLifetime
 {
@@ -28,3 +28,4 @@ public sealed class CoreInsuranceGetAllCitiesCaller : ICoreInsuranceGetAllCities
         return await response.ToResultAsync<List<GetAllCitiesResponse>>();
     }
 }
+

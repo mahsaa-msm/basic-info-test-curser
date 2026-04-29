@@ -1,9 +1,9 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
-using Master.Data.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.Common.Options;
 using Microsoft.Extensions.Options;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public class ApiKeyClientInterceptor : Interceptor
 {

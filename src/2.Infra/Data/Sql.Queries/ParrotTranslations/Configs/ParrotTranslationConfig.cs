@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations.Configs;
 
 public sealed class ParrotTranslationConfig : IEntityTypeConfiguration<ParrotTranslation>
 {
@@ -11,3 +11,4 @@ public sealed class ParrotTranslationConfig : IEntityTypeConfiguration<ParrotTra
         builder.HasKey(k => k.Id);
     }
 }
+

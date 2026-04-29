@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Cities.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Cities.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Cities.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Update;
 
 public sealed class UpdateCityCommand : ICommand, IWebRequest
 {
@@ -21,3 +21,4 @@ public sealed class UpdateCityCommand : ICommand, IWebRequest
 
     public string Path => "/Api/City/UpdateCity";
 }
+

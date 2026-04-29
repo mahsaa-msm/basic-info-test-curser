@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.ServiceFeatures.Parameters;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.ServiceFeatures.Parameters;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 
 public sealed class UpsertServiceFeatureCommand : ICommand, IWebRequest
 {
@@ -20,3 +20,4 @@ public sealed class UpsertServiceFeatureCommand : ICommand, IWebRequest
     public CreateServiceFeatureWithTenantIdParameter ToParemeter(long tenantId) => new CreateServiceFeatureWithTenantIdParameter(tenantId, IsIssuable, CanViewHistory, InsuranceTypeCoreId, Description, Key);
 
 }
+

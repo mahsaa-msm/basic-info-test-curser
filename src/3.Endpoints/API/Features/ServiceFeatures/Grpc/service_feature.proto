@@ -1,6 +1,6 @@
-syntax = "proto3";
+﻿syntax = "proto3";
 
-option csharp_namespace = "Master.Data.Endpoints.API.Features.ServiceFeatures.Grpc";
+option csharp_namespace = "Vehicle.Insurance.Endpoints.API.Features.ServiceFeatures.Grpc";
 
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";

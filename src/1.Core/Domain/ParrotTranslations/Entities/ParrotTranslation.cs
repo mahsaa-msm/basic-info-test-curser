@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.ParrotTranslations.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.ParrotTranslations.Parameters;
 
-namespace Master.Data.Core.Domain.ParrotTranslations.Entities;
+namespace Vehicle.Insurance.Core.Domain.ParrotTranslations.Entities;
 
 public sealed class ParrotTranslation : BaseTenantEntity
 {
@@ -34,3 +34,4 @@ public sealed class ParrotTranslation : BaseTenantEntity
     }
     #endregion
 }
+

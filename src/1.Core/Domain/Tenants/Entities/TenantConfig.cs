@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Tenants.Entities.Settings;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities.Settings;
+using Vehicle.Insurance.Core.Resources;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
 using Zamin.Core.Domain.Entities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.Tenants.Entities;
+namespace Vehicle.Insurance.Core.Domain.Tenants.Entities;
 
 public sealed class TenantConfig : Entity
 {
@@ -81,3 +81,4 @@ public sealed class TenantConfig : Entity
     private void Modified() => LastModifiedDateUtc = DateTime.UtcNow;
     #endregion
 }
+

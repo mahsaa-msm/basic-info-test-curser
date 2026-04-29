@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.RequestResponse.Common.Queries;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Queries;
 using Microsoft.EntityFrameworkCore;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Extensions;
 
 public static class ChartDataExtensions
 {

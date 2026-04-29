@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.InsuranceUnits.Queries;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceUnits.Queries;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceUnits.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceUnits.Queries.GetById;
 
 public sealed class GetInsuranceUnitByIdHandler : QueryHandler<GetInsuranceUnitByIdQuery, InsuranceUnitQr>
 {
@@ -20,3 +20,4 @@ public sealed class GetInsuranceUnitByIdHandler : QueryHandler<GetInsuranceUnitB
     public override async Task<QueryResult<InsuranceUnitQr>> Handle(GetInsuranceUnitByIdQuery query)
         => Result(await _insuranceUnitQueryRepository.Execute(query));
 }
+

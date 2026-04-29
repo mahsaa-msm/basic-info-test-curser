@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
+namespace Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 
 public sealed class UpsertPatternCatalogValidator : AbstractValidator<UpsertPatternCatalogCommand>
 {
@@ -47,3 +47,4 @@ public sealed class UpsertPatternCatalogValidator : AbstractValidator<UpsertPatt
         #endregion
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Master.Data.Core.Resources.Utils.Extensions;
+namespace Vehicle.Insurance.Core.Resources.Utils.Extensions;
 
 public static class EnumExtensions
 {
@@ -12,3 +12,4 @@ public static class EnumExtensions
         return attribute == null ? value.ToString() : attribute.Description;
     }
 }
+

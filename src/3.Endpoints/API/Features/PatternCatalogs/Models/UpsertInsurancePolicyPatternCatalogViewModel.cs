@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
-using Master.Data.Endpoints.API.Features.PatternCatalogs.Utils;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
+using Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Utils;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Endpoints.API.Features.PatternCatalogs.Models;
+namespace Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Models;
 
 public sealed class UpsertInsurancePolicyPatternCatalogViewModel
 {
@@ -23,3 +23,4 @@ public sealed class UpsertInsurancePolicyPatternCatalogViewModel
 
 
 }
+

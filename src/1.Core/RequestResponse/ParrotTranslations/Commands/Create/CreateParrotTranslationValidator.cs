@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Create;
 
 public sealed class CreateParrotTranslationValidator : AbstractValidator<CreateParrotTranslationCommand>
 {
@@ -38,3 +38,4 @@ public sealed class CreateParrotTranslationValidator : AbstractValidator<CreateP
             ProjectConsts.TRANSLATION_CULTURE_LENGTH.ToString()));
     }
 }
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAll;
 
 public sealed class CitySelectItemQr
 {
@@ -6,3 +6,4 @@ public sealed class CitySelectItemQr
     public string CoreId { get; set; } = string.Empty;
     public string ProvinceCoreId { get; set; } = string.Empty;
 }
+

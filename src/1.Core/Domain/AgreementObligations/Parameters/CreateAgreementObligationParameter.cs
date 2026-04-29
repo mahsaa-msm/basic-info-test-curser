@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.AgreementObligations.Parameters;
+namespace Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
 
 public sealed record CreateAgreementObligationParameter(DIPTitle Title,
                                                         NullableTitle DisplayTitle,
@@ -22,3 +22,4 @@ public sealed record CreateAgreementObligationParameter(DIPTitle Title,
                                                         Common.ValueObjects.Priority Priority,
                                                         long? TenantId = null,
                                                         BusinessId? TenantKey = null);
+

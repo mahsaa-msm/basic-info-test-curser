@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Tenants.Parameters;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Core.Domain.Tenants.Parameters;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.Tenants.Entities.Settings;
+namespace Vehicle.Insurance.Core.Domain.Tenants.Entities.Settings;
 
 public sealed class SsoSettings : TenantConfigSettings
 {
@@ -27,3 +27,4 @@ public sealed class SsoSettings : TenantConfigSettings
     public static SsoSettings Create(CreateSsoSettingsParameters parameters)
         => new(parameters);
 }
+

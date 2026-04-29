@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.ServiceFeatures.Queries;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.ServiceFeatures.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ServiceFeatures.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.ServiceFeatures.Queries.GetById;
 
 public sealed class GetServiceFeatureByIdHandler : QueryHandler<GetServiceFeatureByIdQuery, ServiceFeatureQr?>
 {

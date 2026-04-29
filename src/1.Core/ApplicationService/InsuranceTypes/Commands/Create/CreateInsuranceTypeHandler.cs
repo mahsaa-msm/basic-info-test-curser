@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.InsuranceTypes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.InsuranceTypes.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceTypes.Commands.Create;
 
 public class CreateInsuranceTypeHandler : CommandHandler<CreateInsuranceTypeCommand, long>
 {

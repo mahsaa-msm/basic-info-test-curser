@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Provinces.Queries;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAll;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Queries.GetAll;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Queries.GetAll;
 
 public class GetAllProvincesHandler : QueryHandler<GetAllProvincesQuery, List<ProvinceSelectItemQr>>
 {
@@ -20,3 +20,4 @@ public class GetAllProvincesHandler : QueryHandler<GetAllProvincesQuery, List<Pr
     public override async Task<QueryResult<List<ProvinceSelectItemQr>>> Handle(GetAllProvincesQuery query)
         => Result(await _provinceQueryRepository.Execute(query));
 }
+

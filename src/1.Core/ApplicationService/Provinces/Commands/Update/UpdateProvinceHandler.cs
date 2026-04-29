@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.Provinces.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Commands.Update;
 
 public class UpdateProvinceHandler : CommandHandler<UpdateProvinceCommand>
 {
@@ -80,3 +80,4 @@ public class UpdateProvinceHandler : CommandHandler<UpdateProvinceCommand>
     }
     #endregion
 }
+

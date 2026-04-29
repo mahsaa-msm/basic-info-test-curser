@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Tenants.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Tenants.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Tenants.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Tenants.Configs;
 
 public sealed class TenantConfig : IEntityTypeConfiguration<Tenant>
 {

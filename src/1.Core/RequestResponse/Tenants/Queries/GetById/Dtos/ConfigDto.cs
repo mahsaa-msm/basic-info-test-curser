@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
 
 public class ConfigDto
 {
@@ -8,3 +8,4 @@ public class ConfigDto
     public ConfigType Type { get; set; }
     public DateTime LastModifiedDateUtc { get; set; }
 }
+

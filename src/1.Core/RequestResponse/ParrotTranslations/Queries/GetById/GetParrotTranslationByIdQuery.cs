@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+﻿using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
 using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetById;
 
 public sealed class GetParrotTranslationByIdQuery : IQuery<ParrotTranslationItemQr?>, IWebRequest
 {

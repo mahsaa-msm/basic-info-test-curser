@@ -1,7 +1,7 @@
-﻿using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using System.Security.Claims;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
 
 public static class ClaimsPrincipalExtentions
 {
@@ -70,3 +70,4 @@ public static class ClaimsPrincipalExtentions
     private static List<Claim> GetNotExist(this List<Claim> current, List<Claim> target)
         => [.. target.Where(claim => !current.Any(currentClaim => currentClaim.Type.Equals(claim.Type) && currentClaim.Value.Equals(claim.Value)))];
 }
+

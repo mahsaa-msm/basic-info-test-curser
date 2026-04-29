@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.IssuanceSchemes.Commands;
+namespace Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
 public interface IIssuanceSchemeCommandRepository : ICommandRepository<IssuanceScheme, long>
 {
     Task<IssuanceScheme?> GetByCoreIdIgnoreQueryFiltersAsync(CoreId coreId);

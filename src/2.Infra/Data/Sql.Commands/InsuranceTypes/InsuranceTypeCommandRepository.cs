@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.InsuranceTypes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceTypes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.InsuranceTypes;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.InsuranceTypes;
 
-public sealed class InsuranceTypeCommandRepository : BaseCommandRepository<InsuranceType, MasterDataCommandDbContext, long>,
+public sealed class InsuranceTypeCommandRepository : BaseCommandRepository<InsuranceType, VehicleInsuranceCommandDbContext, long>,
     IInsuranceTypeCommandRepository
 {
-    public InsuranceTypeCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
+    public InsuranceTypeCommandRepository(VehicleInsuranceCommandDbContext dbContext) : base(dbContext)
     {
     }
 

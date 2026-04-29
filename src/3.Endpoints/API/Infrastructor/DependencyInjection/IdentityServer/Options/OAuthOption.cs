@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 
 public class OAuthOption
 {
@@ -23,3 +23,4 @@ public class OAuthOption
     public AuthorizationConfigs AuthorizationConfigs { get; set; }
     public FakeAuthOption FakeAuthOption { get; set; }
 }
+

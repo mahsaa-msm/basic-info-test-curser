@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Parameters;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.IssuanceSchemes.Entities;
+namespace Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
 public sealed class IssuanceScheme : BaseTenantEntity
 {
     #region Properties
@@ -126,3 +126,4 @@ public sealed class IssuanceScheme : BaseTenantEntity
     }
     #endregion
 }
+

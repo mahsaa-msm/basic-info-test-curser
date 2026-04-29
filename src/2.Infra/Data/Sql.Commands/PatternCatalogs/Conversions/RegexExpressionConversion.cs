@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Master.Data.Infra.Data.Sql.Commands.PatternCatalogs.Conversions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.PatternCatalogs.Conversions;
 
 public sealed class RegexExpressionConversion : ValueConverter<RegexExpression, string>
 {

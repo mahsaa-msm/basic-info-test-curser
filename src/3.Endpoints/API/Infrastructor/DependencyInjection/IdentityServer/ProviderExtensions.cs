@@ -1,12 +1,12 @@
 ﻿using IdentityModel.Client;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Models;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Models;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Newtonsoft.Json;
 using System.Dynamic;
 using System.Security.Claims;
 using Zamin.Extensions.Caching.Abstractions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer;
 
 public static class ProviderExtensions
 {

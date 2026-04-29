@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
 
 public sealed class GetAllCitiesPagedFilterQuery : PageQuery<PagedData<CityListItemQr>>, IWebRequest
 {

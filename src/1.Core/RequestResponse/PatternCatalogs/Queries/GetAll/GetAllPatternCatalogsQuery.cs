@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+﻿using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
 using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
 
 public sealed class GetAllPatternCatalogsQuery : IQuery<List<PatternCatalogQr>>, IWebRequest
 {

@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Resources;
-using Master.Data.Endpoints.API.Features.ServiceFeatures.Grpc;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
+﻿using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.API.Features.ServiceFeatures.Grpc;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc;
 
 public static class GrpcServiceExtensions
 {

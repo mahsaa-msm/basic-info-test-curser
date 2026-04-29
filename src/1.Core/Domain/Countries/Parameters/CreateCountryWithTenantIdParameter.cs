@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Countries.Parameters;
+namespace Vehicle.Insurance.Core.Domain.Countries.Parameters;
 
 public sealed record CreateCountryWithTenantIdParameter(long TenantId,
                                                         DIPTitle Title,

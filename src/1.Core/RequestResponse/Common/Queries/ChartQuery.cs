@@ -1,6 +1,6 @@
 ﻿using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.Common.Queries;
+namespace Vehicle.Insurance.Core.RequestResponse.Common.Queries;
 
 public abstract class ChartQuery<TXValue, TYValue, TMetaData> : IQuery<ChartNormalizedData<TXValue, TYValue, TMetaData>>
     where TXValue : notnull

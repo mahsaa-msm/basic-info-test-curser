@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Tenants.Queries;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Tenants.Queries;
+namespace Vehicle.Insurance.Core.ApplicationService.Tenants.Queries;
 
 public sealed class GetTenantByIdHandler : QueryHandler<GetTenantByIdQuery, TenantGraphQr?>
 {
@@ -20,3 +20,4 @@ public sealed class GetTenantByIdHandler : QueryHandler<GetTenantByIdQuery, Tena
     public override async Task<QueryResult<TenantGraphQr?>> Handle(GetTenantByIdQuery query)
         => await ResultAsync(await _tenantQueryRepository.Execute(query));
 }
+

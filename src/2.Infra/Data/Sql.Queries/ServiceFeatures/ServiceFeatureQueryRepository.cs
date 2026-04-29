@@ -1,23 +1,23 @@
-﻿using Master.Data.Core.Contracts.ServiceFeatures.Queries;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
-using Master.Data.Core.Resources;
-using Master.Data.Core.Resources.Utils.Extensions;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.ServiceFeatures.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Core.Resources.Utils.Extensions;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.ServiceFeatures;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.ServiceFeatures;
 
-public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IServiceFeatureQueryRepository
 {
-    public ServiceFeatureQueryRepository(MasterDataQueryDbContext dbContext)
+    public ServiceFeatureQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -119,3 +119,4 @@ public sealed class ServiceFeatureQueryRepository : BaseQueryRepository<MasterDa
                  .ToList(),
              }).FirstOrDefaultAsync();
 }
+

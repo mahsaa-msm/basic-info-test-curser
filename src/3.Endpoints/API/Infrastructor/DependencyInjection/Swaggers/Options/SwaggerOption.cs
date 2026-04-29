@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Options;
+﻿namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Options;
 
 public class SwaggerOption
 {
@@ -22,3 +22,4 @@ public class SwaggerOAuthOption
     public string TokenUrl { get; set; } = string.Empty;
     public Dictionary<string, string> Scopes { get; set; } = new();
 }
+

@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetById;
 
 public sealed class InsuranceUnitQr
 {
@@ -20,3 +20,4 @@ public sealed class InsuranceUnitQr
     public bool IsEditable { get; set; }
     public long Priority { get; set; }
 }
+

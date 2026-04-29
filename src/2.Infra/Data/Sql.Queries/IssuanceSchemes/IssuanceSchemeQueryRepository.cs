@@ -1,21 +1,21 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Queries;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAll;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Queries;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Extensions.Translations.Abstractions;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes;
-public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes;
+public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IIssuanceSchemeQueryRepository
 {
     private readonly ITranslator _translator;
 
-    public IssuanceSchemeQueryRepository(MasterDataQueryDbContext dbContext, ITranslator translator)
+    public IssuanceSchemeQueryRepository(VehicleInsuranceQueryDbContext dbContext, ITranslator translator)
         : base(dbContext)
     {
         _translator = translator;
@@ -118,3 +118,4 @@ public sealed class IssuanceSchemeQueryRepository : BaseQueryRepository<MasterDa
         });
     }
 }
+

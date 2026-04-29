@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Create;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Fetch;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Update;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAll;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.AgreementObligations;
+namespace Vehicle.Insurance.Endpoints.API.Features.AgreementObligations;
 
 [Route("api/[controller]")]
 [Tags("AgreementObligation - (تعهدات موافقت نامه)")]
@@ -52,3 +52,4 @@ public sealed class AgreementObligationController : BaseController
 
     #endregion
 }
+

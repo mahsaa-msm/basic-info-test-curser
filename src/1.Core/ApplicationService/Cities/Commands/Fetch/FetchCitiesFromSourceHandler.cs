@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.ApplicationService.Common.FinglishConverterService;
-using Master.Data.Core.Contracts.Cities.Commands;
-using Master.Data.Core.Contracts.CoreInsuranceApis.Cities;
-using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Cities.Parameters;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.RequestResponse.Cities.Commands.Fetch;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
+using Vehicle.Insurance.Core.Contracts.Cities.Commands;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Cities;
+using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Cities.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.City.GetAll;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Cities.Commands.Fetch;
+namespace Vehicle.Insurance.Core.ApplicationService.Cities.Commands.Fetch;
 
 public sealed class FetchCitiesFromSourceHandler : CommandHandler<FetchCitiesFromSourceCommand>
 {

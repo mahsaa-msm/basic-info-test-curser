@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Configs;
 
 public sealed class PatternCatalogConfig : IEntityTypeConfiguration<PatternCatalog>
 {

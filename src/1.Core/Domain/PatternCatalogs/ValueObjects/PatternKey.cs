@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
 using System.Text.RegularExpressions;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
 
 public sealed class PatternKey : BaseValueObject<PatternKey>
 {
@@ -38,3 +38,4 @@ public sealed class PatternKey : BaseValueObject<PatternKey>
     public override string ToString() => Value;
     public static PatternKey FromString(string value) => new(value);
 }
+

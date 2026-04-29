@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Create;
 
 public sealed class CreateParrotTranslationCommand : ICommand, IWebRequest
 {

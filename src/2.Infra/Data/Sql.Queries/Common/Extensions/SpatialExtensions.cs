@@ -1,6 +1,6 @@
 ﻿using NetTopologySuite.Geometries;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Common.Extensions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Extensions;
 
 public static class SpatialExtensions
 {

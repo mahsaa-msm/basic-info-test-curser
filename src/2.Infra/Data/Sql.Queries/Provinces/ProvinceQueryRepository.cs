@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.Contracts.Provinces.Queries;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Provinces;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces;
 
-public sealed class ProvinceQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class ProvinceQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IProvinceQueryRepository
 {
-    public ProvinceQueryRepository(MasterDataQueryDbContext dbContext)
+    public ProvinceQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }

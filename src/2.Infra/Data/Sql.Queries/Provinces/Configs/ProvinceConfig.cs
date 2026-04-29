@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Provinces.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Configs;
 
 public sealed class ProvinceConfig : IEntityTypeConfiguration<Province>
 {

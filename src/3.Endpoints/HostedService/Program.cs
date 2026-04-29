@@ -1,4 +1,4 @@
-using Master.Data.Endpoints.HostedService.Infrastructures.Extensions;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Utilities.SerilogRegistration.Extensions;
 
@@ -19,3 +19,4 @@ SerilogExtensions.RunWithSerilogExceptionHandling(() =>
     .ConfigurePipeline()
     .Run();
 });
+

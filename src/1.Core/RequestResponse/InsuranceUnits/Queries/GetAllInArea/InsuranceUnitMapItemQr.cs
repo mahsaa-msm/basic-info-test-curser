@@ -1,7 +1,7 @@
 ﻿using Zamin.Utilities.Extensions;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 
 public sealed class InsuranceUnitMapItemQr
 {
@@ -16,3 +16,4 @@ public sealed class InsuranceUnitMapItemQr
     public string CityCoreId { get; set; } = string.Empty;
     public string CityTitle { get; set; } = string.Empty;
 }
+

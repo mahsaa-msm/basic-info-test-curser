@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Provinces.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Update;
 
 public sealed class UpdateProvinceValidator : AbstractValidator<UpdateProvinceCommand>
 {
@@ -80,3 +80,4 @@ public sealed class UpdateProvinceValidator : AbstractValidator<UpdateProvinceCo
         #endregion
     }
 }
+

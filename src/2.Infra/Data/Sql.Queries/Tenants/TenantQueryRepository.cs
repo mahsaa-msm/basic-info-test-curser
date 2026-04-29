@@ -1,23 +1,23 @@
-﻿using Master.Data.Core.Contracts.Tenants.Queries;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
-using Master.Data.Infra.Data.Sql.Queries.Common;
-using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities.Settings;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetPagedFilter;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities.Settings;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Tenants;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants;
 
-public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>, ITenantQueryRepository
+public sealed class TenantQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>, ITenantQueryRepository
 {
-    public TenantQueryRepository(MasterDataQueryDbContext dbContext)
+    public TenantQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -154,3 +154,4 @@ public sealed class TenantQueryRepository : BaseQueryRepository<MasterDataQueryD
             })
             .ToListAsync();
 }
+

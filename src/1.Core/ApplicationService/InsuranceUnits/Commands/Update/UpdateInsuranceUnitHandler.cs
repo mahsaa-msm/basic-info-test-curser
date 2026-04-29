@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.InsuranceUnits.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceUnits.Entities;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.InsuranceUnits.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.Entities;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.InsuranceUnits.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.InsuranceUnits.Commands.Update;
 
 public sealed class UpdateInsuranceUnitHandler : CommandHandler<UpdateInsuranceUnitCommand>
 {
@@ -90,3 +90,4 @@ public sealed class UpdateInsuranceUnitHandler : CommandHandler<UpdateInsuranceU
     }
     #endregion
 }
+

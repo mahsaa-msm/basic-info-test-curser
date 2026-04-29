@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.Extensions.Options;
 using Polly;
 using Polly.Timeout;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient.Policies;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.HttpClient.Policies;
 
 public class TimeoutPolicies
 {
@@ -26,3 +26,4 @@ public class TimeoutPolicies
             });
     }
 }
+

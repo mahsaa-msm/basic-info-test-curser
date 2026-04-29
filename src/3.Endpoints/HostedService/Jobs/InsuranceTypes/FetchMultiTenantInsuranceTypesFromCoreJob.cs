@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Fetch;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using Microsoft.Extensions.Options;
 
-namespace Master.Data.Endpoints.HostedService.Jobs.InsuranceTypes;
+namespace Vehicle.Insurance.Endpoints.HostedService.Jobs.InsuranceTypes;
 
 public sealed class FetchMultiTenantInsuranceTypesFromCoreJob :
     BaseBackgroundJob<FetchMultiTenantInsuranceTypesFromSourceCommand, FetchMultiTenantInsuranceTypesFromCoreJob>
@@ -15,3 +15,4 @@ public sealed class FetchMultiTenantInsuranceTypesFromCoreJob :
     {
     }
 }
+

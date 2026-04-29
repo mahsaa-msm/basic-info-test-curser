@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
 public sealed class GrpcServerCallContextAccessor : IGrpcServerCallContextAccessor
 {

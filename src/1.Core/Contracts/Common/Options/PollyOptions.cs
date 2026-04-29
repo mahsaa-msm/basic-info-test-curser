@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Contracts.Common.Options;
+﻿namespace Vehicle.Insurance.Core.Contracts.Common.Options;
 
 public sealed class PollyOptions
 {
@@ -57,3 +57,4 @@ public sealed class TimeoutPolicyOptions
     /// </summary>
     public string Strategy { get; set; } = "Pessimistic";
 }
+

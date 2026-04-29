@@ -1,6 +1,6 @@
 ﻿using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Services.GetAccessList;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Services.GetAccessList;
 
 public interface IGetAccessListService : ITransientLifetime
 {
@@ -26,3 +26,4 @@ public enum GetAccessListServiceExceptionType
 {
     GetTokenFaild
 }
+

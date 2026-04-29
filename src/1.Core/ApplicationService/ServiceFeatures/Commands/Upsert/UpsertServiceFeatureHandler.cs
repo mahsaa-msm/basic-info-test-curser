@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.ServiceFeatures.Commands;
-using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
+﻿using Vehicle.Insurance.Core.Contracts.ServiceFeatures.Commands;
+using Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ServiceFeatures.Commands.Upsert;
+namespace Vehicle.Insurance.Core.ApplicationService.ServiceFeatures.Commands.Upsert;
 
 public sealed class UpsertServiceFeatureHandler : CommandHandler<UpsertServiceFeatureCommand>
 {
@@ -58,6 +58,7 @@ public sealed class UpsertServiceFeatureHandler : CommandHandler<UpsertServiceFe
     }
     #endregion
 }
+
 
 
 

@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Provinces.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Delete;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Delete;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Provinces.Commands.Delete;
+namespace Vehicle.Insurance.Core.ApplicationService.Provinces.Commands.Delete;
 
 public class DeleteProvinceHandler : CommandHandler<DeleteProvinceCommand>
 {

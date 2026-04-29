@@ -1,8 +1,8 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
 
 public sealed class GetAllInsuranceUnitsPagedFilterQuery : PageQuery<PagedData<InsuranceUnitListItemQr>>, IWebRequest
 {

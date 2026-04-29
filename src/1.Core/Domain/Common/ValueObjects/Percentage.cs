@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.Common.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 
 public sealed class Percentage : BaseValueObject<Percentage>
 {
@@ -91,3 +91,4 @@ public sealed class Percentage : BaseValueObject<Percentage>
 
     public static implicit operator Percentage(double value) => new(value);
 }
+

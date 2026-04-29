@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Common;
 
 public sealed class CoreInsuranceValidation
 {
@@ -7,3 +7,4 @@ public sealed class CoreInsuranceValidation
     public bool warning { get; set; }
     public List<string> parameters { get; set; } = new();
 }
+

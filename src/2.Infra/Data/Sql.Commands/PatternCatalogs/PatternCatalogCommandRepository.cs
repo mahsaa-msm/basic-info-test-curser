@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 
-namespace Master.Data.Infra.Data.Sql.Commands.PatternCatalogs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.PatternCatalogs;
 
-public sealed class PatternCatalogCommandRepository : BaseCommandRepository<PatternCatalog, MasterDataCommandDbContext, long>,
+public sealed class PatternCatalogCommandRepository : BaseCommandRepository<PatternCatalog, VehicleInsuranceCommandDbContext, long>,
     IPatternCatalogCommandRepository
 {
-    public PatternCatalogCommandRepository(MasterDataCommandDbContext dbContext)
+    public PatternCatalogCommandRepository(VehicleInsuranceCommandDbContext dbContext)
     : base(dbContext)
     {
     }

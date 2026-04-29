@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetById;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
+﻿using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
 using Zamin.Core.Contracts.Data.Queries;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.Contracts.ParrotTranslations.Queries;
+namespace Vehicle.Insurance.Core.Contracts.ParrotTranslations.Queries;
 
 public interface IParrotTranslationQueryRepository : IQueryRepository
 {
@@ -15,3 +15,4 @@ public interface IParrotTranslationQueryRepository : IQueryRepository
 
     public Task<ParrotTranslationQr> ExecuteAsync(GetAllParrotTranslationQuery query);
 }
+

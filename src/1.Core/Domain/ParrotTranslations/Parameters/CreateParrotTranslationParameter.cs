@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Domain.ParrotTranslations.Parameters;
+﻿namespace Vehicle.Insurance.Core.Domain.ParrotTranslations.Parameters;
 
 public sealed record CreateParrotTranslationParameter(string Key,
                                                       string Value,

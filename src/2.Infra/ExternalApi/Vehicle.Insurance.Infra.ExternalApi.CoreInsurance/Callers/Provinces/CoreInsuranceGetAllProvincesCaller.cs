@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.CoreInsuranceApis.Provinces;
-using Master.Data.Core.RequestResponse.Common.Extensions;
-using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Province.GetAll;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Provinces;
+using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
+using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Province.GetAll;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Infra.ExternalApi.CoreInsurance.Callers.Provinces;
+namespace Vehicle.Insurance.Infra.ExternalApi.CoreInsurance.Callers.Provinces;
 
 public sealed class CoreInsuranceGetAllProvincesCaller : ICoreInsuranceGetAllProvincesCaller, ITransientLifetime
 {
@@ -28,3 +28,4 @@ public sealed class CoreInsuranceGetAllProvincesCaller : ICoreInsuranceGetAllPro
         return await response.ToResultAsync<List<GetAllProvincesResponse>>();
     }
 }
+

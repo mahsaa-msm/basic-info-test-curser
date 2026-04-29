@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Create;
 
 public sealed class CreateIssuanceSchemeValidator : AbstractValidator<CreateIssuanceSchemeCommand>
 {

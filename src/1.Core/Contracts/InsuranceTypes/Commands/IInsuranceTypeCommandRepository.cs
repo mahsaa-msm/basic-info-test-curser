@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Entities;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.InsuranceTypes.Commands;
+namespace Vehicle.Insurance.Core.Contracts.InsuranceTypes.Commands;
 
 public interface IInsuranceTypeCommandRepository : ICommandRepository<InsuranceType, long>
 {

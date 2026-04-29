@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.PatternCatalogs.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.PatternCatalogs.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
+namespace Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 
 public sealed class UpsertPatternCatalogCommand : ICommand<long?>, IWebRequest
 {
@@ -27,3 +27,4 @@ public sealed class UpsertPatternCatalogCommand : ICommand<long?>, IWebRequest
 
     public string Path => "/Api/PatternCatalog/UpsertPatternCatalog";
 }
+

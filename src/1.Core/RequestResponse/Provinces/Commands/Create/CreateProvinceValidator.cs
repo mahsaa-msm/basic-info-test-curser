@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Provinces.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Create;
 
 public sealed class CreateProvinceValidator : AbstractValidator<CreateProvinceCommand>
 {

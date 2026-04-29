@@ -1,9 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
 
-namespace Master.Data.Core.Contracts.CoreSsoApis.Queries;
+namespace Vehicle.Insurance.Core.Contracts.CoreSsoApis.Queries;
 
 public interface ICoreSsoGetTokenCaller
 {
     Task<Response<CoreSsoGetTokenResponse>> Call(CoreSsoGetTokenRequest request);
 }
+

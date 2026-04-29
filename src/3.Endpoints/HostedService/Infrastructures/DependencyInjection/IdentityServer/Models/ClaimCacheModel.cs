@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Models;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Models;
 
 public class ClaimCacheModel
 {
@@ -27,3 +27,4 @@ public class ClaimCacheModel
 
     public Claim ToClaim() => new(Type, Value, ValueType, Issuer, OriginalIssuer, Subject);
 }
+

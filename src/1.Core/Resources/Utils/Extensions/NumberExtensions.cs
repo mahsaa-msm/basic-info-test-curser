@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Resources.Utils.Extensions;
+﻿namespace Vehicle.Insurance.Core.Resources.Utils.Extensions;
 
 public static class NumberExtensions
 {
@@ -42,3 +42,4 @@ public static class NumberExtensions
         }
     }
 }
+

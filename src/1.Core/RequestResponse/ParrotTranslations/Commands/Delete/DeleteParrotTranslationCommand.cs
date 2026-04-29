@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Delete;
+namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Delete;
 
 public sealed class DeleteParrotTranslationCommand : ICommand, IWebRequest
 {
@@ -11,3 +11,4 @@ public sealed class DeleteParrotTranslationCommand : ICommand, IWebRequest
     public string Path => $"/api/{NamePath}";
 
 }
+

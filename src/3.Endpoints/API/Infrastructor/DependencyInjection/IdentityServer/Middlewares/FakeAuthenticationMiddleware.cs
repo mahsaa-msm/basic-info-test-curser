@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Resources;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using System.Security.Claims;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Middlewares;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Middlewares;
 
 public class FakeAuthenticationMiddleware
 {

@@ -1,9 +1,10 @@
-﻿using Master.Data.Core.RequestResponse.Common.Requests;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
 
-namespace Master.Data.Core.Contracts.CoreInsuranceApis.Agreements;
+namespace Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Agreements;
 
 public interface ICoreInsuranceGetAllAgreementObligationsCaller
 {
     Task<Response<List<GetAllAgreementObligationsResponse>>> Call(GetAllAgreementObligationsRequest request);
 }
+

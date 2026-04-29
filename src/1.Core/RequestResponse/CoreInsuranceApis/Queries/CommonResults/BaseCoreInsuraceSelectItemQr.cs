@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.CommonResults;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.CommonResults;
 
 public class BaseCoreInsuraceSelectItemQr
 {
@@ -6,3 +6,4 @@ public class BaseCoreInsuraceSelectItemQr
     public string title { get; set; } = string.Empty;
     public string? centInsurCode { get; set; }
 }
+

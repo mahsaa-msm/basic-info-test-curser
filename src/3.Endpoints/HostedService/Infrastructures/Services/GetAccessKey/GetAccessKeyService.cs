@@ -1,7 +1,7 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.GetAccessList;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.GetAccessList;
 using Zamin.Extensions.Caching.Abstractions;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.GetAccessKey;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.GetAccessKey;
 
 public class GetAccessKeyService : IGetAccessKeyService
 {

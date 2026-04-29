@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Cities.Commands;
-using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.RequestResponse.Cities.Commands.Delete;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Cities.Commands;
+using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Delete;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Cities.Commands.Delete;
+namespace Vehicle.Insurance.Core.ApplicationService.Cities.Commands.Delete;
 
 public class DeleteCityHandler : CommandHandler<DeleteCityCommand>
 {

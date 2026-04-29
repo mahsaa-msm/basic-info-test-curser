@@ -1,8 +1,8 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
 
 public sealed class GetAllInsuranceUnitsInAreaQuery : IQuery<List<InsuranceUnitMapItemQr>>, IWebRequest
 {
@@ -30,3 +30,4 @@ public sealed class GetAllInsuranceUnitsInAreaQuery : IQuery<List<InsuranceUnitM
             Math.Abs(MaxLongitude - MinLongitude) < 10.0;
     }
 }
+

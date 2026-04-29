@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 
-namespace Master.Data.Core.Resources;
+namespace Vehicle.Insurance.Core.Resources;
 
 public enum ServiceFeatureCategory : long
 {

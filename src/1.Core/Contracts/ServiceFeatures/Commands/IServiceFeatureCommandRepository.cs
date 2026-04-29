@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.ServiceFeatures.Commands;
+namespace Vehicle.Insurance.Core.Contracts.ServiceFeatures.Commands;
 
 public interface IServiceFeatureCommandRepository : ICommandRepository<ServiceFeature, long>
 {

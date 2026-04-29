@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.ParrotTranslations.Queries;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.ParrotTranslations.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ParrotTranslations.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.ParrotTranslations.Queries.GetById;
 
 public sealed class GetParrotTranslationByIdHandler : QueryHandler<GetParrotTranslationByIdQuery, ParrotTranslationItemQr?>
 {

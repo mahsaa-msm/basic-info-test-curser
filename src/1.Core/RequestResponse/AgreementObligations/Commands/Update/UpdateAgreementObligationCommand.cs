@@ -1,8 +1,8 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.AgreementObligations.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Update;
 
 public sealed class UpdateAgreementObligationCommand : ICommand, IWebRequest
 {
@@ -26,3 +26,4 @@ public sealed class UpdateAgreementObligationCommand : ICommand, IWebRequest
 
     public string Path => "/Api/AgreementObligation/UpdateAgreementObligation";
 }
+

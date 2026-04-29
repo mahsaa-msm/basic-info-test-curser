@@ -1,12 +1,12 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
-using Master.Data.Infra.Data.Sql.Commands.Common;
-using Master.Data.Infra.Data.Sql.Commands.Common.Interceptors;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Interceptors;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Zamin.Infra.Data.Sql.Commands.Interceptors;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext;
 
 public static class DbContextExtensions
 {
@@ -19,7 +19,7 @@ public static class DbContextExtensions
         //services.AddTransient<TenantQueryQueryDbIntrerceptor>();
 
         //CommandDbContext
-        services.AddDbContextFactory<MasterDataCommandDbContext>(options =>
+        services.AddDbContextFactory<VehicleInsuranceCommandDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"),
                                  x => x.UseNetTopologySuite())
@@ -30,16 +30,16 @@ public static class DbContextExtensions
             options.ReplaceService<IModelCacheKeyFactory, TenantModelCommandCacheKeyFactory>();
         });
 
-        services.AddScoped<IMasterDataCommandDbContextFactory, MasterDataCommandDbContextFactory>();
+        services.AddScoped<IVehicleInsuranceCommandDbContextFactory, VehicleInsuranceCommandDbContextFactory>();
 
         services.AddScoped(serviceProvider =>
         {
-            var factory = serviceProvider.GetService<IMasterDataCommandDbContextFactory>();
+            var factory = serviceProvider.GetService<IVehicleInsuranceCommandDbContextFactory>();
             return factory.CreateDbContext();
         });
 
         //QueryDbContext
-        services.AddDbContextFactory<MasterDataQueryDbContext>(options =>
+        services.AddDbContextFactory<VehicleInsuranceQueryDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"),
                                  x => x.UseNetTopologySuite());
@@ -47,14 +47,15 @@ public static class DbContextExtensions
             options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
         });
 
-        services.AddScoped<IMasterDataQueryDbContextFactory, MasterDataQueryDbContextFactory>();
+        services.AddScoped<IVehicleInsuranceQueryDbContextFactory, VehicleInsuranceQueryDbContextFactory>();
 
         services.AddScoped(serviceProvider =>
         {
-            var factory = serviceProvider.GetService<IMasterDataQueryDbContextFactory>();
+            var factory = serviceProvider.GetService<IVehicleInsuranceQueryDbContextFactory>();
             return factory.CreateDbContext();
         });
 
         return services;
     }
 }
+

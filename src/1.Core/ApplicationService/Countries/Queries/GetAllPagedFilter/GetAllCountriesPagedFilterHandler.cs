@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Countries.Queries;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Queries.GetAllPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.Countries.Queries.GetAllPagedFilter;
 
 public class GetAllCountriesPagedFilterHandler : QueryHandler<GetAllCountriesPagedFilterQuery, PagedData<CountryListItemQr>>
 {

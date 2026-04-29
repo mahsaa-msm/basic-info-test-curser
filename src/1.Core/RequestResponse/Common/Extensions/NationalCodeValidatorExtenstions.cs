@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Master.Data.Core.RequestResponse.Common.Extensions;
+namespace Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
 
 public static class NationalCodeValidatorExtenstions
 {

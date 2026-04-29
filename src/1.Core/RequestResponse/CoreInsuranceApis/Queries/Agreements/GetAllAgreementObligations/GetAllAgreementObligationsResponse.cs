@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
+﻿using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Common;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
+namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
 
 public sealed class GetAllAgreementObligationsResponse : BaseCoreInsuranceResponse
 {
@@ -118,3 +118,4 @@ public sealed class IssuanceSchemeResponse : BaseCoreInsuranceResponse
     [JsonPropertyName("olaviat")]
     public int Priority { get; set; }
 }
+

@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
+﻿using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Endpoints.API.Features.PatternCatalogs.Models;
+namespace Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Models;
 
 public sealed class GetAllInsurancePolicyPatternCatalogsViewModel : IWebRequest
 {
@@ -15,3 +15,4 @@ public sealed class GetAllInsurancePolicyPatternCatalogsViewModel : IWebRequest
         Type = PatternCatalogType.InsurancePolicyNumber
     };
 }
+

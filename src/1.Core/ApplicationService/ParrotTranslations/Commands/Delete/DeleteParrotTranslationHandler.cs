@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.ParrotTranslations.Commands;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Delete;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.ParrotTranslations.Commands;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Delete;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ParrotTranslations.Commands.Delete;
+namespace Vehicle.Insurance.Core.ApplicationService.ParrotTranslations.Commands.Delete;
 
 public sealed class DeleteParrotTranslationHandler : CommandHandler<DeleteParrotTranslationCommand>
 {
@@ -31,3 +31,4 @@ public sealed class DeleteParrotTranslationHandler : CommandHandler<DeleteParrot
         return await OkAsync();
     }
 }
+

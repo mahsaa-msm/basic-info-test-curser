@@ -1,6 +1,6 @@
 ﻿using Zamin.Core.Domain.Entities;
 
-namespace Master.Data.Core.Domain.Tenants.Entities;
+namespace Vehicle.Insurance.Core.Domain.Tenants.Entities;
 
 public sealed class TenantConfigSettingsHistory : Entity
 {
@@ -28,3 +28,4 @@ public sealed class TenantConfigSettingsHistory : Entity
 
     #endregion
 }
+

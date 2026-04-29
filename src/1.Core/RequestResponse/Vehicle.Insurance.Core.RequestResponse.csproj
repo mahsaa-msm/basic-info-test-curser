@@ -13,8 +13,9 @@
 		</ItemGroup>
 
 		<ItemGroup>
-		  <ProjectReference Include="..\Domain\Master.Data.Core.Domain.csproj" />
-		  <ProjectReference Include="..\Resources\Master.Data.Core.Resources.csproj" />
+		  <ProjectReference Include="..\Domain\Vehicle.Insurance.Core.Domain.csproj" />
+		  <ProjectReference Include="..\Resources\Vehicle.Insurance.Core.Resources.csproj" />
 		</ItemGroup>
 
 </Project>
+

@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.RequestResponse.Common.Extensions;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
 
-namespace Master.Data.Core.RequestResponse.Common.Requests;
+namespace Vehicle.Insurance.Core.RequestResponse.Common.Requests;
 
 public class Response
 {
@@ -78,3 +78,4 @@ public class Response<T> : Response
         _value = value;
     }
 }
+

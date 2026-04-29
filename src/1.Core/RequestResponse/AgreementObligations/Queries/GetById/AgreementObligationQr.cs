@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetById;
 
 public sealed class AgreementObligationQr
 {

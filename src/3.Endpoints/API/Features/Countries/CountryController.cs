@@ -1,18 +1,18 @@
-﻿using Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.Countries.Commands.Create;
-using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
-using Master.Data.Core.RequestResponse.Countries.Commands.Fetch;
-using Master.Data.Core.RequestResponse.Countries.Commands.Update;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Countries.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Delete;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.Countries;
+namespace Vehicle.Insurance.Endpoints.API.Features.Countries;
 
 [Route("api/[controller]")]
 [Tags("Country - (کشور ها)")]
@@ -57,3 +57,4 @@ public class CountryController : BaseController
 
     #endregion
 }
+

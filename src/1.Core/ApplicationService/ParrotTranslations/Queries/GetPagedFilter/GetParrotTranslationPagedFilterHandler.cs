@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.ParrotTranslations.Queries;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
+﻿using Vehicle.Insurance.Core.Contracts.ParrotTranslations.Queries;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ParrotTranslations.Queries.GetPagedFilter;
+namespace Vehicle.Insurance.Core.ApplicationService.ParrotTranslations.Queries.GetPagedFilter;
 
 public sealed class GetParrotTranslationPagedFilterHandler : QueryHandler<GetParrotTranslationPagedFilterQuery, PagedData<ParrotTranslationItemQr>>
 {

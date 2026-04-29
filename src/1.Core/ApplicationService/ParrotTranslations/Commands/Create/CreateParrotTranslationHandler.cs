@@ -1,14 +1,14 @@
-﻿using Master.Data.Core.Contracts.ParrotTranslations.Commands;
-using Master.Data.Core.Domain.ParrotTranslations.Entities;
-using Master.Data.Core.Domain.ParrotTranslations.Parameters;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.ParrotTranslations.Commands;
+using Vehicle.Insurance.Core.Domain.ParrotTranslations.Entities;
+using Vehicle.Insurance.Core.Domain.ParrotTranslations.Parameters;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.ParrotTranslations.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.ParrotTranslations.Commands.Create;
 
 public sealed class CreateParrotTranslationHandler : CommandHandler<CreateParrotTranslationCommand>
 {
@@ -37,3 +37,4 @@ public sealed class CreateParrotTranslationHandler : CommandHandler<CreateParrot
         return await OkAsync();
     }
 }
+

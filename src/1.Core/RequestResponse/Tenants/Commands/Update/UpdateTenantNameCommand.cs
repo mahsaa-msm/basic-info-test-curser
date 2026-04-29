@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.Update;
 
 public sealed class UpdateTenantNameCommand : ICommand, IWebRequest
 {
@@ -10,3 +10,4 @@ public sealed class UpdateTenantNameCommand : ICommand, IWebRequest
 
     public string Path => "/Api/Tenant/UpdateTenantName";
 }
+

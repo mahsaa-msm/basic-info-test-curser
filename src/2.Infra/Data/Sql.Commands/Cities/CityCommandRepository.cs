@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.Cities.Commands;
-using Master.Data.Core.Domain.Cities.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Cities.Commands;
+using Vehicle.Insurance.Core.Domain.Cities.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Cities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Cities;
 
-public sealed class CityCommandRepository : BaseCommandRepository<City, MasterDataCommandDbContext, long>,
+public sealed class CityCommandRepository : BaseCommandRepository<City, VehicleInsuranceCommandDbContext, long>,
     ICityCommandRepository
 {
-    public CityCommandRepository(MasterDataCommandDbContext dbContext)
+    public CityCommandRepository(VehicleInsuranceCommandDbContext dbContext)
     : base(dbContext)
     {
     }

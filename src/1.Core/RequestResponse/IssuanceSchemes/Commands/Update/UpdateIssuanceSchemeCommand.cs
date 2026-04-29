@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Update;
 
 public sealed class UpdateIssuanceSchemeCommand : ICommand, IWebRequest
 {

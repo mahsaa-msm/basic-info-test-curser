@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.Countries.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Countries.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Countries;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Countries;
 
-public sealed class CountryCommandRepository : BaseCommandRepository<Country, MasterDataCommandDbContext, long>,
+public sealed class CountryCommandRepository : BaseCommandRepository<Country, VehicleInsuranceCommandDbContext, long>,
     ICountryCommandRepository
 {
-    public CountryCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
+    public CountryCommandRepository(VehicleInsuranceCommandDbContext dbContext) : base(dbContext)
     {
     }
 

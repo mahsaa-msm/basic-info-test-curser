@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Queries;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Queries;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Queries.GetById;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Queries.GetById;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Queries.GetById;
 
 public class GetIssuanceSchemeByIdHandler : QueryHandler<GetIssuanceSchemeByIdQuery, IssuanceSchemeQr>
 {
@@ -20,3 +20,4 @@ public class GetIssuanceSchemeByIdHandler : QueryHandler<GetIssuanceSchemeByIdQu
     public override async Task<QueryResult<IssuanceSchemeQr>> Handle(GetIssuanceSchemeByIdQuery query)
         => Result(await _queryRepository.Execute(query));
 }
+

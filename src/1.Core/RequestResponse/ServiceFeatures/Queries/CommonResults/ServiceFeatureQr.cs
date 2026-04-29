@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Resources;
-using Master.Data.Core.Resources.Utils.Extensions;
+﻿using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Core.Resources.Utils.Extensions;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
 
 public sealed class ServiceFeatureQr
 {
@@ -19,3 +19,4 @@ public sealed class ServiceFeatureQr
     public string? InsuranceTypeCoreId { get; set; }
     public bool IsActive { get; set; }
 }
+

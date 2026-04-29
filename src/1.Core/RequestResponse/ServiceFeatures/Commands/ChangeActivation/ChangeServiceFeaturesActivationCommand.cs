@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.ChangeActivation;
 
 public sealed class ChangeServiceFeaturesActivationCommand : ICommand, IWebRequest
 {

@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.InsuranceUnits.ValueObjects;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
-namespace Master.Data.Infra.Data.Sql.Commands.InsuranceUnits.Conversions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.InsuranceUnits.Conversions;
 
 public sealed class GeoCoordinateConversion : ValueConverter<GeoCoordinate, Point>
 {

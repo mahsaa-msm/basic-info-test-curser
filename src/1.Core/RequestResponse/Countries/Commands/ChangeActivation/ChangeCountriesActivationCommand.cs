@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.RequestResponse.Countries.Commands.ChangeActivation;
 
 public sealed class ChangeCountriesActivationCommand : ICommand, IWebRequest
 {

@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.Entities;
 using Zamin.Core.Domain.Exceptions;
 
-namespace Master.Data.Core.Domain.Common.Guards;
+namespace Vehicle.Insurance.Core.Domain.Common.Guards;
 
 public static class EntityGuard
 {

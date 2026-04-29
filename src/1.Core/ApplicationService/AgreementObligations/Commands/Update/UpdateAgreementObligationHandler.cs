@@ -1,16 +1,16 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Commands;
-using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.AgreementObligations.Parameters;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Update;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Update;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.Update;
+namespace Vehicle.Insurance.Core.ApplicationService.AgreementObligations.Commands.Update;
 
 public sealed class UpdateAgreementObligationHandler : CommandHandler<UpdateAgreementObligationCommand>
 {
@@ -100,3 +100,4 @@ public sealed class UpdateAgreementObligationHandler : CommandHandler<UpdateAgre
     }
     #endregion
 }
+

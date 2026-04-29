@@ -1,14 +1,14 @@
-﻿using Master.Data.Core.Contracts.Tenants.Comamnds;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Tenants.Entities;
-using Master.Data.Core.Domain.Tenants.ValueObjects;
-using Master.Data.Core.RequestResponse.Tenants.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Comamnds;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities;
+using Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+namespace Vehicle.Insurance.Core.ApplicationService.Tenants.Commands;
 
 public sealed class CreateTenantHandler : CommandHandler<CreateTenantCommand, long?>
 {
@@ -37,3 +37,4 @@ public sealed class CreateTenantHandler : CommandHandler<CreateTenantCommand, lo
         return Ok(tenant.Id);
     }
 }
+

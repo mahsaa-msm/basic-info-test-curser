@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Countries.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Countries.Entities;
-using Master.Data.Core.RequestResponse.Countries.Commands.Delete;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Delete;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Commands.Delete;
+namespace Vehicle.Insurance.Core.ApplicationService.Countries.Commands.Delete;
 
 public class DeleteCountryHandler : CommandHandler<DeleteCountryCommand>
 {

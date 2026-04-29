@@ -1,7 +1,7 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using static Master.Data.Core.Resources.ProjectConsts;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
 public sealed class IssuanceScheme : BaseTenantEntity
 {
     public string Title { get; set; } = string.Empty;
@@ -18,3 +18,4 @@ public sealed class IssuanceScheme : BaseTenantEntity
     public AdjustmentType? AdjustmentType { get; private set; }
     public double? AdjustmentPercent { get; private set; }
 }
+

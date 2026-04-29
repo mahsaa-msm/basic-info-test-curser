@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.Common.Requests;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Requests;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
 
-namespace Master.Data.Core.RequestResponse.Common.Extensions;
+namespace Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
 
 public static class ResponseExtensions
 {
@@ -165,4 +165,5 @@ public static class ResponseExtensions
         return !string.IsNullOrWhiteSpace(str);
     }
 }
+
 

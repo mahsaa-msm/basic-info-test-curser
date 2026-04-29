@@ -1,14 +1,14 @@
-﻿using Master.Data.Core.Contracts.IssuanceSchemes.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.IssuanceSchemes.Entities;
-using Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.IssuanceSchemes.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.IssuanceSchemes.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.IssuanceSchemes.Commands.Create;
 
 public class CreateIssuanceSchemeHandler : CommandHandler<CreateIssuanceSchemeCommand, long>
 {

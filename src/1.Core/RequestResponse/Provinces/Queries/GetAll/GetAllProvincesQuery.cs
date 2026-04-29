@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAll;
 
 public sealed class GetAllProvincesQuery : IQuery<List<ProvinceSelectItemQr>>, IWebRequest
 {
@@ -11,3 +11,4 @@ public sealed class GetAllProvincesQuery : IQuery<List<ProvinceSelectItemQr>>, I
 
     public string Path => "/Api/Province/GetAllProvinces";
 }
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.CoreInsuranceApis.Common;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Common;
 
 public class BaseCoreInsuranceResponse<ContentType>
 {
@@ -13,3 +13,4 @@ public class BaseCoreInsuranceResponse
     public bool hasError { get; set; }
     public List<CoreInsuranceValidation> validations { get; set; } = new();
 }
+

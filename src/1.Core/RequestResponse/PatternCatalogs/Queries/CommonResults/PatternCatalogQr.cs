@@ -1,6 +1,6 @@
-﻿using static Master.Data.Core.Resources.ProjectConsts;
+﻿using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+namespace Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
 
 public sealed class PatternCatalogQr
 {
@@ -13,3 +13,4 @@ public sealed class PatternCatalogQr
     public long Priority { get; set; }
     public bool IsActive { get; set; }
 }
+

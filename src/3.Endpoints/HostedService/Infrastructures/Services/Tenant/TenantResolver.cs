@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.Tenant;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.Tenant;
 
 public class TenantResolver : ITenantResolver, ITransientLifetime
 {
@@ -41,4 +41,5 @@ public class TenantResolver : ITenantResolver, ITransientLifetime
         return null;
     }
 }
+
 

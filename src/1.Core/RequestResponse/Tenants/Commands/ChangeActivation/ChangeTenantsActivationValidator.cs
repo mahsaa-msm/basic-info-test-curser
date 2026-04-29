@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.ChangeActivation;
 
 public sealed class ChangeTenantsActivationValidator : AbstractValidator<ChangeTenantsActivationCommand>
 {

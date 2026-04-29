@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Domain.Tenants.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Tenants.Conversions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Tenants.Conversions;
 
 public sealed class TenantSlugConversion : ValueConverter<TenantSlug, string>
 {

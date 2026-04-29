@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.ValueObjects;
 
-namespace Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.InsuranceUnits.ValueObjects;
 
 public sealed class Latitude : BaseValueObject<Latitude>
 {

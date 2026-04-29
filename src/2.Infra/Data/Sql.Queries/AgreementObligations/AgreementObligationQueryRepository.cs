@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Queries;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAll;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Queries;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations;
 
-public sealed class AgreementObligationQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class AgreementObligationQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IAgreementObligationQueryRepository
 {
-    public AgreementObligationQueryRepository(MasterDataQueryDbContext dbContext)
+    public AgreementObligationQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -111,3 +111,4 @@ public sealed class AgreementObligationQueryRepository : BaseQueryRepository<Mas
             });
     }
 }
+

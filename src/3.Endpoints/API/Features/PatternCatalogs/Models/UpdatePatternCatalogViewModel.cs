@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
-using Master.Data.Endpoints.API.Features.PatternCatalogs.Utils;
+﻿using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Update;
+using Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Utils;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Master.Data.Endpoints.API.Features.PatternCatalogs.Models;
+namespace Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Models;
 
 public sealed class UpdatePatternCatalogViewModel
 {
@@ -31,3 +31,4 @@ public sealed class UpdatePatternCatalogViewModel
         Priority = Priority
     };
 }
+

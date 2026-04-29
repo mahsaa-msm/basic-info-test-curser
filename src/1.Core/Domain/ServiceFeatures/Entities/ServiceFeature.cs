@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.ServiceFeatures.Parameters;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.ServiceFeatures.Parameters;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
 
-namespace Master.Data.Core.Domain.ServiceFeatures.Entities;
+namespace Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
 
 public sealed class ServiceFeature : BaseTenantEntity
 {
@@ -93,3 +93,4 @@ public sealed class ServiceFeature : BaseTenantEntity
     }
     #endregion
 }
+

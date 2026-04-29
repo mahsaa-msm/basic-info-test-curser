@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceTypes.Parameters;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceTypes.Parameters;
+using Vehicle.Insurance.Core.Resources;
 using System.Reflection.PortableExecutable;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.InsuranceTypes.Entities;
+namespace Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
 
 public sealed class InsuranceType : BaseTenantEntity
 {
@@ -145,3 +145,4 @@ public sealed class InsuranceType : BaseTenantEntity
     }
     #endregion
 }
+

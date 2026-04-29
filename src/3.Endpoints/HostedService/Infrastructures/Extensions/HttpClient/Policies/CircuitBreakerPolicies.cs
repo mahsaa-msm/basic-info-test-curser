@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.Extensions.Options;
 using Polly;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Policies;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Policies;
 
 public class CircuitBreakerPolicies
 {
@@ -30,3 +30,4 @@ public class CircuitBreakerPolicies
                 });
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
 
 public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<List<string>, string>
 {
@@ -13,4 +13,5 @@ public sealed class IssuanceSchemeCoreIdsConversion : ValueConverter<List<string
                            .ToList())
     { }
 }
+
 

@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Resources;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetAllByKey;
 
 public sealed class GetAllServiceFeaturesByKeyQr
 {
@@ -11,3 +11,4 @@ public sealed class GetAllServiceFeaturesByKeyQr
     public bool IsActive { get; set; }
     public List<long> TenantIds { get; set; } = new();
 }
+

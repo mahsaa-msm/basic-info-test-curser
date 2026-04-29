@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
 
 public sealed class CityListItemQr
 {
@@ -12,3 +12,4 @@ public sealed class CityListItemQr
     public string ProvinceCoreId { get; set; } = string.Empty;
     public string? ProvinceDisplayTitle { get; set; }
 }
+

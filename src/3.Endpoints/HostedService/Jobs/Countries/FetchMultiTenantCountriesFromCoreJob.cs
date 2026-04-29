@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.RequestResponse.Countries.Commands.Fetch;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.Fetch;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using Microsoft.Extensions.Options;
 
-namespace Master.Data.Endpoints.HostedService.Jobs.Countries;
+namespace Vehicle.Insurance.Endpoints.HostedService.Jobs.Countries;
 
 public sealed class FetchMultiTenantCountriesFromCoreJob :
     BaseBackgroundJob<FetchMultiTenantCountriesFromSourceCommand, FetchMultiTenantCountriesFromCoreJob>
@@ -15,3 +15,4 @@ public sealed class FetchMultiTenantCountriesFromCoreJob :
     {
     }
 }
+

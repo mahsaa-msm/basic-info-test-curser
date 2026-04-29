@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Contracts.Common.Options;
+﻿namespace Vehicle.Insurance.Core.Contracts.Common.Options;
 
 public sealed class GrpcOption
 {
@@ -15,3 +15,4 @@ public sealed class GrpcServer
     public string ApiKeyName { get; set; } = default!;
     public string ApiKey { get; set; } = default!;
 }
+

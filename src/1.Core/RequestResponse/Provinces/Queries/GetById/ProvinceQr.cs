@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetById;
 
 public sealed class ProvinceQr
 {
@@ -12,3 +12,4 @@ public sealed class ProvinceQr
     public bool IsActive { get; set; }
     public bool IsEditable { get; set; }
 }
+

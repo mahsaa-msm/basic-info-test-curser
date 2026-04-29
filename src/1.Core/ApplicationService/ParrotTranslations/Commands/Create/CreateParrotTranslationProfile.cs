@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Master.Data.Core.Domain.ParrotTranslations.Parameters;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Create;
+using Vehicle.Insurance.Core.Domain.ParrotTranslations.Parameters;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Create;
 
-namespace Master.Data.Core.ApplicationService.ParrotTranslations.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.ParrotTranslations.Commands.Create;
 
 public class CreateParrotTranslationProfile : Profile
 {
@@ -11,3 +11,4 @@ public class CreateParrotTranslationProfile : Profile
         CreateMap<CreateParrotTranslationCommand, CreateParrotTranslationParameter>().ReverseMap();
     }
 }
+

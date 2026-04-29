@@ -1,22 +1,22 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Queries;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetById;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Queries;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Web;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.PatternCatalogs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs;
 
-public sealed class PatternCatalogQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class PatternCatalogQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     IPatternCatalogQueryRepository
 {
-    public PatternCatalogQueryRepository(MasterDataQueryDbContext dbContext)
+    public PatternCatalogQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }

@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Configs;
 public sealed class IssuanceSchemeConfig : IEntityTypeConfiguration<IssuanceScheme>
 {
     public void Configure(EntityTypeBuilder<IssuanceScheme> builder)

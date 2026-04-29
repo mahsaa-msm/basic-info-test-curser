@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
+﻿namespace Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
 
 public interface IAdvancedFinglishConverter
 {

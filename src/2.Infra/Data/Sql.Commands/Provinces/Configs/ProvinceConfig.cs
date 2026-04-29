@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Provinces.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Provinces.Configs;
 
 public sealed class ProvinceConfig : IEntityTypeConfiguration<Province>
 {

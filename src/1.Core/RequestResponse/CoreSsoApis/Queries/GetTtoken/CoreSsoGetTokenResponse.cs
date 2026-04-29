@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Master.Data.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
+namespace Vehicle.Insurance.Core.RequestResponse.CoreSsoApis.Queries.GetTtoken;
 
 public sealed class CoreSsoGetTokenResponse
 {

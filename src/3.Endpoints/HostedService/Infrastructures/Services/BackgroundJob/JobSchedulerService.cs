@@ -1,9 +1,9 @@
-﻿using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
-using Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
+﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Constants;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using NCrontab;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob;
 
 public class JobSchedulerService : IJobSchedulerService, IScopeLifetime
 {

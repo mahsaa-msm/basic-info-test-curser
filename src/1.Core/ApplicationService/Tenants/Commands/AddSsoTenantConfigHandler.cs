@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.Contracts.Tenants.Comamnds;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Tenants.Entities;
-using Master.Data.Core.Domain.Tenants.Entities.Settings;
-using Master.Data.Core.Domain.Tenants.Parameters;
-using Master.Data.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Comamnds;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities;
+using Vehicle.Insurance.Core.Domain.Tenants.Entities.Settings;
+using Vehicle.Insurance.Core.Domain.Tenants.Parameters;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.AddSsoConfig;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Tenants.Commands;
+namespace Vehicle.Insurance.Core.ApplicationService.Tenants.Commands;
 
 public sealed class AddSsoTenantConfigHandler : CommandHandler<AddSsoTenantConfigCommand>
 {
@@ -37,3 +37,4 @@ public sealed class AddSsoTenantConfigHandler : CommandHandler<AddSsoTenantConfi
         return Ok();
     }
 }
+

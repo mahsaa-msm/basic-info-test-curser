@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Contracts.Common.Options;
+﻿namespace Vehicle.Insurance.Core.Contracts.Common.Options;
 
 public sealed class SoftwareManagementOption
 {

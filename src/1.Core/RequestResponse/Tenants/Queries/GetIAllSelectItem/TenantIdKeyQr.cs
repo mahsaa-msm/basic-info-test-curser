@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 
 public sealed class TenantIdKeyQr
 {
@@ -8,3 +8,4 @@ public sealed class TenantIdKeyQr
     public string Slug { get; set; } = string.Empty;
     public bool IsActive { get; set; }
 }
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Resources;
+﻿namespace Vehicle.Insurance.Core.Resources;
 
 public sealed class ProjectValidationError
 {

@@ -1,7 +1,7 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Entities;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Entities;
 
 public class City : BaseTenantEntity
 {
@@ -16,3 +16,4 @@ public class City : BaseTenantEntity
 
     public virtual Province? Province { get; set; }
 }
+

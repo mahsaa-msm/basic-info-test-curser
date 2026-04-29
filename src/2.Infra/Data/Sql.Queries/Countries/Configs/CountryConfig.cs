@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Countries.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Configs;
 
 public sealed class CountryConfig : IEntityTypeConfiguration<Country>
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Configs;
 
 public sealed class TenantConfigConfig : IEntityTypeConfiguration<Entities.TenantConfig>
 {

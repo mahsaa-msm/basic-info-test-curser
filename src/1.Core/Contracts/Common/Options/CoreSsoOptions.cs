@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.Contracts.Common.Options;
+﻿namespace Vehicle.Insurance.Core.Contracts.Common.Options;
 
 public sealed class CoreSsoOptions
 {
@@ -9,3 +9,4 @@ public sealed class CoreSsoOptions
     public bool IgnoreSslCheck { get; set; }
     public List<string>? Scopes { get; set; }
 }
+

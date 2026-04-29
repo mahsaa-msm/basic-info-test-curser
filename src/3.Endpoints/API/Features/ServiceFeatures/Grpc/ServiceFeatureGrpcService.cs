@@ -1,12 +1,12 @@
 ﻿using Grpc.Core;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ServiceFeatures.Queries.GetById;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Queries.GetById;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Contracts.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Common;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Endpoints.API.Features.ServiceFeatures.Grpc;
+namespace Vehicle.Insurance.Endpoints.API.Features.ServiceFeatures.Grpc;
 
 public sealed class ServiceFeatureGrpcService : ServiceFeatureService.ServiceFeatureServiceBase
 {
@@ -74,3 +74,4 @@ public sealed class ServiceFeatureGrpcService : ServiceFeatureService.ServiceFea
         };
     }
 }
+

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
 public abstract class QueryObject : QueryObject<long>
 {

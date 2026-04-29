@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
+﻿using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById.Dtos;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetById;
 
 public sealed class TenantGraphQr
 {
@@ -15,3 +15,4 @@ public sealed class TenantGraphQr
     public PaymentConfigDto? PaymentConfig { get; set; }
     public UiConfigDto? UIConfig { get; set; }
 }
+

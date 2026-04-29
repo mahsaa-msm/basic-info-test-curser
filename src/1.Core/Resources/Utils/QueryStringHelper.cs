@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Master.Data.Core.Resources.Utils;
+namespace Vehicle.Insurance.Core.Resources.Utils;
 
 public static class QueryStringHelper
 {
@@ -13,3 +13,4 @@ public static class QueryStringHelper
         return string.Join("&", properties.ToArray());
     }
 }
+

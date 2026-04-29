@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Master.Data.Core.Resources.Utils.Extensions;
+namespace Vehicle.Insurance.Core.Resources.Utils.Extensions;
 
 public static class StringExtentions
 {

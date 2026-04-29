@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Master.Data.Endpoints.API.Features.PatternCatalogs.Utils;
+namespace Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Utils;
 
 public static class RegExExtensions
 {
@@ -40,3 +40,4 @@ public static class RegExExtensions
         }
     }
 }
+

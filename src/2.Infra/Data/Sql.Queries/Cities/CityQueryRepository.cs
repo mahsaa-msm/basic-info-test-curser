@@ -1,19 +1,19 @@
-﻿using Master.Data.Core.Contracts.Cities.Queries;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Cities.Queries.GetById;
-using Master.Data.Infra.Data.Sql.Queries.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Cities.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Cities.Queries.GetById;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Infra.Data.Sql.Queries;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Cities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Cities;
 
-public sealed class CityQueryRepository : BaseQueryRepository<MasterDataQueryDbContext>,
+public sealed class CityQueryRepository : BaseQueryRepository<VehicleInsuranceQueryDbContext>,
     ICityQueryRepository
 {
-    public CityQueryRepository(MasterDataQueryDbContext dbContext)
+    public CityQueryRepository(VehicleInsuranceQueryDbContext dbContext)
         : base(dbContext)
     {
     }

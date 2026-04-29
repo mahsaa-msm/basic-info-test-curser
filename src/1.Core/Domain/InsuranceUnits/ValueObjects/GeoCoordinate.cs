@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.Domain.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.InsuranceUnits.ValueObjects;
+namespace Vehicle.Insurance.Core.Domain.InsuranceUnits.ValueObjects;
 
 public sealed class GeoCoordinate : BaseValueObject<GeoCoordinate>
 {

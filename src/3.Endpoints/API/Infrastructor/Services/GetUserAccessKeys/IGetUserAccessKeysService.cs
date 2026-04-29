@@ -1,6 +1,6 @@
 ﻿using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Services.GetUserAccessKeys;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Services.GetUserAccessKeys;
 
 public interface IGetUserAccessKeysService : IScopeLifetime
 {

@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Domain.Cities.Parameters;
-using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.Cities.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.Domain.Exceptions;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.Cities.Entities;
+namespace Vehicle.Insurance.Core.Domain.Cities.Entities;
 
 public sealed class City : BaseTenantEntity
 {
@@ -144,3 +144,4 @@ public sealed class City : BaseTenantEntity
     }
     #endregion
 }
+

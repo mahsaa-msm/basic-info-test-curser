@@ -1,18 +1,18 @@
-﻿using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetById;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
-using Master.Data.Endpoints.API.Features.PatternCatalogs.Models;
+﻿using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Queries.GetByKey;
+using Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs.Models;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.PatternCatalogs;
+namespace Vehicle.Insurance.Endpoints.API.Features.PatternCatalogs;
 
 [Route("api/[controller]")]
 [Tags("PatternCatalog - (الگو ها)")]
@@ -58,3 +58,4 @@ public sealed class PatternCatalogController : BaseController
         => await Query<GetAllPatternCatalogsQuery, List<PatternCatalogQr>>(viewModel.ToQuery());
     #endregion
 }
+

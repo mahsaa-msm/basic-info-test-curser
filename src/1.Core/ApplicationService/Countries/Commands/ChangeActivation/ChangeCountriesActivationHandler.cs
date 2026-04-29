@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.Countries.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.Countries.Entities;
-using Master.Data.Core.RequestResponse.Countries.Commands.ChangeActivation;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Countries.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.Countries.Entities;
+using Vehicle.Insurance.Core.RequestResponse.Countries.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Countries.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.ApplicationService.Countries.Commands.ChangeActivation;
 
 public class ChangeCountriesActivationHandler : CommandHandler<ChangeCountriesActivationCommand>
 {
@@ -37,3 +37,4 @@ public class ChangeCountriesActivationHandler : CommandHandler<ChangeCountriesAc
 
     }
 }
+

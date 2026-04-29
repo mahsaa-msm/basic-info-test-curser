@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Services.GetAccessList;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.GetAccessList;
 
 public class GetAccessListService : IGetAccessListService
 {
@@ -40,3 +40,4 @@ public class GetAccessListService : IGetAccessListService
         return result;
     }
 }
+

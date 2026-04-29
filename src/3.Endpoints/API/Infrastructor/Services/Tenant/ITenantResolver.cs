@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Services.Tenant;
 
 public interface ITenantResolver
 {
@@ -13,3 +13,4 @@ public interface ITenantResolver
     long? ExtractTenantId();
     Guid? ExtractTenantKey();
 }
+

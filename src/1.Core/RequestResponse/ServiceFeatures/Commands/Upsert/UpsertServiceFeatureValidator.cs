@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Upsert;
 
 public sealed class UpsertServiceFeatureValidator : AbstractValidator<UpsertServiceFeatureCommand>
 {
@@ -58,3 +58,4 @@ public sealed class UpsertServiceFeatureValidator : AbstractValidator<UpsertServ
         #endregion
     }
 }
+

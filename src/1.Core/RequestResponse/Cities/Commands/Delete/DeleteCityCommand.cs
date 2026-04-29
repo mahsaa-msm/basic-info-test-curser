@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Cities.Commands.Delete;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Delete;
 
 public sealed class DeleteCityCommand : ICommand, IWebRequest
 {

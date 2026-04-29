@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
+namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetById;
 
 public sealed class GetProvinceByIdQuery : IQuery<ProvinceQr>, IWebRequest
 {

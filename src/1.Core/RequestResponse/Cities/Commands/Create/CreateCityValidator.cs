@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Cities.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.Cities.Commands.Create;
 
 public sealed class CreateCityValidator : AbstractValidator<CreateCityCommand>
 {

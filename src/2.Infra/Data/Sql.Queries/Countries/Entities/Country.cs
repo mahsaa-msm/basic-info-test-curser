@@ -1,6 +1,6 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Entities;
 
 public sealed class Country : BaseTenantEntity
 {
@@ -12,3 +12,4 @@ public sealed class Country : BaseTenantEntity
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
 }
+

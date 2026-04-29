@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.ServiceFeatures.Parameters;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.ServiceFeatures.Parameters;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Create;
 
 public sealed class CreateServiceFeatureCommand : ICommand<long>, IWebRequest
 {

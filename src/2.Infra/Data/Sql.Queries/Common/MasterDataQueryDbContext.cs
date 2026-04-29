@@ -1,22 +1,22 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Cities.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using Master.Data.Infra.Data.Sql.Queries.Countries.Entities;
-using Master.Data.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
-using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
-using Master.Data.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
-using Master.Data.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
-using Master.Data.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Provinces.Entities;
-using Master.Data.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
-using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Zamin.Infra.Data.Sql.Queries;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Common;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 
-public class MasterDataQueryDbContext : BaseQueryDbContext
+public class VehicleInsuranceQueryDbContext : BaseQueryDbContext
 {
     #region Properties
     public long? TenantId { get; set; }
@@ -39,7 +39,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
 
     #endregion
 
-    public MasterDataQueryDbContext(DbContextOptions<MasterDataQueryDbContext> options)
+    public VehicleInsuranceQueryDbContext(DbContextOptions<VehicleInsuranceQueryDbContext> options)
         : base(options)
     {
     }
@@ -64,7 +64,7 @@ public class MasterDataQueryDbContext : BaseQueryDbContext
                 !entityType.IsKeyless &&
                 entityType.FindPrimaryKey() != null)
             {
-                var method = typeof(MasterDataQueryDbContext)?
+                var method = typeof(VehicleInsuranceQueryDbContext)?
                     .GetMethod(nameof(SetGlobalQueryFilter), BindingFlags.NonPublic | BindingFlags.Instance)?
                     .MakeGenericMethod(entityType.ClrType);
 

@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Update;
 
 public sealed class UpdateParrotTranslationCommand : ICommand, IWebRequest
 {
@@ -13,3 +13,4 @@ public sealed class UpdateParrotTranslationCommand : ICommand, IWebRequest
     public const string NamePath = "ParrotTranslation/UpdateParrotTranslation";
     public string Path => $"/api/{NamePath}";
 }
+

@@ -1,10 +1,10 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
-using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities.Settings;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities.Settings;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
 
 public sealed class TenantConfig : QueryObject
 {
@@ -48,3 +48,4 @@ public sealed class TenantConfig : QueryObject
         return JsonSerializer.Serialize(settings, settings.GetType(), new JsonSerializerOptions());
     }
 }
+

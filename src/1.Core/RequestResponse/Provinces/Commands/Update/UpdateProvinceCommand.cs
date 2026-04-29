@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Domain.Provinces.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.Provinces.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.Provinces.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Update;
 
 public sealed class UpdateProvinceCommand : ICommand, IWebRequest
 {
@@ -21,3 +21,4 @@ public sealed class UpdateProvinceCommand : ICommand, IWebRequest
 
     public string Path => "/Api/Province/UpdateProvince";
 }
+

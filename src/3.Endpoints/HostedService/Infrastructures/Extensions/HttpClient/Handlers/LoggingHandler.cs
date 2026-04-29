@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Handlers;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpClient.Handlers;
 
 public class LoggingHandler(ILogger<LoggingHandler> logger) : DelegatingHandler
 {
@@ -25,3 +25,4 @@ public class LoggingHandler(ILogger<LoggingHandler> logger) : DelegatingHandler
         return response;
     }
 }
+

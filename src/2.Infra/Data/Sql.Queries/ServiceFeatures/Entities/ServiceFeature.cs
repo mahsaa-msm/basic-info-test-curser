@@ -1,7 +1,7 @@
-﻿using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+﻿using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
-namespace Master.Data.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
 
 public sealed class ServiceFeature : BaseTenantEntity
 {
@@ -14,4 +14,5 @@ public sealed class ServiceFeature : BaseTenantEntity
     public string? InsuranceTypeCoreId { get; set; }
     public bool IsActive { get; set; }
 }
+
 

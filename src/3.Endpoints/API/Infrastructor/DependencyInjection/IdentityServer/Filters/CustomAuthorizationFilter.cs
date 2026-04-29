@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
-using Master.Data.Core.Resources;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+﻿using Vehicle.Insurance.Core.Contracts.PodSsoApis.UserInfo;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Filters;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Filters;
 
 public class CustomAuthorizationFilter : IAuthorizationFilter
 {
@@ -46,3 +46,4 @@ public class CustomAuthorizationFilter : IAuthorizationFilter
         return isForced;
     }
 }
+

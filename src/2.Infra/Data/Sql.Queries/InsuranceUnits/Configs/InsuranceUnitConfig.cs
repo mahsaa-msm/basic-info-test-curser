@@ -1,8 +1,8 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.InsuranceUnits.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Configs;
 
 public sealed class InsuranceUnitConfig : IEntityTypeConfiguration<InsuranceUnit>
 {

@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.PatternCatalogs.Parameters;
+﻿using Vehicle.Insurance.Core.Domain.PatternCatalogs.Parameters;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Create;
 
 public sealed class CreatePatternCatalogCommand : ICommand<long>, IWebRequest
 {
@@ -28,3 +28,4 @@ public sealed class CreatePatternCatalogCommand : ICommand<long>, IWebRequest
 
     public string Path => "/Api/PatternCatalog/CreatePatternCatalog";
 }
+

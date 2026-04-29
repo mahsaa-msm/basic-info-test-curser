@@ -11,8 +11,8 @@
 		</ItemGroup>
 
 		<ItemGroup>
-		  <ProjectReference Include="..\Domain\Master.Data.Core.Domain.csproj" />
-		  <ProjectReference Include="..\RequestResponse\Master.Data.Core.RequestResponse.csproj" />
+		  <ProjectReference Include="..\Domain\Vehicle.Insurance.Core.Domain.csproj" />
+		  <ProjectReference Include="..\RequestResponse\Vehicle.Insurance.Core.RequestResponse.csproj" />
 		</ItemGroup>
 
 </Project>

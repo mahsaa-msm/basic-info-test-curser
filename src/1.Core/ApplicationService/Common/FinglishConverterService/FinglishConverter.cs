@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Core.ApplicationService.Common.FinglishConverterService;
+namespace Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
 
 public class FinglishConverter : ISingletoneLifetime, IFinglishConverter
 {
@@ -242,3 +242,4 @@ public class FinglishConverter : ISingletoneLifetime, IFinglishConverter
         return text.Replace("'", "").Replace("`", "");
     }
 }
+

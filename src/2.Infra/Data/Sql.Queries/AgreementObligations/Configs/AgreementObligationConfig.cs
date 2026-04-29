@@ -1,9 +1,9 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
-using Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Conversions;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Queries.AgreementObligations.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Configs;
 
 public sealed class AgreementObligationConfig : IEntityTypeConfiguration<AgreementObligation>
 {

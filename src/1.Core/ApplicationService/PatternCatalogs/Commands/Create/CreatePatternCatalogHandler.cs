@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Create;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Create;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.PatternCatalogs.Commands.Create;
+namespace Vehicle.Insurance.Core.ApplicationService.PatternCatalogs.Commands.Create;
 
 public sealed class CreatePatternCatalogHandler : CommandHandler<CreatePatternCatalogCommand, long>
 {

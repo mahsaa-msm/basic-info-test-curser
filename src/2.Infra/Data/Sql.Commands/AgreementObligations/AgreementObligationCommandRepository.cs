@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.AgreementObligations.Commands;
-using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.AgreementObligations;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.AgreementObligations;
 
-public sealed class AgreementObligationCommandRepository : BaseCommandRepository<AgreementObligation, MasterDataCommandDbContext, long>,
+public sealed class AgreementObligationCommandRepository : BaseCommandRepository<AgreementObligation, VehicleInsuranceCommandDbContext, long>,
     IAgreementObligationCommandRepository
 {
-    public AgreementObligationCommandRepository(MasterDataCommandDbContext dbContext) : base(dbContext)
+    public AgreementObligationCommandRepository(VehicleInsuranceCommandDbContext dbContext) : base(dbContext)
     {
     }
 
@@ -55,3 +55,4 @@ public sealed class AgreementObligationCommandRepository : BaseCommandRepository
         return createdByUserIdObject is null || !canParse || createdByUserId < 1;
     }
 }
+

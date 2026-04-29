@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.InsuranceUnits.Entities;
-using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Commands.InsuranceUnits.Conversions;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.InsuranceUnits.Entities;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.InsuranceUnits.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.InsuranceUnits.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.InsuranceUnits.Configs;
 
 public sealed class InsuranceUnitConfig : IEntityTypeConfiguration<InsuranceUnit>
 {

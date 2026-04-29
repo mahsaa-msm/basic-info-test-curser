@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Contracts.Tenants.Queries;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
+﻿using Vehicle.Insurance.Core.Contracts.Tenants.Queries;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
 using Zamin.Core.ApplicationServices.Queries;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.Tenants.Queries;
+namespace Vehicle.Insurance.Core.ApplicationService.Tenants.Queries;
 
 public sealed class GetAllTenantsHandler : QueryHandler<GetAllTenantsSelectItemQuery, List<TenantIdKeyQr>>
 {
@@ -20,4 +20,5 @@ public sealed class GetAllTenantsHandler : QueryHandler<GetAllTenantsSelectItemQ
     public override async Task<QueryResult<List<TenantIdKeyQr>>> Handle(GetAllTenantsSelectItemQuery query)
         => await ResultAsync(await _tenantQueryRepository.ExecuteAsync(query));
 }
+
 

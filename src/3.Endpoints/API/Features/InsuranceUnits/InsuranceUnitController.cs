@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Create;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Delete;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Commands.Update;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.InsuranceUnits.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.Delete;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllInArea;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.InsuranceUnits.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.InsuranceUnits;
+namespace Vehicle.Insurance.Endpoints.API.Features.InsuranceUnits;
 
 [Route("api/[controller]")]
 [Tags("InsuranceUnit - (واحد بیمه)")]
@@ -52,3 +52,4 @@ public sealed class InsuranceUnitController : BaseController
 
     #endregion
 }
+

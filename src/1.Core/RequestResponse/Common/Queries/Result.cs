@@ -1,6 +1,6 @@
-﻿using Master.Data.Core.RequestResponse.Common.Extensions;
+﻿using Vehicle.Insurance.Core.RequestResponse.Common.Extensions;
 
-namespace Master.Data.Core.RequestResponse.Common.Queries;
+namespace Vehicle.Insurance.Core.RequestResponse.Common.Queries;
 
 public class Result
 {

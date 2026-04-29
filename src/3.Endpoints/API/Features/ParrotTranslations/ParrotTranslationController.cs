@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Create;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Delete;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Commands.Update;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetById;
-using Master.Data.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Delete;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.CommonResults;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetById;
+using Vehicle.Insurance.Core.RequestResponse.ParrotTranslations.Queries.GetPagedFilter;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.ParrotTranslations;
+namespace Vehicle.Insurance.Endpoints.API.Features.ParrotTranslations;
 
 [Route("api/[controller]")]
 [Tags("ParrotTranslation - (ترجمه ها)")]
@@ -47,3 +47,4 @@ public class ParrotTranslationController : BaseController
         => await Query<GetAllParrotTranslationQuery, ParrotTranslationQr>(query);
     #endregion
 }
+

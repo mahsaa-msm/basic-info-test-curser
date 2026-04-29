@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.ServiceFeatures.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.ServiceFeatures.Commands.Update;
 
 public sealed class UpdateServiceFeatureValidator : AbstractValidator<UpdateServiceFeatureCommand>
 {

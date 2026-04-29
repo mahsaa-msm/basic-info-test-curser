@@ -1,17 +1,17 @@
-﻿using Master.Data.Core.Contracts.Provinces.Commands;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Provinces.Entities;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.Provinces.Commands;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Provinces.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 using Zamin.Infra.Data.Sql.Commands.Extensions;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Provinces;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Provinces;
 
-public sealed class ProvinceCommandRepository : BaseCommandRepository<Province, MasterDataCommandDbContext, long>,
+public sealed class ProvinceCommandRepository : BaseCommandRepository<Province, VehicleInsuranceCommandDbContext, long>,
     IProvinceCommandRepository
 {
-    public ProvinceCommandRepository(MasterDataCommandDbContext dbContext)
+    public ProvinceCommandRepository(VehicleInsuranceCommandDbContext dbContext)
         : base(dbContext)
     {
     }

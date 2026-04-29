@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
 using Zamin.Core.Contracts.Data.Commands;
 
-namespace Master.Data.Core.Contracts.PatternCatalogs.Commands;
+namespace Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
 
 public interface IPatternCatalogCommandRepository : ICommandRepository<PatternCatalog, long>
 {

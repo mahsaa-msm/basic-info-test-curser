@@ -1,7 +1,7 @@
 ﻿using Zamin.Core.RequestResponse.Endpoints;
 using Zamin.Core.RequestResponse.Queries;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Queries.GetAll;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Queries.GetAll;
 
 public sealed class GetAllInsuranceTypeQuery : IQuery<List<InsuranceTypeSelectItemQr>>, IWebRequest
 {

@@ -1,6 +1,6 @@
-﻿using Master.Data.Infra.Data.Sql.Queries.Tenants.Entities;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
 
-namespace Master.Data.Infra.Data.Sql.Queries.Common.Entites;
+namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
 public abstract class BaseTenantEntity : BaseTenantEntity<long>
 {
@@ -19,3 +19,4 @@ public abstract class BaseTenantEntity<TId>
 
     public Tenant Tenant { get; set; } = new();
 }
+

@@ -1,13 +1,13 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
-using Master.Data.Core.Domain.Common.Guards;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.ChangeActivation;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
+using Vehicle.Insurance.Core.Domain.Common.Guards;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.PatternCatalogs.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.ApplicationService.PatternCatalogs.Commands.ChangeActivation;
 
 public sealed class ChangePatternCatalogsActivationHandler : CommandHandler<ChangePatternCatalogsActivationCommand>
 {
@@ -38,3 +38,4 @@ public sealed class ChangePatternCatalogsActivationHandler : CommandHandler<Chan
 
     }
 }
+

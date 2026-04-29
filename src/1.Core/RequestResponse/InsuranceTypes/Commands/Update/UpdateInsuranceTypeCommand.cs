@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.InsuranceTypes.Parameters;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.InsuranceTypes.Parameters;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Core.RequestResponse.Endpoints;
 
-namespace Master.Data.Core.RequestResponse.InsuranceTypes.Commands.Update;
+namespace Vehicle.Insurance.Core.RequestResponse.InsuranceTypes.Commands.Update;
 
 public sealed class UpdateInsuranceTypeCommand : ICommand, IWebRequest
 {

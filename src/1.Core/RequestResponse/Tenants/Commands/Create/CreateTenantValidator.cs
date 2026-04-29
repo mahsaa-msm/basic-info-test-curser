@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using System.Text.RegularExpressions;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.Tenants.Commands.Create;
+namespace Vehicle.Insurance.Core.RequestResponse.Tenants.Commands.Create;
 
 public sealed class CreateTenantValidator : AbstractValidator<CreateTenantCommand>
 {
@@ -45,3 +45,4 @@ public sealed class CreateTenantValidator : AbstractValidator<CreateTenantComman
         #endregion
     }
 }
+

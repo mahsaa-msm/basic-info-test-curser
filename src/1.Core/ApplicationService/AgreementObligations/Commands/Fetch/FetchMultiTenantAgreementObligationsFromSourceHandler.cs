@@ -1,15 +1,15 @@
-﻿using Master.Data.Core.ApplicationService.Common.FinglishConverterService;
-using Master.Data.Core.Contracts.AgreementObligations.Commands;
-using Master.Data.Core.Contracts.CoreInsuranceApis.Agreements;
-using Master.Data.Core.Contracts.Tenants.Queries;
-using Master.Data.Core.Domain.AgreementObligations.Entities;
-using Master.Data.Core.Domain.AgreementObligations.Parameters;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.RequestResponse.AgreementObligations.Commands.Fetch;
-using Master.Data.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
-using Master.Data.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
-using Master.Data.Core.Resources;
-using Master.Data.Core.Resources.Utils.Extensions;
+﻿using Vehicle.Insurance.Core.ApplicationService.Common.FinglishConverterService;
+using Vehicle.Insurance.Core.Contracts.AgreementObligations.Commands;
+using Vehicle.Insurance.Core.Contracts.CoreInsuranceApis.Agreements;
+using Vehicle.Insurance.Core.Contracts.Tenants.Queries;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Entities;
+using Vehicle.Insurance.Core.Domain.AgreementObligations.Parameters;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.CoreInsuranceApis.Queries.Agreements.GetAllAgreementObligations;
+using Vehicle.Insurance.Core.RequestResponse.Tenants.Queries.GetIAllSelectItem;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Core.Resources.Utils.Extensions;
 using Microsoft.Extensions.Logging;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
@@ -17,7 +17,7 @@ using Zamin.Core.RequestResponse.Common;
 using Zamin.Utilities;
 using Zamin.Utilities.Extensions;
 
-namespace Master.Data.Core.ApplicationService.AgreementObligations.Commands.Fetch;
+namespace Vehicle.Insurance.Core.ApplicationService.AgreementObligations.Commands.Fetch;
 
 public sealed class FetchMultiTenantAgreementObligationsFromSourceHandler : CommandHandler<FetchMultiTenantAgreementObligationsFromSourceCommand>
 {

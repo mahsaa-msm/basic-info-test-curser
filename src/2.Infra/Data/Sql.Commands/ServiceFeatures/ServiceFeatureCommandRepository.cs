@@ -1,16 +1,16 @@
-﻿using Master.Data.Core.Contracts.ServiceFeatures.Commands;
-using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Resources;
-using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Core.Contracts.ServiceFeatures.Commands;
+using Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
+using Vehicle.Insurance.Core.Resources;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Infra.Data.Sql.Commands;
 
-namespace Master.Data.Infra.Data.Sql.Commands.ServiceFeatures;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.ServiceFeatures;
 
-public sealed class ServiceFeatureCommandRepository : BaseCommandRepository<ServiceFeature, MasterDataCommandDbContext, long>,
+public sealed class ServiceFeatureCommandRepository : BaseCommandRepository<ServiceFeature, VehicleInsuranceCommandDbContext, long>,
     IServiceFeatureCommandRepository
 {
-    public ServiceFeatureCommandRepository(MasterDataCommandDbContext dbContext)
+    public ServiceFeatureCommandRepository(VehicleInsuranceCommandDbContext dbContext)
         : base(dbContext)
     {
     }
@@ -24,3 +24,4 @@ public sealed class ServiceFeatureCommandRepository : BaseCommandRepository<Serv
     public async Task<List<ServiceFeature>> GetByKeyAsync(ServiceFeatureCategory key)
         => await _dbContext.ServiceFeatures.IgnoreQueryFilters().Where(c => c.Key == key).ToListAsync();
 }
+

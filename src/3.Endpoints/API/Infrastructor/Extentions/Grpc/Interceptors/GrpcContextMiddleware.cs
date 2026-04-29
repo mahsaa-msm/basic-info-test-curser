@@ -1,8 +1,8 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 
 public sealed class GrpcContextMiddleware : Interceptor
 {

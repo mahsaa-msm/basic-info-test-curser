@@ -1,8 +1,8 @@
-﻿using Master.Data.Core.Contracts.Common.Services.Tenant;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 using Zamin.Extensions.DependencyInjection.Abstractions;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Services.Tenant;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Services.Tenant;
 
 public class TenantService : ITenantService, ITransientLifetime
 {
@@ -76,3 +76,4 @@ public class TenantService : ITenantService, ITransientLifetime
         }
     }
 }
+

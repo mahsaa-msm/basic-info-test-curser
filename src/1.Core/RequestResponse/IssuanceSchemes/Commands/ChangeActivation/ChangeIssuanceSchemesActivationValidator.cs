@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Master.Data.Core.Resources;
+using Vehicle.Insurance.Core.Resources;
 using Zamin.Extensions.Translations.Abstractions;
 
-namespace Master.Data.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
+namespace Vehicle.Insurance.Core.RequestResponse.IssuanceSchemes.Commands.ChangeActivation;
 
 public sealed class ChangeIssuanceSchemesActivationValidator : AbstractValidator<ChangeIssuanceSchemesActivationCommand>
 {
@@ -22,3 +22,4 @@ public sealed class ChangeIssuanceSchemesActivationValidator : AbstractValidator
         #endregion
     }
 }
+

@@ -1,12 +1,12 @@
-﻿using Master.Data.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 
-public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterDataCommandDbContext>
+public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<VehicleInsuranceCommandDbContext>
 {
-    public MasterDataCommandDbContext CreateDbContext(string[] args)
+    public VehicleInsuranceCommandDbContext CreateDbContext(string[] args)
     {
         // تشخیص محیط اجرا
         var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
@@ -36,10 +36,10 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
 
         Console.WriteLine($"Using connection string: {connectionString}");
 
-        var optionsBuilder = new DbContextOptionsBuilder<MasterDataCommandDbContext>();
+        var optionsBuilder = new DbContextOptionsBuilder<VehicleInsuranceCommandDbContext>();
         optionsBuilder.UseSqlServer(connectionString, x => x.UseNetTopologySuite());
 
-        return new MasterDataCommandDbContext(optionsBuilder.Options);
+        return new VehicleInsuranceCommandDbContext(optionsBuilder.Options);
     }
 
     private string FindApplicationBasePath()
@@ -52,14 +52,14 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
         var solutionDir = FindSolutionDirectory(currentDirectory);
         if (solutionDir != null)
         {
-            var apiProjectPath = Path.Combine(solutionDir, "src", "Master.Data.Endpoints.API");
+            var apiProjectPath = Path.Combine(solutionDir, "src", "Vehicle.Insurance.Endpoints.API");
             if (Directory.Exists(apiProjectPath))
             {
                 return apiProjectPath;
             }
 
             // یا شاید در ساختار متفاوتی باشد
-            apiProjectPath = Path.Combine(solutionDir, "Master.Data.Endpoints.API");
+            apiProjectPath = Path.Combine(solutionDir, "Vehicle.Insurance.Endpoints.API");
             if (Directory.Exists(apiProjectPath))
             {
                 return apiProjectPath;
@@ -105,3 +105,4 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MasterData
         return connectionStrings.FirstOrDefault()?.Value;
     }
 }
+

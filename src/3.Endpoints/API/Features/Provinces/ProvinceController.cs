@@ -1,18 +1,18 @@
-﻿using Master.Data.Core.RequestResponse.Provinces.Commands.ChangeActivation;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Create;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Delete;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Fetch;
-using Master.Data.Core.RequestResponse.Provinces.Commands.Update;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAll;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
-using Master.Data.Core.RequestResponse.Provinces.Queries.GetById;
-using Master.Data.Endpoints.API.Infrastructor.Attributes;
+﻿using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.ChangeActivation;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Create;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Delete;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Fetch;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAll;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetAllPagedFilter;
+using Vehicle.Insurance.Core.RequestResponse.Provinces.Queries.GetById;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zamin.Core.RequestResponse.Queries;
 using Zamin.EndPoints.Web.Controllers;
 
-namespace Master.Data.Endpoints.API.Features.Provinces;
+namespace Vehicle.Insurance.Endpoints.API.Features.Provinces;
 
 
 [Route("api/[controller]")]
@@ -58,3 +58,4 @@ public class ProvinceController : BaseController
 
     #endregion
 }
+

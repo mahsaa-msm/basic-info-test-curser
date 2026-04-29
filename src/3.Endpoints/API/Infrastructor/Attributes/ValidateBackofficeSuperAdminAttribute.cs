@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Attributes;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Attributes;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
 public class ValidateBackofficeSuperAdminAttribute : ActionFilterAttribute
@@ -35,3 +35,4 @@ public class ValidateBackofficeSuperAdminAttribute : ActionFilterAttribute
         context.Result = new ForbidResult();
     }
 }
+

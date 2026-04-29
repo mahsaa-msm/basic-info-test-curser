@@ -1,9 +1,9 @@
-﻿using Master.Data.Core.Domain.ServiceFeatures.Entities;
-using Master.Data.Core.Resources;
+﻿using Vehicle.Insurance.Core.Domain.ServiceFeatures.Entities;
+using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Master.Data.Infra.Data.Sql.Commands.ServiceFeatures.Configs;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.ServiceFeatures.Configs;
 
 public sealed class ServiceFetureConfig : IEntityTypeConfiguration<ServiceFeature>
 {

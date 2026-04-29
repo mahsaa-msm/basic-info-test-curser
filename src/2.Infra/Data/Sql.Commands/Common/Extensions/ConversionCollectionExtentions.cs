@@ -1,10 +1,10 @@
-﻿using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.Tenants.ValueObjects;
-using Master.Data.Infra.Data.Sql.Commands.Common.Conversions;
-using Master.Data.Infra.Data.Sql.Commands.Tenants.Conversions;
+﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Conversions;
+using Vehicle.Insurance.Infra.Data.Sql.Commands.Tenants.Conversions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Master.Data.Infra.Data.Sql.Commands.Common.Extensions;
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 
 public static class ConversionCollectionExtentions
 {

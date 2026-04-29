@@ -1,8 +1,8 @@
 ﻿using Grpc.Core;
 using Grpc.Core.Interceptors;
-using Master.Data.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.Common.Options;
 
-namespace Master.Data.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
+namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.Grpc.Interceptors;
 
 public class ApiKeyInterceptor : Interceptor
 {
@@ -49,3 +49,4 @@ public class ApiKeyInterceptor : Interceptor
         return continuation(request, context);
     }
 }
+

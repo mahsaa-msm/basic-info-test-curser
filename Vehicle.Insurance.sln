@@ -21,33 +21,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Endpoint", "3.Endpoint", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{32B42A7E-3C12-44B7-ADA9-41294B12820A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Core.Domain", "src\1.Core\Domain\Master.Data.Core.Domain.csproj", "{F9C803E2-0380-4A51-B680-7ADBEC12C6A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Core.Domain", "src\1.Core\Domain\Vehicle.Insurance.Core.Domain.csproj", "{F9C803E2-0380-4A51-B680-7ADBEC12C6A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Core.Contracts", "src\1.Core\Contracts\Master.Data.Core.Contracts.csproj", "{95F79136-C06D-4181-84A7-FEBCD76EDAA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Core.Contracts", "src\1.Core\Contracts\Vehicle.Insurance.Core.Contracts.csproj", "{95F79136-C06D-4181-84A7-FEBCD76EDAA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Core.ApplicationService", "src\1.Core\ApplicationService\Master.Data.Core.ApplicationService.csproj", "{66934AB3-A786-4DA8-9FB8-2B61297D3817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Core.ApplicationService", "src\1.Core\ApplicationService\Vehicle.Insurance.Core.ApplicationService.csproj", "{66934AB3-A786-4DA8-9FB8-2B61297D3817}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Infra.Data.Sql.Commands", "src\2.Infra\Data\Sql.Commands\Master.Data.Infra.Data.Sql.Commands.csproj", "{BC9C8A96-43C3-4D83-AD3A-ED68128C4E4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Infra.Data.Sql.Commands", "src\2.Infra\Data\Sql.Commands\Vehicle.Insurance.Infra.Data.Sql.Commands.csproj", "{BC9C8A96-43C3-4D83-AD3A-ED68128C4E4C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Infra.Data.Sql.Queries", "src\2.Infra\Data\Sql.Queries\Master.Data.Infra.Data.Sql.Queries.csproj", "{424EDF2D-8758-4445-BF2B-1ECD8BD83477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Infra.Data.Sql.Queries", "src\2.Infra\Data\Sql.Queries\Vehicle.Insurance.Infra.Data.Sql.Queries.csproj", "{424EDF2D-8758-4445-BF2B-1ECD8BD83477}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Core.RequestResponse", "src\1.Core\RequestResponse\Master.Data.Core.RequestResponse.csproj", "{0AAAEAEF-F91C-4F04-A317-D1082AE8AF2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Core.RequestResponse", "src\1.Core\RequestResponse\Vehicle.Insurance.Core.RequestResponse.csproj", "{0AAAEAEF-F91C-4F04-A317-D1082AE8AF2E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Core.Resources", "src\1.Core\Resources\Master.Data.Core.Resources.csproj", "{3AF6986F-4117-46BB-B148-418F94FA5D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Core.Resources", "src\1.Core\Resources\Vehicle.Insurance.Core.Resources.csproj", "{3AF6986F-4117-46BB-B148-418F94FA5D07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1D8A65D5-535F-4AF9-81EC-3D715D268181}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Endpoints.API", "src\3.Endpoints\API\Master.Data.Endpoints.API.csproj", "{BB57401B-CEBD-4C29-97FA-4D1E2D1DF04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Endpoints.API", "src\3.Endpoints\API\Vehicle.Insurance.Endpoints.API.csproj", "{BB57401B-CEBD-4C29-97FA-4D1E2D1DF04F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedService", "HostedService", "{A06F8A00-5A58-4BE3-BC6F-B33A9CB0CBCE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalApi", "ExternalApi", "{47311810-D6F9-4EA3-9530-3B11EE41D119}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Infra.ExternalApi.CoreSso", "src\2.Infra\ExternalApi\Master.Data.Infra.ExternalApi.CoreSso\Master.Data.Infra.ExternalApi.CoreSso.csproj", "{70601DBF-A858-45FB-B1B1-E2616988AF57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Infra.ExternalApi.CoreSso", "src\2.Infra\ExternalApi\Vehicle.Insurance.Infra.ExternalApi.CoreSso\Vehicle.Insurance.Infra.ExternalApi.CoreSso.csproj", "{70601DBF-A858-45FB-B1B1-E2616988AF57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Endpoints.HostedService", "src\3.Endpoints\HostedService\Master.Data.Endpoints.HostedService.csproj", "{89CA212B-71F7-4EAD-B94B-8BDF4F59E25E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Endpoints.HostedService", "src\3.Endpoints\HostedService\Vehicle.Insurance.Endpoints.HostedService.csproj", "{89CA212B-71F7-4EAD-B94B-8BDF4F59E25E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Master.Data.Infra.ExternalApi.CoreInsurance", "src\2.Infra\ExternalApi\Master.Data.Infra.ExternalApi.CoreInsurance\Master.Data.Infra.ExternalApi.CoreInsurance.csproj", "{DF195DDF-8634-40FA-BB1A-93DF6C873390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicle.Insurance.Infra.ExternalApi.CoreInsurance", "src\2.Infra\ExternalApi\Vehicle.Insurance.Infra.ExternalApi.CoreInsurance\Vehicle.Insurance.Infra.ExternalApi.CoreInsurance.csproj", "{DF195DDF-8634-40FA-BB1A-93DF6C873390}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,3 +130,4 @@ Global
 		SolutionGuid = {07B7D400-5E74-48AF-A2B5-2FC92393384D}
 	EndGlobalSection
 EndGlobal
+

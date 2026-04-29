@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
 
 public sealed class PodSsoGetUserAccessesResponse
 {

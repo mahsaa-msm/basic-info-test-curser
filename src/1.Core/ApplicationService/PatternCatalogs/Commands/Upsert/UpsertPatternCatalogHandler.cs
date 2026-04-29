@@ -1,14 +1,14 @@
-﻿using Master.Data.Core.Contracts.PatternCatalogs.Commands;
-using Master.Data.Core.Domain.PatternCatalogs.Entities;
-using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Update;
-using Master.Data.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
+﻿using Vehicle.Insurance.Core.Contracts.PatternCatalogs.Commands;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Update;
+using Vehicle.Insurance.Core.RequestResponse.PatternCatalogs.Commands.Upsert;
 using Zamin.Core.ApplicationServices.Commands;
 using Zamin.Core.Contracts.ApplicationServices.Commands;
 using Zamin.Core.RequestResponse.Commands;
 using Zamin.Utilities;
 
-namespace Master.Data.Core.ApplicationService.PatternCatalogs.Commands.Upsert;
+namespace Vehicle.Insurance.Core.ApplicationService.PatternCatalogs.Commands.Upsert;
 
 public sealed class UpsertPatternCatalogHandler : CommandHandler<UpsertPatternCatalogCommand, long?>
 {

@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.Countries.Queries.GetAllPagedFilter;
 
 public sealed class CountryListItemQr
 {

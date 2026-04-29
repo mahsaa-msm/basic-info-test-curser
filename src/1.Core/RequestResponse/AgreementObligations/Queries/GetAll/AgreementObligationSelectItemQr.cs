@@ -1,4 +1,4 @@
-﻿namespace Master.Data.Core.RequestResponse.AgreementObligations.Queries.GetAll;
+﻿namespace Vehicle.Insurance.Core.RequestResponse.AgreementObligations.Queries.GetAll;
 
 public sealed class AgreementObligationSelectItemQr
 {
@@ -10,3 +10,4 @@ public sealed class AgreementObligationSelectItemQr
     public string AgreementNumber { get; set; } = string.Empty;
     public string InsuranceTypeCoreId { get; set; } = string.Empty;
 }
+

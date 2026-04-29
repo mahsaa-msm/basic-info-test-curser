@@ -1,12 +1,12 @@
-﻿using Master.Data.Core.Contracts.Common.Options;
-using Master.Data.Core.Contracts.PodSsoApis.UserInfo;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
-using Master.Data.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.Grpc;
-using Master.Data.Endpoints.API.Infrastructor.Extentions.HttpClient;
-using Master.Data.Endpoints.API.Infrastructor.Services.UserInfo;
+﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+using Vehicle.Insurance.Core.Contracts.PodSsoApis.UserInfo;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Options;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.Swaggers.Extentions;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.HttpClient;
+using Vehicle.Insurance.Endpoints.API.Infrastructor.Services.UserInfo;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Serilog;
 using Zamin.EndPoints.Web.Extensions.ModelBinding;
@@ -14,7 +14,7 @@ using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
 using Zamin.Utilities.SoftwarePartDetector.Services;
 
-namespace Master.Data.Endpoints.API.Infrastructor.Extentions;
+namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions;
 
 public static class HostingExtensions
 {
@@ -50,8 +50,8 @@ public static class HostingExtensions
         builder.Services.AddSingleton(coreInsuranceOption);
         #endregion
 
-        #region Bind MasterDataOptions Option
-        MasterDataOptions masterDataOptions = new();
+        #region Bind VehicleInsuranceOptions Option
+        VehicleInsuranceOptions masterDataOptions = new();
         builder.Configuration.Bind(nameof(masterDataOptions), masterDataOptions);
         builder.Services.AddSingleton(masterDataOptions);
         #endregion
@@ -64,7 +64,7 @@ public static class HostingExtensions
         IConfiguration configuration = builder.Configuration;
 
         //zamin
-        builder.Services.AddZaminApiCore("Zamin", "Master.Data");
+        builder.Services.AddZaminApiCore("Zamin", "Vehicle.Insurance");
 
         //microsoft
         builder.Services.AddEndpointsApiExplorer();

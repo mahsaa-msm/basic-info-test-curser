@@ -1,11 +1,11 @@
-﻿using Master.Data.Core.Domain.Common.Entities;
-using Master.Data.Core.Domain.Common.ValueObjects;
-using Master.Data.Core.Domain.PatternCatalogs.Parameters;
-using Master.Data.Core.Domain.PatternCatalogs.ValueObjects;
+﻿using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.Parameters;
+using Vehicle.Insurance.Core.Domain.PatternCatalogs.ValueObjects;
 using Zamin.Core.Domain.Toolkits.ValueObjects;
-using static Master.Data.Core.Resources.ProjectConsts;
+using static Vehicle.Insurance.Core.Resources.ProjectConsts;
 
-namespace Master.Data.Core.Domain.PatternCatalogs.Entities;
+namespace Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
 
 public sealed class PatternCatalog : BaseTenantEntity
 {
@@ -94,3 +94,4 @@ public sealed class PatternCatalog : BaseTenantEntity
     }
     #endregion
 }
+
