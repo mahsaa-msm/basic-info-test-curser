@@ -5,6 +5,7 @@ using Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleColors.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Entities;
@@ -35,6 +36,7 @@ public class VehicleInsuranceQueryDbContext : BaseQueryDbContext
     public DbSet<ServiceFeature> ServiceFeatures { get; set; }
     public DbSet<AgreementObligation> AgreementObligations { get; set; }
     public DbSet<InsuranceType> InsuranceTypes { get; set; }
+    public DbSet<VehicleColor> VehicleColors { get; set; } = null!;
     public DbSet<IssuanceScheme> IssuanceSchemes { get; set; } = null!;
 
     #endregion

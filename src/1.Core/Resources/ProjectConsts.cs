@@ -17,6 +17,8 @@ public sealed class ProjectConsts
 
     public const byte CODE_MIN_LENGTH = 1;
     public const byte CODE_MAX_LENGTH = 50;
+    public const byte COLOR_HASH_MIN_LENGTH = 1;
+    public const byte COLOR_HASH_MAX_LENGTH = 50;
 
     public const byte NAME_MIN_LENGTH = 1;
     public const byte NAME_MAX_LENGTH = 250;

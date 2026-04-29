@@ -11,6 +11,7 @@ public static class ConversionCollectionExtentions
     public static void AddConversions(this ModelConfigurationBuilder configurationBuilder)
     {
         configurationBuilder.AddCodeConversion();
+        configurationBuilder.AddColorHashConversion();
         configurationBuilder.AddCoreIdConversion();
         configurationBuilder.AddIsActiveConversion();
         configurationBuilder.AddIsDeletedConversion();
@@ -27,6 +28,10 @@ public static class ConversionCollectionExtentions
     #region Code
     public static void AddCodeConversion(this ModelConfigurationBuilder configurationBuilder)
         => configurationBuilder.Properties<Code>().HaveConversion<CodeConversion>();
+    #endregion
+    #region ColorHash
+    public static void AddColorHashConversion(this ModelConfigurationBuilder configurationBuilder)
+        => configurationBuilder.Properties<ColorHash>().HaveConversion<ColorHashConversion>();
     #endregion
     #region CoreId
     public static void AddCoreIdConversion(this ModelConfigurationBuilder configurationBuilder)

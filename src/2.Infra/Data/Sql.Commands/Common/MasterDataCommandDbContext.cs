@@ -5,6 +5,7 @@ using Vehicle.Insurance.Core.Domain.Countries.Entities;
 using Vehicle.Insurance.Core.Domain.InsuranceTypes.Entities;
 using Vehicle.Insurance.Core.Domain.InsuranceUnits.Entities;
 using Vehicle.Insurance.Core.Domain.IssuanceSchemes.Entities;
+using Vehicle.Insurance.Core.Domain.VehicleColors.Entities;
 using Vehicle.Insurance.Core.Domain.ParrotTranslations.Entities;
 using Vehicle.Insurance.Core.Domain.PatternCatalogs.Entities;
 using Vehicle.Insurance.Core.Domain.Provinces.Entities;
@@ -34,6 +35,7 @@ public class VehicleInsuranceCommandDbContext : BaseOutboxCommandDbContext
     public DbSet<PatternCatalog> PatternCatalogs { get; set; } = null!;
     public DbSet<ServiceFeature> ServiceFeatures { get; set; } = null!;
     public DbSet<InsuranceType> InsuranceTypes { get; set; } = null!;
+    public DbSet<VehicleColor> VehicleColors { get; set; } = null!;
     public DbSet<IssuanceScheme> IssuanceSchemes { get; set; } = null!;
     public DbSet<AgreementObligation> AgreementObligations { get; set; } = null!;
     #endregion

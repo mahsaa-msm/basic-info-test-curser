@@ -12,6 +12,7 @@ public sealed class ProjectTranslation
     public const string INSURANCE_POLICY_NUMBER = nameof(INSURANCE_POLICY_NUMBER);
     public const string NAME = nameof(NAME);
     public const string CODE = nameof(CODE);
+    public const string COLOR_HASH = nameof(COLOR_HASH);
     public const string PRIORITY = nameof(PRIORITY);
     public const string TITLE = nameof(TITLE);
     public const string DISPLAY_TITLE = nameof(DISPLAY_TITLE);
@@ -119,6 +120,11 @@ public sealed class ProjectTranslation
     public const string INSURANCE_TYPE = nameof(INSURANCE_TYPE);
     public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
     public const string SERVICE_FEATURE_CATEGORY = nameof(SERVICE_FEATURE_CATEGORY);
+    #endregion
+
+    #region VEHICLE_COLOR
+    public const string VEHICLE_COLOR = nameof(VEHICLE_COLOR);
+    public const string VEHICLE_COLOR_ID = nameof(VEHICLE_COLOR_ID);
     #endregion
 
     #region ISSUANCE_SCHEME
