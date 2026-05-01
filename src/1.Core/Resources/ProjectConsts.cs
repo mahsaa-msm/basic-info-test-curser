@@ -17,6 +17,7 @@ public sealed class ProjectConsts
 
     public const byte CODE_MIN_LENGTH = 1;
     public const byte CODE_MAX_LENGTH = 50;
+
     public const byte COLOR_HASH_MIN_LENGTH = 1;
     public const byte COLOR_HASH_MAX_LENGTH = 50;
 
@@ -117,89 +118,5 @@ public sealed class ProjectConsts
 
     #endregion
 
-    #endregion
-
-    #region TRANSLATION
-
-    public const byte TRANSLATION_KEY_MIN_LENGTH = 2;
-    public const byte TRANSLATION_KEY_MAX_LENGTH = 200;
-
-    public const byte TRANSLATION_VALUE_MIN_LENGTH = 2;
-    public const byte TRANSLATION_VALUE_MAX_LENGTH = 200;
-
-    public const byte TRANSLATION_CULTURE_LENGTH = 5;
-
-    #endregion
-
-    #region INSURANCE_UNIT
-    public const Int16 LATITUDE_MIN_VALUE = -90;
-    public const Int16 LATITUDE_MAX_VALUE = 90;
-    public const Int16 LONGITUDE_MIN_VALUE = -180;
-    public const Int16 LONGITUDE_MAX_VALUE = 180;
-    public const double MAX_LATITUDE_DIFFERENCE = 10.0;
-    public const double MAX_LONGITUDE_DIFFERENCE = 10.0;
-    public const int SEARCH_INPUT_MAX_LENGTH = 100;
-    public const string SEARCH_INPUT_PATTERN = @"^[\p{L}\p{N}\s\-_.]+$";
-
-    public enum DistanceUnit
-    {
-        Kilometers,
-        Meters,
-        Miles
-    }
-
-    public enum InsuranceUnitType
-    {
-        [Description(ProjectTranslation.BRANCH)] Branch = 0, // شعبه
-        [Description(ProjectTranslation.HEADQUARTERS)] Headquarters = 1, // ستاد
-        [Description(ProjectTranslation.BROKER)] Broker = 2, // کارگزار
-        [Description(ProjectTranslation.REPRENSENTATION)] Representation = 3, // نمایندگی
-        [Description(ProjectTranslation.MARKETER)] Marketer = 4, // بازاریاب
-        [Description(ProjectTranslation.AUXILIARY_MARKETER)] AuxiliaryMarketer = 5, // بازاریاب کمکی
-        [Description(ProjectTranslation.MARKETING_OFFICE)] MarketingOffice = 7, // دفتر بازاریابی
-    }
-
-    public enum InsuranceUnitState
-    {
-        [Description(ProjectTranslation.ACTIVE)] Active = 0, // فعال
-        [Description(ProjectTranslation.SUSPEND)] Suspend = 1, // تعلیق
-        [Description(ProjectTranslation.EXPIRE)] Expire = 2, // اتمام
-    }
-    #endregion
-
-    #region PATTERN_CATALOG
-    public const string PATTERN_KEY_PATTERN = @"^[a-zA-Z0-9\-_]{{{0},{1}}}$";
-    public const int PATTERN_KEY_MIN_LENGTH = 3;
-    public const int PATTERN_KEY_MAX_LENGTH = 50;
-    public const int PATTERN_MAX_LENGTH = 500;
-
-    public enum PatternCatalogType
-    {
-        [Description(ProjectTranslation.GENERAL)] None = 0, // عمومی
-        [Description(ProjectTranslation.INSURANCE_POLICY_NUMBER)] InsurancePolicyNumber = 1, // فرمت شماره بیمه نامه
-    }
-
-    #endregion
-
-    #region AGREEMENT_OBLIGATION
-    public enum SalesType
-    {
-        None = 0,
-        o = 1,
-        t = 2,
-        th = 3,
-        f = 4
-    }
-
-    public const int AGREEMENT_NUMBER_MIN_LENGTH = 2;
-    public const int AGREEMENT_NUMBER_MAX_LENGTH = 200;
-    #endregion
-
-    #region ISSUANCE_SCHEME
-    public enum AdjustmentType
-    {
-        [Description(ProjectTranslation.ADJUSTMENT_TYPE_DISCOUNT)] DISCOUNT = 0,
-        [Description(ProjectTranslation.ADJUSTMENT_TYPE_SURCHARGE)] SURCHARGE = 1
-    }
     #endregion
 }

@@ -1,18 +1,7 @@
-﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.AgreementObligations.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.Cities.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.Countries.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceTypes.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.InsuranceUnits.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.IssuanceSchemes.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleColors.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.ParrotTranslations.Entites;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.PatternCatalogs.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.Provinces.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.ServiceFeatures.Entities;
-using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleColors.Entities;
 using Zamin.Infra.Data.Sql.Queries;
 
 namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
@@ -26,18 +15,7 @@ public class VehicleInsuranceQueryDbContext : BaseQueryDbContext
 
 
     #region Entities
-    public DbSet<Tenant> Tenants { get; set; }
-    public DbSet<Country> Countries { get; set; }
-    public DbSet<ParrotTranslation> ParrotTranslations { get; set; }
-    public DbSet<Province> Provinces { get; set; }
-    public DbSet<City> Cities { get; set; }
-    public DbSet<InsuranceUnit> InsuranceUnits { get; set; }
-    public DbSet<PatternCatalog> PatternCatalogs { get; set; }
-    public DbSet<ServiceFeature> ServiceFeatures { get; set; }
-    public DbSet<AgreementObligation> AgreementObligations { get; set; }
-    public DbSet<InsuranceType> InsuranceTypes { get; set; }
     public DbSet<VehicleColor> VehicleColors { get; set; } = null!;
-    public DbSet<IssuanceScheme> IssuanceSchemes { get; set; } = null!;
 
     #endregion
 

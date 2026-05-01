@@ -37,7 +37,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<VehicleIns
         Console.WriteLine($"Using connection string: {connectionString}");
 
         var optionsBuilder = new DbContextOptionsBuilder<VehicleInsuranceCommandDbContext>();
-        optionsBuilder.UseSqlServer(connectionString, x => x.UseNetTopologySuite());
+        optionsBuilder.UseSqlServer(connectionString);
 
         return new VehicleInsuranceCommandDbContext(optionsBuilder.Options);
     }
@@ -105,4 +105,3 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<VehicleIns
         return connectionStrings.FirstOrDefault()?.Value;
     }
 }
-

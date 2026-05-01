@@ -7,10 +7,9 @@ public class TenantModelQueryCacheKeyFactory : IModelCacheKeyFactory
 {
     public object Create(Microsoft.EntityFrameworkCore.DbContext context, bool designTime)
     {
-        var masterDataQueryDbContext = context as VehicleInsuranceQueryDbContext;
+        var vehicleInsuranceQueryDbContext = context as VehicleInsuranceQueryDbContext;
         return new TenantModelCacheKey(context.GetType(),
-                                       masterDataQueryDbContext?.TenantId,
-                                       masterDataQueryDbContext?.TenantKey);
+                                       vehicleInsuranceQueryDbContext?.TenantId,
+                                       vehicleInsuranceQueryDbContext?.TenantKey);
     }
 }
-

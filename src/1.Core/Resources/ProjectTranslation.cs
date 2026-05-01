@@ -110,103 +110,9 @@ public sealed class ProjectTranslation
 
     #endregion
 
-    #region COUNTRY
-    public const string COUNTRY = nameof(COUNTRY);
-    public const string COUNTRY_ID = nameof(COUNTRY_ID);
-
-    #endregion
-
-    #region INSURANCE_TYPE
-    public const string INSURANCE_TYPE = nameof(INSURANCE_TYPE);
-    public const string INSURANCE_TYPE_ID = nameof(INSURANCE_TYPE_ID);
-    public const string SERVICE_FEATURE_CATEGORY = nameof(SERVICE_FEATURE_CATEGORY);
-    #endregion
-
     #region VEHICLE_COLOR
     public const string VEHICLE_COLOR = nameof(VEHICLE_COLOR);
     public const string VEHICLE_COLOR_ID = nameof(VEHICLE_COLOR_ID);
-    #endregion
-
-    #region ISSUANCE_SCHEME
-    public const string ISSUANCE_SCHEME = nameof(ISSUANCE_SCHEME);
-    public const string ISSUANCE_SCHEME_ID = nameof(ISSUANCE_SCHEME_ID);
-    public const string ADJUSTMENT_TYPE_SURCHARGE = nameof(ADJUSTMENT_TYPE_SURCHARGE);
-    public const string ADJUSTMENT_TYPE_DISCOUNT = nameof(ADJUSTMENT_TYPE_DISCOUNT);
-    public const string ADJUSTMENT_TYPE = nameof(ADJUSTMENT_TYPE);
-    public const string ADJUSTMENT_PERCENT = nameof(ADJUSTMENT_PERCENT);
-
-    #endregion
-
-    #region TRANSLATION
-
-    public const string PARROT_TRANSLATION = nameof(PARROT_TRANSLATION);
-
-    public const string TRANSLATION_KEY = nameof(TRANSLATION_KEY);
-    public const string TRANSLATION_VALUE = nameof(TRANSLATION_VALUE);
-    public const string TRANSLATION_CULTURE = nameof(TRANSLATION_CULTURE);
-
-    #endregion
-
-    #region PROVINCE
-    public const string PROVINCE = nameof(PROVINCE);
-    public const string PROVINCE_ID = nameof(PROVINCE_ID);
-    #endregion
-
-    #region CITY
-    public const string CITY = nameof(CITY);
-    public const string CITY_ID = nameof(CITY_ID);
-    #endregion
-
-    #region INSURANCE_UNIT
-    public const string INSURANCE_UNIT = nameof(INSURANCE_UNIT);
-    public const string INSURANCE_UNIT_ID = nameof(INSURANCE_UNIT_ID);
-    public const string LATITUDE = nameof(LATITUDE);
-    public const string LONGITUDE = nameof(LONGITUDE);
-    public const string BRANCH = nameof(BRANCH);
-    public const string HEADQUARTERS = nameof(HEADQUARTERS);
-    public const string BROKER = nameof(BROKER);
-    public const string REPRENSENTATION = nameof(REPRENSENTATION);
-    public const string MARKETER = nameof(MARKETER);
-    public const string AUXILIARY_MARKETER = nameof(AUXILIARY_MARKETER);
-    public const string MARKETING_OFFICE = nameof(MARKETING_OFFICE);
-    public const string INSURANCE_UNIT_TYPE = nameof(INSURANCE_UNIT_TYPE);
-    public const string INSURANCE_UNIT_STATE = nameof(INSURANCE_UNIT_STATE);
-    #endregion
-
-    #region PATTERN_CATALOG
-    public const string PATTERN_CATALOG = nameof(PATTERN_CATALOG);
-    public const string PATTERN_CATALOG_ID = nameof(PATTERN_CATALOG_ID);
-    public const string PATTERN_KEY = nameof(PATTERN_KEY);
-    public const string REGEX_EXPRESSION = nameof(REGEX_EXPRESSION);
-
-    #endregion
-
-    #region SERVICE_FEATURE
-    public const string SERVICE_FEATURE = nameof(SERVICE_FEATURE);
-    public const string SERVICE_FEATURE_ID = nameof(SERVICE_FEATURE_ID);
-    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT);
-    public const string LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_PREMIUM_INSTALLMENT_AUTO);
-    public const string LIFE_INSURANCE_LOAN_INSTALLMENT = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT);
-    public const string LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO = nameof(LIFE_INSURANCE_LOAN_INSTALLMENT_AUTO);
-    public const string FIRE_INSURANCE_PREMIUM = nameof(FIRE_INSURANCE_PREMIUM);
-    public const string SERVICE_FEATURE_KEY = nameof(SERVICE_FEATURE_KEY);
-    public const string SERVICE_NAME = nameof(SERVICE_NAME);
-    public const string FEATURE_NAME = nameof(FEATURE_NAME);
-
-    #endregion
-
-    #region AGREEMENT_OBLIGATION
-    public const string AGREEMENT_OBLIGATION = nameof(AGREEMENT_OBLIGATION);
-    public const string AGREEMENT_OBLIGATION_ID = nameof(AGREEMENT_OBLIGATION_ID);
-    public const string AGREEMENT_ID = nameof(AGREEMENT_ID);
-    public const string PREPAYMENT_PERCENTAGE = nameof(PREPAYMENT_PERCENTAGE);
-    public const string FIRST_INSTALLMENT_DEADLINE = nameof(FIRST_INSTALLMENT_DEADLINE);
-    public const string INSTALLMENTS_COUNT = nameof(INSTALLMENTS_COUNT);
-    public const string INSTALLMENT_INTERVAL = nameof(INSTALLMENT_INTERVAL);
-    public const string AGREEMENT_NUMBER = nameof(AGREEMENT_NUMBER);
-    public const string AGREEMENT_OBLIGATION_NUMBER = nameof(AGREEMENT_OBLIGATION_NUMBER);
-    public const string SALES_TYPE = nameof(SALES_TYPE);
-
     #endregion
 
     #region ServiceFeatureCategory
@@ -246,5 +152,4 @@ public sealed class ProjectTranslation
     public const string PACKAGE_INSURANCE = nameof(PACKAGE_INSURANCE);
     public const string COMPREHENSIVE_DOMESTIC_TRAVEL_PACKAGE = nameof(COMPREHENSIVE_DOMESTIC_TRAVEL_PACKAGE);
     #endregion
-
 }

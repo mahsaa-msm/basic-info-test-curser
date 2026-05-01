@@ -14,7 +14,7 @@ public sealed class VehicleColor : BaseTenantEntity
     public DIPTitle Title { get; private set; }
     public DIPTitle DisplayTitle { get; private set; }
     public CoreId CoreId { get; private set; }
-    public  ColorHash { get; private set; }
+    public  ColorHash ColorHash  { get; private set; }
     public Common.ValueObjects.Priority Priority { get; private set; }
     public IsActive IsActive { get; private set; }
     public IsDeleted IsDeleted { get; private set; }

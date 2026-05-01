@@ -1,8 +1,6 @@
-﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
-using Vehicle.Insurance.Core.Domain.Tenants.ValueObjects;
+﻿using Microsoft.EntityFrameworkCore;
+using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
 using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Conversions;
-using Vehicle.Insurance.Infra.Data.Sql.Commands.Tenants.Conversions;
-using Microsoft.EntityFrameworkCore;
 
 namespace Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 
@@ -21,7 +19,6 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddNameConversion();
         configurationBuilder.AddPercentageConversion();
         configurationBuilder.AddNullablePercentageConversion();
-        configurationBuilder.AddTenantSlugConversion();
         configurationBuilder.AddNullableCoreIdConversion();
     }
 
@@ -71,9 +68,5 @@ public static class ConversionCollectionExtentions
 
     public static void AddNullablePercentageConversion(this ModelConfigurationBuilder configurationBuilder)
     => configurationBuilder.Properties<NullablePercentage>().HaveConversion<NullablePercentageConversion>();
-    #endregion
-    #region TenantSlug
-    public static void AddTenantSlugConversion(this ModelConfigurationBuilder configurationBuilder)
-    => configurationBuilder.Properties<TenantSlug>().HaveConversion<TenantSlugConversion>();
     #endregion
 }

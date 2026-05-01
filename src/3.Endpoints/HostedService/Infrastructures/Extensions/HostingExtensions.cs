@@ -1,4 +1,6 @@
-﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+using Serilog;
+using Vehicle.Insurance.Core.Contracts.Common.Options;
 using Vehicle.Insurance.Core.Contracts.Common.Services.Tenant;
 using Vehicle.Insurance.Core.Contracts.PodSsoApis.UserInfo;
 using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext;
@@ -8,8 +10,6 @@ using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Extensions.HttpC
 using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.BackgroundJob.Models;
 using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.Tenant;
 using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.UserInfo;
-using Microsoft.AspNetCore.Cors.Infrastructure;
-using Serilog;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
 
@@ -48,12 +48,6 @@ public static class HostingExtensions
         CoreInsuranceOption coreInsuranceOption = new();
         builder.Configuration.Bind(nameof(coreInsuranceOption), coreInsuranceOption);
         builder.Services.AddSingleton(coreInsuranceOption);
-        #endregion
-
-        #region Bind VehicleInsuranceOptions Option
-        VehicleInsuranceOptions masterDataOptions = new();
-        builder.Configuration.Bind(nameof(masterDataOptions), masterDataOptions);
-        builder.Services.AddSingleton(masterDataOptions);
         #endregion
 
         #region Bind JobSchedulerOption

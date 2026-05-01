@@ -9,11 +9,6 @@ public sealed class VehicleColorConfig : IEntityTypeConfiguration<VehicleColor>
     public void Configure(EntityTypeBuilder<VehicleColor> builder)
     {
         builder.HasAlternateKey(c => new { c.TenantId, c.CoreId });
-
-        builder
-        .HasOne(c => c.Tenant)
-        .WithMany()
-        .HasForeignKey(c => c.TenantId);
     }
 }
 

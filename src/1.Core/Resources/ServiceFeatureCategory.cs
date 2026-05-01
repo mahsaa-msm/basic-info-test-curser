@@ -24,19 +24,19 @@ public enum ServiceFeatureCategory : long
 
     // 1_02
     [Description(ProjectTranslation.FIRE_INSURANCE)]
-    propertyInsurance_fire = 102, // بیمه آتش سوزی
+    propertyInsurance_vehicle = 102, // بیمه آتش سوزی
 
     // 1_02_01
     [Description(ProjectTranslation.RESIDENTIAL_HOME_FIRE_INSURANCE)]
-    propertyInsurance_fire_general_home = 10201, // بیمه آتش سوزی عمومی منازل مسکونی
+    propertyInsurance_vehicle_general_home = 10201, // بیمه آتش سوزی عمومی منازل مسکونی
 
     // 1_02_02
     [Description(ProjectTranslation.RESIDENTIAL_COMPLEX_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_residential = 10202, // بیمه آتش سوزی مجتمع منازل مسكوني
+    propertyInsurance_vehicle_comprehensivePlan_residential = 10202, // بیمه آتش سوزی مجتمع منازل مسكوني
 
     // 1_02_03
     [Description(ProjectTranslation.COMMERCIAL_FIRE_INSURANCE)]
-    propertyInsurance_fire_comprehensivePlan_commercial = 10203, // بیمه آتش سوزی اصناف
+    propertyInsurance_vehicle_comprehensivePlan_commercial = 10203, // بیمه آتش سوزی اصناف
 
 
     // ============================================

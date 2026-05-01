@@ -1,8 +1,8 @@
-﻿using Vehicle.Insurance.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
+﻿using Newtonsoft.Json;
+using System.Net;
+using Vehicle.Insurance.Core.RequestResponse.PodSsoApis.Queries.GetUserAccesses;
 using Vehicle.Insurance.Core.Resources;
 using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.IdentityServer.Options;
-using Newtonsoft.Json;
-using System.Net;
 
 namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.Services.GetUserAccessKeys;
 

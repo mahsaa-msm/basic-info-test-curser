@@ -63,8 +63,4 @@
 		<ProjectReference Include="..\..\2.Infra\ExternalApi\Vehicle.Insurance.Infra.ExternalApi.CoreSso\Vehicle.Insurance.Infra.ExternalApi.CoreSso.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Protobuf Include="Features\ServiceFeatures\Grpc\service_feature.proto" />
-	</ItemGroup>
-
 </Project>

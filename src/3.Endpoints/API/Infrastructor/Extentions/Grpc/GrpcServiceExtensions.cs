@@ -1,5 +1,4 @@
 ﻿using Vehicle.Insurance.Core.Resources;
-using Vehicle.Insurance.Endpoints.API.Features.ServiceFeatures.Grpc;
 using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Interceptors;
 using Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions.Grpc.Services.CallContextAccessor;
 
@@ -40,9 +39,9 @@ public static class GrpcServiceExtensions
     {
         application.UseGrpcWeb();
 
-        application.MapGrpcService<ServiceFeatureGrpcService>()
-            .EnableGrpcWeb()
-            .RequireCors(ProjectConsts.GRPC_CORS_NAME);
+       // application.MapGrpcService<ServiceFeatureGrpcService>()
+            //.EnableGrpcWeb()
+            //.RequireCors(ProjectConsts.GRPC_CORS_NAME);
 
         return application;
     }

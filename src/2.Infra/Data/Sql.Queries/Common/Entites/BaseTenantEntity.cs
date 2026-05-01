@@ -1,6 +1,4 @@
-﻿using Vehicle.Insurance.Infra.Data.Sql.Queries.Tenants.Entities;
-
-namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+﻿namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
 
 public abstract class BaseTenantEntity : BaseTenantEntity<long>
 {
@@ -16,7 +14,5 @@ public abstract class BaseTenantEntity<TId>
     public DateTime? CreatedDateTime { get; set; }
     public string? ModifiedByUserId { get; set; }
     public DateTime? ModifiedDateTime { get; set; }
-
-    public Tenant Tenant { get; set; } = new();
 }
 

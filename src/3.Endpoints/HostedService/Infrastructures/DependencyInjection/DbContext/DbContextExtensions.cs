@@ -1,9 +1,9 @@
-﻿using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
-using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
+﻿using Vehicle.Insurance.Infra.Data.Sql.Commands.Common;
 using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Interceptors;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext.CacheKeyFactory;
 using Zamin.Infra.Data.Sql.Commands.Interceptors;
 
 namespace Vehicle.Insurance.Endpoints.HostedService.Infrastructures.DependencyInjection.DbContext;
@@ -21,8 +21,7 @@ public static class DbContextExtensions
         //CommandDbContext
         services.AddDbContextFactory<VehicleInsuranceCommandDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"),
-                                 x => x.UseNetTopologySuite())
+            options.UseSqlServer(configuration.GetConnectionString("CommandDb_ConnectionString"))
                 //.LogTo(Console.WriteLine, LogLevel.Information)
                 .AddInterceptors(new SetPersianYeKeInterceptor(),
                                  new AddAuditDataInterceptor(),
@@ -41,8 +40,7 @@ public static class DbContextExtensions
         //QueryDbContext
         services.AddDbContextFactory<VehicleInsuranceQueryDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"),
-                                 x => x.UseNetTopologySuite());
+            options.UseSqlServer(configuration.GetConnectionString("QueryDb_ConnectionString"));
             //.LogTo(Console.WriteLine, LogLevel.Information);
             options.ReplaceService<IModelCacheKeyFactory, TenantModelQueryCacheKeyFactory>();
         });
@@ -58,4 +56,3 @@ public static class DbContextExtensions
         return services;
     }
 }
-

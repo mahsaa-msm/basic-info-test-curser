@@ -1,4 +1,5 @@
-﻿using Vehicle.Insurance.Core.Contracts.Common.Options;
+﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+using Vehicle.Insurance.Core.Contracts.Common.Options;
 using Vehicle.Insurance.Core.Contracts.PodSsoApis.UserInfo;
 using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.DbContext;
 using Vehicle.Insurance.Endpoints.API.Infrastructor.DependencyInjection.IdentityServer.Extentions;
@@ -13,7 +14,6 @@ using Zamin.EndPoints.Web.Extensions.ModelBinding;
 using Zamin.Extensions.DependencyInjection;
 using Zamin.Extensions.UsersManagement.Abstractions;
 using Zamin.Utilities.SoftwarePartDetector.Services;
-
 namespace Vehicle.Insurance.Endpoints.API.Infrastructor.Extentions;
 
 public static class HostingExtensions
@@ -48,12 +48,6 @@ public static class HostingExtensions
         CoreInsuranceOption coreInsuranceOption = new();
         builder.Configuration.Bind(nameof(coreInsuranceOption), coreInsuranceOption);
         builder.Services.AddSingleton(coreInsuranceOption);
-        #endregion
-
-        #region Bind VehicleInsuranceOptions Option
-        VehicleInsuranceOptions masterDataOptions = new();
-        builder.Configuration.Bind(nameof(masterDataOptions), masterDataOptions);
-        builder.Services.AddSingleton(masterDataOptions);
         #endregion
 
         return builder;
