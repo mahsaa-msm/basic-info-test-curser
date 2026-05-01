@@ -33,11 +33,6 @@ public sealed class ProjectValidationError
     public const string VALIDATION_ERROR_NOT_POSSIBLE_TO_DELETE_USED_ITEM = nameof(VALIDATION_ERROR_NOT_POSSIBLE_TO_DELETE_USED_ITEM);
 
     public const string VALIDATION_ERROR_CHANGE_STATUS = nameof(VALIDATION_ERROR_CHANGE_STATUS);
-
-    /// <summary>
-    /// مقدار {0} حذف نشده و نمیتوان آن را بازیابی کرد
-    /// </summary>
-    public const string VALIDATION_ERROR_CAN_NOT_RESTORE_NOT_DELETED = nameof(VALIDATION_ERROR_CAN_NOT_RESTORE_NOT_DELETED);
     #endregion
 
     #region Core

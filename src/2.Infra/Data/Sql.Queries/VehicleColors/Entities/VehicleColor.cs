@@ -11,7 +11,6 @@ public sealed class VehicleColor : BaseTenantEntity
     public string ColorHash { get; set; } = string.Empty;
     public long Priority { get; set; }
     public bool IsActive { get; set; }
-    public bool IsDeleted { get; set; }
 }
 
 

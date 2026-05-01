@@ -73,8 +73,7 @@ public class UpdateVehicleColorHandler : CommandHandler<UpdateVehicleColorComman
         ValueObjectGuard.ThrowIfNull(command.Title, ProjectTranslation.TITLE);
         ValueObjectGuard.ThrowIfNull(command.ColorHash, ProjectTranslation.COLOR_HASH);
 
-        if (await _commandRepository.ExistsAsync(c => c.Id != command.VehicleColorId &&
-                                                      (ColorHash.FromString(command.ColorHash).Equals(c.ColorHash) || DIPTitle.FromString(command.Title).Equals(c.Title))))
+        if (await _commandRepository.ExistsAsync(c => c.Id != command.VehicleColorId && DIPTitle.FromString(command.Title).Equals(c.Title))))
             throw new DuplicateWaitObjectException(_zaminServices.Translator[ProjectValidationError.VALIDATION_ERROR_DUPLICATE,
                                                                              ProjectTranslation.VEHICLE_COLOR]);
     }

@@ -25,15 +25,14 @@ public class DeleteVehicleColorHandler : CommandHandler<DeleteVehicleColorComman
         var vehicleColor = await _commandRepository.GetAsync(command.VehicleColorId);
         EntityGuard.ThrowIfNull<VehicleColor, long>(vehicleColor, ProjectTranslation.VEHICLE_COLOR);
 
-        vehicleColor.Delete();
-
         var subordinates = await _commandRepository.GetSubordinateVehicleColors(vehicleColor.Priority);
 
-        subordinates?.ForEach(vehicleColor => vehicleColor.PullUp());
+        subordinates?.ForEach(c => c.PullUp());
+
+        _commandRepository.DeletePhysical(vehicleColor);
 
         await _commandRepository.CommitAsync();
 
         return Ok();
     }
 }
-

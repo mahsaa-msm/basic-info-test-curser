@@ -36,11 +36,6 @@ public class VehicleColorController : BaseController
     public async Task<IActionResult> FetchVehicleColorsFromSource()
         => await Edit(new FetchVehicleColorsFromSourceCommand());
 
-    [HttpDelete("[action]")]
-    public async Task<IActionResult> DeleteDIPVehicleColor([FromBody] DeleteVehicleColorCommand command)
-        => await Delete(command);
-    #endregion
-
     #region Queries
     [HttpGet("[action]")]
     [AllowAnonymous]

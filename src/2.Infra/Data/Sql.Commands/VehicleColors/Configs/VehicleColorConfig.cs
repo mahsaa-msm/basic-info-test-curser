@@ -1,5 +1,4 @@
-﻿using Vehicle.Insurance.Core.Domain.Common.ValueObjects;
-using Vehicle.Insurance.Core.Domain.VehicleColors.Entities;
+﻿using Vehicle.Insurance.Core.Domain.VehicleColors.Entities;
 using Vehicle.Insurance.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -10,8 +9,6 @@ public sealed class VehicleColorConfig : IEntityTypeConfiguration<VehicleColor>
 {
     public void Configure(EntityTypeBuilder<VehicleColor> builder)
     {
-        builder.HasQueryFilter(c => c.IsDeleted == IsDeleted.False());
-
         builder.Property(c => c.Id).IsRequired();
 
         builder.Property(c => c.BusinessId).IsRequired();

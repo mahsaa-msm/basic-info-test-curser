@@ -15,5 +15,6 @@ public interface IVehicleColorCommandRepository : ICommandRepository<VehicleColo
     Task<List<VehicleColor>> GetSuperiorVehicleColors(Priority current, Priority @new);
     Task<long> GetNextPriority();
     bool IsCreatedByCore(VehicleColor vehicleColor);
+    void DeletePhysical(VehicleColor vehicleColor);
 }
 

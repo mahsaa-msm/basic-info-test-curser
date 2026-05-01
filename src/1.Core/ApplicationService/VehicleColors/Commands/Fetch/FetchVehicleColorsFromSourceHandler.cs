@@ -57,19 +57,7 @@ public sealed class FetchVehicleColorsFromSourceHandler : CommandHandler<FetchVe
                 ColorHash.FromString(item.colorHash),
                 existing.Priority);
 
-            if (existing.IsDeleted.Value)
-            {
-                var restoreParameter = new RestoreVehicleColorParameter(
-                    updateParameter.Title,
-                    updateParameter.DisplayTitle.Value,
-                    updateParameter.ColorHash,
-                    updateParameter.Priority);
-                existing.Restore(restoreParameter);
-            }
-            else
-            {
-                existing.Update(updateParameter);
-            }
+            existing.Update(updateParameter);
         }
 
         await _commandRepository.CommitAsync();

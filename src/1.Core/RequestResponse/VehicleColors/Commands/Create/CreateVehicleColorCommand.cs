@@ -17,10 +17,6 @@ public sealed class CreateVehicleColorCommand : ICommand<long>, IWebRequest
                                                                          CoreId,
                                                                          ColorHash,
                                                                          priority);
-    public RestoreVehicleColorParameter ToRestoreParameter(long priority) => new(Title,
-                                                                           DisplayTitle,
-                                                                           ColorHash,
-                                                                           priority);
 
     public string Path => "/Api/VehicleColor/CreateVehicleColor";
 }

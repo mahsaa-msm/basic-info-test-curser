@@ -12,7 +12,6 @@ public static class ConversionCollectionExtentions
         configurationBuilder.AddColorHashConversion();
         configurationBuilder.AddCoreIdConversion();
         configurationBuilder.AddIsActiveConversion();
-        configurationBuilder.AddIsDeletedConversion();
         configurationBuilder.AddDIPTitleConversion();
         configurationBuilder.AddNullableTitleConversion();
         configurationBuilder.AddPriorityConversion();
@@ -37,10 +36,6 @@ public static class ConversionCollectionExtentions
     #region IsActive
     public static void AddIsActiveConversion(this ModelConfigurationBuilder configurationBuilder)
         => configurationBuilder.Properties<IsActive>().HaveConversion<IsActiveConversion>();
-    #endregion
-    #region IsDeleted
-    public static void AddIsDeletedConversion(this ModelConfigurationBuilder configurationBuilder)
-        => configurationBuilder.Properties<IsDeleted>().HaveConversion<IsDeletedConversion>();
     #endregion
     #region DIPTitle
     public static void AddDIPTitleConversion(this ModelConfigurationBuilder configurationBuilder)

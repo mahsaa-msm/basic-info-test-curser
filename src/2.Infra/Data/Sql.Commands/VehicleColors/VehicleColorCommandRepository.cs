@@ -20,7 +20,7 @@ public sealed class VehicleColorCommandRepository : BaseCommandRepository<Vehicl
 
     public async Task<long> GetNextPriority()
     {
-        var maxPriority = await _dbContext.VehicleColors.IgnoreQueryFilters().MaxAsync(c => c.Priority);
+        var maxPriority = await _dbContext.VehicleColors.MaxAsync(c => c.Priority);
         return maxPriority is not null ? maxPriority.Value + 1 : 1;
     }
 
@@ -52,5 +52,8 @@ public sealed class VehicleColorCommandRepository : BaseCommandRepository<Vehicl
             .IgnoreQueryFilters()
             .Where(c => c.TenantId == tenantId)
             .ToListAsync();
+
+    public void DeletePhysical(VehicleColor vehicleColor)
+        => _dbContext.VehicleColors.Remove(vehicleColor);
 }
 
