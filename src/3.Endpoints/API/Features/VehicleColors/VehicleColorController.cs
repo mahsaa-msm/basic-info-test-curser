@@ -20,15 +20,15 @@ public class VehicleColorController : BaseController
 {
     #region Commands
     [HttpPost("[action]")]
-    public async Task<IActionResult> CreateDIPVehicleColor([FromBody] CreateVehicleColorCommand command)
+    public async Task<IActionResult> CreateVehicleColor([FromBody] CreateVehicleColorCommand command)
         => await Create<CreateVehicleColorCommand, long>(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpdateDIPVehicleColor([FromBody] UpdateVehicleColorCommand command)
+    public async Task<IActionResult> UpdateVehicleColor([FromBody] UpdateVehicleColorCommand command)
         => await Edit(command);
 
     [HttpPut("[action]")]
-    public async Task<IActionResult> ChangeDIPVehicleColorsActivation([FromBody] ChangeVehicleColorsActivationCommand commnad)
+    public async Task<IActionResult> ChangeVehicleColorsActivation([FromBody] ChangeVehicleColorsActivationCommand commnad)
         => await Edit(commnad);
 
     [HttpPut("[action]")]
@@ -38,15 +38,15 @@ public class VehicleColorController : BaseController
     #region Queries
     [HttpGet("[action]")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetAllDIPVehicleColors([FromQuery] GetAllVehicleColorQuery query)
+    public async Task<IActionResult> GetAllVehicleColors([FromQuery] GetAllVehicleColorQuery query)
     => await Query<GetAllVehicleColorQuery, List<VehicleColorSelectItemQr>>(query);
 
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetDIPVehicleColorById([FromQuery] GetVehicleColorByIdQuery query)
+    public async Task<IActionResult> GetVehicleColorById([FromQuery] GetVehicleColorByIdQuery query)
         => await Query<GetVehicleColorByIdQuery, VehicleColorQr>(query);
 
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetAllDIPVehicleColorsPagedFilter([FromQuery] GetAllVehicleColorsPagedFilterQuery query)
+    public async Task<IActionResult> GetAllVehicleColorsPagedFilter([FromQuery] GetAllVehicleColorsPagedFilterQuery query)
         => await Query<GetAllVehicleColorsPagedFilterQuery, PagedData<VehicleColorListItemQr>>(query);
 
     #endregion
