@@ -1,6 +1,5 @@
 ﻿using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Commands.ChangeActivation;
 using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Commands.Create;
-using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Commands.Delete;
 using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Commands.Fetch;
 using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Commands.Update;
 using Vehicle.Insurance.Core.RequestResponse.VehicleColors.Queries.GetAll;

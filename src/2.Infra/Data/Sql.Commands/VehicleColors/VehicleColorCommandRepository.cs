@@ -52,8 +52,5 @@ public sealed class VehicleColorCommandRepository : BaseCommandRepository<Vehicl
             .IgnoreQueryFilters()
             .Where(c => c.TenantId == tenantId)
             .ToListAsync();
-
-    public void DeletePhysical(VehicleColor vehicleColor)
-        => _dbContext.VehicleColors.Remove(vehicleColor);
 }
 
