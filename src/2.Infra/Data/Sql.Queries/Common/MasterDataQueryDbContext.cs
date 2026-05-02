@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.Common.Entites;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.LicensePlateTypes.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleBrands.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleColors.Entities;
+using Vehicle.Insurance.Infra.Data.Sql.Queries.VehicleTips.Entities;
 using Zamin.Infra.Data.Sql.Queries;
 
 namespace Vehicle.Insurance.Infra.Data.Sql.Queries.Common;
@@ -16,6 +19,9 @@ public class VehicleInsuranceQueryDbContext : BaseQueryDbContext
 
     #region Entities
     public DbSet<VehicleColor> VehicleColors { get; set; } = null!;
+    public DbSet<LicensePlateType> LicensePlateTypes { get; set; } = null!;
+    public DbSet<VehicleBrand> VehicleBrands { get; set; } = null!;
+    public DbSet<VehicleTip> VehicleTips { get; set; } = null!;
 
     #endregion
 

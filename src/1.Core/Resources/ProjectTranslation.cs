@@ -115,6 +115,21 @@ public sealed class ProjectTranslation
     public const string VEHICLE_COLOR_ID = nameof(VEHICLE_COLOR_ID);
     #endregion
 
+    #region LICENSE_PLATE_TYPE
+    public const string LICENSE_PLATE_TYPE = nameof(LICENSE_PLATE_TYPE);
+    public const string LICENSE_PLATE_TYPE_ID = nameof(LICENSE_PLATE_TYPE_ID);
+    #endregion
+
+    #region VEHICLE_BRAND
+    public const string VEHICLE_BRAND = nameof(VEHICLE_BRAND);
+    public const string VEHICLE_BRAND_ID = nameof(VEHICLE_BRAND_ID);
+    #endregion
+
+    #region VEHICLE_TIP
+    public const string VEHICLE_TIP = nameof(VEHICLE_TIP);
+    public const string VEHICLE_TIP_ID = nameof(VEHICLE_TIP_ID);
+    #endregion
+
     #region ServiceFeatureCategory
     // Property Insurance
     public const string PROPERTY_INSURANCE = nameof(PROPERTY_INSURANCE);

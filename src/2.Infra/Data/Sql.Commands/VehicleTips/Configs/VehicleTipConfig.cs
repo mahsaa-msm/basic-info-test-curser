@@ -1,0 +1,24 @@
+using Vehicle.Insurance.Core.Domain.VehicleTips.Entities;
+using Vehicle.Insurance.Core.Resources;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Vehicle.Insurance.Infra.Data.Sql.Commands.VehicleTips.Configs;
+
+public sealed class VehicleTipConfig : IEntityTypeConfiguration<VehicleTip>
+{
+    public void Configure(EntityTypeBuilder<VehicleTip> builder)
+    {
+        builder.Property(c => c.Id).IsRequired();
+        builder.Property(c => c.BusinessId).IsRequired();
+        builder.Property(c => c.CoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
+        builder.Property(c => c.BrandCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
+        builder.Property(c => c.VehicleTypeCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
+        builder.Property(c => c.VehicleSystemCoreId).HasMaxLength(ProjectConsts.CORE_ID_MAX_LENGTH).IsRequired();
+        builder.Property(c => c.Title).HasMaxLength(ProjectConsts.TITLE_MAX_LENGTH).IsRequired();
+        builder.Property(c => c.DisplayTitle).HasMaxLength(ProjectConsts.TITLE_MAX_LENGTH).IsRequired();
+        builder.HasIndex(c => c.BusinessId).IsUnique();
+        builder.HasIndex(c => c.CoreId);
+        builder.HasIndex(c => new { c.TenantId, c.CoreId }).IsUnique();
+    }
+}

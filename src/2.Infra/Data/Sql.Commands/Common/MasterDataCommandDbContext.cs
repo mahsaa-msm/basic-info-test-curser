@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Vehicle.Insurance.Core.Domain.Common.Entities;
+using Vehicle.Insurance.Core.Domain.LicensePlateTypes.Entities;
+using Vehicle.Insurance.Core.Domain.VehicleBrands.Entities;
 using Vehicle.Insurance.Core.Domain.VehicleColors.Entities;
+using Vehicle.Insurance.Core.Domain.VehicleTips.Entities;
 using Vehicle.Insurance.Infra.Data.Sql.Commands.Common.Extensions;
 using Zamin.Extensions.Events.Outbox.Dal.EF;
 
@@ -16,6 +19,9 @@ public class VehicleInsuranceCommandDbContext : BaseOutboxCommandDbContext
 
     #region Entities
     public DbSet<VehicleColor> VehicleColors { get; set; } = null!;
+    public DbSet<LicensePlateType> LicensePlateTypes { get; set; } = null!;
+    public DbSet<VehicleBrand> VehicleBrands { get; set; } = null!;
+    public DbSet<VehicleTip> VehicleTips { get; set; } = null!;
     #endregion
 
     public VehicleInsuranceCommandDbContext(DbContextOptions<VehicleInsuranceCommandDbContext> options)
